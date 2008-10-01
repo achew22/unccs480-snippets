@@ -1,7 +1,7 @@
 #ifndef DELTA_FUNCTOR_H
 #define DELTA_FUNCTOR_H
 
-#include <vector>
+#include <list>
 
 //The functor class allows for a generic change in a variable to take place over
 //a certain length of time. So if I want to say that at time 2000, theta is 0 degrees
@@ -14,6 +14,9 @@
 class Delta_Functor
 {
 private:
+    int totalStartTime;
+    int totalEndTime;
+    int totalTimeRange;
     int startTime;
     int endTime;
     double timeRange;
@@ -26,12 +29,22 @@ private:
     bool isCyclic;
     bool isBounceBack;
 
-    std::vector<Delta_Functor> functors;
-    void addFunctor(const Delta_Functor toAdd);
+    std::list<Delta_Functor> functors;
 public:
     Delta_Functor();
     Delta_Functor(int start_time, int end_time, double start_value, double end_value, double exp);
     Delta_Functor operator=(const Delta_Functor toEqual);
+
+    Delta_Functor addFunctor(const Delta_Functor toAdd);
+	Delta_Functor operator +(const Delta_Functor& toAdd);
+
+	bool operator >(const Delta_Functor&);
+	bool operator <(const Delta_Functor&);
+	//bool operator ==(Delta_Functor);
+
+    void reverse();
+
+    void shiftTime(int toShift);
     void reset();
     void makeBounceBack();
     void unMakeBounceBack();
