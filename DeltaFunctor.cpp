@@ -172,22 +172,26 @@ Delta_Functor Delta_Functor::cat(Delta_Functor toCat)
 //Reverse the current functor (DOESN'T WORK)
 void Delta_Functor::reverse() {
 
-    Delta_Functor * toReturn = new Delta_Functor();
-    toReturn->cat(*this);
+    //Create a new functor which is identical to this one, but without any children, then cat it to this functor
+    Delta_Functor thisCopy(startTime, endTime, startValue, endValue, exponent);
+    cat(thisCopy);
 
-    /* This doesn't work! THIS IS PAIN * /
-    functors.reverse();
+    //Create a new, empty functor
+    Delta_Functor toReturn;
+
+    /* This doesn't work! THIS IS PAIN */
+    //Reverse the startValue and endValue for all functors in the functors list, then add them to toReturn
     for (std::list<Delta_Functor>::iterator i = functors.begin(); i != functors.end(); i++) {
         int tmp = i->startValue;
         i->startValue = i->endValue;
         i->endValue = tmp;
-        toReturn->cat(*i);
+        i->exponent = 1.0/i->exponent;
+        toReturn.cat(*i);
     }
 
     /**/
 
-    *this = *toReturn;
-    delete toReturn;
+    *this = toReturn;
 }
 
 //Returns the current value of the functor, based on the current time
@@ -199,9 +203,9 @@ double Delta_Functor::getValue()
     {
         toReturn += pow((double)(currentTime - startTime)/(double)timeRange, exponent)*valueRange + startValue;
     }
-    else if (isCyclic)
+    else if (isCyclic && startTime <= currentTime) //Interesting fact - we only want to perform the cyclic behaviour IF the functor has started. I think that this makes a lot of sense. If you want it to go always, simply start your functor at 0.
     {
-        int cycleTime = (currentTime - startTime /*interval*/) % (int)timeRange;
+        int cycleTime = (currentTime - startTime /*interval*/) % (int)timeRange + startTime;
         toReturn += pow((double)(cycleTime - startTime)/(double)timeRange, exponent)*valueRange + startValue;
     }
     else
