@@ -153,7 +153,7 @@ double Point3::getMag()
 //Return the unit version of this vector
 Point3 Point3::getUnit()
 {
-    return *this/GetMag();
+    return *this/getMag();
 }
 
 //Return a glVertex3d call
