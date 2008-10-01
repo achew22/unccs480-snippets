@@ -15,7 +15,7 @@ public:
     Face();
     Face(Point3 inPoints[], int numPoints);
     void addPoint(Point3 point);
-    void drawFace(int scalar);
+    void drawFace();
 };
 
 #endif //FACE_H

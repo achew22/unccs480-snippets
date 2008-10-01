@@ -23,8 +23,8 @@ void Face::addPoint(Point3 point)
     points.push_back(point);
 }
 
-//Draw the face to the screen (scalar does not work yet)
-void Face::drawFace(int scalar = 1)
+//Draw the face to the screen
+void Face::drawFace()
 {
     glBegin(GL_TRIANGLE_FAN);
         for (int i = 0; i < points.size(); i++)
