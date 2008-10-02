@@ -42,6 +42,10 @@ public:
 	bool operator <(const Delta_Functor&);
 	//bool operator ==(Delta_Functor);
 
+    //Return the value
+    //double operator()();
+    double getValue();
+
     void reverse();
 
     void shiftTime(int toShift);
@@ -50,8 +54,11 @@ public:
     void unMakeBounceBack();
     void makeCyclic();
     void unMakeCyclic();
+
+    bool isComplete();
+    void deleteChildren();
+
     Delta_Functor cat(const Delta_Functor toCat);
-    double getValue();
 };
 
 #endif //DELTA_FUNCTOR_H

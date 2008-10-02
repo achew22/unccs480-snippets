@@ -23,6 +23,13 @@ void Face::addPoint(Point3 point)
     points.push_back(point);
 }
 
+
+//Add a new point
+void Face::addPoint(double x, double y, double z)
+{
+    points.push_back(Point3(x, y, z));
+}
+
 //Draw the face to the screen
 void Face::drawFace()
 {

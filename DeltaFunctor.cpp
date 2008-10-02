@@ -2,6 +2,8 @@
 #include <GL/glut.h>
 #include <stdio.h>
 
+#include <vector>
+
 #include "DeltaFunctor.h"
 
 //Default constructor
@@ -159,6 +161,20 @@ void Delta_Functor::shiftTime(int toShift) {
     }
 }
 
+//Delete all children vectors recursively
+void Delta_Functor::deleteChildren() {
+    //std::vector<Delta_Functor *> toKill;
+    for(std::list<Delta_Functor>::iterator i = functors.begin(); i != functors.end(); i++) {
+        //toKill.push_back(i);
+        delete &i;
+    }
+/*
+    for (int i = 0 ; i < toKill.count(); i++) {
+        delete toKill[i];
+    }
+*/
+}
+
 //Concatenate two functors
 Delta_Functor Delta_Functor::cat(Delta_Functor toCat)
 {
@@ -192,6 +208,15 @@ void Delta_Functor::reverse() {
     /**/
 
     *this = toReturn;
+}
+
+//Return false if not complete or return true
+bool Delta_Functor::isComplete() {
+    int currentTime = glutGet(GLUT_ELAPSED_TIME);
+    if (totalEndTime <= currentTime) {
+        return true;
+    }
+    return false;
 }
 
 //Returns the current value of the functor, based on the current time
