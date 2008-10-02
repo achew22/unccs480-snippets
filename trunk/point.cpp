@@ -37,32 +37,32 @@ Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
 Point3::Point3(std::string pointStr)
 {
     //First, remove all spaces
-    printf("Point3::Removing all spaces from %s...", pointStr.c_str());
+    //printf("Point3::Removing all spaces from %s...", pointStr.c_str());
     int pos = 0;
 	loadError = false;
     while ((pos = pointStr.find_first_of(' ')) != std::string::npos)
     {
         pointStr.erase(pos,1);
     }
-    printf("Done\n");
+    //printf("Done\n");
 
     //Now get the values
-    printf("Point3::Getting values from %s...", pointStr.c_str());
+    //printf("Point3::Getting values from %s...", pointStr.c_str());
     float a,b,c;
     if (sscanf(pointStr.c_str(),"%f,%f,%f",&a,&b,&c) == 3)
     {
-        printf("FoundThem...");
+        //printf("FoundThem...");
         x = a;
         y = b;
         z = c;
     }
     else
     {
-        printf("Didn't Find them, sscanf = %i...", sscanf(pointStr.c_str(),"%d %*c %d %*c %d",&a,&b,&c));
+        //printf("Didn't Find them, sscanf = %i...", sscanf(pointStr.c_str(),"%d %*c %d %*c %d",&a,&b,&c));
         x = y = z = 0;
 		loadError = true;
     }
-    printf("Done\n");
+    //printf("Done\n");
 }
 
 //If there was an error in loading the Point (specifically when you load from a string), this will return true. Otherwise false

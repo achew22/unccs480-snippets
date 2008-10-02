@@ -185,8 +185,10 @@ Delta_Functor Delta_Functor::cat(Delta_Functor toCat)
     return * this;
 }
 
-//Reverse the current functor (DOESN'T WORK)
+//Reverse the current functor
 void Delta_Functor::reverse() {
+
+    //Possibly this function should automatically turn off whether a functor is cyclic or not - I'm not sure
 
     //Create a new functor which is identical to this one, but without any children, then cat it to this functor
     Delta_Functor thisCopy(startTime, endTime, startValue, endValue, exponent);
