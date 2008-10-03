@@ -7,8 +7,8 @@
 #include <string>
 #include <fstream>
 
-#include "../unccs480-snippets/face.h"
-#include "../unccs480-snippets/point.h"
+#include "face.h"
+#include "point.h"
 
 class Mesh
 {
