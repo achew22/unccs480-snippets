@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include <GL/gl.h>
 
 #include "camera.h"
@@ -72,7 +74,6 @@ void Camera::spinAroundCenter(GLdouble angleUp, GLdouble angleLeft)
 {
     //Unfinished
     double radius = (eyePosition - lookAtPosition).getMag();
-
 }
 
 void Camera::spinAroundCamera(GLdouble angleUp, GLdouble angleLeft)
