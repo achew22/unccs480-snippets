@@ -2,7 +2,7 @@
 #define MESH_H
 
 #include <stdio.h>
-#include <GL/glut.h>
+#include <GL/gl.h>
 #include <vector>
 #include <string>
 #include <fstream>
