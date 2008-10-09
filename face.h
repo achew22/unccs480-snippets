@@ -18,7 +18,7 @@ public:
     void addPoint(Point3 point);
     void addPoint(double x, double y, double z);
     bool isCoplanar();
-    void drawFace();
+    bool drawFace();
 };
 
 #endif //FACE_H

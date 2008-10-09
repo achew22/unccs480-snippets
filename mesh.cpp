@@ -131,10 +131,11 @@ void Mesh::addFaceAndReverse(std::vector<Point3>& points)
     addFace(newPoints);
 }
 
-void Mesh::drawMesh()
-{
-    for (int i = 0; i < faces.size(); i++)
-    {
-        faces[i].drawFace();
+bool Mesh::drawMesh() {
+    for (int i = 0; i < faces.size(); i++) {
+        if (!faces[i].drawFace()) {
+            return false;
+        }
     }
+    return true;
 }

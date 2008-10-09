@@ -17,6 +17,8 @@ Camera::Camera()
     frustum[3] = 1;
     frustum[4] = 2;
     frustum[5] = 100;
+
+    angleLeftFunct = angleUpFunct = NULL;
 }
 
 Camera::Camera(Point3 pos, Point3 lookAt, Point3 up)
@@ -32,6 +34,8 @@ Camera::Camera(Point3 pos, Point3 lookAt, Point3 up)
     frustum[3] = 1;
     frustum[4] = 2;
     frustum[5] = 100;
+
+    angleLeftFunct = angleUpFunct = NULL;
 }
 
 void Camera::setEyePosition(Point3 pos)
@@ -59,8 +63,12 @@ void Camera::setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble
     frustum[5] = zFar;
 }
 
-void Camera::doGlSetDisp()
+void Camera::update()
 {
+    if ((angleLeftFunct != NULL) && (angleUpFunct != NULL)) {
+        spinAroundCenter(angleUpFunct->getValue(), angleLeftFunct->getValue());
+    }
+
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glFrustum(frustum[0], frustum[1], frustum[2], frustum[3], frustum[4], frustum[5]);
@@ -68,6 +76,13 @@ void Camera::doGlSetDisp()
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+}
+
+
+//Pass in functors to change the progression
+void Camera::spinAroundCenter(Delta_Functor * angleUp, Delta_Functor * angleLeft) {
+    angleUpFunct = angleUp;
+    angleLeftFunct = angleLeft;
 }
 
 //Pass in angles in radians, not degrees

@@ -22,7 +22,7 @@ public:
     void loadObj(std::string filename);
     void addFace(std::vector<Point3>& points);
     void addFaceAndReverse(std::vector<Point3>& points);
-    void drawMesh();
+    bool drawMesh();
 };
 
 #endif //MESH_H

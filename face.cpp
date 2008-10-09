@@ -49,13 +49,12 @@ void Face::addPoint(double x, double y, double z)
 }
 
 //Draw the face to the screen
-void Face::drawFace()
-{
+bool Face::drawFace() {
     glNormal3f(normal.x, normal.y, normal.z);
     glBegin(GL_TRIANGLE_FAN);
-        for (int i = 0; i < points.size(); i++)
-        {
+        for (int i = 0; i < points.size(); i++) {
             (points[i]).doVertex();
         }
     glEnd();
+    return true;
 }
