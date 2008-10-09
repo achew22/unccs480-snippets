@@ -4,57 +4,45 @@
 #include "point.h"
 
 //Empty constructor
-Face::Face()
-{
-    normal = Point3(0,0,1); //Default normal - probably unnecessary
+Face::Face() {
+    isFan = true;
 }
 
-//Pass in all of the points of the face, and how many points there are
-Face::Face(Point3 inPoints[], int numPoints)
-{
-    points.resize(numPoints);
-    normal = Point3(0,0,1); //Default normal - probably unnecessary
-    for (int i = 0; i < numPoints; i++)
-    {
-        points[i] = inPoints[i];
-    }
-    if (numPoints >= 3)
-    {
-        normal = ((points[1] - points[0]).cross(points[2] - points[0])).getUnit();
-        //printf("Got normal: %f, %f, %f \n", normal.x, normal.y, normal.z);
-    }
+void Face::registerPoints(std::vector<Point3>* toRegister) {
+    points = toRegister;
 }
 
-//Add a new point
-void Face::addPoint(Point3 point)
-{
-    points.push_back(point);
-    if (points.size() >= 3)
-    {
-        normal = ((points[1] - points[0]).cross(points[2] - points[0])).getUnit();
-        //printf("Got normal: %f, %f, %f \n", normal.x, normal.y, normal.z);
-    }
+void Face::registerIndexes(std::vector<int> &toRegister) {
+    indexes = toRegister;
 }
 
+void Face::addIndex(int index) {
+    indexes.push_back(index);
+}
 
-//Add a new point
-void Face::addPoint(double x, double y, double z)
-{
-    points.push_back(Point3(x, y, z));
-    if (points.size() >= 3)
-    {
-        normal = ((points[1] - points[0]).cross(points[2] - points[0])).getUnit();
-        //printf("Got normal: %f, %f, %f \n", normal.x, normal.y, normal.z);
-    }
+void Face::makeFan() {
+    isFan = true;
+}
+
+void Face::makeStrip() {
+    isFan = false;
+}
+
+void Face::addNormalToPoints() {
+    //Not finished
 }
 
 //Draw the face to the screen
 bool Face::drawFace() {
-    glNormal3f(normal.x, normal.y, normal.z);
-    glBegin(GL_TRIANGLE_FAN);
-        for (int i = 0; i < points.size(); i++) {
-            (points[i]).doVertex();
-        }
+    if (isFan) {
+        glBegin(GL_TRIANGLE_FAN);
+    } else {
+        glBegin(GL_TRIANGLE_STRIP);
+    }
+    for (int i = 0; i < indexes.size(); i++) {
+        (*points)[indexes[i]].doNormal();
+        (*points)[indexes[i]].doVertex();
+    }
     glEnd();
     return true;
 }

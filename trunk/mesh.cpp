@@ -7,38 +7,6 @@ Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(std::string filename)
-{
-    std::fstream instream;
-    instream.open(filename.c_str());
-    //printf("Mesh::Loading mesh from %s\n", filename.c_str());
-    if (!instream.is_open())
-    {
-        //printf("Mesh::Error openin file");
-        return;
-    }
-    while (!instream.eof())
-    {
-        std::string currentLine;
-        getline(instream, currentLine);
-        //printf("Mesh::Currentline is %s\n", currentLine.c_str());
-        size_t lastPos = -1;
-        size_t pos = currentLine.find_first_of(':');    //Individual points are seperated by ':'s
-        std::vector<Point3> points;
-        do
-        {
-            //printf("Mesh::Adding a point:\n");
-            points.push_back(Point3(currentLine.substr(lastPos + 1, pos)));
-            //printf("Mesh::Point added is %f, %f, %f\n", points[points.size() - 1].x, points[points.size() - 1].y, points[points.size() - 1].z);
-            lastPos = pos;
-            pos = currentLine.find_first_of(':',lastPos + 1);
-            //printf("Mesh::Finished adding said point\n");
-        } while (lastPos != std::string::npos);
-        addFace(points);
-    }
-    instream.close();
-}
-
 void Mesh::loadObj(std::string filename)
 {
     std::fstream instream;
@@ -62,7 +30,7 @@ void Mesh::loadObj(std::string filename)
                 vertices.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "f %f%*s", &temp) == 1) {
                 //printf("Mesh::Pushing back a face\n");
-                std::vector<Point3> facePoints;
+                std::vector<int> faceIndexes;
                 std::string facePiece = "";
                 std::stringstream curLineStream(currentLine);
                 getline(curLineStream, facePiece, ' '); //Get the piece that is just 'f'
@@ -76,7 +44,7 @@ void Mesh::loadObj(std::string filename)
                         vertIndex -= 1;     //For whatever reason, in .obj files, each list starts with index 1
                         //printf("vertIndex is %i\n", vertIndex);
                         if (vertIndex >= 0 && vertIndex < vertices.size()) {      //If the index is in a valid range
-                            facePoints.push_back(vertices[vertIndex]);
+                            faceIndexes.push_back(vertIndex);
                         } else {
                             printf("Error: vertIndex in MeshObjLoader was out of range\n");
                         }
@@ -84,7 +52,7 @@ void Mesh::loadObj(std::string filename)
                         printf("Error: MeshObjLoader: %s is not the proper format for a face piece\n", facePiece.c_str());
                     }
                 }
-                addFaceAndReverse(facePoints);
+                addFaceAndReverse(faceIndexes);
             } else if (sscanf(currentLine.c_str(), "vt %f%*s", &temp) == 1) {
                 //This is where I would do something with the texture guys
             } else if (sscanf(currentLine.c_str(), "v %f%*s", &temp) == 1) {
@@ -106,27 +74,23 @@ void Mesh::loadObj(std::string filename)
     instream.close();
 }
 
-void Mesh::addFace(std::vector<Point3>& points)
+void Mesh::addFace(std::vector<int>& indexes)
 {
     Face newFace;
-    //printf("Adding a face: vertices to follow:\n");
-    for (int i = 0; i < points.size(); i++)
-    {
-        //printf("    <%f, %f, %f>\n", points[i].x, points[i].y, points[i].z);
-        newFace.addPoint(points[i]);
-    }
+    newFace.registerPoints(&(this->vertices));
+    newFace.registerIndexes(indexes);
     faces.push_back(newFace);
 }
 
 //Adds two faces, facing in both directions, so that one can be sure that neither side is see through
-void Mesh::addFaceAndReverse(std::vector<Point3>& points)
+void Mesh::addFaceAndReverse(std::vector<int>& indexes)
 {
-    addFace(points);
-    std::vector<Point3> newPoints;
-    newPoints.resize(points.size());
-    for (int i = 0; i < points.size(); i++)
+    addFace(indexes);
+    std::vector<int> newPoints;
+    newPoints.resize(indexes.size());
+    for (int i = 0; i < indexes.size(); i++)
     {
-        newPoints[i] = points[points.size() - i - 1];
+        newPoints[i] = indexes[indexes.size() - i - 1];
     }
     addFace(newPoints);
 }
