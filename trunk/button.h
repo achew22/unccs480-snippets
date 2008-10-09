@@ -3,7 +3,7 @@
 #include <GL/gl.h>
 
 #include "point.h"
-
+/*
 class ButtonState
 {
 public:
@@ -38,3 +38,4 @@ public:
     Button(int posx, int posy, int width, int height);
     void SetStateColor(int state,
 
+*/
