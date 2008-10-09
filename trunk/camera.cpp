@@ -70,14 +70,94 @@ void Camera::doGlSetDisp()
     glLoadIdentity();
 }
 
+//Pass in angles in radians, not degrees
 void Camera::spinAroundCenter(GLdouble angleUp, GLdouble angleLeft)
 {
-    //Unfinished
+    //First, we must translate everything so that what we are looking at lies at the origin
+    Point3 offset = lookAtPosition;
+    eyePosition = eyePosition - offset;
+    lookAtPosition = lookAtPosition - offset;
+
     double radius = (eyePosition - lookAtPosition).getMag();
+    double phi = acos(eyePosition.z / radius);
+    double theta = atan2(eyePosition.y, eyePosition.x);
+
+    //printf("Phi was %f, theta was %f\n", phi, theta);
+
+    phi -= angleUp;         //Minus because of the traditional definition for polar coordinates
+    if (phi <= 0.010000)    //Slightly more than 0, to avoid getting directly above/below
+    {
+        phi = 0.010000;
+    }
+    else if (phi >= PI - 0.01)   //Slightly less than Pi, to avoid getting directly above/below
+    {
+        phi = PI - 0.01;
+    }
+    theta += angleLeft;
+    if (theta <= -PI)         //This one is fine to be zero
+    {
+        theta += 2*PI;
+    }
+    else if (theta >= PI)
+    {
+        theta -= 2*PI;
+    }
+
+    //printf("Phi is now %f, theta is %f\n", phi, theta);
+
+    //Important note: 0 < phi < Pi and  -pi < theta < pi, (thanks to atan2)
+    eyePosition.x = radius*cos(theta)*sin(phi);
+    eyePosition.y = radius*sin(theta)*sin(phi);
+    eyePosition.z = radius*cos(phi);
+
+    //Now, translate everything back to how it was
+    eyePosition = eyePosition + offset;
+    lookAtPosition = lookAtPosition + offset;
 }
 
 void Camera::spinAroundCamera(GLdouble angleUp, GLdouble angleLeft)
 {
+    //First, we must translate everything so that where we are looking from lies at the origin
+    Point3 offset = eyePosition;
+    eyePosition = eyePosition - offset;
+    lookAtPosition = lookAtPosition - offset;
+
+    //Calculate spherical coordinates around eyePosition
+    double radius = (eyePosition - lookAtPosition).getMag();
+    double phi = acos(lookAtPosition.z / radius);
+    double theta = atan2(lookAtPosition.y, lookAtPosition.x);
+
+    //printf("Phi was %f, theta was %f\n", phi, theta);
+
+    phi -= angleUp;         //Minus because of the traditional definition for polar coordinates
+    if (phi <= 0.010000)    //Slightly more than 0, to avoid getting directly above/below
+    {
+        phi = 0.010000;
+    }
+    else if (phi >= PI - 0.01)   //Slightly less than Pi, to avoid getting directly above/below
+    {
+        phi = PI - 0.01;
+    }
+    theta += angleLeft;
+    if (theta <= -PI)         //This one is fine to be zero
+    {
+        theta += 2*PI;
+    }
+    else if (theta >= PI)
+    {
+        theta -= 2*PI;
+    }
+
+    //printf("Phi is now %f, theta is %f\n", phi, theta);
+
+    //Important note: 0 < phi < Pi and  -pi < theta < pi, (thanks to atan2)
+    lookAtPosition.x = radius*cos(theta)*sin(phi);
+    lookAtPosition.y = radius*sin(theta)*sin(phi);
+    lookAtPosition.z = radius*cos(phi);
+
+    //Now, translate everything back to how it was
+    eyePosition = eyePosition + offset;
+    lookAtPosition = lookAtPosition + offset;
 }
 
 void Camera::zoomIn(GLdouble amount)
@@ -85,6 +165,10 @@ void Camera::zoomIn(GLdouble amount)
     eyePosition = eyePosition * amount;
 }
 
+//Shift the camera in some direction by some amount
 void Camera::shift(Point3 direction, GLdouble amount)
 {
+    Point3 shift = direction.getUnit()*amount;
+    eyePosition = eyePosition + shift;
+    lookAtPosition = lookAtPosition + shift;
 }

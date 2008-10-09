@@ -1,6 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#ifndef PI  //Defining PI this way allows us to define it wherever we need it and not worry about multiple definitions
+#define PI 3.1415926
+#endif
+
 #include <Gl/gl.h>
 
 #include "point.h"
@@ -22,8 +26,8 @@ public:
     void setUpDirection(Point3 up);
     void setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
     void doGlSetDisp();
-    void spinAroundCenter(GLdouble amountUp, GLdouble amountLeft);
-    void spinAroundCamera(GLdouble amountUp, GLdouble amountLeft);
+    void spinAroundCenter(GLdouble angleUp, GLdouble angleLeft);
+    void spinAroundCamera(GLdouble angleUp, GLdouble angleLeft);
     void zoomIn(GLdouble amount);
     void shift(Point3 direction, GLdouble amount);
 };

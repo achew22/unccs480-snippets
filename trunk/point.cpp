@@ -34,35 +34,54 @@ Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
 }
 
 //Construct from string of form "x,y,z" where they are seperated by commas
+//or from the form in .obj files, which is "v 2.322 35.6 22.334"
 Point3::Point3(std::string pointStr)
 {
-    //First, remove all spaces
-    //printf("Point3::Removing all spaces from %s...", pointStr.c_str());
-    int pos = 0;
-	loadError = false;
-    while ((pos = pointStr.find_first_of(' ')) != std::string::npos)
-    {
-        pointStr.erase(pos,1);
-    }
-    //printf("Done\n");
+    if (pointStr.find_first_of(',') != std::string::npos) {    //This means that it is a comma delimeted type
+        //First, remove all spaces
+        //printf("Point3::Removing all spaces from %s...", pointStr.c_str());
+        int pos = 0;
+        loadError = false;
+        while ((pos = pointStr.find_first_of(' ')) != std::string::npos)
+        {
+            pointStr.erase(pos,1);
+        }
+        //printf("Done\n");
 
-    //Now get the values
-    //printf("Point3::Getting values from %s...", pointStr.c_str());
-    float a,b,c;
-    if (sscanf(pointStr.c_str(),"%f,%f,%f",&a,&b,&c) == 3)
-    {
-        //printf("FoundThem...");
-        x = a;
-        y = b;
-        z = c;
+        //Now get the values
+        //printf("Point3::Getting values from %s...", pointStr.c_str());
+        float a,b,c;
+        if (sscanf(pointStr.c_str(),"%f,%f,%f",&a,&b,&c) == 3)
+        {
+            //printf("FoundThem...");
+            x = a;
+            y = b;
+            z = c;
+        }
+        else
+        {
+            //printf("Didn't Find them, sscanf = %i...", sscanf(pointStr.c_str(),"%d %*c %d %*c %d",&a,&b,&c));
+            x = y = z = 0;
+            loadError = true;
+        }
+        //printf("Done\n");
+    } else if (pointStr.size() > 0 && pointStr[0] == 'v') {     //This would indicate a .obj style vertex
+        //printf("Point3::Getting values from %s...", pointStr.c_str());
+        float a,b,c;
+        if (sscanf(pointStr.c_str(), "v %f %f %f", &a, &b, &c) == 3) {
+            //printf("FoundThem...");
+            x = a;
+            y = b;
+            z = c;
+        } else {
+            printf("Point3::Error didn't find them, sscanf = %i...", sscanf(pointStr.c_str(), "v %f %f %f", &a, &b, &c));
+            x = y = z = 0;
+            loadError = true;
+        }
+    } else {    //This would indicate an error in formatting
+        printf("Point3: Error, string format not recognized\n");
+        loadError = true;
     }
-    else
-    {
-        //printf("Didn't Find them, sscanf = %i...", sscanf(pointStr.c_str(),"%d %*c %d %*c %d",&a,&b,&c));
-        x = y = z = 0;
-		loadError = true;
-    }
-    //printf("Done\n");
 }
 
 //If there was an error in loading the Point (specifically when you load from a string), this will return true. Otherwise false
