@@ -16,10 +16,15 @@ public:
     GLdouble y;
     GLdouble z;
 
+    GLdouble normx;
+    GLdouble normy;
+    GLdouble normz;
+
     Point3();
     Point3(const Point3& point);
     Point3(GLdouble inx, GLdouble iny, GLdouble inz);
-    Point3(std::string pointStr); //Format "x,y,z" with/without spaces
+    Point3(std::string pointStr); //Format "x,y,z" with/without spaces or "v 2.3 35 20.3"
+    void setNormal(GLdouble inx, GLdouble iny, GLdouble inz);
 	bool getLoadError();
     Point3 operator +(const Point3& toadd);
     Point3 operator -(const Point3& tosub);
@@ -35,6 +40,7 @@ public:
     double getMag();
     Point3 getUnit();
     void doVertex();
+    void doNormal();
 };
 
 #endif //POINT_H

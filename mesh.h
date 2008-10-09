@@ -14,14 +14,12 @@ class Mesh
 {
 private:
     std::vector<Face> faces;
-//    std::vector<Edge> edges;
     std::vector<Point3> vertices;
 public:
     Mesh();
-    Mesh(std::string filename);
     void loadObj(std::string filename);
-    void addFace(std::vector<Point3>& points);
-    void addFaceAndReverse(std::vector<Point3>& points);
+    void addFace(std::vector<int>& indexes);
+    void addFaceAndReverse(std::vector<int>& indexes);
     bool drawMesh();
 };
 

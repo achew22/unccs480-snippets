@@ -10,14 +10,17 @@
 class Face
 {
 private:
-    std::vector<Point3> points;
-    Point3 normal;
+    std::vector<Point3>* points;
+    std::vector<int> indexes;
+    bool isFan; //True if we should use triangleFan, false if we should use triangleStrip
 public:
     Face();
-    Face(Point3 inPoints[], int numPoints);
-    void addPoint(Point3 point);
-    void addPoint(double x, double y, double z);
-    bool isCoplanar();
+    void registerPoints(std::vector<Point3>* toRegister);
+    void registerIndexes(std::vector<int>& toRegister);
+    void addIndex(int index);
+    void makeFan();
+    void makeStrip();
+    void addNormalToPoints();
     bool drawFace();
 };
 
