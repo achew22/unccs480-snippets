@@ -3,7 +3,7 @@
 
 #include <GL/gl.h>
 
-#include "button.h"
+#include "GUIButton.h"
 /*
 ButtonState::ButtonState() {
 

@@ -15,6 +15,7 @@ class Mesh
 private:
     std::vector<Face> faces;
     std::vector<Point3> vertices;
+    std::vector<Point3> normals;
 public:
     Mesh();
     void loadObj(std::string filename);

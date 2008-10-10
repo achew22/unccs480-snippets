@@ -55,7 +55,7 @@ void Mesh::loadObj(std::string filename)
                 addFaceAndReverse(faceIndexes);
             } else if (sscanf(currentLine.c_str(), "vt %f%*s", &temp) == 1) {
                 //This is where I would do something with the texture guys
-            } else if (sscanf(currentLine.c_str(), "v %f%*s", &temp) == 1) {
+            } else if (sscanf(currentLine.c_str(), "vn %f%*s", &temp) == 1) {
                 //This is where I would do something with the normal guys
             } else {
                 printf("Got something in the Obj file that wasn't what I expected: %s\n", currentLine.c_str());
