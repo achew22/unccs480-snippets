@@ -1,9 +1,13 @@
 #ifndef GUI_H_INCLUDED
 #define GUI_H_INCLUDED
 
+#include <vector>
+
+#include "GUIElement.h"
+
 class GUI {
 private:
-    //std::vector<GUIElement> elements;
+    std::vector<GUIElement *> elements;
     int xOffset;
     int yOffset;
     int width;
@@ -15,8 +19,8 @@ public:
     GUI();
 
     //Return vertex index of the new element
-    //int addElement(GUIElement * toAdd);
-    bool removeElemnt(int indexToRemove);
+    int addElement(GUIElement * toAdd);
+    bool removeElement(int indexToRemove);
 
     //Return true to keep dispatching
     bool click(int x,int y,int button);

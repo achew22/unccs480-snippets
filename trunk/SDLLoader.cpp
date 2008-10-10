@@ -33,6 +33,26 @@ void SDLLoader::dispatchKey() {
     }
 }
 
+void SDLLoader::enableLighting() {
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING);
+}
+
+void SDLLoader::enableLight(glLightingStruct * myLight) {
+    glEnable(myLight->lightNumber);
+
+    glLightfv(myLight->lightNumber, GL_AMBIENT,  myLight->light_ambient);
+    glLightfv(myLight->lightNumber, GL_DIFFUSE,  myLight->light_diffuse);
+    glLightfv(myLight->lightNumber, GL_SPECULAR, myLight->light_specular);
+    glLightfv(myLight->lightNumber, GL_POSITION, myLight->light_position);
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT,   myLight->mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,   myLight->mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR,  myLight->mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, myLight->high_shininess);
+}
+
 void SDLLoader::dispatchMouse() {
     //std::vector< bool > dispatchableMouses(int, int, int);
 }

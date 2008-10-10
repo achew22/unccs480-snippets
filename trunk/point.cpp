@@ -12,9 +12,12 @@ Point3::Point3()
     x = 0;
     y = 0;
     z = 0;
+
+/*
     normx = 0;
     normy = 0;
     normz = 0;
+*/
 	loadError = false;
 }
 
@@ -24,9 +27,11 @@ Point3::Point3(const Point3& point)
     x = point.x;
     y = point.y;
     z = point.z;
+/*
     normx = 0;
     normy = 0;
     normz = 0;
+*/
 	loadError = false;
 }
 
@@ -36,18 +41,21 @@ Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
     x = inx;
     y = iny;
     z = inz;
+/*
     normx = 0;
     normy = 0;
     normz = 0;
+*/
 	loadError = false;
 }
 
 void Point3::setNormal(GLdouble inx, GLdouble iny, GLdouble inz) {
-    normx = inx;
-    normy = iny;
-    normz = inz;
+    normal = new Point3(inx, iny, inz);
 }
 
+void Point3::setNormal(Point3 * toSet) {
+    normal = toSet;
+}
 //Construct from string of form "x,y,z" where they are seperated by commas
 //or from the form in .obj files, which is "v 2.322 35.6 22.334"
 Point3::Point3(std::string pointStr)
@@ -198,5 +206,11 @@ void Point3::doVertex()
 
 //Perform a glNormal3d call
 void Point3::doNormal() {
-    glNormal3d(normx, normy, normz);
+    if (normal) {
+        glNormal3d(normal->x, normal->y, normal->z);
+    }
+    else {
+        glNormal3d(0, 0, 0);
+    }
 }
+
