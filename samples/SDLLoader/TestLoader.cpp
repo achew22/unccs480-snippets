@@ -15,7 +15,8 @@ TestLoader::TestLoader() {
 
     //Load up proog so that we can start playing with him
     myMesh = new Mesh();
-    myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//shuttle.obj");
+    myMesh->loadObj("G:\\Documents\\School\\CS480\\unccs480-snippets\\Samples\\ObjLoader\\cube.obj");
+    //myMesh->loadObj("AndrewsFilePath");
 
     //Set up the functor that will move proog
     angle = new Delta_Functor(
@@ -82,7 +83,7 @@ void TestLoader::display() {
         glColor3d(1,1,0);
 
         //Make him big
-        double scaleFactor = .5;
+        double scaleFactor = 1;
         glScaled(scaleFactor, scaleFactor, scaleFactor);
 
         //Move to the center

@@ -9,7 +9,7 @@ const int window_width = 640;
 const int window_height = 480;
 
 
-int main() {
+int main(int argc, char *argv[]) {
     TestLoader * myTestLoader = new TestLoader();
     return myTestLoader->loop();
 

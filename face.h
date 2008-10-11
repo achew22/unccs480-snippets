@@ -10,14 +10,19 @@
 class Face
 {
 private:
-    std::vector<Point3>* points;
-    std::vector<int> indexes;
+    std::vector<Point3>* vertices;
+    std::vector<Point3>* normals;
+    std::vector<int> vertexIndex;
+    std::vector<int> normalIndex;
     bool isFan; //True if we should use triangleFan, false if we should use triangleStrip
 public:
     Face();
-    void registerPoints(std::vector<Point3>* toRegister);
-    void registerIndexes(std::vector<int>& toRegister);
-    void addIndex(int index);
+    void registerVertices(std::vector<Point3>* toRegister);
+    void registerNormals(std::vector<Point3>* toRegister);
+    void registerVertexIndexes(std::vector<int>& toRegister);
+    void registerNormalIndexes(std::vector<int>& toRegister);
+    void addVertexIndex(int index);
+    void addNormalIndex(int index);
     void makeFan();
     void makeStrip();
     void addNormalToPoints();
