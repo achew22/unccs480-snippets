@@ -15,7 +15,7 @@ TestLoader::TestLoader() {
 
     //Load up proog so that we can start playing with him
     myMesh = new Mesh();
-    myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//proog.obj");
+    myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//shuttle.obj");
 
     //Set up the functor that will move proog
     angle = new Delta_Functor(
@@ -51,6 +51,7 @@ TestLoader::TestLoader() {
      * sub-dispatch to all GUI elements that it has so that they can do their magic.
      */
     addKeyPressHandler((int)(new DispatchKey<GUI>(myGUI, &GUI::key)));
+    addMouseHandler((int)(new DispatchMouse<GUI>(myGUI, &GUI::mouse)));
 
     //Turn on lighting
     enableLighting();
@@ -63,6 +64,8 @@ TestLoader::TestLoader() {
     //Set the camera's eye position
     camera->setEyePosition(Point3(.1,.1,10));
 }
+
+
 
 /**
  * Display the information to the user
