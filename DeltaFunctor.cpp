@@ -1,10 +1,10 @@
 #include <cmath>
 #include <stdio.h>
-#include <SDL.h>
 
 #include <vector>
 
 #include "DeltaFunctor.h"
+#include "SDLLoader.h"
 
 //Default constructor
 Delta_Functor::Delta_Functor()
@@ -116,7 +116,7 @@ Delta_Functor Delta_Functor::operator =(const Delta_Functor toEqual)
 //Reset this functor so that starts over from the current time
 void Delta_Functor::reset()
 {
-    startTime = SDL_GetTicks();
+    startTime = SDLLoader::getTime();
     endTime = startTime + timeRange;
 
     isCyclic = false;
@@ -214,7 +214,7 @@ void Delta_Functor::reverse() {
 
 //Return false if not complete or return true
 bool Delta_Functor::isComplete() {
-    int currentTime = SDL_GetTicks();
+    int currentTime = SDLLoader::getTime();
     if (totalEndTime <= currentTime) {
         return true;
     }
@@ -224,7 +224,7 @@ bool Delta_Functor::isComplete() {
 //Returns the current value of the functor, based on the current time
 double Delta_Functor::getValue()
 {
-    int currentTime = SDL_GetTicks();
+    int currentTime = SDLLoader::getTime();
     double toReturn = 0;
     if (startTime <= currentTime && endTime >= currentTime)
     {

@@ -7,9 +7,9 @@
 class TestLoader : public SDLLoader {
 private:
     Mesh * myMesh;
+    Delta_Functor * angle;
 
 public:
-    TestLoader(int setWidth, int setHeight);
     TestLoader();
 
     void display();

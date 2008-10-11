@@ -1,5 +1,13 @@
 #include "functorFactory.h"
 
+/************************************************************************
+ *                           PLEASE READ
+ * This code is not used anywhere, but is kept since it is a good sample
+ * implementation of what a singleton should be, especially the suff at
+ * the top of the file, the pinstance stuff took a while to figure out
+ * remember, stay DRY (Don't repeat yourself)
+ ***********************************************************************/
+
 FunctorFactory* FunctorFactory::pinstance = 0;// initialize pointer
 
 FunctorFactory* FunctorFactory::getInstance() {

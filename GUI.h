@@ -24,9 +24,12 @@ public:
 
     //Return true to keep dispatching
     bool click(int x,int y,int button);
-    bool key (int charCode);
+    bool key (SDL_Event event);
+    bool mouse(SDL_Event event);
 
     bool draw();
+
+    static GUI * pinstance;
 
     /******
     Put in the getters and setters
