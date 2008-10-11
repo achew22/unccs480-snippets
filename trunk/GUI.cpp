@@ -21,7 +21,7 @@ GUI::GUI() {
  * Do this after setting up the proper 2D orthoganal
  */
 bool GUI::draw() {
-    for (uint i = 0; i < elements.size(); i++) {
+    for (unsigned int i = 0; i < elements.size(); i++) {
         elements[i]->draw();
     }
 }
@@ -38,7 +38,7 @@ int GUI::addElement(GUIElement * toAdd){
  * Only called by SDLLoader, expects a SDL_Event of type keypress
  */
 bool GUI::key(SDL_Event event) {
-    for ( uint dispatchIndex = 0; dispatchIndex < elements.size(); ++dispatchIndex ) {
+    for ( unsigned int dispatchIndex = 0; dispatchIndex < elements.size(); ++dispatchIndex ) {
         if (elements[dispatchIndex]->key(event) == false) {
             return false;
         }
@@ -51,7 +51,7 @@ bool GUI::key(SDL_Event event) {
  * Only called by SDLLoader, expects a SDL_Event of type mouse event
  */
 bool GUI::mouse(SDL_Event event) {
-    for ( uint dispatchIndex = 0; dispatchIndex < elements.size(); ++dispatchIndex ) {
+    for ( unsigned int dispatchIndex = 0; dispatchIndex < elements.size(); ++dispatchIndex ) {
         if (elements[dispatchIndex]->mouse(event) == false) {
             return false;
         }

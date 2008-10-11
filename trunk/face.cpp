@@ -1,23 +1,37 @@
-#include <GL/glut.h>
+#include <GL/gl.h>
 
 #include "face.h"
 #include "point.h"
 
 //Empty constructor
 Face::Face() {
+    vertices = NULL;
+    normals = NULL;
     isFan = true;
 }
 
-void Face::registerPoints(std::vector<Point3>* toRegister) {
-    points = toRegister;
+void Face::registerVertices(std::vector<Point3>* toRegister) {
+    vertices = toRegister;
 }
 
-void Face::registerIndexes(std::vector<int> &toRegister) {
-    indexes = toRegister;
+void Face::registerNormals(std::vector<Point3>* toRegister) {
+    normals = toRegister;
 }
 
-void Face::addIndex(int index) {
-    indexes.push_back(index);
+void Face::registerVertexIndexes(std::vector<int> &toRegister) {
+    vertexIndex = toRegister;
+}
+
+void Face::registerNormalIndexes(std::vector<int> &toRegister) {
+    normalIndex = toRegister;
+}
+
+void Face::addVertexIndex(int index) {
+    vertexIndex.push_back(index);
+}
+
+void Face::addNormalIndex(int index) {
+    normalIndex.push_back(index);
 }
 
 void Face::makeFan() {
@@ -39,9 +53,15 @@ bool Face::drawFace() {
     } else {
         glBegin(GL_TRIANGLE_STRIP);
     }
-    for (int i = 0; i < indexes.size(); i++) {
-        (*points)[indexes[i]].doNormal();
-        (*points)[indexes[i]].doVertex();
+    if (normals != NULL) {
+        for (int i = 0; i < vertexIndex.size(); i++) {
+            (*normals)[normalIndex[i]].doNormal();
+            (*vertices)[vertexIndex[i]].doVertex();
+        }
+    } else {
+        for (int i = 0; i < vertexIndex.size(); i++) {
+            (*vertices)[vertexIndex[i]].doVertex();
+        }
     }
     glEnd();
     return true;

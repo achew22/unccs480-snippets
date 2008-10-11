@@ -48,7 +48,7 @@ SDLLoader::SDLLoader(int setWidth, int setHeight) {
  */
 void SDLLoader::dispatchKey( SDL_Event event ) {
     bool used = false;
-    for ( uint dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
+    for ( unsigned int dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
         /**
          * Okay... this is evil.
          *
@@ -98,7 +98,7 @@ void SDLLoader::dispatchKey( SDL_Event event ) {
  * @param SDL_Event event the SDL_event that triggered this call
  */
 void SDLLoader::dispatchMouse(SDL_Event event) {
-    for ( uint dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
+    for ( unsigned int dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
         /**
          * Okay... this is evil.
          *

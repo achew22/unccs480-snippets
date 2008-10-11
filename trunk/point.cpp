@@ -2,7 +2,7 @@
 #include <string>
 #include <stdio.h>
 
-#include <GL/glut.h>
+#include <GL/gl.h>
 
 #include "point.h"
 
@@ -13,11 +13,6 @@ Point3::Point3()
     y = 0;
     z = 0;
 
-/*
-    normx = 0;
-    normy = 0;
-    normz = 0;
-*/
 	loadError = false;
 }
 
@@ -27,11 +22,7 @@ Point3::Point3(const Point3& point)
     x = point.x;
     y = point.y;
     z = point.z;
-/*
-    normx = 0;
-    normy = 0;
-    normz = 0;
-*/
+
 	loadError = false;
 }
 
@@ -41,21 +32,10 @@ Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
     x = inx;
     y = iny;
     z = inz;
-/*
-    normx = 0;
-    normy = 0;
-    normz = 0;
-*/
+
 	loadError = false;
 }
 
-void Point3::setNormal(GLdouble inx, GLdouble iny, GLdouble inz) {
-    normal = new Point3(inx, iny, inz);
-}
-
-void Point3::setNormal(Point3 * toSet) {
-    normal = toSet;
-}
 //Construct from string of form "x,y,z" where they are seperated by commas
 //or from the form in .obj files, which is "v 2.322 35.6 22.334"
 Point3::Point3(std::string pointStr)
@@ -91,7 +71,7 @@ Point3::Point3(std::string pointStr)
     } else if (pointStr.size() > 0 && pointStr[0] == 'v') {     //This would indicate a .obj style vertex
         //printf("Point3::Getting values from %s...", pointStr.c_str());
         float a,b,c;
-        if (sscanf(pointStr.c_str(), "v %f %f %f", &a, &b, &c) == 3) {
+        if (sscanf(pointStr.c_str(), "%*s %f %f %f", &a, &b, &c) == 3) {
             //printf("FoundThem...");
             x = a;
             y = b;
@@ -206,11 +186,6 @@ void Point3::doVertex()
 
 //Perform a glNormal3d call
 void Point3::doNormal() {
-    if (normal) {
-        glNormal3d(normal->x, normal->y, normal->z);
-    }
-    else {
-        glNormal3d(0, 0, 0);
-    }
+    glNormal3d(x,y,z);
 }
 

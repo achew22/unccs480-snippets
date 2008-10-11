@@ -2,7 +2,7 @@
 #define POINT_H
 
 #include <string>
-#include <GL/glut.h>
+#include <GL/gl.h>
 
 //A struct with a point in three dimensions. Allows you to peform such
 //things as dot product, cross product, addition, scalar multiplication,
@@ -16,19 +16,10 @@ public:
     GLdouble y;
     GLdouble z;
 
-/*    GLdouble normx;
-    GLdouble normy;
-    GLdouble normz;
-*/
-
-    Point3 * normal;
-
     Point3();
     Point3(const Point3& point);
     Point3(GLdouble inx, GLdouble iny, GLdouble inz);
     Point3(std::string pointStr); //Format "x,y,z" with/without spaces or "v 2.3 35 20.3"
-    void setNormal(GLdouble inx, GLdouble iny, GLdouble inz);
-    void setNormal(Point3 * toSet);
 	bool getLoadError();
     Point3 operator +(const Point3& toadd);
     Point3 operator -(const Point3& tosub);

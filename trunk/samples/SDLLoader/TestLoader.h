@@ -1,8 +1,8 @@
 #ifndef TESTLOADER_H_INCLUDED
 #define TESTLOADER_H_INCLUDED
 
-#include "../../unccs480-snippets/SDLLoader.h"
-#include "../../unccs480-snippets/mesh.h"
+#include "SDLLoader.h"
+#include "mesh.h"
 
 class TestLoader : public SDLLoader {
 private:
