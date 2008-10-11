@@ -65,34 +65,86 @@ public:
     }
 };
 
-typedef bool(*KeyFunc)(int);
-typedef bool(*MouseFunc)(int, int, int);
+/**
+ * This is the template that is used to dispatch key events
+ * this is bascially a wrapper for object method callbacks
+ */
+template<class T>
+	class DispatchKey {
+    private:
+        T* _this;
+        bool (T::*_keyPress)( SDL_Event a);
+
+    public:
+        /**
+         * This is the constructor
+         * @param the object (by reference [&]) 1st param
+         * @param static reference to the method (&myClass::myMethod)
+         */
+        DispatchKey(T* object, bool (T::*key)( SDL_Event a) ) {
+            _this = object;
+            _keyPress = key;
+        }
+
+        bool keyPress(SDL_Event event) {
+            return (_this->*_keyPress)(event);
+        }
+    };
+
+/**
+ * This is the template that is used to dispatch mouse events
+ * this is bascially a wrapper for object method callbacks
+ */
+template<class T>
+	class DispatchMouse {
+    private:
+        T* _this;
+        bool (T::*_mouse)( SDL_Event a);
+
+    public:
+        /**
+         * This is the constructor
+         * @param the object (by reference [&]) 1st param
+         * @param static reference to the method (&myClass::myMethod)
+         */
+        DispatchMouse(T* object, bool (T::*mouse)( SDL_Event a) ) {
+            _this = object;
+            _mouse = mouse;
+        }
+
+        bool mouseEvent(SDL_Event event) {
+            return (_this->*_mouse)(event);
+        }
+    };
+
 
 class SDLLoader {
 private:
-    void dispatchKey();
-    void dispatchMouse();
-
-    std::vector< KeyFunc * > dispatchableKeys;
-    //std::vector< bool*() > dispatchableMouses;
+    void dispatchKey(SDL_Event event);
+    void dispatchMouse(SDL_Event event);
 
     int currentTickCount;
 
 protected:
+    //Make this private soon
+    std::vector< int > dispatchableKeys;
+    std::vector< int > dispatchableMouses;
+
     Camera * camera;
     std::map<std::string, GUI *> guis;
     std::string activeGUI;
     int width;
     int height;
 
-    //The quit int
-    int quit;
-
     bool init();
 
+    //Add a new keypress handler
+    void addKeyPressHandler(int pointerToKeyPressHandlerToAdd);
+    void addMouseHandler(int pointerToMouseHandlerToAdd);
+
     //This is a virtual function with its lack of a defined function explicity stated ( thats the =0 )
-    virtual void display() =0;
-    virtual void idle() =0;
+    virtual void display();
+    virtual void idle();
 
 public:
     SDLLoader(int setWidth, int setHeight);
@@ -105,9 +157,16 @@ public:
     bool addGUI(std::string name, GUI * toAdd);
     bool setActiveGUI(std::string name);
 
-    int getTime();
+    static int getTime();
+
+    //The quit int
+    int quit;
 
     int loop();
+
+
+    static SDLLoader * pinstance;
+    static SDLLoader * getInstance();
 };
 
 #endif // SDLLOADER_H_INCLUDED
