@@ -17,7 +17,11 @@ App::App() {
 
     //Load up proog so that we can start playing with him
     myMesh = new Mesh();
-    myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//proog.obj");
+    //myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//proog.obj");
+    myMesh->loadObj("E:\\Documents\\School\\CS480\\unccs480-snippets\\samples\\ObjLoader\\proog.obj");
+
+    //Set up the normals from a calculation, rather than reading them from the file
+    myMesh->calculateNormals();
 
     //Set up the functor that will move proog
     angle = new Delta_Functor(
@@ -72,8 +76,10 @@ App::App() {
 
 
     //Dont set the camera at 0, it will disapear
-    //Set the camera's eye position
-    camera->setEyePosition(Point3(.1,.1,10));
+        //This is an error, I will look into it
+    //Set the camera's positions
+    camera->setEyePosition(Point3(-5,-5,5));
+    camera->setLookAtPosition(Point3(0,0,0));
 }
 
 
@@ -89,19 +95,21 @@ void App::display() {
         glColor3d(1,1,0);
 
         //Make him big
-        double scaleFactor = .5;
+        double scaleFactor = 2;
         glScaled(scaleFactor, scaleFactor, scaleFactor);
 
         //Move to the center
-        glTranslated(.8,.7,0);
+        glTranslated(0,0,0);
 
         //Rotate according to the delta functor defined in init
+
         glRotated(angle->getValue(), 1,1,0);
         glRotated(angle->getValue(), 0,1,1);
         glRotated(angle->getValue(), 1,0,1);
 
         //lets rotate so that it/he/she is looking at us
         glRotated(135, 0,0,1);
+
 
         //Draw mesh
         if (!myMesh->drawMesh()) {

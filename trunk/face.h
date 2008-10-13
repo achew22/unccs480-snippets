@@ -25,7 +25,7 @@ public:
     void addNormalIndex(int index);
     void makeFan();
     void makeStrip();
-    void addNormalToPoints();
+    void addOwnNormals();
     bool drawFace();
 };
 

@@ -15,9 +15,9 @@ void GUIButton::draw() {
         glColor3d(color.x, color.y, color.z);
         glBegin(GL_QUADS);
             glVertex2f(0,0); //Top left
-            glVertex2f(width,0); //Top right
-            glVertex2f(width,height); // Bottom right
             glVertex2f(0,height); // Bottom left
+            glVertex2f(width,height); // Bottom right
+            glVertex2f(width,0); //Top right
         glEnd();
     glPopMatrix();
 }

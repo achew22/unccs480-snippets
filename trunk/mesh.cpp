@@ -9,13 +9,12 @@ Mesh::Mesh()
 
 void Mesh::loadObj(std::string filename)
 {
-    glFrontFace(GL_CW);
     std::fstream instream;
     instream.open(filename.c_str());
     //printf("Mesh::Loading mesh from %s\n", filename.c_str());
     if (!instream.is_open())
     {
-        //printf("Mesh::Error openin file");
+        printf("Mesh::Error opening file");
         return;
     }
     while (!instream.eof())
@@ -31,7 +30,7 @@ void Mesh::loadObj(std::string filename)
             } else if (sscanf(currentLine.c_str(), "vt %f%*s", &temp) == 1) {   //This is a texture vertex
                 //This is where I would do something with the texture guys
             } else if (sscanf(currentLine.c_str(), "vn %f%*s", &temp) == 1) {   //This is a normal
-                printf("Loading a normal\n");
+                //printf("Loading a normal\n");
                 normals.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "f %*s") == 0) {  //This is a face
                 if (sscanf(currentLine.c_str(), "f %i/%i/%i%*s", &temp, &temp, &temp) == 3) {   //Vertex, textures, and normals
@@ -179,7 +178,7 @@ void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexe
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
-    newFace.registerNormals(&(this->vertices));
+    newFace.registerNormals(&(this->normals));
     newFace.registerNormalIndexes(normalIndexes);
     faces.push_back(newFace);
     printf("Created a face: ");
@@ -193,6 +192,9 @@ void Mesh::addFace(std::vector<int>& vertIndexes) {
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
+
+    //Register the normals anyway, even though they aren't being used
+    newFace.registerNormals(&(this->normals));
     faces.push_back(newFace);
 }
 
@@ -222,6 +224,29 @@ void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes)
         newVerts[i] = vertIndexes[vertIndexes.size() - i - 1];
     }
     addFace(newVerts);
+}
+
+/**
+ * This function will rewrite ALL normal vectors, causing total loss of normal data
+ * To reobtain normal data, simply reload the .obj file
+ */
+void Mesh::calculateNormals() {
+    //First, clear normal data
+    normals.resize(vertices.size());
+    for (int i = 0; i < normals.size(); i++) {
+        normals[i] = Point3(0,0,0);
+    }
+
+    //This will add every face's normal to all of the vertices of that face
+    //then reassign each normal index to the corresponding vertex index
+    for (int i = 0; i < faces.size(); i++) {
+        faces[i].addOwnNormals();
+    }
+
+    //This will normalize all normals, so that they are unit
+    for (int i = 0; i < normals.size(); i++) {
+        normals[i] = normals[i].getUnit();
+    }
 }
 
 bool Mesh::drawMesh() {
