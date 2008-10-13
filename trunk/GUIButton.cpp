@@ -1,25 +1,64 @@
 
 #include <string>
+#include <vector>
 
 #include <GL/gl.h>
 
+#include "SDLLoader.h"
 #include "GUIButton.h"
+#include "face.h"
+
 void GUIButton::draw() {
 
+    glPushMatrix();
+        glTranslated(x,y,0);
+        glColor3d(color.x, color.y, color.z);
+        glBegin(GL_QUADS);
+            glVertex2f(0,0); //Top left
+            glVertex2f(width,0); //Top right
+            glVertex2f(width,height); // Bottom right
+            glVertex2f(0,height); // Bottom left
+        glEnd();
+    glPopMatrix();
 }
 
 bool GUIButton::key(SDL_Event event) {
-    printf("I got a %d that is a\an %c\r\n", event.key.keysym.sym, event.key.keysym.sym);
+    printf("I got a %d that is a/an %c\r\n", event.key.keysym.sym, event.key.keysym.sym);
     return true;
 }
 
 bool GUIButton::mouse(SDL_Event event) {
-    if(event.type == SDL_MOUSEBUTTONDOWN && SDL_BUTTON(SDL_GetMouseState(NULL,NULL)) == SDL_BUTTON_LEFT) {
-        printf("You clicked the left mouse button at (%d,%d)\r\n", event.motion.x, event.motion.y);
+    int clickX = event.motion.x;
+    int clickY = event.motion.y;
+
+    //printf("Range is: (%d to %d, and %d to %d)\r\n", x, x + width, y, y + width);
+    //printf("You're at (     %d,    %d)\r\n", clickX, clickY);
+
+    //in the range of the button?
+    if ((clickX > x && clickX < (x + width)) && (clickY > y && clickY < (y + height))) {
+        if(event.type == SDL_MOUSEBUTTONDOWN && SDL_BUTTON(SDL_GetMouseState(NULL,NULL)) == SDL_BUTTON_LEFT) {
+            //Do the callback
+            callback();
+        }
     }
+
     return true;
 }
 
 GUIButton::GUIButton() {
+    x = 0;
+    y = 0;
+    width = 1;
+    height = 1;
+}
 
+GUIButton::GUIButton(int setX, int setY, int setWidth, int setHeight, Point3 setTextColor, Point3 setColor, std::string setText, bool (*setCallback)(void)) {
+    x = setX;
+    y = setY;
+    width = setWidth;
+    height = setHeight;
+    color = setColor;
+    textColor = setTextColor;
+    text = setText;
+    callback = setCallback;
 }

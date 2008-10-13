@@ -1,4 +1,6 @@
 #include <SDL/SDL.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
 
 #include "GUI.h"
 #include "SDLLoader.h"
@@ -21,9 +23,37 @@ GUI::GUI() {
  * Do this after setting up the proper 2D orthoganal
  */
 bool GUI::draw() {
-    for (unsigned int i = 0; i < elements.size(); i++) {
-        elements[i]->draw();
-    }
+
+    /**
+     * Stolen shamelessly from http://www.gamedev.net/community/forums/topic.asp?topic_id=104791
+     * Thank you so much, this is a VERY clever way of doing it
+     *
+     * This basically sets up a simple 2d orthogo world for us to render into
+     * So far as I can tell with the few tweeks I put in there it will adjust everything
+     * so that the mouse events that come in from SDL will directly map to the position you are
+     * drawing on the screen inside this block of code
+     */
+    int viewPort[4];
+    glGetIntegerv(GL_VIEWPORT, viewPort);
+
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+        glLoadIdentity();
+
+        glOrtho(0, viewPort[2], viewPort[3], 0, -1, 1);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+            glLoadIdentity();
+
+            for (unsigned int i = 0; i < elements.size(); i++) {
+                elements[i]->draw();
+            }
+
+            glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+
+        glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
 }
 
 /**
