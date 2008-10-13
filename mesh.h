@@ -24,6 +24,7 @@ public:
     void addFace(std::vector<int>& vertIndexes);
     void addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes);
     void addFaceAndReverse(std::vector<int>& vertIndexes);
+    void calculateNormals();
     bool drawMesh();
 };
 

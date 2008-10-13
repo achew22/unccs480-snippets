@@ -155,13 +155,13 @@ Point3 Point3::cross(const Point3& tocross)
 }
 
 //Dot two vectors
-static double dot(const Point3& a, const Point3& b)
+extern double Point3::dot(const Point3& a, const Point3& b)
 {
 	return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
 //Cross two vectors
-static Point3 cross(const Point3& a, const Point3& b)
+extern Point3 Point3::cross(const Point3& a, const Point3& b)
 {
 	return Point3((a.y*b.z - a.z*b.y), -(a.x*b.z - a.z*b.x), (a.x*b.y - a.y*b.x));
 }

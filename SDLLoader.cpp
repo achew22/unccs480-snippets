@@ -193,8 +193,21 @@ bool SDLLoader::init() {
     int bpp = videoInfo->vfmt->BitsPerPixel;
     surface = SDL_SetVideoMode(width, height, bpp, vidFlags);
 
+    //Set up the default camera behavior
     camera = new Camera(Point3(5,5,5), Point3(0,0,0), Point3(0,0,1));
     camera->setFrustum(-width / height, width / height, -1, 1, 2, 100);
+
+    //Enable various GL things here
+    //Enable culling, so that the reverse of faces are not drawn
+    //If we don't enable culling, weird things happen
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    //Faces are to be drawn in the counterclockwise direction, since .obj files are oriented in such a direction
+    glFrontFace(GL_CCW);
+
+    //I'm not sure what exactly this does, but it's important
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
 
     return true;
 }
