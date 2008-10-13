@@ -157,20 +157,17 @@ void Mesh::loadObj(std::string filename)
         }
     }
 
-    /* For printing out a mesh after loading */
+    /* For printing out a mesh after loading * /
     printf("Loaded a mesh, vertices are:\n");
-    for (int i = 0; i < vertices.size(); i++)
-    {
+    for (int i = 0; i < vertices.size(); i++) {
         printf("   %i: <%f, %f, %f>\n", i, vertices[i].x, vertices[i].y, vertices[i].z);
     }
     printf("Loaded a mesh, textures are:\n");
-    for (int i = 0; i < textures.size(); i++)
-    {
+    for (int i = 0; i < textures.size(); i++) {
         printf("   %i: <%f, %f, %f>\n", i, textures[i].x, textures[i].y, textures[i].z);
     }
     printf("Loaded a mesh, normals are:\n");
-    for (int i = 0; i < normals.size(); i++)
-    {
+    for (int i = 0; i < normals.size(); i++) {
         printf("   %i: <%f, %f, %f>\n", i, normals[i].x, normals[i].y, normals[i].z);
     }
     /**/
@@ -178,8 +175,7 @@ void Mesh::loadObj(std::string filename)
     instream.close();
 }
 
-void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes)
-{
+void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
@@ -193,8 +189,7 @@ void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexe
     printf("\n");
 }
 
-void Mesh::addFace(std::vector<int>& vertIndexes)
-{
+void Mesh::addFace(std::vector<int>& vertIndexes) {
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
@@ -202,19 +197,16 @@ void Mesh::addFace(std::vector<int>& vertIndexes)
 }
 
 //Adds two faces, facing in both directions, so that one can be sure that neither side is see through
-void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes)
-{
+void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
     addFace(vertIndexes, normalIndexes);
     std::vector<int> newVerts;
     std::vector<int> newNorms;
     newVerts.resize(vertIndexes.size());
     newNorms.resize(normalIndexes.size());
-    for (int i = 0; i < vertIndexes.size(); i++)
-    {
+    for (int i = 0; i < vertIndexes.size(); i++) {
         newVerts[i] = vertIndexes[vertIndexes.size() - i - 1];
     }
-    for (int i = 0; i < normalIndexes.size(); i++)
-    {
+    for (int i = 0; i < normalIndexes.size(); i++) {
         newNorms[i] = normalIndexes[normalIndexes.size() - i - 1];
     }
     addFace(newVerts, newNorms);

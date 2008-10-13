@@ -1,22 +1,23 @@
-#include "TestLoader.h"
 #include <SDL/SDL.h>
+
+#include "app.h"
 
 #include "GUI.h"
 #include "GUIButton.h"
+#include "point.h"
 
 /**
  * Default constructor for test loader
  * creates model to draw and then sets up the camera and such
  */
-TestLoader::TestLoader() {
+App::App() {
     width = 640;
     height = 480;
     init();
 
     //Load up proog so that we can start playing with him
     myMesh = new Mesh();
-    myMesh->loadObj("G:\\Documents\\School\\CS480\\unccs480-snippets\\Samples\\ObjLoader\\cube.obj");
-    //myMesh->loadObj("AndrewsFilePath");
+    myMesh->loadObj("//home//achew22//Desktop//Now//CS480//unccs480-snippets//samples//ObjLoader//proog.obj");
 
     //Set up the functor that will move proog
     angle = new Delta_Functor(
@@ -32,7 +33,16 @@ TestLoader::TestLoader() {
 
     //Define the gui
     GUI * myGUI = new GUI();
-    myGUI->addElement(new GUIButton());
+    myGUI->addElement(new GUIButton(  0,  0, 100,100, Point3(0xFF,0xFF,0xFF), Point3(0xFF,0x00,0x00), "Click me?", App::click));
+    myGUI->addElement(new GUIButton(  0,100, 100,100, Point3(0xFF,0xFF,0xFF), Point3(0xFF,0x66,0x00), "Click me?", &App::click));
+    myGUI->addElement(new GUIButton(  0,200, 100,100, Point3(0xFF,0xFF,0xFF), Point3(0xFF,0xFF,0x00), "Click me?", &App::click));
+    myGUI->addElement(new GUIButton(  0,300, 100,100, Point3(0xFF,0xFF,0xFF), Point3(0xCC,0x00,0x66), "Click me?", &App::click));
+    myGUI->addElement(new GUIButton(  0,400, 100,100, Point3(0xFF,0xFF,0xFF), Point3(0x00,0xFF,0x00), "Click me?", &App::click));
+
+    addGUI("main", myGUI);
+    setActiveGUI("main");
+
+    printf("%d", SDLLoader::getInstance()->getTime());
 
     /**
      * There is a template for a class called DispatchKey (hence why you pass GUI in <>)
@@ -71,11 +81,7 @@ TestLoader::TestLoader() {
 /**
  * Display the information to the user
  */
-void TestLoader::display() {
-
-    //Clear the screen up a little bit before we draw
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+void App::display() {
 
     //Draw the current mesh
     glPushMatrix(); {
@@ -83,7 +89,7 @@ void TestLoader::display() {
         glColor3d(1,1,0);
 
         //Make him big
-        double scaleFactor = 1;
+        double scaleFactor = .5;
         glScaled(scaleFactor, scaleFactor, scaleFactor);
 
         //Move to the center
@@ -91,6 +97,8 @@ void TestLoader::display() {
 
         //Rotate according to the delta functor defined in init
         glRotated(angle->getValue(), 1,1,0);
+        glRotated(angle->getValue(), 0,1,1);
+        glRotated(angle->getValue(), 1,0,1);
 
         //lets rotate so that it/he/she is looking at us
         glRotated(135, 0,0,1);
@@ -98,18 +106,22 @@ void TestLoader::display() {
         //Draw mesh
         if (!myMesh->drawMesh()) {
             //If things go bad we should cry out in pain
-            printf("AHHHHHH PAIN!!!! drawmesh in testloader::display()");
+            printf("AHHHHHH PAIN!!!! drawmesh in App::display()");
         }
     }
     glPopMatrix();
-
-    //Swap the buffers to show what has happened
-    SDL_GL_SwapBuffers();
 }
 
 /**
  * Overloaded idle function. Not strictly necessary, but fun to have anyways!
  */
-void TestLoader::idle() {
+void App::idle() {
 
+}
+
+/**
+ * Click callback on the buttons
+ */
+bool App::click() {
+    printf("We love clicks\r\n");
 }

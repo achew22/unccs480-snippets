@@ -88,6 +88,11 @@ void SDLLoader::dispatchKey( SDL_Event event ) {
         if ((event.key.keysym.sym == SDLK_q) || (event.key.keysym.sym == SDLK_ESCAPE)) {
             quit = 0;
         }
+        if (event.key.keysym.sym == SDLK_f) {
+            // Since we saved the surface its not hard to go to fullscreen!
+            // This doesn't work look into it
+            //SDL_WM_ToggleFullScreen( surface );
+        }
     }
 }
 
@@ -158,10 +163,22 @@ bool SDLLoader::init() {
     //Set the quit variable so that we don't exist when loop is called
     quit = -1;
 
+    /**
+     * This allows for static reachins into the SDLLoader variables like the current time
+     * refereneced in getInstance.
+     * Example: (getting the time since SDL was started)
+     * printf("%d", SDLLoader::getInstance()->getTime());
+     *
+     * Bad example because we overloaded SDLLoader::getTime() but same idea
+     */
     SDLLoader::pinstance = this;
 
     // Initialize SDL with best video mode available and degrade to software rendering if we don't have hardware acceleration
-    SDL_Init(SDL_INIT_VIDEO);
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("There was an error initilizing SDL\r\n");
+        exit(1);
+    }
+
     const SDL_VideoInfo* videoInfo = SDL_GetVideoInfo();
     int vidFlags = SDL_OPENGL;
     if (videoInfo->hw_available) {
@@ -174,7 +191,7 @@ bool SDLLoader::init() {
     SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 ) ;
 
     int bpp = videoInfo->vfmt->BitsPerPixel;
-    SDL_SetVideoMode(width, height, bpp, vidFlags);
+    surface = SDL_SetVideoMode(width, height, bpp, vidFlags);
 
     camera = new Camera(Point3(5,5,5), Point3(0,0,0), Point3(0,0,1));
     camera->setFrustum(-width / height, width / height, -1, 1, 2, 100);
@@ -214,7 +231,16 @@ int SDLLoader::loop() {
         currentTickCount = SDL_GetTicks();
         this->idle();
         camera->update();
+
+        //Clear the screen up a little bit before we draw
+        glClearColor(0.0, 0.0, 0.0, 0.0);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
         this->display();
+        guis[this->activeGUI]->draw();
+        //Swap the buffers to show what has happened
+
+        SDL_GL_SwapBuffers();
     }
     //Program execution is over, time to leave
     SDL_Quit();

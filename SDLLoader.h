@@ -125,6 +125,8 @@ private:
 
     int currentTickCount;
 
+
+    SDL_Surface * surface;
 protected:
     //Make this private soon
     std::vector< int > dispatchableKeys;
