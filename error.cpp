@@ -101,7 +101,11 @@ void Error::debug(std::string theError, ...) {
     char writeBuffer[1024];
     vsprintf(buffer,msg,args);
 
-    sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
+    #ifdef _WIN32
+        sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
+    #elif
+        sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
+    #endif
     printf(writeBuffer);
     Error::getInstance()->writeLine(buffer);
 }

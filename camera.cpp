@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 
 #include "camera.h"
+#include "error.h"
 
 #ifndef PI
 #define PI 3.1415926
@@ -101,17 +102,11 @@ void Camera::update()
 void Camera::spinRightAroundCenter(GLdouble angle) {
     double radius = (eyePosition - lookAtPosition).getMag();
 
-    //The normal vector to the plane in which you want to move
-    Point3 oscNorm = upDirection;
-
     //Set up some basis vectors for the plane in which you want to move
     Point3 basisY = (eyePosition - lookAtPosition).getUnit();
-    Point3 basisX = Point3::cross(basisY, oscNorm).getUnit();
+    Point3 basisX = Point3::cross(basisY, upDirection).getUnit();
 
-    //Translate to the center, to move back when we are done
-    eyePosition = lookAtPosition;
-
-    //Rotate the basis vectors by angle, this is the vector do translat
+    //Rotate the basis vectors by angle, this is the vector to translate
     //to our final destination
     Point3 returnVector = basisX*cos((angle+90)*(PI/180.0)) + basisY*sin((angle+90)*(PI/180.0));
 
@@ -129,7 +124,19 @@ void Camera::spinRightAroundCenter(GLdouble angle) {
  *   angle - the angle in degrees that you wish to spin.
  */
 void Camera::spinUpAroundCenter(GLdouble angle) {
+    double radius = (eyePosition - lookAtPosition).getMag();
 
+    //Set up some basis vectors for the plane in which you want to move
+    Point3 basisY = (eyePosition - lookAtPosition).getUnit();
+    Point3 basisX = Point3::cross(basisY, upDirection).getUnit();
+    Point3 basisZ = Point3::cross(basisX, basisY).getUnit();
+
+    //Rotate the basis vectors by angle, this is the vector to translate
+    //to our final destination
+    Point3 returnVector = basisX*cos((90-angle)*(PI/180.0)) + basisY*sin((90-angle)*(PI/180.0));
+
+    //Translate to the final position
+    eyePosition = lookAtPosition + returnVector.getUnit()*radius;
 }
 
 /**
