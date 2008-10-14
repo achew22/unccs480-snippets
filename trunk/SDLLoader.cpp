@@ -169,6 +169,7 @@ bool SDLLoader::init() {
      * to allow you to see the console values. This should work to make it
      * show up in the console
      */
+     /*
 #ifdef _WIN32
     const char * confile = "CONOUT$";
 
@@ -181,7 +182,7 @@ bool SDLLoader::init() {
     freopen(confile, "w", stderr);
 
 #endif
-
+    */
 
 
     //Init paused variables

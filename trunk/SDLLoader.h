@@ -133,6 +133,9 @@ protected:
     std::vector< int > dispatchableKeys;
     std::vector< int > dispatchableMouses;
 
+    //Our camera
+    Camera * camera;
+
     std::map<std::string, GUI *> guis;
     std::string activeGUI;
     int width;
@@ -164,9 +167,6 @@ public:
     bool setActiveGUI(std::string name);
 
     static int getTime();
-
-    //Our camera
-    Camera * camera;
 
     //The quit int
     int quit;
