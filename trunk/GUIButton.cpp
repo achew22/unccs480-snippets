@@ -23,16 +23,12 @@ void GUIButton::draw() {
 }
 
 bool GUIButton::key(SDL_Event event) {
-    printf("I got a %d that is a/an %c\r\n", event.key.keysym.sym, event.key.keysym.sym);
     return true;
 }
 
 bool GUIButton::mouse(SDL_Event event) {
     int clickX = event.motion.x;
     int clickY = event.motion.y;
-
-    //printf("Range is: (%d to %d, and %d to %d)\r\n", x, x + width, y, y + width);
-    //printf("You're at (     %d,    %d)\r\n", clickX, clickY);
 
     //in the range of the button?
     if ((clickX > x && clickX < (x + width)) && (clickY > y && clickY < (y + height))) {

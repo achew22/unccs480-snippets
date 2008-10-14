@@ -68,6 +68,7 @@ int GUI::addElement(GUIElement * toAdd){
  * Only called by SDLLoader, expects a SDL_Event of type keypress
  */
 bool GUI::key(SDL_Event event) {
+    printf("I got a %d that is a/an %c\r\n", event.key.keysym.sym, event.key.keysym.sym);
     for ( unsigned int dispatchIndex = 0; dispatchIndex < elements.size(); ++dispatchIndex ) {
         if (elements[dispatchIndex]->key(event) == false) {
             return false;

@@ -76,7 +76,7 @@ void Face::addOwnNormals() {
 
         //Now add each of these face normals to the actual stack of normals
         for (int i = 0; i < thisFaceNormals.size(); i++) {
-            printf("Trying to check %i, normalIndex %i\n", i, normalIndex[i]);
+            //printf("Trying to check %i, normalIndex %i\n", i, normalIndex[i]);
             (*normals)[normalIndex[i]] = (*normals)[normalIndex[i]] + thisFaceNormals[i];
         }
     } else {

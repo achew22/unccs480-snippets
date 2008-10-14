@@ -181,11 +181,13 @@ void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexe
     newFace.registerNormals(&(this->normals));
     newFace.registerNormalIndexes(normalIndexes);
     faces.push_back(newFace);
+    /*
     printf("Created a face: ");
     for (int i = 0; i < vertIndexes.size(); i++) {
         printf("%i/%i ", vertIndexes[i], normalIndexes[i]);
     }
     printf("\n");
+    */
 }
 
 void Mesh::addFace(std::vector<int>& vertIndexes) {
