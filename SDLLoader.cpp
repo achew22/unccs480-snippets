@@ -163,6 +163,27 @@ bool SDLLoader::init() {
     //Set the quit variable so that we don't exist when loop is called
     quit = -1;
 
+
+    /**
+     * In windows SDL dumps to a file instead of the console, this is a fix
+     * to allow you to see the console values. This should work to make it
+     * show up in the console
+     */
+#ifdef _WIN32
+    const char * confile = "CONOUT$";
+
+    FreeConsole();
+    if(  !AllocConsole() ){
+        // handle error
+    }
+
+    freopen(confile, "w", stdout);
+    freopen(confile, "w", stderr);
+
+#endif
+
+
+
     //Init paused variables
     paused = false;
     pausedAt = 0;
