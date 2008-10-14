@@ -69,12 +69,12 @@ void Camera::setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble
     frustum[5] = zFar;
 }
 
+/**
+ * This function updates the projection matrix so that it includes the camera at
+ * its current position, direction, etc. Should be called before each frame is rendered.
+ */
 void Camera::update()
 {
-    if ((angleLeftFunct != NULL) && (angleUpFunct != NULL)) {
-        spinAroundCenter(angleUpFunct->getValue(), angleLeftFunct->getValue());
-    }
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glFrustum(frustum[0], frustum[1], frustum[2], frustum[3], frustum[4], frustum[5]);
@@ -96,8 +96,7 @@ void Camera::update()
  * SpinRightAroundCenter moves (as you would
  * expect) to the right, from the perspective of the viewer.
  *
- * Params:
- *   angle - the angle in degrees that you wish to rotate by
+ * @param angle - the angle in degrees that you wish to rotate by
  */
 void Camera::spinRightAroundCenter(GLdouble angle) {
     double radius = (eyePosition - lookAtPosition).getMag();
@@ -120,8 +119,7 @@ void Camera::spinRightAroundCenter(GLdouble angle) {
  * This spins you in the up direction, from the perspective of the
  * viewer.
  *
- * Params:
- *   angle - the angle in degrees that you wish to spin.
+ * @param angle - the angle in degrees that you wish to spin.
  */
 void Camera::spinUpAroundCenter(GLdouble angle) {
     double radius = (eyePosition - lookAtPosition).getMag();
@@ -133,7 +131,10 @@ void Camera::spinUpAroundCenter(GLdouble angle) {
 
     //Rotate the basis vectors by angle, this is the vector to translate
     //to our final destination
-    Point3 returnVector = basisX*cos((90-angle)*(PI/180.0)) + basisY*sin((90-angle)*(PI/180.0));
+    Point3 returnVector = basisY*cos((angle)*(PI/180.0)) + basisZ*sin((angle)*(PI/180.0));
+
+    //Adjust the upDirection
+    upDirection = basisZ;
 
     //Translate to the final position
     eyePosition = lookAtPosition + returnVector.getUnit()*radius;
@@ -146,109 +147,23 @@ void Camera::spinUpAroundCenter(GLdouble angle) {
  * clockwise direction. Really just changing the upDirection
  * vector
  *
- * Params:
- *   angle - the angle in degrees that you wish to spin.
+ * @param angle - The angle in degrees you wish to spin
  */
 void Camera::spinViewAroundCenter(GLdouble angle) {
+    //Set up some basis vectors for the plane in which you want to move
+    Point3 basisY = (eyePosition - lookAtPosition).getUnit();
+    Point3 basisX = Point3::cross(basisY, upDirection).getUnit();
+    Point3 basisZ = Point3::cross(basisX, basisY).getUnit();
 
+    //Adjust the upDirection
+    upDirection = basisX*cos((90+angle)*(PI/180.0)) + basisZ*sin((90+angle)*(PI/180.0));
 }
 
-//Pass in functors to change the progression
-void Camera::spinAroundCenter(Delta_Functor * angleUp, Delta_Functor * angleLeft) {
-    angleUpFunct = angleUp;
-    angleLeftFunct = angleLeft;
-}
-
-//Pass in angles in radians, not degrees
-void Camera::spinAroundCenter(GLdouble angleUp, GLdouble angleLeft)
-{
-    //First, we must translate everything so that what we are looking at lies at the origin
-    Point3 offset = lookAtPosition;
-    eyePosition = eyePosition - offset;
-    lookAtPosition = lookAtPosition - offset;
-
-    double radius = (eyePosition - lookAtPosition).getMag();
-    double phi = acos(eyePosition.z / radius);
-    double theta = atan2(eyePosition.y, eyePosition.x);
-
-    //printf("Phi was %f, theta was %f\n", phi, theta);
-
-    phi -= angleUp;         //Minus because of the traditional definition for polar coordinates
-    if (phi <= 0.010000)    //Slightly more than 0, to avoid getting directly above/below
-    {
-        phi = 0.010000;
-    }
-    else if (phi >= PI - 0.01)   //Slightly less than Pi, to avoid getting directly above/below
-    {
-        phi = PI - 0.01;
-    }
-    theta += angleLeft;
-    if (theta <= -PI)         //This one is fine to be zero
-    {
-        theta += 2*PI;
-    }
-    else if (theta >= PI)
-    {
-        theta -= 2*PI;
-    }
-
-    //printf("Phi is now %f, theta is %f\n", phi, theta);
-
-    //Important note: 0 < phi < Pi and  -pi < theta < pi, (thanks to atan2)
-    eyePosition.x = radius*cos(theta)*sin(phi);
-    eyePosition.y = radius*sin(theta)*sin(phi);
-    eyePosition.z = radius*cos(phi);
-
-    //Now, translate everything back to how it was
-    eyePosition = eyePosition + offset;
-    lookAtPosition = lookAtPosition + offset;
-}
-
-void Camera::spinAroundCamera(GLdouble angleUp, GLdouble angleLeft)
-{
-    //First, we must translate everything so that where we are looking from lies at the origin
-    Point3 offset = eyePosition;
-    eyePosition = eyePosition - offset;
-    lookAtPosition = lookAtPosition - offset;
-
-    //Calculate spherical coordinates around eyePosition
-    double radius = (eyePosition - lookAtPosition).getMag();
-    double phi = acos(lookAtPosition.z / radius);
-    double theta = atan2(lookAtPosition.y, lookAtPosition.x);
-
-    //printf("Phi was %f, theta was %f\n", phi, theta);
-
-    phi -= angleUp;         //Minus because of the traditional definition for polar coordinates
-    if (phi <= 0.010000)    //Slightly more than 0, to avoid getting directly above/below
-    {
-        phi = 0.010000;
-    }
-    else if (phi >= PI - 0.01)   //Slightly less than Pi, to avoid getting directly above/below
-    {
-        phi = PI - 0.01;
-    }
-    theta += angleLeft;
-    if (theta <= -PI)         //This one is fine to be zero
-    {
-        theta += 2*PI;
-    }
-    else if (theta >= PI)
-    {
-        theta -= 2*PI;
-    }
-
-    //printf("Phi is now %f, theta is %f\n", phi, theta);
-
-    //Important note: 0 < phi < Pi and  -pi < theta < pi, (thanks to atan2)
-    lookAtPosition.x = radius*cos(theta)*sin(phi);
-    lookAtPosition.y = radius*sin(theta)*sin(phi);
-    lookAtPosition.z = radius*cos(phi);
-
-    //Now, translate everything back to how it was
-    eyePosition = eyePosition + offset;
-    lookAtPosition = lookAtPosition + offset;
-}
-
+/**
+ * Zoom the camera in or out, depending on value of amount
+ *
+ * @param amount - a number between 0 and infinity. Numbers less than one zoom in, numbers greater than one zoom out
+ */
 void Camera::zoomIn(GLdouble amount)
 {
     eyePosition = eyePosition * amount;

@@ -36,9 +36,6 @@ public:
     void spinUpAroundCenter(GLdouble angle);
     void spinViewAroundCenter(GLdouble angle);
 
-    void spinAroundCenter(GLdouble angleUp, GLdouble angleLeft);
-    void spinAroundCenter(Delta_Functor * angleUp, Delta_Functor * angleLeft);
-    void spinAroundCamera(GLdouble angleUp, GLdouble angleLeft);
     void zoomIn(GLdouble amount);
     void shift(Point3 direction, GLdouble amount);
 };
