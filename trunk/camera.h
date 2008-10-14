@@ -30,6 +30,12 @@ public:
     void setUpDirection(Point3 up);
     void setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
     void update();
+
+    //New motion functions move on surface of sphere around center
+    void spinRightAroundCenter(GLdouble angle);
+    void spinUpAroundCenter(GLdouble angle);
+    void spinViewAroundCenter(GLdouble angle);
+
     void spinAroundCenter(GLdouble angleUp, GLdouble angleLeft);
     void spinAroundCenter(Delta_Functor * angleUp, Delta_Functor * angleLeft);
     void spinAroundCamera(GLdouble angleUp, GLdouble angleLeft);

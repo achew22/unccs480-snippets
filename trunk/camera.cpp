@@ -5,6 +5,10 @@
 
 #include "camera.h"
 
+#ifndef PI
+#define PI 3.1415926
+#endif //PI
+
 Camera::Camera()
 {
     //Set up defaults
@@ -79,6 +83,68 @@ void Camera::update()
     glLoadIdentity();
 }
 
+/*******************Movement***********************
+ * These next three functions handle a nice form of movement in which
+ * the camera moves as though on the surface of a sphere centered at
+ * the lookAtPosition.
+ **************************************************/
+
+/**
+ * Function: spinRightAroundCenter
+ *
+ * SpinRightAroundCenter moves (as you would
+ * expect) to the right, from the perspective of the viewer.
+ *
+ * Params:
+ *   angle - the angle in degrees that you wish to rotate by
+ */
+void Camera::spinRightAroundCenter(GLdouble angle) {
+    double radius = (eyePosition - lookAtPosition).getMag();
+
+    //The normal vector to the plane in which you want to move
+    Point3 oscNorm = upDirection;
+
+    //Set up some basis vectors for the plane in which you want to move
+    Point3 basisY = (eyePosition - lookAtPosition).getUnit();
+    Point3 basisX = Point3::cross(basisY, oscNorm).getUnit();
+
+    //Translate to the center, to move back when we are done
+    eyePosition = lookAtPosition;
+
+    //Rotate the basis vectors by angle, this is the vector do translat
+    //to our final destination
+    Point3 returnVector = basisX*cos((angle+90)*(PI/180.0)) + basisY*sin((angle+90)*(PI/180.0));
+
+    //Translate to the final position
+    eyePosition = lookAtPosition + returnVector.getUnit()*radius;
+}
+
+/**
+ * Function: spinUpAroundCenter
+ *
+ * This spins you in the up direction, from the perspective of the
+ * viewer.
+ *
+ * Params:
+ *   angle - the angle in degrees that you wish to spin.
+ */
+void Camera::spinUpAroundCenter(GLdouble angle) {
+
+}
+
+/**
+ * Function: spinViewAroundCenter
+ *
+ * This rotates the apparent view of the camera in the counter-
+ * clockwise direction. Really just changing the upDirection
+ * vector
+ *
+ * Params:
+ *   angle - the angle in degrees that you wish to spin.
+ */
+void Camera::spinViewAroundCenter(GLdouble angle) {
+
+}
 
 //Pass in functors to change the progression
 void Camera::spinAroundCenter(Delta_Functor * angleUp, Delta_Functor * angleLeft) {
