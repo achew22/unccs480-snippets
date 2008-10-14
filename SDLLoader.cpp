@@ -163,6 +163,14 @@ bool SDLLoader::init() {
     //Set the quit variable so that we don't exist when loop is called
     quit = -1;
 
+    //Init paused variables
+    paused = false;
+    pausedAt = 0;
+    pausedOffset = 0;
+
+    //Set it so that it wont try to do a gui if there is none active
+    activeGUI = "none";
+
     /**
      * This allows for static reachins into the SDLLoader variables like the current time
      * refereneced in getInstance.
@@ -250,7 +258,9 @@ int SDLLoader::loop() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         this->display();
-        guis[this->activeGUI]->draw();
+        if (this->activeGUI != "none") {
+            guis[this->activeGUI]->draw();
+        }
         //Swap the buffers to show what has happened
 
         SDL_GL_SwapBuffers();
@@ -265,14 +275,6 @@ void SDLLoader::display(){}
 
 //Virtual overloadable function to allow is to have static components
 void SDLLoader::idle(){}
-
-
-/**
- * Return the current time according to the precached time(reset near idle function)
- */
-extern int SDLLoader::getTime() {
-    return SDLLoader::getInstance()->currentTickCount;
-}
 
 /**
  * Add a GUI to the vector of GUIs that is available in the private section of this class
@@ -311,4 +313,38 @@ void SDLLoader::addKeyPressHandler(int pointerToKeyPressHandlerToAdd) {
  */
 void SDLLoader::addMouseHandler(int pointerToMouseHandlerToAdd) {
     dispatchableMouses.push_back(pointerToMouseHandlerToAdd);
+}
+
+
+/**
+ * Return the current time according to the precached time(reset near idle function)
+ */
+extern int SDLLoader::getTime() {
+    SDLLoader * instance = SDLLoader::getInstance();
+    if (instance->paused) {
+        return instance->pausedAt;
+    }
+    return instance->currentTickCount - instance->pausedOffset;
+}
+
+/**
+ * Pause the game
+ */
+bool SDLLoader::pause() {
+    SDLLoader * instance = SDLLoader::getInstance();
+    if (!instance->paused) {
+        instance->pausedAt = SDLLoader::getTime();
+        instance->paused = true;
+    }
+}
+
+/**
+ * Resume the game
+ */
+bool SDLLoader::resume() {
+    SDLLoader * instance = SDLLoader::getInstance();
+    if (instance->paused) {
+        instance->pausedOffset = SDL_GetTicks() - instance->pausedAt;
+        instance->paused = false;
+    }
 }

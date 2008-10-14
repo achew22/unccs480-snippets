@@ -147,6 +147,10 @@ protected:
     virtual void display();
     virtual void idle();
 
+    int pausedOffset;
+    int pausedAt;
+    bool paused;
+
 public:
     SDLLoader(int setWidth, int setHeight);
     SDLLoader();
@@ -171,6 +175,9 @@ public:
 
     static SDLLoader * pinstance;
     static SDLLoader * getInstance();
+
+    static bool pause();
+    static bool resume();
 };
 
 #endif // SDLLOADER_H_INCLUDED
