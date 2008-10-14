@@ -8,6 +8,7 @@
 
 #include "camera.h"
 #include "GUI.h"
+#include "error.h"
 
 class glLightingStruct {
 public:
