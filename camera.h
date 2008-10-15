@@ -14,12 +14,12 @@
 class Camera
 {
 private:
-    Point3 eyePosition;
-    Point3 lookAtPosition;
-    Point3 upDirection;
+    Point3 eyePosition; ///<the position of the camera
+    Point3 lookAtPosition; ///<the location that the camera is looking at
+    Point3 upDirection; ///<the direction which is 'up', with reference to the camera
 
-    Delta_Functor * angleUpFunct;
-    Delta_Functor * angleLeftFunct;
+    Delta_Functor * angleUpFunct; ///<deprecated, do not use
+    Delta_Functor * angleLeftFunct; ///<deprecated, do not use
 
     GLdouble frustum [6];
 public:
