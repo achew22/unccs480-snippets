@@ -10,8 +10,7 @@
 #define PI 3.1415926
 #endif //PI
 
-/** The default constructor for the camera class.
- *
+/**
  * By default the following are set:
  * - eyePosition = <0, 0, 1>,
  * - lookAtPosition = <0, 0, 0>,
@@ -36,8 +35,7 @@ Camera::Camera() {
     angleLeftFunct = angleUpFunct = NULL;
 }
 
-/** A constructor for the camera class.
- *
+/**
  * Sets up frustum as the default:
  * frustum[] = {-1, 1, -1, 1, 2, 100}.
  * To change it, use setFrustum()
@@ -67,8 +65,7 @@ Camera::Camera(Point3 pos, Point3 lookAt, Point3 up) {
     angleLeftFunct = angleUpFunct = NULL;
 }
 
-/** Set the position of the camera.
- *
+/**
  * @param pos is the position that you wish to set the camera at.
  * @see eyePosition
  */
@@ -76,8 +73,7 @@ void Camera::setEyePosition(Point3 pos) {
     eyePosition = pos;
 }
 
-/** Set the position of the camera.
- *
+/**
  * @param posx is the x coordinate of the position that you wish to set the camera at.
  * @param posy is the y coordinate of the position that you wish to set the camera at.
  * @param posz is the z coordinate of the position that you wish to set the camera at.
@@ -87,8 +83,7 @@ void Camera::setEyePosition(double posx, double posy, double posz) {
     eyePosition = Point3(posx, posy, posz);
 }
 
-/** Set the location that the camera is looking at.
- *
+/**
  * @param lookAt is the location that you wish to set the camera looking at
  * @see lookAtPosition
  */
@@ -96,8 +91,7 @@ void Camera::setLookAtPosition(Point3 lookAt) {
     lookAtPosition = lookAt;
 }
 
-/** Set the location that the camera is looking at.
- *
+/**
  * @param lookAtx is the x coordinate of the location that you wish to set the camera looking at
  * @param lookAty is the y coordinate of the location that you wish to set the camera looking at
  * @param lookAtz is the z coordinate of the location that you wish to set the camera looking at
@@ -107,8 +101,7 @@ void Camera::setLookAtPosition(double lookAtx, double lookAty, double lookAtz) {
     lookAtPosition = Point3(lookAtx, lookAty, lookAtz);
 }
 
-/** Set the direction which is 'up', with reference to the camera.
- *
+/**
  * @param up is the direction vector which is 'up', with reference to the camera
  * @see upDirection
  */
@@ -116,8 +109,7 @@ void Camera::setUpDirection(Point3 up) {
     upDirection = up;
 }
 
-/** Set the direction which is 'up', with reference to the camera.
- *
+/**
  * @param upx is the x coordinate of the direction vector which is 'up', with reference to the camera
  * @param upy is the y coordinate of the direction vector which is 'up', with reference to the camera
  * @param upz is the z coordinate of the direction vector which is 'up', with reference to the camera
@@ -127,8 +119,7 @@ void Camera::setUpDirection(double upx, double upy, double upz) {
     upDirection = Point3(upx, upy, upz);
 }
 
-/** Set the viewing frustum.
- *
+/**
  * A recommended call would be as follows (width/height are the width and height of the window):
  *
  * myCamera->setFrustum(-width/height, width/height, -1, 1, 2, 100);
@@ -150,8 +141,7 @@ void Camera::setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble
     frustum[5] = zFar;
 }
 
-/** Update the camera.
- *
+/**
  * This function updates the projection matrix so that it includes the camera at
  * its current position, direction, etc. Should be called before each frame is rendered.
  */
@@ -171,8 +161,7 @@ void Camera::update() {
  * the lookAtPosition.
  **************************************************/
 
-/** Spin right or left.
- *
+/**
  * SpinRightAroundCenter moves (as you would
  * expect) to the right, from the perspective of the viewer, a
  * though the camera were on the surface of a sphere centered at
@@ -207,8 +196,7 @@ void Camera::spinRightAroundCenter(GLdouble angle) {
     eyePosition = lookAtPosition + returnVector.getUnit()*radius;
 }
 
-/** Spin up or down.
- *
+/**
  * This spins you in the up direction, from the perspective of the
  * viewer, as though on the surface of a sphere centered at lookAtPosition.
  * This function will not change lookAtPosition, but will adjust both
@@ -246,8 +234,7 @@ void Camera::spinUpAroundCenter(GLdouble angle) {
     eyePosition = lookAtPosition + returnVector.getUnit()*radius;
 }
 
-/** Rotates the camera.
- *
+/**
  * This rotates the apparent view of the camera in the counter-
  * clockwise direction. Really just changing the upDirection
  * vector, makes no changes to lookAtPosition or eyePosition.
@@ -275,8 +262,7 @@ void Camera::spinViewAroundCenter(GLdouble angle) {
     upDirection = basisX*cos((90+angle)*(PI/180.0)) + basisZ*sin((90+angle)*(PI/180.0));
 }
 
-/** Zoom in/out.
- *
+/**
  * Zoom the camera in or out, depending on value of amount.
  * Values less than one will zoom in, values greater than one
  * will zoom out. Reciprocals will zoom in/out equal amounts,
@@ -291,8 +277,7 @@ void Camera::zoomIn(GLdouble amount) {
     eyePosition = eyePosition * amount;
 }
 
-/** Shift the camera.
- *
+/**
  * Shift the camera in some direction by some amount. Does not
  * change the direction that you are looking, or the upDirection.
  * Will, however, change eyePosition and lookAtPosition.

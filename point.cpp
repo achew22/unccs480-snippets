@@ -6,7 +6,9 @@
 
 #include "point.h"
 
-//Default constructor
+/**
+ * All coordinates default to zero.
+ */
 Point3::Point3()
 {
     x = 0;
@@ -16,7 +18,11 @@ Point3::Point3()
 	loadError = false;
 }
 
-//Construct from another point
+/**
+ * Standard constructor from an existing Point3.
+ *
+ * @param point is the point that the created point will be equal to.
+ */
 Point3::Point3(const Point3& point)
 {
     x = point.x;
@@ -26,7 +32,14 @@ Point3::Point3(const Point3& point)
 	loadError = false;
 }
 
-//Construct from coordinates
+/**
+ * Standard constructor which is used most often. Pass in the
+ * coordinates of the point to construct.
+ *
+ * @param inx is the x coordinate of the point to construct.
+ * @param iny is the y coordinate of the point to construct.
+ * @param inz is the z coordinate of the point to construct.
+ */
 Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
 {
     x = inx;
@@ -36,8 +49,18 @@ Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)
 	loadError = false;
 }
 
-//Construct from string of form "x,y,z" where they are seperated by commas
-//or from the form in .obj files, which is "v 2.322 35.6 22.334"
+/**
+ * This constructor is only used in the Mesh class.
+ *
+ * It takes in a string of a specific type, usually the type that
+ * is given in standard .obj files. This string is of the form
+ * "v* n1 n2 n3", where '*' is a character (or nothing), and n1, n2,
+ * and n3 are all doulbles. If pointStr is not of the proper format,
+ * then it throws an error to the error class and sets loadError
+ * to true, then uses the default constructor.
+ *
+ * @param pointStr is the string to turn into a point.
+ */
 Point3::Point3(std::string pointStr)
 {
     if (pointStr.find_first_of(',') != std::string::npos) {    //This means that it is a comma delimeted type
@@ -87,37 +110,70 @@ Point3::Point3(std::string pointStr)
     }
 }
 
-//If there was an error in loading the Point (specifically when you load from a string), this will return true. Otherwise false
+/**
+ * If there was an error loading the point, as could occur when you load it
+ * from a string.
+ *
+ * @return If there was a load error, returns true. Else returns false.
+ */
 bool Point3::getLoadError()
 {
 	return loadError;
 }
 
-//Add two points/vectors
+/**
+ * This function does not edit the value of *this.
+ *
+ * @param toadd is the vector to be added to this one.
+ * @return returns the sum of these two vectors.
+ */
 Point3 Point3::operator +(const Point3& toadd)
 {
     return Point3(x + toadd.x, y + toadd.y, z + toadd.z);
 }
 
-//Subtract two points/vectors
+/**
+ * This function does not edit the value of *this.
+ *
+ * @param tosub is the vector to be subtracted from this one.
+ * @return returns the difference of these two vectors.
+ */
 Point3 Point3::operator -(const Point3& tosub)
 {
     return Point3(x - tosub.x, y - tosub.y, z - tosub.z);
 }
 
-//Multiply a vector by a constant
+/**
+ * This function does not edit the value of *this.
+ *
+ * @param tomult is the scalar to multiply this vector by.
+ * @return returns the scalar product of this and tomult.
+ */
 Point3 Point3::operator *(const double& tomult)
 {
     return Point3(x * tomult, y * tomult, z * tomult);
 }
 
-//Dot two vectors
+/**
+ * The dot product is calculated as the traditional dot
+ * product of two vectors in three-dimensional space.
+ *
+ * This function does not edit the value of *this.
+ *
+ * @param todot is the vector to be dotted with this one.
+ * @return returns the dot product of these two vectors.
+ */
 double Point3::operator *(const Point3& todot)
 {
 	return x*todot.x + y*todot.y + z*todot.z;
 }
 
-//Divide by a constant
+/**
+ * This function does not edit the value of *this.
+ *
+ * @param todiv is the scalar to divide this vector by (cannot be zero).
+ * @return returns the scalar product of this vector and the reciprocal of todiv.
+ */
 Point3 Point3::operator /(const double& todiv)
 {
     if (todiv == 0)
@@ -127,7 +183,10 @@ Point3 Point3::operator /(const double& todiv)
     return Point3(x / todiv, y / todiv, z / todiv);
 }
 
-//Set a point equal to another point
+/**
+ * @param toequal is the vector which this one should be set equal to.
+ * @return returns this vector after it is reassigned.
+ */
 Point3 Point3::operator =(Point3 toequal)
 {
     x = toequal.x;
@@ -136,55 +195,120 @@ Point3 Point3::operator =(Point3 toequal)
     return toequal;
 }
 
-//Determine if two points are equal
+/**
+ * This function does not edit the value of *this.
+ *
+ * @param toequal is the vector to compare to this one.
+ * @return returns true if the toEqual and this vector are the same, false otherwise.
+ */
 bool Point3::operator ==(Point3 toequal)
 {
     return (x == toequal.x && y == toequal.y && z == toequal.z);
 }
 
-//Dot two vectors and return the dot product
+/**
+ * The dot product is calculated as the traditional dot
+ * product of two vectors in three-dimensional space.
+ *
+ * This function does not edit the value of *this.
+ *
+ * @param todot is the vector to be dotted with this one.
+ * @return returns the dot product of these two vectors.
+ */
 double Point3::dot(const Point3& todot)
 {
     return x*todot.x + y*todot.y + z*todot.z;
 }
 
-//Return the cross product of two vectors
+/**
+ * The cross product is calculated as the traditional cross
+ * product of two vectors in three-dimensional space. One
+ * possible application for this is that the cross product
+ * of two vectors which are not parallel is a vector perpendicular
+ * to both of the originals, oriented using the right-hand-rule.
+ * Note that for cross products, the order in which two vectors are
+ * crossed can affect the result.
+ *
+ * This function does not edit the value of *this.
+ *
+ * @param tocross is the vector to be crossed with this one.
+ * @return returns the cross product of these two vectors.
+ */
 Point3 Point3::cross(const Point3& tocross)
 {
     return Point3((y*tocross.z - z*tocross.y), -(x*tocross.z - z*tocross.x), (x*tocross.y - y*tocross.x));
 }
 
-//Dot two vectors
+/**
+ * The dot product is calculated as the traditional dot
+ * product of two vectors in three-dimensional space. This function
+ * is static because it is usually clearer to use
+ * Point3::dot(a,b) than to use a.dot(b).
+ *
+ * @param a is the first vector to be dotted.
+ * @param b is the second vector to be dotted.
+ * @return returns the dot product of a and b.
+ */
 extern double Point3::dot(const Point3& a, const Point3& b)
 {
 	return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
-//Cross two vectors
+/**
+ * The cross product is calculated as the traditional cross
+ * product of two vectors in three-dimensional space. One
+ * possible application for this is that the cross product
+ * of two vectors which are not parallel is a vector perpendicular
+ * to both of the originals, oriented using the right-hand-rule.
+ * Note that for cross products, the order in which two vectors are
+ * crossed can affect the result.
+ *
+ * @param a is the first vector to be crossed.
+ * @param b is the second vector to be crossed.
+ * @return returns the cross product a x b.
+ */
 extern Point3 Point3::cross(const Point3& a, const Point3& b)
 {
 	return Point3((a.y*b.z - a.z*b.y), -(a.x*b.z - a.z*b.x), (a.x*b.y - a.y*b.x));
 }
 
-//Get the magnitude of a given vector
+/**
+ * This function does not edit the value of *this.
+ *
+ * @return returns the magnitude of this vector.
+ */
 double Point3::getMag()
 {
     return sqrt(x*x + y*y + z*z);
 }
 
-//Return the unit version of this vector
+/**
+ * This function does not edit the value of *this.
+ *
+ * @return returns a unit vector in the direction of *this.
+ */
 Point3 Point3::getUnit()
 {
     return *this/getMag();
 }
 
-//Perform a glVertex3d call
+/**
+ * Simply a nice interface so that one can store vertices of
+ * an OpenGL polygon or mesh in Point3 classes. Use this
+ * function in order to perform a glVertex3d() call with
+ * the coordinates of this point as the arguments.
+ */
 void Point3::doVertex()
 {
     glVertex3d(x,y,z);
 }
 
-//Perform a glNormal3d call
+/**
+ * Simply a nice interface so that one can store normals of
+ * an OpenGL polygon or mesh in Point3 classes. Use this
+ * function in order to perform a glNormal3d() call with
+ * the coordinates of this point as the arguments.
+ */
 void Point3::doNormal() {
     glNormal3d(x,y,z);
 }
