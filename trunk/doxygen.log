@@ -1,0 +1,2 @@
+Warning: source /home/achew22/Desktop/Now/CS480/unccs480-snippets is not a readable file or directory... skipping.
+Problems running dot: exit code=127, command='dot', arguments='"graph_legend.dot" -Tpng:gd -o "graph_legend.png"'

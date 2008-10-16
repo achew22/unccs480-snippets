@@ -4,38 +4,43 @@
 #include <string>
 #include <GL/gl.h>
 
-//A struct with a point in three dimensions. Allows you to peform such
-//things as dot product, cross product, addition, scalar multiplication,
-//and use DoVertex() to make a glVertex call.
+/** A three-dimensional point.
+ *
+ * This class can be used to interchangeably represent either a point in
+ * three-dimensional space or a vector in three-dimensional space. It
+ * includes many of the functions that one would expect for such things,
+ * including addition, subtraction, scalar multiplication, dot product,
+ * cross product, unit vector calculation, and magnitude calculation.
+ */
 class Point3
 {
 private:
-	bool loadError;
+	bool loadError; ///< True if there is a loading error.
 public:
-    GLdouble x;
-    GLdouble y;
-    GLdouble z;
+    GLdouble x; ///< The x coordinate
+    GLdouble y; ///< The y coordinate
+    GLdouble z; ///< The z coordinate
 
-    Point3();
-    Point3(const Point3& point);
-    Point3(GLdouble inx, GLdouble iny, GLdouble inz);
-    Point3(std::string pointStr); //Format "x,y,z" with/without spaces or "v 2.3 35 20.3"
-	bool getLoadError();
-    Point3 operator +(const Point3& toadd);
-    Point3 operator -(const Point3& tosub);
-    Point3 operator *(const double& tomult);
-	double operator *(const Point3& todot);
-    Point3 operator /(const double& todiv);
-    Point3 operator =(Point3 toequal);
-    bool operator ==(Point3 toequal);
-    double dot(const Point3& todot);
-    Point3 cross(const Point3& tocross);
-	static double dot(const Point3& a, const Point3& b);
-	static Point3 cross(const Point3& a, const Point3& b);
-    double getMag();
-    Point3 getUnit();
-    void doVertex();
-    void doNormal();
+    Point3();   ///< Default constructor.
+    Point3(const Point3& point);    ///< Another constructor.
+    Point3(GLdouble inx, GLdouble iny, GLdouble inz);   ///< Usual constructor.
+    Point3(std::string pointStr); ///< Special constructor.
+	bool getLoadError();    ///< Find out if there was a construction error.
+    Point3 operator +(const Point3& toadd); ///< Add two points as vectors.
+    Point3 operator -(const Point3& tosub); ///< Subtract two points as vectors.
+    Point3 operator *(const double& tomult);    ///< Multiply a vector by a scalar.
+	double operator *(const Point3& todot); ///< Dot two vectors.
+    Point3 operator /(const double& todiv); ///< Divide a vector by a scalar.
+    Point3 operator =(Point3 toequal);  ///< Assign the value of a vector to this one.
+    bool operator ==(Point3 toequal);   ///< Determine if two vectors are equal.
+    double dot(const Point3& todot);    ///< Dot this vector with another.
+    Point3 cross(const Point3& tocross);    ///< Cross this vector with another.
+	static double dot(const Point3& a, const Point3& b);    ///< Static function to dot two vectors.
+	static Point3 cross(const Point3& a, const Point3& b);  ///< Static function to cross two vectors.
+    double getMag();    ///< Get the magnitude of this vector.
+    Point3 getUnit();   ///< Get a unit vector pointing in the direction of this vector.
+    void doVertex();    ///< Perform a glVertex3d() call.
+    void doNormal();    ///< Perform a glNormal3d() call.
 };
 
 #endif //POINT_H
