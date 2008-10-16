@@ -4,7 +4,7 @@
 <area shape="rect" href="$DeltaFunctor_8cpp.html" title="DeltaFunctor.cpp" alt="" coords="5,156,125,180">
 <area shape="rect" href="$GUI_8cpp.html" title="GUI.cpp" alt="" coords="149,156,219,180">
 <area shape="rect" href="$GUIButton_8cpp.html" title="GUIButton.cpp" alt="" coords="243,156,349,180">
-<area shape="rect" href="$app_8h.html" title="samples/SDLLoader/app.h" alt="" coords="373,156,547,180">
-<area shape="rect" href="$SDLLoader_8cpp.html" title="SDLLoader.cpp" alt="" coords="571,156,680,180">
-<area shape="rect" href="$app_8cpp.html" title="samples/SDLLoader/app.cpp" alt="" coords="259,230,445,254">
-<area shape="rect" href="$SDLLoader_2main_8cpp.html" title="samples/SDLLoader/main.cpp" alt="" coords="469,230,664,254">
+<area shape="rect" href="$app_8h.html" title="sample/app.h" alt="" coords="373,156,472,180">
+<area shape="rect" href="$SDLLoader_8cpp.html" title="SDLLoader.cpp" alt="" coords="496,156,605,180">
+<area shape="rect" href="$app_8cpp.html" title="sample/app.cpp" alt="" coords="367,231,479,255">
+<area shape="rect" href="$main_8cpp.html" title="sample/main.cpp" alt="" coords="363,305,483,329">

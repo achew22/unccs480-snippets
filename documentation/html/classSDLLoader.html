@@ -160,8 +160,8 @@ Collaboration diagram for SDLLoader:</div>
 Non default constructor for <a class="el" href="classSDLLoader.html">SDLLoader</a>, allows height/width definition This probably shouldn't exist since it is always overloaded but exists for the sake of remembing how we were once<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>setWidth width of the window to be created </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>setHeight height of the window to be created </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>setWidth</em>&nbsp;</td><td>width of the window to be created </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>setHeight</em>&nbsp;</td><td>height of the window to be created </td></tr>
   </table>
 </dl>
 
@@ -251,7 +251,7 @@ Destructor to make sure SDL quits properly
 Dispatch key presses to the vector of listening objects<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>SDL_Event</em>&nbsp;</td><td>event the SDL_event that triggered this call </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>event</em>&nbsp;</td><td>the SDL_event that triggered this call </td></tr>
   </table>
 </dl>
 
@@ -308,7 +308,7 @@ Fullscreen -on f?
 Very similar to the key press dispatcher, only this dispatches mouse events<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>SDL_Event</em>&nbsp;</td><td>event the SDL_event that triggered this call </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>event</em>&nbsp;</td><td>the SDL_event that triggered this call </td></tr>
   </table>
 </dl>
 
@@ -445,7 +445,7 @@ Bad example because we overloaded <a class="el" href="classSDLLoader.html#4b2c7d
 Add a key press handler to the <a class="el" href="classSDLLoader.html">SDLLoader</a> dispatcher<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>pointerToKeyPressHandlerToAdd typecasted (to int) pointer to key press handler to add </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pointerToKeyPressHandlerToAdd</em>&nbsp;</td><td>typecasted (to int) pointer to key press handler to add </td></tr>
   </table>
 </dl>
 
@@ -478,7 +478,7 @@ Add a key press handler to the <a class="el" href="classSDLLoader.html">SDLLoade
 Add a mouse handler to the <a class="el" href="classSDLLoader.html">SDLLoader</a> dispatcher<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>pointerToMouseHandlerToAdd typecasted (to int) pointer to mouse handler to add </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pointerToMouseHandlerToAdd</em>&nbsp;</td><td>typecasted (to int) pointer to mouse handler to add </td></tr>
   </table>
 </dl>
 
@@ -563,7 +563,7 @@ Add a mouse handler to the <a class="el" href="classSDLLoader.html">SDLLoader</a
 Enable and configure a light in the current world<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="classglLightingStruct.html">glLightingStruct</a></em>&nbsp;</td><td>* myLight class containing all the light variables </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>myLight</em>&nbsp;</td><td>class containing all the light variables </td></tr>
   </table>
 </dl>
 
@@ -643,8 +643,8 @@ Enable lighting in GL, call in conjunction with enableLight (which sets up a lig
 Add a <a class="el" href="classGUI.html">GUI</a> to the vector of GUIs that is available in the private section of this class<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>std::string</em>&nbsp;</td><td>name of the <a class="el" href="classGUI.html">GUI</a> for later reference </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="classGUI.html">GUI</a></em>&nbsp;</td><td>* <a class="el" href="classGUI.html">GUI</a> to be added to the stack </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>of the <a class="el" href="classGUI.html">GUI</a> for later reference </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>toAdd</em>&nbsp;</td><td>to be added to the stack </td></tr>
   </table>
 </dl>
 
@@ -678,7 +678,7 @@ Add a <a class="el" href="classGUI.html">GUI</a> to the vector of GUIs that is a
 Change the active <a class="el" href="classGUI.html">GUI</a><p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>std::string</em>&nbsp;</td><td>name The string representing the <a class="el" href="classGUI.html">GUI</a> to be made active </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>The string representing the <a class="el" href="classGUI.html">GUI</a> to be made active </td></tr>
   </table>
 </dl>
 
@@ -1121,7 +1121,7 @@ Resume the game
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a><li><a class="el" href="SDLLoader_8cpp-source.html">SDLLoader.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

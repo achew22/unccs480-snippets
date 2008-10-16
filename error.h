@@ -6,10 +6,10 @@
 
 class Error {
 public:
-    static Error * pinstance;
+    static Error * pinstance; ///Hold the instance
     static Error * getInstance();
 
-    int level;
+    int level; ///Holds the current log level
 
     Error();
 
