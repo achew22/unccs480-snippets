@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
 </div>
@@ -19,7 +29,7 @@
 <code>#include &lt;GL/glu.h&gt;</code><br>
 <code>#include &lt;SDL/SDL.h&gt;</code><br>
 <code>#include &lt;stdio.h&gt;</code><br>
-<code>#include &quot;<a class="el" href="app_8h.html">app.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="app_8h-source.html">app.h</a>&quot;</code><br>
 
 <p>
 <div class="dynheader">
@@ -29,7 +39,9 @@ Include dependency graph for main.cpp:</div>
 <map name="samples/SDLLoader/main.cpp_map">
 <area shape="rect" href="app_8h.html" title="app.h" alt="" coords="624,82,677,106"><area shape="rect" href="SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="625,156,721,180"><area shape="rect" href="mesh_8h.html" title="mesh.h" alt="" coords="296,156,360,180"><area shape="rect" href="camera_8h.html" title="camera.h" alt="" coords="283,231,357,255"><area shape="rect" href="GUI_8h.html" title="GUI.h" alt="" coords="645,231,701,255"><area shape="rect" href="error_8h.html" title="error.h" alt="" coords="725,231,781,255"><area shape="rect" href="point_8h.html" title="point.h" alt="" coords="232,306,291,330"><area shape="rect" href="DeltaFunctor_8h.html" title="DeltaFunctor.h" alt="" coords="315,306,419,330"><area shape="rect" href="GUIElement_8h.html" title="GUIElement.h" alt="" coords="605,306,709,330"><area shape="rect" href="face_8h.html" title="face.h" alt="" coords="381,231,437,255"></map>
 </div>
-<table border="0" cellpadding="0" cellspacing="0">
+
+<p>
+<a href="SDLLoader_2main_8cpp-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDLLoader_2main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
@@ -68,6 +80,15 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_2main_8cpp-source.html#l00012">12</a> of file <a class="el" href="SDLLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00012"></a>00012                                  {
+<a name="l00013"></a>00013     <a class="code" href="classApp.html">App</a> * myApp = <span class="keyword">new</span> <a class="code" href="classApp.html">App</a>();
+<a name="l00014"></a>00014     <span class="keywordflow">return</span> myApp-&gt;<a class="code" href="classSDLLoader.html#076cc0e3de5d6c2d5efba5774baa3d60">loop</a>();
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Variable Documentation</h2>
@@ -84,6 +105,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_2main_8cpp-source.html#l00009">9</a> of file <a class="el" href="SDLLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="39a2fe953af0d179b5a76a26458ce57e"></a><!-- doxytag: member="main.cpp::window_width" ref="39a2fe953af0d179b5a76a26458ce57e" args="" -->
@@ -99,10 +122,12 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_2main_8cpp-source.html#l00008">8</a> of file <a class="el" href="SDLLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

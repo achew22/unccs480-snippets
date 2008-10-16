@@ -49,7 +49,7 @@ void Error::error(std::string theError, ...) {
 
     #ifdef _WIN32
         sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
-    #elif
+    #else
         sprintf(writeBuffer, "%s: \033[41;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
     #endif
     printf(writeBuffer);
@@ -71,7 +71,7 @@ void Error::warn(std::string theError, ...) {
 
     #ifdef _WIN32
         sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
-    #elif
+    #else
         sprintf(writeBuffer, "%s: \033[43;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
     #endif
     printf(writeBuffer);
@@ -93,7 +93,7 @@ void Error::log(std::string theError, ...) {
 
     #ifdef _WIN32
         sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
-    #elif
+    #else
         sprintf(writeBuffer, "%s: \033[34;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
     #endif
     printf(writeBuffer);
@@ -115,7 +115,7 @@ void Error::debug(std::string theError, ...) {
 
     #ifdef _WIN32
         sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
-    #elif
+    #else
         sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
     #endif
     printf(writeBuffer);

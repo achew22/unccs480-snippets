@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>StopFunctor Class Reference</h1><!-- doxytag: class="StopFunctor" --><code>#include &lt;stopFunctor.h&gt;</code>
+<h1>StopFunctor Class Reference</h1><!-- doxytag: class="StopFunctor" --><code>#include &lt;<a class="el" href="stopFunctor_8h-source.html">stopFunctor.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Collaboration diagram for StopFunctor:</div>
@@ -80,6 +90,9 @@ Collaboration diagram for StopFunctor:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a></td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+
+<p>Definition at line <a class="el" href="stopFunctor_8h-source.html#l00006">6</a> of file <a class="el" href="stopFunctor_8h-source.html">stopFunctor.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="a6b9eea89ffe5cb6a069f964875750b1"></a><!-- doxytag: member="StopFunctor::StopFunctor" ref="a6b9eea89ffe5cb6a069f964875750b1" args="()" -->
 <div class="memitem">
@@ -96,6 +109,14 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00010">10</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     <a class="code" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a> = 0;
+<a name="l00013"></a>00013     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a> = <span class="keyword">new</span> <a class="code" href="classDelta__Functor.html">Delta_Functor</a>();
+<a name="l00014"></a>00014 }
+</pre></div>
 <p>
 
 </div>
@@ -145,6 +166,14 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00019">19</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     <a class="code" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a> = 0;
+<a name="l00022"></a>00022     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a> = <span class="keyword">new</span> <a class="code" href="classDelta__Functor.html">Delta_Functor</a>(startTime, endTime, startValue, endValue, exp);
+<a name="l00023"></a>00023 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
@@ -186,6 +215,14 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00048">48</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {
+<a name="l00050"></a>00050     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a> = toEqual.<a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>;
+<a name="l00051"></a>00051     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00052"></a>00052 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="8e08589721e1d3d9581dcc96ddf1e1b9"></a><!-- doxytag: member="StopFunctor::addFunctor" ref="8e08589721e1d3d9581dcc96ddf1e1b9" args="(const Delta_Functor toAdd)" -->
@@ -204,6 +241,14 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00026">26</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00027"></a>00027 {
+<a name="l00028"></a>00028     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#1b2eba64f12bba1901709ea4384783e4">addFunctor</a>(toAdd);
+<a name="l00029"></a>00029     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00030"></a>00030 }
+</pre></div>
 <p>
 
 </div>
@@ -226,6 +271,13 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00039">39</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00039"></a>00039                                                               {
+<a name="l00040"></a>00040     <span class="keywordflow">return</span> <a class="code" href="classStopFunctor.html#8e08589721e1d3d9581dcc96ddf1e1b9">addFunctor</a>(toAdd);
+<a name="l00041"></a>00041 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="de92df4717dda6dbc1d4a128e87b3247"></a><!-- doxytag: member="StopFunctor::addFunctor" ref="de92df4717dda6dbc1d4a128e87b3247" args="(const StopFunctor toAdd)" -->
@@ -244,6 +296,14 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00033">33</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00034"></a>00034 {
+<a name="l00035"></a>00035     <span class="comment">//functor-&gt;addFunctor(toAdd-&gt;functor);</span>
+<a name="l00036"></a>00036     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00037"></a>00037 }
+</pre></div>
 <p>
 
 </div>
@@ -266,6 +326,13 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00043">43</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                                            {
+<a name="l00044"></a>00044     <span class="keywordflow">return</span> <a class="code" href="classStopFunctor.html#8e08589721e1d3d9581dcc96ddf1e1b9">addFunctor</a>( *(toAdd.<a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>));
+<a name="l00045"></a>00045 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="a13e75f8e235b941caa6cdc4ecb6906d"></a><!-- doxytag: member="StopFunctor::getValue" ref="a13e75f8e235b941caa6cdc4ecb6906d" args="()" -->
@@ -285,6 +352,20 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00111">111</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00112"></a>00112 {
+<a name="l00113"></a>00113     <span class="keywordflow">if</span> (<a class="code" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a>) {
+<a name="l00114"></a>00114         <span class="keywordflow">return</span> <a class="code" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a>;
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116     <span class="keywordflow">if</span> (<a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#d7ff83563d2d7072dd3904f9c07b6c6c">isComplete</a>()) {
+<a name="l00117"></a>00117         <a class="code" href="classStopFunctor.html#c990360a3032e85d31dda63e6e83b480">cacheValue</a> = <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#0a2b9abb036b2980536dba724c01df66">getValue</a>();
+<a name="l00118"></a>00118         <span class="comment">//printf("%d", &amp;(functor));</span>
+<a name="l00119"></a>00119     }
+<a name="l00120"></a>00120     <span class="keywordflow">return</span> <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#0a2b9abb036b2980536dba724c01df66">getValue</a>();
+<a name="l00121"></a>00121 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="23f4b0944ed1e15ac28aacea193e9808"></a><!-- doxytag: member="StopFunctor::reverse" ref="23f4b0944ed1e15ac28aacea193e9808" args="()" -->
@@ -302,6 +383,13 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00106">106</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00106"></a>00106                           {
+<a name="l00107"></a>00107     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#c44505ef91d7e4f098cb8430a9db987e">reverse</a>();
+<a name="l00108"></a>00108 }
+</pre></div>
 <p>
 
 </div>
@@ -324,6 +412,13 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00085">85</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                        {
+<a name="l00086"></a>00086     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#d8ad00db7a81c10095ce3a35555a6f98">shiftTime</a>(toShift);
+<a name="l00087"></a>00087 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="5c06d884a80895a162f98a9e859f8c7c"></a><!-- doxytag: member="StopFunctor::reset" ref="5c06d884a80895a162f98a9e859f8c7c" args="()" -->
@@ -341,6 +436,13 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00055">55</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00056"></a>00056 {
+<a name="l00057"></a>00057     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#0d1798e31ae6b04816b36babbbb81b95">reset</a>();
+<a name="l00058"></a>00058 }
+</pre></div>
 <p>
 
 </div>
@@ -362,6 +464,13 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00061">61</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00062"></a>00062 {
+<a name="l00063"></a>00063     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#2af685521d93e23c2d120c4d9a9fcac9">makeBounceBack</a>();
+<a name="l00064"></a>00064 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="c0456762fd70a5b0e7ff9d3719d68a0e"></a><!-- doxytag: member="StopFunctor::unMakeBounceBack" ref="c0456762fd70a5b0e7ff9d3719d68a0e" args="()" -->
@@ -379,6 +488,13 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00067">67</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00068"></a>00068 {
+<a name="l00069"></a>00069     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#3f371a4c5720f1f46792e09de61fa15d">unMakeBounceBack</a>();
+<a name="l00070"></a>00070 }
+</pre></div>
 <p>
 
 </div>
@@ -400,6 +516,13 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00073">73</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00074"></a>00074 {
+<a name="l00075"></a>00075     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#71072e853736441da4c917b0eb251e4a">makeCyclic</a>();
+<a name="l00076"></a>00076 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="074d177147344c4e1d2e360a26b74162"></a><!-- doxytag: member="StopFunctor::unMakeCyclic" ref="074d177147344c4e1d2e360a26b74162" args="()" -->
@@ -417,6 +540,13 @@ Collaboration diagram for StopFunctor:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00079">79</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00080"></a>00080 {
+<a name="l00081"></a>00081     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#e540c2bb0433f996bdd8ac3390854ece">unMakeCyclic</a>();
+<a name="l00082"></a>00082 }
+</pre></div>
 <p>
 
 </div>
@@ -458,6 +588,15 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00098">98</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00099"></a>00099 {
+<a name="l00100"></a>00100     <span class="comment">//Move the time so that toCat's time begins when this functor ends</span>
+<a name="l00101"></a>00101     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#6d01a9d41e7cd9dbc03ade57ea025d09">cat</a>(toCat);
+<a name="l00102"></a>00102     <span class="keywordflow">return</span> * <span class="keyword">this</span>;
+<a name="l00103"></a>00103 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="bbe0d56ec0abea92cebcceec7a0f53ac"></a><!-- doxytag: member="StopFunctor::cat" ref="bbe0d56ec0abea92cebcceec7a0f53ac" args="(const StopFunctor toCat)" -->
@@ -478,6 +617,15 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8cpp-source.html#l00090">90</a> of file <a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00091"></a>00091 {
+<a name="l00092"></a>00092     <span class="comment">//Move the time so that toCat's time begins when this functor ends</span>
+<a name="l00093"></a>00093     <a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>-&gt;<a class="code" href="classDelta__Functor.html#6d01a9d41e7cd9dbc03ade57ea025d09">cat</a>(*(toCat.<a class="code" href="classStopFunctor.html#365a59298e6ce41d83e938d0641ddec2">functor</a>));
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> * <span class="keyword">this</span>;
+<a name="l00095"></a>00095 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -494,6 +642,8 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8h-source.html#l00008">8</a> of file <a class="el" href="stopFunctor_8h-source.html">stopFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="c990360a3032e85d31dda63e6e83b480"></a><!-- doxytag: member="StopFunctor::cacheValue" ref="c990360a3032e85d31dda63e6e83b480" args="" -->
@@ -509,12 +659,14 @@ Collaboration diagram for StopFunctor:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="stopFunctor_8h-source.html#l00009">9</a> of file <a class="el" href="stopFunctor_8h-source.html">stopFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="stopFunctor_8h.html">stopFunctor.h</a><li><a class="el" href="stopFunctor_8cpp.html">stopFunctor.cpp</a></ul>
+<li><a class="el" href="stopFunctor_8h-source.html">stopFunctor.h</a><li><a class="el" href="stopFunctor_8cpp-source.html">stopFunctor.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

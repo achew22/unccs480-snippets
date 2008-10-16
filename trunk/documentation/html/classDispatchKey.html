@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>DispatchKey&lt; T &gt; Class Template Reference</h1><!-- doxytag: class="DispatchKey" --><code>#include &lt;SDLLoader.h&gt;</code>
+<h1>DispatchKey&lt; T &gt; Class Template Reference</h1><!-- doxytag: class="DispatchKey" --><code>#include &lt;<a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Collaboration diagram for DispatchKey&lt; T &gt;:</div>
@@ -48,7 +58,9 @@ Collaboration diagram for DispatchKey&lt; T &gt;:</div>
 <h3>template&lt;class T&gt;<br>
  class DispatchKey&lt; T &gt;</h3>
 
-This is the template that is used to dispatch key events this is bascially a wrapper for object method callbacks <hr><h2>Constructor &amp; Destructor Documentation</h2>
+This is the template that is used to dispatch key events this is bascially a wrapper for object method callbacks 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00074">74</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="eba45aead22f9414a19670d776aa41e5"></a><!-- doxytag: member="DispatchKey::DispatchKey" ref="eba45aead22f9414a19670d776aa41e5" args="(T *object, bool(T::*key)(SDL_Event a))" -->
 <div class="memitem">
 <div class="memproto">
@@ -84,6 +96,14 @@ This is the constructor <dl compact><dt><b>Parameters:</b></dt><dd>
   </table>
 </dl>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00085">85</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                                             {
+<a name="l00086"></a>00086             <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a> = object;
+<a name="l00087"></a>00087             <a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a> = key;
+<a name="l00088"></a>00088         }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
@@ -107,6 +127,13 @@ template&lt;class T&gt; </div>
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00090">90</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00090"></a>00090                                        {
+<a name="l00091"></a>00091             <span class="keywordflow">return</span> (<a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>-&gt;*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)(event);
+<a name="l00092"></a>00092         }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -124,6 +151,8 @@ template&lt;class T&gt; </div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00076">76</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -145,9 +174,9 @@ template&lt;class T&gt; </div>
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="SDLLoader_8h.html">SDLLoader.h</a></ul>
+<li><a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
