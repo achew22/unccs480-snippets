@@ -46,11 +46,13 @@ Collaboration diagram for Error:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#ca339d00ad8481fb4c184f0ece42698b">Error</a> ()</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Holds the current log level.  <a href="#ca339d00ad8481fb4c184f0ece42698b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a> (char *toWrite)</td></tr>
 
 <tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static <a class="el" href="classError.html">Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#ace9016907bb5372c3f1309db5143c9c">getInstance</a> ()</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Hold the instance.  <a href="#ace9016907bb5372c3f1309db5143c9c"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#9971ebba6e4aff091dd828bd8a30dfa6">errorLevel</a> (int newLevel)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#bcb50401b53f43937ffb3f42beff12c5">error</a> (std::string theError,...)</td></tr>
@@ -88,6 +90,8 @@ Collaboration diagram for Error:</div>
 <div class="memdoc">
 
 <p>
+Holds the current log level. 
+<p>
 Constructor 
 <p>Definition at line <a class="el" href="error_8cpp-source.html#l00024">24</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
 <div class="fragment"><pre class="fragment"><a name="l00024"></a>00024              {
@@ -115,11 +119,13 @@ Constructor
 <div class="memdoc">
 
 <p>
+Hold the instance. 
+<p>
 Get the current instance 
 <p>Definition at line <a class="el" href="error_8cpp-source.html#l00013">13</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
 <div class="fragment"><pre class="fragment"><a name="l00013"></a>00013                                   {
 <a name="l00014"></a>00014     <span class="keywordflow">if</span> (<a class="code" href="classError.html#43cb21fa14647ca73c849c7fe527aaec">Error::pinstance</a> == 0) {
-<a name="l00015"></a>00015         <a class="code" href="classError.html#43cb21fa14647ca73c849c7fe527aaec">Error::pinstance</a> = <span class="keyword">new</span> <a class="code" href="classError.html#ca339d00ad8481fb4c184f0ece42698b">Error</a>();
+<a name="l00015"></a>00015         <a class="code" href="classError.html#43cb21fa14647ca73c849c7fe527aaec">Error::pinstance</a> = <span class="keyword">new</span> <a class="code" href="classError.html#ca339d00ad8481fb4c184f0ece42698b" title="Holds the current log level.">Error</a>();
 <a name="l00016"></a>00016     }
 <a name="l00017"></a>00017     <span class="keywordflow">return</span> <a class="code" href="classError.html#43cb21fa14647ca73c849c7fe527aaec">Error::pinstance</a>;
 <a name="l00018"></a>00018 }
@@ -175,25 +181,33 @@ Get the current instance
 
 <p>
 Take in arguments like a printf,<p>
-41 (Red back, white text) 
-<p>Definition at line <a class="el" href="error_8cpp-source.html#l00041">41</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00041"></a>00041                                          {
-<a name="l00042"></a>00042     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
-<a name="l00043"></a>00043     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
-<a name="l00044"></a>00044     va_list args;
-<a name="l00045"></a>00045     va_start(args,msg);
-<a name="l00046"></a>00046     <span class="keywordtype">char</span> buffer[1024];
-<a name="l00047"></a>00047     <span class="keywordtype">char</span> writeBuffer[1024];
-<a name="l00048"></a>00048     vsprintf(buffer,msg,args);
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="preprocessor">    #ifdef _WIN32</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
-<a name="l00052"></a>00052 <span class="preprocessor">    #else</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[41;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
-<a name="l00054"></a>00054 <span class="preprocessor">    #endif</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span>    printf(writeBuffer);
-<a name="l00056"></a>00056     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
-<a name="l00057"></a>00057 }
+<br>
+<br>
+ this is POSSIX shell color 41 (Red back, white text)<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theError</em>&nbsp;</td><td>The text to output in the error </td></tr>
+  </table>
+</dl>
+
+<p>Definition at line <a class="el" href="error_8cpp-source.html#l00043">43</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                          {
+<a name="l00044"></a>00044     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
+<a name="l00045"></a>00045     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
+<a name="l00046"></a>00046     va_list args;
+<a name="l00047"></a>00047     va_start(args,msg);
+<a name="l00048"></a>00048     <span class="keywordtype">char</span> buffer[1024];
+<a name="l00049"></a>00049     <span class="keywordtype">char</span> writeBuffer[1024];
+<a name="l00050"></a>00050     vsprintf(buffer,msg,args);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="preprocessor">    #ifdef _WIN32</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
+<a name="l00054"></a>00054 <span class="preprocessor">    #else</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[41;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
+<a name="l00056"></a>00056 <span class="preprocessor">    #endif</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>    printf(writeBuffer);
+<a name="l00058"></a>00058     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
+<a name="l00059"></a>00059 }
 </pre></div>
 <p>
 
@@ -226,25 +240,33 @@ Take in arguments like a printf,<p>
 
 <p>
 Warn the user of whatever happened<p>
-43 (Orange with white text) 
-<p>Definition at line <a class="el" href="error_8cpp-source.html#l00063">63</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00063"></a>00063                                         {
-<a name="l00064"></a>00064     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
-<a name="l00065"></a>00065     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
-<a name="l00066"></a>00066     va_list args;
-<a name="l00067"></a>00067     va_start(args,msg);
-<a name="l00068"></a>00068     <span class="keywordtype">char</span> buffer[1024];
-<a name="l00069"></a>00069     <span class="keywordtype">char</span> writeBuffer[1024];
-<a name="l00070"></a>00070     vsprintf(buffer,msg,args);
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="preprocessor">    #ifdef _WIN32</span>
-<a name="l00073"></a>00073 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
-<a name="l00074"></a>00074 <span class="preprocessor">    #else</span>
-<a name="l00075"></a>00075 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[43;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
-<a name="l00076"></a>00076 <span class="preprocessor">    #endif</span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span>    printf(writeBuffer);
-<a name="l00078"></a>00078     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
-<a name="l00079"></a>00079 }
+<br>
+<br>
+ this is POSSIX shell color 43 (Orange with white text)<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theError</em>&nbsp;</td><td>The text to output in the error </td></tr>
+  </table>
+</dl>
+
+<p>Definition at line <a class="el" href="error_8cpp-source.html#l00067">67</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                         {
+<a name="l00068"></a>00068     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
+<a name="l00069"></a>00069     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
+<a name="l00070"></a>00070     va_list args;
+<a name="l00071"></a>00071     va_start(args,msg);
+<a name="l00072"></a>00072     <span class="keywordtype">char</span> buffer[1024];
+<a name="l00073"></a>00073     <span class="keywordtype">char</span> writeBuffer[1024];
+<a name="l00074"></a>00074     vsprintf(buffer,msg,args);
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">    #ifdef _WIN32</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
+<a name="l00078"></a>00078 <span class="preprocessor">    #else</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[43;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
+<a name="l00080"></a>00080 <span class="preprocessor">    #endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>    printf(writeBuffer);
+<a name="l00082"></a>00082     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
+<a name="l00083"></a>00083 }
 </pre></div>
 <p>
 
@@ -277,25 +299,33 @@ Warn the user of whatever happened<p>
 
 <p>
 Log something for us<p>
-34 (Blue text) 
-<p>Definition at line <a class="el" href="error_8cpp-source.html#l00085">85</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                        {
-<a name="l00086"></a>00086     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
-<a name="l00087"></a>00087     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
-<a name="l00088"></a>00088     va_list args;
-<a name="l00089"></a>00089     va_start(args,msg);
-<a name="l00090"></a>00090     <span class="keywordtype">char</span> buffer[1024];
-<a name="l00091"></a>00091     <span class="keywordtype">char</span> writeBuffer[1024];
-<a name="l00092"></a>00092     vsprintf(buffer,msg,args);
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="preprocessor">    #ifdef _WIN32</span>
-<a name="l00095"></a>00095 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
-<a name="l00096"></a>00096 <span class="preprocessor">    #else</span>
-<a name="l00097"></a>00097 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[34;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
-<a name="l00098"></a>00098 <span class="preprocessor">    #endif</span>
-<a name="l00099"></a>00099 <span class="preprocessor"></span>    printf(writeBuffer);
-<a name="l00100"></a>00100     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
-<a name="l00101"></a>00101 }
+<br>
+<br>
+ this is POSSIX shell color 34 (Blue text)<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theError</em>&nbsp;</td><td>The text to output in the error </td></tr>
+  </table>
+</dl>
+
+<p>Definition at line <a class="el" href="error_8cpp-source.html#l00091">91</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00091"></a>00091                                        {
+<a name="l00092"></a>00092     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
+<a name="l00093"></a>00093     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
+<a name="l00094"></a>00094     va_list args;
+<a name="l00095"></a>00095     va_start(args,msg);
+<a name="l00096"></a>00096     <span class="keywordtype">char</span> buffer[1024];
+<a name="l00097"></a>00097     <span class="keywordtype">char</span> writeBuffer[1024];
+<a name="l00098"></a>00098     vsprintf(buffer,msg,args);
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="preprocessor">    #ifdef _WIN32</span>
+<a name="l00101"></a>00101 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
+<a name="l00102"></a>00102 <span class="preprocessor">    #else</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[34;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
+<a name="l00104"></a>00104 <span class="preprocessor">    #endif</span>
+<a name="l00105"></a>00105 <span class="preprocessor"></span>    printf(writeBuffer);
+<a name="l00106"></a>00106     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
+<a name="l00107"></a>00107 }
 </pre></div>
 <p>
 
@@ -328,25 +358,33 @@ Log something for us<p>
 
 <p>
 Put out some debug info (not included in release version)<p>
-37 
-<p>Definition at line <a class="el" href="error_8cpp-source.html#l00107">107</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                          {
-<a name="l00108"></a>00108     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
-<a name="l00109"></a>00109     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
-<a name="l00110"></a>00110     va_list args;
-<a name="l00111"></a>00111     va_start(args,msg);
-<a name="l00112"></a>00112     <span class="keywordtype">char</span> buffer[1024];
-<a name="l00113"></a>00113     <span class="keywordtype">char</span> writeBuffer[1024];
-<a name="l00114"></a>00114     vsprintf(buffer,msg,args);
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 <span class="preprocessor">    #ifdef _WIN32</span>
-<a name="l00117"></a>00117 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
-<a name="l00118"></a>00118 <span class="preprocessor">    #else</span>
-<a name="l00119"></a>00119 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[37;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
-<a name="l00120"></a>00120 <span class="preprocessor">    #endif</span>
-<a name="l00121"></a>00121 <span class="preprocessor"></span>    printf(writeBuffer);
-<a name="l00122"></a>00122     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
-<a name="l00123"></a>00123 }
+<br>
+<br>
+ this is POSSIX shell color 37<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theError</em>&nbsp;</td><td>The text to output in the error </td></tr>
+  </table>
+</dl>
+
+<p>Definition at line <a class="el" href="error_8cpp-source.html#l00115">115</a> of file <a class="el" href="error_8cpp-source.html">error.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00115"></a>00115                                          {
+<a name="l00116"></a>00116     <span class="comment">//Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please</span>
+<a name="l00117"></a>00117     <span class="keyword">const</span> <span class="keywordtype">char</span> * msg = theError.c_str();
+<a name="l00118"></a>00118     va_list args;
+<a name="l00119"></a>00119     va_start(args,msg);
+<a name="l00120"></a>00120     <span class="keywordtype">char</span> buffer[1024];
+<a name="l00121"></a>00121     <span class="keywordtype">char</span> writeBuffer[1024];
+<a name="l00122"></a>00122     vsprintf(buffer,msg,args);
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 <span class="preprocessor">    #ifdef _WIN32</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
+<a name="l00126"></a>00126 <span class="preprocessor">    #else</span>
+<a name="l00127"></a>00127 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[37;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
+<a name="l00128"></a>00128 <span class="preprocessor">    #endif</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span>    printf(writeBuffer);
+<a name="l00130"></a>00130     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
+<a name="l00131"></a>00131 }
 </pre></div>
 <p>
 
@@ -417,7 +455,7 @@ Write a line to the file NOT DONE
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="error_8h-source.html">error.h</a><li><a class="el" href="error_8cpp-source.html">error.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

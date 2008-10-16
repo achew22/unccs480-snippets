@@ -48,7 +48,7 @@ GUIButton::GUIButton() {
     height = 1;
 }
 
-GUIButton::GUIButton(int setX, int setY, int setWidth, int setHeight, Point3 setTextColor, Point3 setColor, std::string setText, bool (*setCallback)(void)) {
+GUIButton::GUIButton(int setX, int setY, int setWidth, int setHeight, Point3 setTextColor, Point3 setColor, std::string setText, bool (*setCallback)()) {
     x = setX;
     y = setY;
     width = setWidth;

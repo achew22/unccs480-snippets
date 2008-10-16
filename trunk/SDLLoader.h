@@ -79,8 +79,8 @@ template<class T>
     public:
         /**
          * This is the constructor
-         * @param the object (by reference [&]) 1st param
-         * @param static reference to the method (&myClass::myMethod)
+         * @param object the object (by reference [&]) 1st param
+         * @param key static reference to the method (&myClass::myMethod)
          */
         DispatchKey(T* object, bool (T::*key)( SDL_Event a) ) {
             _this = object;
@@ -105,8 +105,8 @@ template<class T>
     public:
         /**
          * This is the constructor
-         * @param the object (by reference [&]) 1st param
-         * @param static reference to the method (&myClass::myMethod)
+         * @param object the object (by reference [&]) 1st param
+         * @param mouse static reference to the method (&myClass::myMethod)
          */
         DispatchMouse(T* object, bool (T::*mouse)( SDL_Event a) ) {
             _this = object;

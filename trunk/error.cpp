@@ -36,7 +36,9 @@ void Error::writeLine(char * output) {
 /**
  * Take in arguments like a printf,
  *
- * @color 41 (Red back, white text)
+ * \n\n this is POSSIX shell color 41 (Red back, white text)
+ *
+ * @param theError The text to output in the error
  */
 void Error::error(std::string theError, ...) {
     //Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please
@@ -58,7 +60,9 @@ void Error::error(std::string theError, ...) {
 /**
  * Warn the user of whatever happened
  *
- * @color 43 (Orange with white text)
+ * \n\n this is POSSIX shell color 43 (Orange with white text)
+ *
+ * @param theError The text to output in the error
  */
 void Error::warn(std::string theError, ...) {
     //Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please
@@ -80,7 +84,9 @@ void Error::warn(std::string theError, ...) {
 /**
  * Log something for us
  *
- * @color 34 (Blue text)
+ * \n\n this is POSSIX shell color  34 (Blue text)
+ *
+ * @param theError The text to output in the error
  */
 void Error::log(std::string theError, ...) {
     //Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please
@@ -102,7 +108,9 @@ void Error::log(std::string theError, ...) {
 /**
  * Put out some debug info (not included in release version)
  *
- * @color 37
+ * \n\n this is POSSIX shell color 37
+ *
+ * @param theError The text to output in the error
  */
 void Error::debug(std::string theError, ...) {
     //Take all the args in, type cast them do all that fun stuff then put it in a buffer of 1024 chars (no mas please

@@ -32,8 +32,8 @@ SDLLoader::~SDLLoader() {
  * This probably shouldn't exist since it is always overloaded but exists
  * for the sake of remembing how we were once
  *
- * @param int setWidth width of the window to be created
- * @param int setHeight height of the window to be created
+ * @param setWidth width of the window to be created
+ * @param setHeight height of the window to be created
  */
 SDLLoader::SDLLoader(int setWidth, int setHeight) {
     width = setWidth;
@@ -44,7 +44,7 @@ SDLLoader::SDLLoader(int setWidth, int setHeight) {
 /**
  * Dispatch key presses to the vector of listening objects
  *
- * @param SDL_Event event the SDL_event that triggered this call
+ * @param event the SDL_event that triggered this call
  */
 void SDLLoader::dispatchKey( SDL_Event event ) {
     bool used = false;
@@ -100,7 +100,7 @@ void SDLLoader::dispatchKey( SDL_Event event ) {
  * Very similar to the key press dispatcher, only this
  * dispatches mouse events
  *
- * @param SDL_Event event the SDL_event that triggered this call
+ * @param event the SDL_event that triggered this call
  */
 void SDLLoader::dispatchMouse(SDL_Event event) {
     for ( unsigned int dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
@@ -140,7 +140,7 @@ void SDLLoader::enableLighting() {
 /**
  * Enable and configure a light in the current world
  *
- * @param glLightingStruct * myLight class containing all the light variables
+ * @param myLight class containing all the light variables
  */
 void SDLLoader::enableLight(glLightingStruct * myLight) {
     glEnable(myLight->lightNumber);
@@ -301,8 +301,8 @@ void SDLLoader::idle(){}
 /**
  * Add a GUI to the vector of GUIs that is available in the private section of this class
  *
- * @param std::string name of the GUI for later reference
- * @param GUI * GUI to be added to the stack
+ * @param name of the GUI for later reference
+ * @param toAdd to be added to the stack
  */
 bool SDLLoader::addGUI(std::string name, GUI * toAdd) {
     guis[name] = toAdd;
@@ -312,7 +312,7 @@ bool SDLLoader::addGUI(std::string name, GUI * toAdd) {
 /**
  * Change the active GUI
  *
- * @param std::string name The string representing the GUI to be made active
+ * @param name The string representing the GUI to be made active
  */
 bool SDLLoader::setActiveGUI(std::string name) {
     activeGUI = name;
@@ -322,7 +322,7 @@ bool SDLLoader::setActiveGUI(std::string name) {
 /**
  * Add a key press handler to the SDLLoader dispatcher
  *
- * @param int pointerToKeyPressHandlerToAdd typecasted (to int) pointer to key press handler to add
+ * @param pointerToKeyPressHandlerToAdd typecasted (to int) pointer to key press handler to add
  */
 void SDLLoader::addKeyPressHandler(int pointerToKeyPressHandlerToAdd) {
     dispatchableKeys.push_back(pointerToKeyPressHandlerToAdd);
@@ -331,7 +331,7 @@ void SDLLoader::addKeyPressHandler(int pointerToKeyPressHandlerToAdd) {
 /**
  * Add a mouse handler to the SDLLoader dispatcher
  *
- * @param int pointerToMouseHandlerToAdd typecasted (to int) pointer to mouse handler to add
+ * @param pointerToMouseHandlerToAdd typecasted (to int) pointer to mouse handler to add
  */
 void SDLLoader::addMouseHandler(int pointerToMouseHandlerToAdd) {
     dispatchableMouses.push_back(pointerToMouseHandlerToAdd);
