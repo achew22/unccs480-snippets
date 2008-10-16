@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>DispatchMouse&lt; T &gt; Class Template Reference</h1><!-- doxytag: class="DispatchMouse" --><code>#include &lt;SDLLoader.h&gt;</code>
+<h1>DispatchMouse&lt; T &gt; Class Template Reference</h1><!-- doxytag: class="DispatchMouse" --><code>#include &lt;<a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Collaboration diagram for DispatchMouse&lt; T &gt;:</div>
@@ -48,7 +58,9 @@ Collaboration diagram for DispatchMouse&lt; T &gt;:</div>
 <h3>template&lt;class T&gt;<br>
  class DispatchMouse&lt; T &gt;</h3>
 
-This is the template that is used to dispatch mouse events this is bascially a wrapper for object method callbacks <hr><h2>Constructor &amp; Destructor Documentation</h2>
+This is the template that is used to dispatch mouse events this is bascially a wrapper for object method callbacks 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00100">100</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="ec54b017a67a138748e88e0730f4b4ef"></a><!-- doxytag: member="DispatchMouse::DispatchMouse" ref="ec54b017a67a138748e88e0730f4b4ef" args="(T *object, bool(T::*mouse)(SDL_Event a))" -->
 <div class="memitem">
 <div class="memproto">
@@ -84,6 +96,14 @@ This is the constructor <dl compact><dt><b>Parameters:</b></dt><dd>
   </table>
 </dl>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00111">111</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00111"></a>00111                                                                 {
+<a name="l00112"></a>00112             <a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a> = object;
+<a name="l00113"></a>00113             <a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a> = mouse;
+<a name="l00114"></a>00114         }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
@@ -107,6 +127,13 @@ template&lt;class T&gt; </div>
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00116">116</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00116"></a>00116                                          {
+<a name="l00117"></a>00117             <span class="keywordflow">return</span> (<a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a>-&gt;*<a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a>)(event);
+<a name="l00118"></a>00118         }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -124,6 +151,8 @@ template&lt;class T&gt; </div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00102">102</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -145,9 +174,9 @@ template&lt;class T&gt; </div>
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="SDLLoader_8h.html">SDLLoader.h</a></ul>
+<li><a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

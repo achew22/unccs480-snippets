@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>GUIButton Class Reference</h1><!-- doxytag: class="GUIButton" --><!-- doxytag: inherits="GUIElement" --><code>#include &lt;GUIButton.h&gt;</code>
+<h1>GUIButton Class Reference</h1><!-- doxytag: class="GUIButton" --><!-- doxytag: inherits="GUIElement" --><code>#include &lt;<a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Inheritance diagram for GUIButton:</div>
@@ -75,6 +85,9 @@ Collaboration diagram for GUIButton:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGUIButton.html#89783abf648ea88df1ff860ba3181235">callback</a> )(void)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00008">8</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="bec4bc11ce8e458daa96b38610f50e4f"></a><!-- doxytag: member="GUIButton::GUIButton" ref="bec4bc11ce8e458daa96b38610f50e4f" args="()" -->
 <div class="memitem">
@@ -91,6 +104,16 @@ Collaboration diagram for GUIButton:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="GUIButton_8cpp-source.html#l00044">44</a> of file <a class="el" href="GUIButton_8cpp-source.html">GUIButton.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                      {
+<a name="l00045"></a>00045     <a class="code" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">x</a> = 0;
+<a name="l00046"></a>00046     <a class="code" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">y</a> = 0;
+<a name="l00047"></a>00047     <a class="code" href="classGUIButton.html#d2675811de6ce6fed7ae45181cd5e8fe">width</a> = 1;
+<a name="l00048"></a>00048     <a class="code" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">height</a> = 1;
+<a name="l00049"></a>00049 }
+</pre></div>
 <p>
 
 </div>
@@ -180,6 +203,23 @@ Collaboration diagram for GUIButton:</div>
 
 <p>Implements <a class="el" href="classGUIElement.html#7654ac16a368633c81538f13b9299f63">GUIElement</a>.</p>
 
+<p>Definition at line <a class="el" href="GUIButton_8cpp-source.html#l00011">11</a> of file <a class="el" href="GUIButton_8cpp-source.html">GUIButton.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                      {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013     glPushMatrix();
+<a name="l00014"></a>00014         glTranslated(<a class="code" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">x</a>,<a class="code" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">y</a>,0);
+<a name="l00015"></a>00015         glColor3d(<a class="code" href="classGUIButton.html#65e68ee3274a0c30af7a074e1a226734">color</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>, <a class="code" href="classGUIButton.html#65e68ee3274a0c30af7a074e1a226734">color</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>, <a class="code" href="classGUIButton.html#65e68ee3274a0c30af7a074e1a226734">color</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00016"></a>00016         glBegin(GL_QUADS);
+<a name="l00017"></a>00017             glVertex2f(0,0); <span class="comment">//Top left</span>
+<a name="l00018"></a>00018             glVertex2f(0,<a class="code" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">height</a>); <span class="comment">// Bottom left</span>
+<a name="l00019"></a>00019             glVertex2f(<a class="code" href="classGUIButton.html#d2675811de6ce6fed7ae45181cd5e8fe">width</a>,<a class="code" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">height</a>); <span class="comment">// Bottom right</span>
+<a name="l00020"></a>00020             glVertex2f(<a class="code" href="classGUIButton.html#d2675811de6ce6fed7ae45181cd5e8fe">width</a>,0); <span class="comment">//Top right</span>
+<a name="l00021"></a>00021         glEnd();
+<a name="l00022"></a>00022     glPopMatrix();
+<a name="l00023"></a>00023 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="528515e89ae59d5e342b82eca3a0aada"></a><!-- doxytag: member="GUIButton::key" ref="528515e89ae59d5e342b82eca3a0aada" args="(SDL_Event event)" -->
@@ -201,6 +241,13 @@ Collaboration diagram for GUIButton:</div>
 <p>
 
 <p>Implements <a class="el" href="classGUIElement.html#544f28a3c1fb9f56acc70c5c747d479c">GUIElement</a>.</p>
+
+<p>Definition at line <a class="el" href="GUIButton_8cpp-source.html#l00025">25</a> of file <a class="el" href="GUIButton_8cpp-source.html">GUIButton.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00025"></a>00025                                    {
+<a name="l00026"></a>00026     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00027"></a>00027 }
+</pre></div>
+<p>
 
 </div>
 </div><p>
@@ -224,6 +271,24 @@ Collaboration diagram for GUIButton:</div>
 
 <p>Implements <a class="el" href="classGUIElement.html#1c86cb082acb0bc42a6419d7361150b7">GUIElement</a>.</p>
 
+<p>Definition at line <a class="el" href="GUIButton_8cpp-source.html#l00029">29</a> of file <a class="el" href="GUIButton_8cpp-source.html">GUIButton.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                      {
+<a name="l00030"></a>00030     <span class="keywordtype">int</span> clickX = <span class="keyword">event</span>.motion.x;
+<a name="l00031"></a>00031     <span class="keywordtype">int</span> clickY = <span class="keyword">event</span>.motion.y;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     <span class="comment">//in the range of the button?</span>
+<a name="l00034"></a>00034     <span class="keywordflow">if</span> ((clickX &gt; <a class="code" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">x</a> &amp;&amp; clickX &lt; (<a class="code" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">x</a> + <a class="code" href="classGUIButton.html#d2675811de6ce6fed7ae45181cd5e8fe">width</a>)) &amp;&amp; (clickY &gt; <a class="code" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">y</a> &amp;&amp; clickY &lt; (<a class="code" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">y</a> + <a class="code" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">height</a>))) {
+<a name="l00035"></a>00035         <span class="keywordflow">if</span>(event.type == SDL_MOUSEBUTTONDOWN &amp;&amp; SDL_BUTTON(SDL_GetMouseState(NULL,NULL)) == SDL_BUTTON_LEFT) {
+<a name="l00036"></a>00036             <span class="comment">//Do the callback</span>
+<a name="l00037"></a>00037             <a class="code" href="classGUIButton.html#89783abf648ea88df1ff860ba3181235">callback</a>();
+<a name="l00038"></a>00038         }
+<a name="l00039"></a>00039     }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00042"></a>00042 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -240,6 +305,8 @@ Collaboration diagram for GUIButton:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00010">10</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="7d87cfd831ce684737c1b1f150749211"></a><!-- doxytag: member="GUIButton::exitCallback" ref="7d87cfd831ce684737c1b1f150749211" args="" -->
@@ -254,6 +321,8 @@ Collaboration diagram for GUIButton:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00011">11</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
 
 </div>
 </div><p>
@@ -270,6 +339,8 @@ Collaboration diagram for GUIButton:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00013">13</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="7e5278866256848c3c88f88b18d69dec"></a><!-- doxytag: member="GUIButton::text" ref="7e5278866256848c3c88f88b18d69dec" args="" -->
@@ -284,6 +355,8 @@ Collaboration diagram for GUIButton:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00015">15</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
 
 </div>
 </div><p>
@@ -300,6 +373,8 @@ Collaboration diagram for GUIButton:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00016">16</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="7217da375ae738334e34d3897913ad4a"></a><!-- doxytag: member="GUIButton::x" ref="7217da375ae738334e34d3897913ad4a" args="" -->
@@ -314,6 +389,8 @@ Collaboration diagram for GUIButton:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00018">18</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
 
 </div>
 </div><p>
@@ -330,6 +407,8 @@ Collaboration diagram for GUIButton:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00018">18</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="c4e813f804bc96ee45b1bf190b05ff02"></a><!-- doxytag: member="GUIButton::height" ref="c4e813f804bc96ee45b1bf190b05ff02" args="" -->
@@ -345,6 +424,8 @@ Collaboration diagram for GUIButton:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00019">19</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="d2675811de6ce6fed7ae45181cd5e8fe"></a><!-- doxytag: member="GUIButton::width" ref="d2675811de6ce6fed7ae45181cd5e8fe" args="" -->
@@ -359,6 +440,8 @@ Collaboration diagram for GUIButton:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="GUIButton_8h-source.html#l00019">19</a> of file <a class="el" href="GUIButton_8h-source.html">GUIButton.h</a>.</p>
 
 </div>
 </div><p>
@@ -378,9 +461,9 @@ Collaboration diagram for GUIButton:</div>
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="GUIButton_8h.html">GUIButton.h</a><li><a class="el" href="GUIButton_8cpp.html">GUIButton.cpp</a></ul>
+<li><a class="el" href="GUIButton_8h-source.html">GUIButton.h</a><li><a class="el" href="GUIButton_8cpp-source.html">GUIButton.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>Delta_Functor Class Reference</h1><!-- doxytag: class="Delta_Functor" --><code>#include &lt;DeltaFunctor.h&gt;</code>
+<h1>Delta_Functor Class Reference</h1><!-- doxytag: class="Delta_Functor" --><code>#include &lt;<a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>&gt;</code>
 <p>
 
 <p>
@@ -93,6 +103,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::list&lt; <a class="el" href="classDelta__Functor.html">Delta_Functor</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a></td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00014">14</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="2f99ecd62ab49a926b91e3bdc27be3e2"></a><!-- doxytag: member="Delta_Functor::Delta_Functor" ref="2f99ecd62ab49a926b91e3bdc27be3e2" args="()" -->
 <div class="memitem">
@@ -109,6 +122,25 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00010">10</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     <a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> = 0;
+<a name="l00013"></a>00013     <a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> = 0;
+<a name="l00014"></a>00014     <a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> = 1; <span class="comment">//We divide by this and it doesn't matter so to prevent error, set != 0</span>
+<a name="l00015"></a>00015     <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> = 0;
+<a name="l00016"></a>00016     <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> = 0;
+<a name="l00017"></a>00017     <a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a> = 1;
+<a name="l00018"></a>00018     <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a> = 0;
+<a name="l00019"></a>00019     <a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a> = 0;
+<a name="l00020"></a>00020     <a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a> = 1;
+<a name="l00021"></a>00021     <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a> = 1;
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023     <a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00024"></a>00024     <a class="code" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">isBounceBack</a> = <span class="keyword">false</span>;
+<a name="l00025"></a>00025 }
+</pre></div>
 <p>
 
 </div>
@@ -158,6 +190,26 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00030">30</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00031"></a>00031 {
+<a name="l00032"></a>00032     <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> = start_time;
+<a name="l00033"></a>00033     <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> = end_time;
+<a name="l00034"></a>00034     <a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a> = <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> - <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a>;
+<a name="l00035"></a>00035     <a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> = start_time;
+<a name="l00036"></a>00036     <a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> = end_time;
+<a name="l00037"></a>00037     <a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> = <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> - startTime;
+<a name="l00038"></a>00038     <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a> = start_value;
+<a name="l00039"></a>00039     <a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a> = end_value;
+<a name="l00040"></a>00040     <a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a> = <a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a> - <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a>;
+<a name="l00041"></a>00041     <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a> = exp;
+<a name="l00042"></a>00042 <span class="comment">//    printf("Delta Functor initialized, startTime = %i, endTime = %i, exponent = %i\n", startTime, endTime, exponent);</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00045"></a>00045     <a class="code" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">isBounceBack</a> = <span class="keyword">false</span>;
+<a name="l00046"></a>00046 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
@@ -177,6 +229,24 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00100">100</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00101"></a>00101 {
+<a name="l00102"></a>00102     <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> = toEqual.<a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a>;
+<a name="l00103"></a>00103     <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> = toEqual.<a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a>;
+<a name="l00104"></a>00104     <a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a> = toEqual.<a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a>;
+<a name="l00105"></a>00105     <a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> = toEqual.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a>;
+<a name="l00106"></a>00106     <a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> = toEqual.<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a>;
+<a name="l00107"></a>00107     <a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> = toEqual.<a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a>;
+<a name="l00108"></a>00108     <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a> = toEqual.<a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a>;
+<a name="l00109"></a>00109     <a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a> = toEqual.<a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a>;
+<a name="l00110"></a>00110     <a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a> = toEqual.<a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a>;
+<a name="l00111"></a>00111     <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a> = toEqual.<a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a>;
+<a name="l00112"></a>00112     <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a> = toEqual.<a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>;
+<a name="l00113"></a>00113     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00114"></a>00114 }
+</pre></div>
 <p>
 
 </div>
@@ -199,6 +269,24 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00049">49</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00050"></a>00050 {
+<a name="l00051"></a>00051     <span class="keywordflow">if</span> (toAdd.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> &lt; this-&gt;totalStartTime) {
+<a name="l00052"></a>00052         this-&gt;<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> = toAdd.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a>;
+<a name="l00053"></a>00053     }
+<a name="l00054"></a>00054     <span class="keywordflow">if</span> (toAdd.<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> &gt; this-&gt;totalEndTime) {
+<a name="l00055"></a>00055         this-&gt;<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> = toAdd.<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a>;
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057     this-&gt;<a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> = this-&gt;<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> - this-&gt;<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a>;
+<a name="l00058"></a>00058     <span class="keywordflow">if</span> (<a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> == 0) {
+<a name="l00059"></a>00059         <a class="code" href="classDelta__Functor.html#ff097bbd54fc238480b62b974436fb1a">totalTimeRange</a> = 1; <span class="comment">//Don't divide by zero</span>
+<a name="l00060"></a>00060     }
+<a name="l00061"></a>00061     <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.push_back(toAdd);
+<a name="l00062"></a>00062     <span class="keywordflow">return</span> * <span class="keyword">this</span>;
+<a name="l00063"></a>00063 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="2da7df0b572459fdcafc5dab2b39b02c"></a><!-- doxytag: member="Delta_Functor::operator+" ref="2da7df0b572459fdcafc5dab2b39b02c" args="(const Delta_Functor &amp;toAdd)" -->
@@ -217,6 +305,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00065">65</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                                                   {
+<a name="l00066"></a>00066     <span class="keywordflow">return</span> <a class="code" href="classDelta__Functor.html#1b2eba64f12bba1901709ea4384783e4">addFunctor</a>(toAdd);
+<a name="l00067"></a>00067 }
+</pre></div>
 <p>
 
 </div>
@@ -239,6 +334,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00075">75</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00075"></a>00075                                                            {
+<a name="l00076"></a>00076     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> &gt; compare.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a>;
+<a name="l00077"></a>00077 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="d17627b06580b12fa4a839e0abbe5de2"></a><!-- doxytag: member="Delta_Functor::operator&lt;" ref="d17627b06580b12fa4a839e0abbe5de2" args="(const Delta_Functor &amp;)" -->
@@ -257,6 +359,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00070">70</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00070"></a>00070                                                            {
+<a name="l00071"></a>00071     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> &lt; compare.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a>;
+<a name="l00072"></a>00072 }
+</pre></div>
 <p>
 
 </div>
@@ -278,6 +387,34 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00225">225</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00226"></a>00226 {
+<a name="l00227"></a>00227     <span class="keywordtype">int</span> currentTime = <a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">SDLLoader::getTime</a>();
+<a name="l00228"></a>00228     <span class="keywordtype">double</span> toReturn = 0;
+<a name="l00229"></a>00229     <span class="keywordflow">if</span> (startTime &lt;= currentTime &amp;&amp; endTime &gt;= currentTime)
+<a name="l00230"></a>00230     {
+<a name="l00231"></a>00231         toReturn += pow((<span class="keywordtype">double</span>)(currentTime - <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a>)/(<span class="keywordtype">double</span>)<a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a>, <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a>)*<a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a> + <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a>;
+<a name="l00232"></a>00232     }
+<a name="l00233"></a>00233     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> &amp;&amp; <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> &lt;= currentTime) <span class="comment">//Interesting fact - we only want to perform the cyclic behaviour IF the functor has started. I think that this makes a lot of sense. If you want it to go always, simply start your functor at 0.</span>
+<a name="l00234"></a>00234     {
+<a name="l00235"></a>00235         <span class="keywordtype">int</span> cycleTime = (currentTime - <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> <span class="comment">/*interval*/</span>) % (<span class="keywordtype">int</span>)<a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a> + <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a>;
+<a name="l00236"></a>00236         toReturn += pow((<span class="keywordtype">double</span>)(cycleTime - startTime)/(<span class="keywordtype">double</span>)<a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a>, <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a>)*<a class="code" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">valueRange</a> + <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a>;
+<a name="l00237"></a>00237     }
+<a name="l00238"></a>00238     <span class="keywordflow">else</span>
+<a name="l00239"></a>00239     {
+<a name="l00240"></a>00240         toReturn = 0;
+<a name="l00241"></a>00241     }
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243     <span class="comment">//Add on any other functors that are contained within this one</span>
+<a name="l00244"></a>00244     <span class="keywordflow">for</span> (std::list&lt;Delta_Functor&gt;::iterator i = <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.begin(); i != <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.end(); i++)
+<a name="l00245"></a>00245     {
+<a name="l00246"></a>00246         toReturn += i-&gt;getValue();
+<a name="l00247"></a>00247     }
+<a name="l00248"></a>00248     <span class="keywordflow">return</span> toReturn;
+<a name="l00249"></a>00249 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="c44505ef91d7e4f098cb8430a9db987e"></a><!-- doxytag: member="Delta_Functor::reverse" ref="c44505ef91d7e4f098cb8430a9db987e" args="()" -->
@@ -295,6 +432,35 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00189">189</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00189"></a>00189                             {
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191     <span class="comment">//Possibly this function should automatically turn off whether a functor is cyclic or not - I'm not sure</span>
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193     <span class="comment">//Create a new functor which is identical to this one, but without any children, then cat it to this functor</span>
+<a name="l00194"></a>00194     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> thisCopy(<a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a>, <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a>, <a class="code" href="classDelta__Functor.html#13ab212a2dace7719e270e6936a4f952">startValue</a>, <a class="code" href="classDelta__Functor.html#1f517566df1b13b8ccb069f8e722f492">endValue</a>, <a class="code" href="classDelta__Functor.html#48a36a60e5e834c2794eae55931b3ab1">exponent</a>);
+<a name="l00195"></a>00195     <a class="code" href="classDelta__Functor.html#6d01a9d41e7cd9dbc03ade57ea025d09">cat</a>(thisCopy);
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197     <span class="comment">//Create a new, empty functor</span>
+<a name="l00198"></a>00198     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> toReturn;
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200     <span class="comment">/* This doesn't work! THIS IS PAIN */</span>
+<a name="l00201"></a>00201     <span class="comment">//Reverse the startValue and endValue for all functors in the functors list, then add them to toReturn</span>
+<a name="l00202"></a>00202     <span class="keywordflow">for</span> (std::list&lt;Delta_Functor&gt;::iterator i = <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.begin(); i != <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.end(); i++) {
+<a name="l00203"></a>00203         <span class="keywordtype">int</span> tmp = i-&gt;startValue;
+<a name="l00204"></a>00204         i-&gt;startValue = i-&gt;endValue;
+<a name="l00205"></a>00205         i-&gt;endValue = tmp;
+<a name="l00206"></a>00206         i-&gt;exponent = 1.0/i-&gt;exponent;
+<a name="l00207"></a>00207         toReturn.<a class="code" href="classDelta__Functor.html#6d01a9d41e7cd9dbc03ade57ea025d09">cat</a>(*i);
+<a name="l00208"></a>00208     }
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210     
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212     *<span class="keyword">this</span> = toReturn;
+<a name="l00213"></a>00213 }
+</pre></div>
 <p>
 
 </div>
@@ -317,6 +483,22 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00151">151</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00151"></a>00151                                          {
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153     <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> += toShift;
+<a name="l00154"></a>00154     <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> += toShift;
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156     <a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> += toShift;
+<a name="l00157"></a>00157     <a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> += toShift;
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159     <span class="keywordflow">for</span>(std::list&lt;Delta_Functor&gt;::iterator i = <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.begin(); i != <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.end(); i++) {
+<a name="l00160"></a>00160         i-&gt;shiftTime(toShift);
+<a name="l00161"></a>00161     }
+<a name="l00162"></a>00162 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="0d1798e31ae6b04816b36babbbb81b95"></a><!-- doxytag: member="Delta_Functor::reset" ref="0d1798e31ae6b04816b36babbbb81b95" args="()" -->
@@ -334,6 +516,17 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00117">117</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00118"></a>00118 {
+<a name="l00119"></a>00119     <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> = <a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">SDLLoader::getTime</a>();
+<a name="l00120"></a>00120     <a class="code" href="classDelta__Functor.html#542c52660483f0d4fae14341e89506aa">endTime</a> = <a class="code" href="classDelta__Functor.html#00fcbd3f96221b292fef9d9c76ef45f5">startTime</a> + <a class="code" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">timeRange</a>;
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122     <a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00123"></a>00123     <a class="code" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">isBounceBack</a> = <span class="keyword">false</span>;
+<a name="l00124"></a>00124 }
+</pre></div>
 <p>
 
 </div>
@@ -355,6 +548,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00127">127</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00128"></a>00128 {
+<a name="l00129"></a>00129     <a class="code" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">isBounceBack</a> = <span class="keyword">true</span>;
+<a name="l00130"></a>00130 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="3f371a4c5720f1f46792e09de61fa15d"></a><!-- doxytag: member="Delta_Functor::unMakeBounceBack" ref="3f371a4c5720f1f46792e09de61fa15d" args="()" -->
@@ -372,6 +572,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00133">133</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00134"></a>00134 {
+<a name="l00135"></a>00135     <a class="code" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">isBounceBack</a> = <span class="keyword">false</span>;
+<a name="l00136"></a>00136 }
+</pre></div>
 <p>
 
 </div>
@@ -393,6 +600,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00139">139</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00140"></a>00140 {
+<a name="l00141"></a>00141     <a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> = <span class="keyword">true</span>;
+<a name="l00142"></a>00142 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="e540c2bb0433f996bdd8ac3390854ece"></a><!-- doxytag: member="Delta_Functor::unMakeCyclic" ref="e540c2bb0433f996bdd8ac3390854ece" args="()" -->
@@ -410,6 +624,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00145">145</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00146"></a>00146 {
+<a name="l00147"></a>00147     <a class="code" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00148"></a>00148 }
+</pre></div>
 <p>
 
 </div>
@@ -431,6 +652,17 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00216">216</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00216"></a>00216                                {
+<a name="l00217"></a>00217     <span class="keywordtype">int</span> currentTime = <a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">SDLLoader::getTime</a>();
+<a name="l00218"></a>00218     <span class="keywordflow">if</span> (<a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a> &lt;= currentTime) {
+<a name="l00219"></a>00219         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00220"></a>00220     }
+<a name="l00221"></a>00221     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00222"></a>00222 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="90ec0e075a3c552995e986c481fcbf6f"></a><!-- doxytag: member="Delta_Functor::deleteChildren" ref="90ec0e075a3c552995e986c481fcbf6f" args="()" -->
@@ -448,6 +680,22 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00165">165</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00165"></a>00165                                    {
+<a name="l00166"></a>00166     <span class="comment">//std::vector&lt;Delta_Functor *&gt; toKill;</span>
+<a name="l00167"></a>00167     <span class="keywordflow">for</span>(std::list&lt;Delta_Functor&gt;::iterator i = <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.begin(); i != <a class="code" href="classDelta__Functor.html#e41ad53b7045346646cb8fd7d5dbad8a">functors</a>.end(); i++) {
+<a name="l00168"></a>00168         <span class="comment">//toKill.push_back(i);</span>
+<a name="l00169"></a>00169         <span class="keyword">delete</span> &amp;i;
+<a name="l00170"></a>00170     }
+<a name="l00171"></a>00171 <span class="comment">/*</span>
+<a name="l00172"></a>00172 <span class="comment">    for (int i = 0 ; i &lt; toKill.count(); i++) {</span>
+<a name="l00173"></a>00173 <span class="comment">        delete toKill[i];</span>
+<a name="l00174"></a>00174 <span class="comment">    }</span>
+<a name="l00175"></a>00175 <span class="comment">*/</span>
+<a name="l00176"></a>00176 }
+</pre></div>
 <p>
 
 </div>
@@ -470,6 +718,17 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8cpp-source.html#l00179">179</a> of file <a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00180"></a>00180 {
+<a name="l00181"></a>00181     <span class="comment">//Move the time so that toCat's time begins when this functor ends</span>
+<a name="l00182"></a>00182     toCat.<a class="code" href="classDelta__Functor.html#d8ad00db7a81c10095ce3a35555a6f98">shiftTime</a>( -(toCat.<a class="code" href="classDelta__Functor.html#1b0be469ec4955f7dcca2d7e0b7dc604">totalStartTime</a> - <a class="code" href="classDelta__Functor.html#91e0a561c58ab6ea4a0f13618fe11ddb">totalEndTime</a>) );
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184     *<span class="keyword">this</span> = *<span class="keyword">this</span> + toCat;
+<a name="l00185"></a>00185     <span class="keywordflow">return</span> * <span class="keyword">this</span>;
+<a name="l00186"></a>00186 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -486,6 +745,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00017">17</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="91e0a561c58ab6ea4a0f13618fe11ddb"></a><!-- doxytag: member="Delta_Functor::totalEndTime" ref="91e0a561c58ab6ea4a0f13618fe11ddb" args="" -->
@@ -500,6 +761,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00018">18</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -516,6 +779,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00019">19</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="00fcbd3f96221b292fef9d9c76ef45f5"></a><!-- doxytag: member="Delta_Functor::startTime" ref="00fcbd3f96221b292fef9d9c76ef45f5" args="" -->
@@ -530,6 +795,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00020">20</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -546,6 +813,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00021">21</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="e0a2ea6402b2f51caf675c91ba7c42d5"></a><!-- doxytag: member="Delta_Functor::timeRange" ref="e0a2ea6402b2f51caf675c91ba7c42d5" args="" -->
@@ -560,6 +829,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00022">22</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -576,6 +847,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00023">23</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="1f517566df1b13b8ccb069f8e722f492"></a><!-- doxytag: member="Delta_Functor::endValue" ref="1f517566df1b13b8ccb069f8e722f492" args="" -->
@@ -590,6 +863,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00024">24</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -606,6 +881,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00025">25</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="48a36a60e5e834c2794eae55931b3ab1"></a><!-- doxytag: member="Delta_Functor::exponent" ref="48a36a60e5e834c2794eae55931b3ab1" args="" -->
@@ -620,6 +897,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00026">26</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -636,6 +915,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00029">29</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="ee7f852fc1f127f0fd6b4d7ecc7cbce0"></a><!-- doxytag: member="Delta_Functor::isBounceBack" ref="ee7f852fc1f127f0fd6b4d7ecc7cbce0" args="" -->
@@ -650,6 +931,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00030">30</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
 
 </div>
 </div><p>
@@ -666,12 +949,14 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="DeltaFunctor_8h-source.html#l00032">32</a> of file <a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a>.</p>
+
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="DeltaFunctor_8h.html">DeltaFunctor.h</a><li><a class="el" href="DeltaFunctor_8cpp.html">DeltaFunctor.cpp</a></ul>
+<li><a class="el" href="DeltaFunctor_8h-source.html">DeltaFunctor.h</a><li><a class="el" href="DeltaFunctor_8cpp-source.html">DeltaFunctor.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

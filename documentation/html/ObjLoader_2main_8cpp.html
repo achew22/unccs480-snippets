@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
 </div>
@@ -20,10 +30,10 @@
 <code>#include &lt;vector&gt;</code><br>
 <code>#include &lt;cmath&gt;</code><br>
 <code>#include &lt;GL/glut.h&gt;</code><br>
-<code>#include &quot;<a class="el" href="camera_8h.html">../../camera.h</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="point_8h.html">../../point.h</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="mesh_8h.html">../../mesh.h</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="DeltaFunctor_8h.html">../../DeltaFunctor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="camera_8h-source.html">../../camera.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="point_8h-source.html">../../point.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="mesh_8h-source.html">../../mesh.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="DeltaFunctor_8h-source.html">../../DeltaFunctor.h</a>&quot;</code><br>
 
 <p>
 <div class="dynheader">
@@ -33,7 +43,9 @@ Include dependency graph for main.cpp:</div>
 <map name="samples/ObjLoader/main.cpp_map">
 <area shape="rect" href="camera_8h.html" title="../../camera.h" alt="" coords="553,81,652,105"><area shape="rect" href="point_8h.html" title="point.h" alt="" coords="369,231,428,255"><area shape="rect" href="DeltaFunctor_8h.html" title="DeltaFunctor.h" alt="" coords="655,156,759,180"><area shape="rect" href="mesh_8h.html" title="../../mesh.h" alt="" coords="264,81,352,105"><area shape="rect" href="face_8h.html" title="face.h" alt="" coords="321,156,377,180"></map>
 </div>
-<table border="0" cellpadding="0" cellspacing="0">
+
+<p>
+<a href="ObjLoader_2main_8cpp-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ObjLoader_2main_8cpp.html#250d0c79f67ff46549cdc1c7f1389ba0">resize</a> (int, int)</td></tr>
@@ -128,6 +140,35 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00221">221</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00222"></a>00222 {
+<a name="l00223"></a>00223     <span class="keywordflow">if</span> (<a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a> != NULL)
+<a name="l00224"></a>00224     {
+<a name="l00225"></a>00225         <span class="keyword">delete</span> <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a>;
+<a name="l00226"></a>00226     }
+<a name="l00227"></a>00227     <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a> = <span class="keyword">new</span> <a class="code" href="classMesh.html">Mesh</a>();
+<a name="l00228"></a>00228     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> degree = 0; degree &lt; 360; degree += 10)
+<a name="l00229"></a>00229     {
+<a name="l00230"></a>00230         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>.size() - 1; i++)
+<a name="l00231"></a>00231         {
+<a name="l00232"></a>00232             vector&lt;Point3&gt; face;
+<a name="l00233"></a>00233             face.push_back(<a class="code" href="classPoint3.html">Point3</a>(<a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].x * cos(degree * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].x * sin(degree * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].y));
+<a name="l00234"></a>00234             face.push_back(<a class="code" href="classPoint3.html">Point3</a>(<a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].x * cos(degree * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].x * sin(degree * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].y));
+<a name="l00235"></a>00235             face.push_back(<a class="code" href="classPoint3.html">Point3</a>(<a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].x * cos((degree + 10) * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].x * sin((degree + 10) * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].y));
+<a name="l00236"></a>00236             face.push_back(<a class="code" href="classPoint3.html">Point3</a>(<a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].x * cos((degree + 10) * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].x * sin((degree + 10) * 3.14159/180), <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i + 1].y));
+<a name="l00237"></a>00237             <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a>-&gt;<a class="code" href="classMesh.html#851685460da4951a1710f121e71b2ffe">addFace</a>(face);
+<a name="l00238"></a>00238             vector&lt;Point3&gt; reverseFace;
+<a name="l00239"></a>00239             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; face.size(); j++)
+<a name="l00240"></a>00240             {
+<a name="l00241"></a>00241                 reverseFace.push_back(face[face.size() - 1 - j]);
+<a name="l00242"></a>00242             }
+<a name="l00243"></a>00243             <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a>-&gt;<a class="code" href="classMesh.html#851685460da4951a1710f121e71b2ffe">addFace</a>(reverseFace);
+<a name="l00244"></a>00244         }
+<a name="l00245"></a>00245     }
+<a name="l00246"></a>00246 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="1e5b20fed15743656bb6d2e6a6ea6269"></a><!-- doxytag: member="main.cpp::display" ref="1e5b20fed15743656bb6d2e6a6ea6269" args="()" -->
@@ -145,6 +186,30 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00081">81</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                {
+<a name="l00082"></a>00082     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+<a name="l00083"></a>00083     <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;doGlSetDisp();
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="comment">/* Draw Coordinate Axes * /</span>
+<a name="l00086"></a>00086 <span class="comment">    glPushMatrix();</span>
+<a name="l00087"></a>00087 <span class="comment">        drawCoordAxes(5);</span>
+<a name="l00088"></a>00088 <span class="comment">    glPopMatrix();</span>
+<a name="l00089"></a>00089 <span class="comment">    /*                      */</span>
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     glPushMatrix();
+<a name="l00092"></a>00092         glRotated(<a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a>, 0, 1, 0);
+<a name="l00093"></a>00093         glColor3f(1.0, 1.0, 0.0);
+<a name="l00094"></a>00094         <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a>-&gt;<a class="code" href="classMesh.html#65944945040e9c444f427e0116d9d4e6">drawMesh</a>();
+<a name="l00095"></a>00095         glColor3f(1.0, 0.0, 0.0);
+<a name="l00096"></a>00096         <span class="comment">//glutSolidSphere(1, 20, 20);</span>
+<a name="l00097"></a>00097     glPopMatrix();
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     glutSwapBuffers();
+<a name="l00100"></a>00100 }
+</pre></div>
 <p>
 
 </div>
@@ -167,6 +232,28 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00200">200</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00201"></a>00201 {
+<a name="l00202"></a>00202     glPushMatrix();
+<a name="l00203"></a>00203         glBegin(GL_LINES);
+<a name="l00204"></a>00204             glColor3f(0,0,1);
+<a name="l00205"></a>00205             glLineWidth(2.0);
+<a name="l00206"></a>00206             glVertex3f(0,0,0);
+<a name="l00207"></a>00207             glVertex3f(0,0,length);
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209             glColor3f(0,1,0);
+<a name="l00210"></a>00210             glVertex3f(0,0,0);
+<a name="l00211"></a>00211             glVertex3f(0,length,0);
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213             glColor3f(1,0,0);
+<a name="l00214"></a>00214             glVertex3f(0,0,0);
+<a name="l00215"></a>00215             glVertex3f(length,0,0);
+<a name="l00216"></a>00216         glEnd();
+<a name="l00217"></a>00217     glPopMatrix();
+<a name="l00218"></a>00218 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="fc7d96a938b6a30f5a71c8affd29c300"></a><!-- doxytag: member="main.cpp::drawFigureDisplayHandler" ref="fc7d96a938b6a30f5a71c8affd29c300" args="()" -->
@@ -186,6 +273,40 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00312">312</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00313"></a>00313 {
+<a name="l00314"></a>00314     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316     <span class="comment">/* Draw Coordinate Axes * /</span>
+<a name="l00317"></a>00317 <span class="comment">    glPushMatrix();</span>
+<a name="l00318"></a>00318 <span class="comment">        drawCoordAxes(5);</span>
+<a name="l00319"></a>00319 <span class="comment">    glPopMatrix();</span>
+<a name="l00320"></a>00320 <span class="comment">    /*                      */</span>
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322     <span class="comment">//Draw a vertical line down the middle</span>
+<a name="l00323"></a>00323     glPushMatrix();
+<a name="l00324"></a>00324         glColor3f(0, 0, 0);
+<a name="l00325"></a>00325         glBegin(GL_LINES);
+<a name="l00326"></a>00326             glVertex3d(0,-1,0);
+<a name="l00327"></a>00327             glVertex3d(0,1,0);
+<a name="l00328"></a>00328         glEnd();
+<a name="l00329"></a>00329     glPopMatrix();
+<a name="l00330"></a>00330 
+<a name="l00331"></a>00331     glPushMatrix();
+<a name="l00332"></a>00332         glColor3f(1.0, 0.0, 0.0);
+<a name="l00333"></a>00333         glBegin(GL_LINE_STRIP);
+<a name="l00334"></a>00334             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>.size(); i++)
+<a name="l00335"></a>00335             {
+<a name="l00336"></a>00336                 <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>[i].doVertex();
+<a name="l00337"></a>00337             }
+<a name="l00338"></a>00338         glEnd();
+<a name="l00339"></a>00339     glPopMatrix();
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341     glutSwapBuffers();
+<a name="l00342"></a>00342 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="23351870d09e4587c814ddb34068330d"></a><!-- doxytag: member="main.cpp::drawFigureIdleHandler" ref="23351870d09e4587c814ddb34068330d" args="()" -->
@@ -203,6 +324,13 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00344">344</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00345"></a>00345 {
+<a name="l00346"></a>00346     glutPostRedisplay();
+<a name="l00347"></a>00347 }
+</pre></div>
 <p>
 
 </div>
@@ -238,6 +366,19 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00292">292</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00293"></a>00293 {
+<a name="l00294"></a>00294     <span class="keywordflow">if</span>(key == <span class="charliteral">'q'</span>)
+<a name="l00295"></a>00295         exit(0);\
+<a name="l00296"></a>00296     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'d'</span>)
+<a name="l00297"></a>00297     {
+<a name="l00298"></a>00298         <a class="code" href="ObjLoader_2main_8cpp.html#4a397b7c66590aa38c1720c97bdc8255">createMesh</a>();
+<a name="l00299"></a>00299         <a class="code" href="ObjLoader_2main_8cpp.html#6ae9d02cc041706c617e20862b4b0530">setViewFigureMode</a>();
+<a name="l00300"></a>00300     }
+<a name="l00301"></a>00301 }
+</pre></div>
 <p>
 
 </div>
@@ -281,6 +422,17 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00303">303</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00304"></a>00304 {
+<a name="l00305"></a>00305     <span class="keywordflow">if</span> (button == GLUT_LEFT_BUTTON &amp;&amp; state == GLUT_DOWN)
+<a name="l00306"></a>00306     {
+<a name="l00307"></a>00307         <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>.push_back(<a class="code" href="classPoint3.html">Point3</a>((x - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0)/(<span class="keywordtype">double</span>)(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0), (-y + <a class="code" href="ObjLoader_2main_8cpp.html#f728b7647e0b8c49832983a31f9a2e9b">HEIGHT</a>/2.0)/(<span class="keywordtype">double</span>)(<a class="code" href="ObjLoader_2main_8cpp.html#f728b7647e0b8c49832983a31f9a2e9b">HEIGHT</a>/2.0), 0.0));
+<a name="l00308"></a>00308         printf(<span class="stringliteral">"Clicked at %i, %i, corresponding to point %f, %f, %f\n"</span>, x, y, (x - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0)/(<span class="keywordtype">double</span>)(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0), (-y + <a class="code" href="ObjLoader_2main_8cpp.html#f728b7647e0b8c49832983a31f9a2e9b">HEIGHT</a>/2.0)/(<span class="keywordtype">double</span>)(<a class="code" href="ObjLoader_2main_8cpp.html#f728b7647e0b8c49832983a31f9a2e9b">HEIGHT</a>/2.0), 0.0);
+<a name="l00309"></a>00309     }
+<a name="l00310"></a>00310 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="e9b7da1af4557a34a4b57412136317df"></a><!-- doxytag: member="main.cpp::drawFigureResize" ref="e9b7da1af4557a34a4b57412136317df" args="(int width, int height)" -->
@@ -310,6 +462,24 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00276">276</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00277"></a>00277 {
+<a name="l00278"></a>00278     <span class="keyword">const</span> <span class="keywordtype">float</span> ar = (float) width / (<span class="keywordtype">float</span>) height;
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280     glViewport(0, 0, width, height);
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282     <span class="comment">//Set up projection mode here. It is apparently safe to use glFrustum and gluLookAt</span>
+<a name="l00283"></a>00283     glMatrixMode(GL_PROJECTION);
+<a name="l00284"></a>00284     glLoadIdentity();
+<a name="l00285"></a>00285     gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
+<a name="l00286"></a>00286     <span class="comment">//gluLookAt(0, -1, 0, 0, 0, 0, 0, 0, 1);</span>
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288     glMatrixMode(GL_MODELVIEW);
+<a name="l00289"></a>00289     glLoadIdentity() ;
+<a name="l00290"></a>00290 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="02fd73d861ef2e4aabb38c0c9ff82947"></a><!-- doxytag: member="main.cpp::init" ref="02fd73d861ef2e4aabb38c0c9ff82947" args="()" -->
@@ -327,6 +497,60 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00102">102</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00102"></a>00102             {
+<a name="l00103"></a>00103     glClearColor(1.0, 1.0, 1.0, 0.0);
+<a name="l00104"></a>00104     <span class="comment">//glMatrixMode(GL_PROJECTION);</span>
+<a name="l00105"></a>00105     <span class="comment">//glLoadIdentity();</span>
+<a name="l00106"></a>00106     <span class="comment">//glFrustum(-4.0, 4.0, -4.0, 4.0, 1, 4.0);</span>
+<a name="l00107"></a>00107     <span class="comment">//glTranslated(0,0,4);</span>
+<a name="l00108"></a>00108     glColor3f(1.0, 0.0, 0.0);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     <span class="comment">//Stuff from sample</span>
+<a name="l00111"></a>00111     glEnable(GL_CULL_FACE);
+<a name="l00112"></a>00112     glCullFace(GL_BACK);
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114     glEnable(GL_DEPTH_TEST);
+<a name="l00115"></a>00115     glDepthFunc(GL_LESS);
+<a name="l00116"></a>00116     glEnable(GL_NORMALIZE); <span class="comment">//Automatically rescale normals to make them unit length</span>
+<a name="l00117"></a>00117     glEnable(GL_COLOR_MATERIAL);
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <span class="comment">/* Enable lighting */</span>
+<a name="l00120"></a>00120     glEnable(GL_LIGHT0);
+<a name="l00121"></a>00121     glEnable(GL_LIGHTING);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123     glLightfv(GL_LIGHT0, GL_AMBIENT,  <a class="code" href="ObjLoader_2main_8cpp.html#35b44e70b5291d4c6a2ddfa0ffe062e8">light_ambient</a>);
+<a name="l00124"></a>00124     glLightfv(GL_LIGHT0, GL_DIFFUSE,  <a class="code" href="ObjLoader_2main_8cpp.html#d0bc3e49164c7d5d01dd6b4a0d0fff25">light_diffuse</a>);
+<a name="l00125"></a>00125     glLightfv(GL_LIGHT0, GL_SPECULAR, <a class="code" href="ObjLoader_2main_8cpp.html#48537988fd7a403709b0a7ffcbebac77">light_specular</a>);
+<a name="l00126"></a>00126     glLightfv(GL_LIGHT0, GL_POSITION, <a class="code" href="ObjLoader_2main_8cpp.html#ea3c4afba5fcc8b77067671d396b577b">light_position</a>);
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128     glMaterialfv(GL_FRONT, GL_AMBIENT,   <a class="code" href="ObjLoader_2main_8cpp.html#dfbd08e06a4a9fc898f6a3b9797316d8">mat_ambient</a>);
+<a name="l00129"></a>00129     glMaterialfv(GL_FRONT, GL_DIFFUSE,   <a class="code" href="ObjLoader_2main_8cpp.html#abea2510d410c6e2c8470a262cdabada">mat_diffuse</a>);
+<a name="l00130"></a>00130     glMaterialfv(GL_FRONT, GL_SPECULAR,  <a class="code" href="ObjLoader_2main_8cpp.html#a024b50a93b02ad54fc180d4729d8735">mat_specular</a>);
+<a name="l00131"></a>00131     glMaterialfv(GL_FRONT, GL_SHININESS, <a class="code" href="ObjLoader_2main_8cpp.html#93c2ee41abd3c06ade37dd87e48a8a33">high_shininess</a>);
+<a name="l00132"></a>00132     <span class="comment">/* */</span>
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134     <span class="comment">// enable color tracking</span>
+<a name="l00135"></a>00135     glEnable(GL_COLOR_MATERIAL);
+<a name="l00136"></a>00136     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138     <span class="comment">//init functor</span>
+<a name="l00139"></a>00139     <a class="code" href="ObjLoader_2main_8cpp.html#b326278f3b9862e4fad59fe04ff7b370">myFunctor</a> = <span class="keyword">new</span> <a class="code" href="classDelta__Functor.html">Delta_Functor</a>(glutGet(GLUT_ELAPSED_TIME) + 1000, glutGet(GLUT_ELAPSED_TIME) + 6000, 0, 360, 1);
+<a name="l00140"></a>00140     <span class="comment">//myFunctor-&gt;reverse();</span>
+<a name="l00141"></a>00141     <a class="code" href="ObjLoader_2main_8cpp.html#b326278f3b9862e4fad59fe04ff7b370">myFunctor</a>-&gt;<a class="code" href="classDelta__Functor.html#71072e853736441da4c917b0eb251e4a">makeCyclic</a>();
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143     <span class="comment">//Init mesh</span>
+<a name="l00144"></a>00144     printf(<span class="stringliteral">"Making a mesh now...\n"</span>);
+<a name="l00145"></a>00145     <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a> = <span class="keyword">new</span> <a class="code" href="classMesh.html">Mesh</a>();
+<a name="l00146"></a>00146     <a class="code" href="ObjLoader_2main_8cpp.html#dc039bf0aa0bf97ec02812245c54b7d0">myMesh</a>-&gt;<a class="code" href="classMesh.html#fac3850b7b10d3830ba71d417e328f64">loadObj</a>(<span class="stringliteral">"./proog.obj"</span>);
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148     <span class="comment">//Init camera</span>
+<a name="l00149"></a>00149     <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a> = <span class="keyword">new</span> <a class="code" href="classCamera.html">Camera</a>(<a class="code" href="classPoint3.html">Point3</a>(5,5,5), <a class="code" href="classPoint3.html">Point3</a>(0,0,0), <a class="code" href="classPoint3.html">Point3</a>(0,0,1));
+<a name="l00150"></a>00150     <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;<a class="code" href="classCamera.html#652f4e51b10f9f6a0e1b618f2d8f8ab2">setFrustum</a>(-1, 1, -1, 1, 2, 100);
+<a name="l00151"></a>00151 }
+</pre></div>
 <p>
 
 </div>
@@ -358,6 +582,28 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00349">349</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00349"></a>00349                                 {
+<a name="l00350"></a>00350     printf(<span class="stringliteral">"some random numbers: %i, %i, %i, %i, %i\n"</span>, rand()%5, rand()%5, rand()%5, rand()%5, rand()%5);
+<a name="l00351"></a>00351     glutInit(&amp;argc, argv);
+<a name="l00352"></a>00352     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+<a name="l00353"></a>00353     glutInitWindowSize(800, 800);
+<a name="l00354"></a>00354     glutInitWindowPosition(0, 0);
+<a name="l00355"></a>00355     glutCreateWindow(<span class="stringliteral">"Mesher"</span>);
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357     <span class="comment">//Set callback functions</span>
+<a name="l00358"></a>00358     <a class="code" href="ObjLoader_2main_8cpp.html#6ae9d02cc041706c617e20862b4b0530">setViewFigureMode</a>();
+<a name="l00359"></a>00359 
+<a name="l00360"></a>00360     <a class="code" href="ObjLoader_2main_8cpp.html#02fd73d861ef2e4aabb38c0c9ff82947">init</a>(); <span class="comment">//Initialize everything</span>
+<a name="l00361"></a>00361 
+<a name="l00362"></a>00362     <span class="comment">//Enter main loop</span>
+<a name="l00363"></a>00363     glutMainLoop();
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365     <span class="keywordflow">return</span> 0;
+<a name="l00366"></a>00366 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="9f7b798c90091aee63d8a96a229be2a6"></a><!-- doxytag: member="main.cpp::myidle" ref="9f7b798c90091aee63d8a96a229be2a6" args="()" -->
@@ -375,6 +621,19 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00154">154</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00154"></a>00154               {
+<a name="l00155"></a>00155     <a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a> = <a class="code" href="ObjLoader_2main_8cpp.html#b326278f3b9862e4fad59fe04ff7b370">myFunctor</a>-&gt;<a class="code" href="classDelta__Functor.html#0a2b9abb036b2980536dba724c01df66">getValue</a>();
+<a name="l00156"></a>00156     <span class="comment">//printf("Time elapsed is %i, theta is %d\n", glutGet(GLUT_ELAPSED_TIME), theta);</span>
+<a name="l00157"></a>00157     <span class="keywordflow">if</span> (<a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a> &gt;= 360.0)
+<a name="l00158"></a>00158         <a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a> -= 360.0;
+<a name="l00159"></a>00159     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a> &lt;= 0.0)
+<a name="l00160"></a>00160         <a class="code" href="ObjLoader_2main_8cpp.html#ca81c35c21e3a5f7f3a8d24504e76664">theta</a> += 360.0;
+<a name="l00161"></a>00161     glutPostRedisplay();
+<a name="l00162"></a>00162 }
+</pre></div>
 <p>
 
 </div>
@@ -431,6 +690,28 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00164">164</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00164"></a>00164                                             {
+<a name="l00165"></a>00165     <span class="keywordflow">if</span>(key == <span class="charliteral">'q'</span>)
+<a name="l00166"></a>00166         exit(0);
+<a name="l00167"></a>00167     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'d'</span>)
+<a name="l00168"></a>00168         <a class="code" href="ObjLoader_2main_8cpp.html#41294ec127b58ae3b26bc9f58a41defe">setDrawFigureMode</a>();
+<a name="l00169"></a>00169     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'+'</span>)
+<a name="l00170"></a>00170         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;<a class="code" href="classCamera.html#816e48f2accdc6028c3452758ed0e68f">zoomIn</a>(0.95);
+<a name="l00171"></a>00171     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'-'</span>)
+<a name="l00172"></a>00172         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;<a class="code" href="classCamera.html#816e48f2accdc6028c3452758ed0e68f">zoomIn</a>(1.05);
+<a name="l00173"></a>00173     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'4'</span>)
+<a name="l00174"></a>00174         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;spinAroundCenter(0,-<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/10.0);
+<a name="l00175"></a>00175     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'6'</span>)
+<a name="l00176"></a>00176         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;spinAroundCenter(0,<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/10.0);
+<a name="l00177"></a>00177     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'8'</span>)
+<a name="l00178"></a>00178         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;spinAroundCenter(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/10.0,0);
+<a name="l00179"></a>00179     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (key == <span class="charliteral">'2'</span>)
+<a name="l00180"></a>00180         <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;spinAroundCenter(-<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/10.0,0);
+<a name="l00181"></a>00181 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="be323cd8abf44c18f288ebad4c4bfffb"></a><!-- doxytag: member="main.cpp::mymotion" ref="be323cd8abf44c18f288ebad4c4bfffb" args="(int x, int y)" -->
@@ -458,6 +739,16 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00191">191</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00192"></a>00192 {
+<a name="l00193"></a>00193     <span class="keywordtype">double</span> shiftx = <a class="code" href="ObjLoader_2main_8cpp.html#172e443885cb4141c4fa68a29bf725d2">clickPosition</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> - (x - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0);
+<a name="l00194"></a>00194     <span class="keywordtype">double</span> shifty = <a class="code" href="ObjLoader_2main_8cpp.html#172e443885cb4141c4fa68a29bf725d2">clickPosition</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> - (y - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0);
+<a name="l00195"></a>00195     <a class="code" href="ObjLoader_2main_8cpp.html#172e443885cb4141c4fa68a29bf725d2">clickPosition</a> = <a class="code" href="classPoint3.html">Point3</a>((x - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0),(y - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0),0);
+<a name="l00196"></a>00196     <a class="code" href="ObjLoader_2main_8cpp.html#62a338917876f81493a575e92e524266">myCamera</a>-&gt;spinAroundCenter(-shifty*<a class="code" href="ObjLoader_2main_8cpp.html#05362d9fc7726c08a027a2535cbf472c">MOUSE_SENSITIVITY</a>, shiftx*MOUSE_SENSITIVITY);
+<a name="l00197"></a>00197 }
+</pre></div>
 <p>
 
 </div>
@@ -501,6 +792,16 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00183">183</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00184"></a>00184 {
+<a name="l00185"></a>00185     <span class="keywordflow">if</span> (button == GLUT_LEFT_BUTTON &amp;&amp; state == GLUT_DOWN)
+<a name="l00186"></a>00186     {
+<a name="l00187"></a>00187         <a class="code" href="ObjLoader_2main_8cpp.html#172e443885cb4141c4fa68a29bf725d2">clickPosition</a> = <a class="code" href="classPoint3.html">Point3</a>((x - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0),(y - <a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>)/(<a class="code" href="ObjLoader_2main_8cpp.html#9649ab8139c4c2ea5c93625b30d92a05">WIDTH</a>/2.0),0);
+<a name="l00188"></a>00188     }
+<a name="l00189"></a>00189 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="7167f5c196fc5e167bfabde1a730e81d"></a><!-- doxytag: member="main.cpp::pause" ref="7167f5c196fc5e167bfabde1a730e81d" args="()" -->
@@ -518,6 +819,12 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00076">76</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00077"></a>00077 {
+<a name="l00078"></a>00078 }
+</pre></div>
 <p>
 
 </div>
@@ -549,6 +856,24 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00059">59</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00060"></a>00060 {
+<a name="l00061"></a>00061     <span class="keyword">const</span> <span class="keywordtype">float</span> ar = (float) width / (<span class="keywordtype">float</span>) height;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     glViewport(0, 0, width, height);
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065     <span class="comment">//Set up projection mode here. It is apparently safe to use glFrustum and gluLookAt</span>
+<a name="l00066"></a>00066     glMatrixMode(GL_PROJECTION);
+<a name="l00067"></a>00067     glLoadIdentity();
+<a name="l00068"></a>00068     glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
+<a name="l00069"></a>00069     gluLookAt(5,5,5,0,0,0,0,0,1);
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071     glMatrixMode(GL_MODELVIEW);
+<a name="l00072"></a>00072     glLoadIdentity() ;
+<a name="l00073"></a>00073 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="41294ec127b58ae3b26bc9f58a41defe"></a><!-- doxytag: member="main.cpp::setDrawFigureMode" ref="41294ec127b58ae3b26bc9f58a41defe" args="()" -->
@@ -566,6 +891,23 @@ Include dependency graph for main.cpp:</div>
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00249">249</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00250"></a>00250 {
+<a name="l00251"></a>00251     <a class="code" href="ObjLoader_2main_8cpp.html#4f1d4e1406b761c832a12aec8931a68d">points</a>.resize(0);
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253     <span class="comment">//Set new callback functions</span>
+<a name="l00254"></a>00254     glutReshapeFunc(<a class="code" href="ObjLoader_2main_8cpp.html#e9b7da1af4557a34a4b57412136317df">drawFigureResize</a>);
+<a name="l00255"></a>00255     glutKeyboardFunc(<a class="code" href="ObjLoader_2main_8cpp.html#948feadb426461f2f2cc4da480fc4ca5">drawFigureKeyHandler</a>);
+<a name="l00256"></a>00256     glutMouseFunc(<a class="code" href="ObjLoader_2main_8cpp.html#d09e31899f90dd02576e758030b992e6">drawFigureMouseHandler</a>);
+<a name="l00257"></a>00257     glutMotionFunc(NULL);
+<a name="l00258"></a>00258     glutDisplayFunc(<a class="code" href="ObjLoader_2main_8cpp.html#fc7d96a938b6a30f5a71c8affd29c300">drawFigureDisplayHandler</a>);
+<a name="l00259"></a>00259     glutIdleFunc(<a class="code" href="ObjLoader_2main_8cpp.html#23351870d09e4587c814ddb34068330d">drawFigureIdleHandler</a>);
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261     <a class="code" href="ObjLoader_2main_8cpp.html#e9b7da1af4557a34a4b57412136317df">drawFigureResize</a>(800, 800);
+<a name="l00262"></a>00262 }
+</pre></div>
 <p>
 
 </div>
@@ -587,6 +929,20 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00264">264</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00265"></a>00265 {
+<a name="l00266"></a>00266     glutReshapeFunc(<a class="code" href="ObjLoader_2main_8cpp.html#250d0c79f67ff46549cdc1c7f1389ba0">resize</a>);
+<a name="l00267"></a>00267     glutKeyboardFunc(<a class="code" href="ObjLoader_2main_8cpp.html#16ca319bc38e82dd15ddd4e8639f4abc">mykey</a>);
+<a name="l00268"></a>00268     glutMouseFunc(<a class="code" href="ObjLoader_2main_8cpp.html#4b97f79ae9cf8168e744d3ae69ab5b32">mymouse</a>);
+<a name="l00269"></a>00269     glutMotionFunc(<a class="code" href="ObjLoader_2main_8cpp.html#be323cd8abf44c18f288ebad4c4bfffb">mymotion</a>);
+<a name="l00270"></a>00270     glutDisplayFunc(<a class="code" href="ObjLoader_2main_8cpp.html#1e5b20fed15743656bb6d2e6a6ea6269">display</a>);
+<a name="l00271"></a>00271     glutIdleFunc(<a class="code" href="ObjLoader_2main_8cpp.html#9f7b798c90091aee63d8a96a229be2a6">myidle</a>);
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273     <a class="code" href="ObjLoader_2main_8cpp.html#250d0c79f67ff46549cdc1c7f1389ba0">resize</a>(800, 800);
+<a name="l00274"></a>00274 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Variable Documentation</h2>
@@ -603,6 +959,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00020">20</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="f728b7647e0b8c49832983a31f9a2e9b"></a><!-- doxytag: member="main.cpp::HEIGHT" ref="f728b7647e0b8c49832983a31f9a2e9b" args="" -->
@@ -617,6 +975,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00024">24</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -633,6 +993,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00039">39</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="35b44e70b5291d4c6a2ddfa0ffe062e8"></a><!-- doxytag: member="main.cpp::light_ambient" ref="35b44e70b5291d4c6a2ddfa0ffe062e8" args="[]" -->
@@ -647,6 +1009,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00031">31</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -663,6 +1027,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00032">32</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="ea3c4afba5fcc8b77067671d396b577b"></a><!-- doxytag: member="main.cpp::light_position" ref="ea3c4afba5fcc8b77067671d396b577b" args="[]" -->
@@ -677,6 +1043,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00034">34</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -693,6 +1061,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00033">33</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="dfbd08e06a4a9fc898f6a3b9797316d8"></a><!-- doxytag: member="main.cpp::mat_ambient" ref="dfbd08e06a4a9fc898f6a3b9797316d8" args="[]" -->
@@ -707,6 +1077,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00036">36</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -723,6 +1095,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00037">37</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="a024b50a93b02ad54fc180d4729d8735"></a><!-- doxytag: member="main.cpp::mat_specular" ref="a024b50a93b02ad54fc180d4729d8735" args="[]" -->
@@ -737,6 +1111,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00038">38</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -753,6 +1129,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00028">28</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="62a338917876f81493a575e92e524266"></a><!-- doxytag: member="main.cpp::myCamera" ref="62a338917876f81493a575e92e524266" args="" -->
@@ -767,6 +1145,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00019">19</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -783,6 +1163,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00017">17</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="dc039bf0aa0bf97ec02812245c54b7d0"></a><!-- doxytag: member="main.cpp::myMesh" ref="dc039bf0aa0bf97ec02812245c54b7d0" args="" -->
@@ -797,6 +1179,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00018">18</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -813,6 +1197,8 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00016">16</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="ca81c35c21e3a5f7f3a8d24504e76664"></a><!-- doxytag: member="main.cpp::theta" ref="ca81c35c21e3a5f7f3a8d24504e76664" args="" -->
@@ -827,6 +1213,8 @@ Include dependency graph for main.cpp:</div>
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00015">15</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -843,10 +1231,12 @@ Include dependency graph for main.cpp:</div>
 
 <p>
 
+<p>Definition at line <a class="el" href="ObjLoader_2main_8cpp-source.html#l00023">23</a> of file <a class="el" href="ObjLoader_2main_8cpp-source.html">main.cpp</a>.</p>
+
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

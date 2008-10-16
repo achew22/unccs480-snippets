@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>Point3 Class Reference</h1><!-- doxytag: class="Point3" --><code>#include &lt;point.h&gt;</code>
+<h1>Point3 Class Reference</h1><!-- doxytag: class="Point3" --><code>#include &lt;<a class="el" href="point_8h-source.html">point.h</a>&gt;</code>
 <p>
 
 <p>
@@ -81,6 +91,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a></td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+
+<p>Definition at line <a class="el" href="point_8h-source.html#l00010">10</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="9a22451b2dd7f2b26ad5a3e9b74c8eca"></a><!-- doxytag: member="Point3::Point3" ref="9a22451b2dd7f2b26ad5a3e9b74c8eca" args="()" -->
 <div class="memitem">
@@ -97,6 +110,17 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00010">10</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = 0;
+<a name="l00013"></a>00013     <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = 0;
+<a name="l00014"></a>00014     <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = 0;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016         <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">false</span>;
+<a name="l00017"></a>00017 }
+</pre></div>
 <p>
 
 </div>
@@ -117,6 +141,17 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00020">20</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00021"></a>00021 {
+<a name="l00022"></a>00022     <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = point.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>;
+<a name="l00023"></a>00023     <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = point.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>;
+<a name="l00024"></a>00024     <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = point.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026         <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">false</span>;
+<a name="l00027"></a>00027 }
+</pre></div>
 <p>
 
 </div>
@@ -154,6 +189,17 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00030">30</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00031"></a>00031 {
+<a name="l00032"></a>00032     <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = inx;
+<a name="l00033"></a>00033     <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = iny;
+<a name="l00034"></a>00034     <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = inz;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036         <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">false</span>;
+<a name="l00037"></a>00037 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="9bd2b37d2ad4368ffdd1f0227ab9111e"></a><!-- doxytag: member="Point3::Point3" ref="9bd2b37d2ad4368ffdd1f0227ab9111e" args="(std::string pointStr)" -->
@@ -172,6 +218,57 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00041">41</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00042"></a>00042 {
+<a name="l00043"></a>00043     <span class="keywordflow">if</span> (pointStr.find_first_of(<span class="charliteral">','</span>) != std::string::npos) {    <span class="comment">//This means that it is a comma delimeted type</span>
+<a name="l00044"></a>00044         <span class="comment">//First, remove all spaces</span>
+<a name="l00045"></a>00045         <span class="comment">//printf("Point3::Removing all spaces from %s...", pointStr.c_str());</span>
+<a name="l00046"></a>00046         <span class="keywordtype">int</span> pos = 0;
+<a name="l00047"></a>00047         <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">false</span>;
+<a name="l00048"></a>00048         <span class="keywordflow">while</span> ((pos = pointStr.find_first_of(<span class="charliteral">' '</span>)) != std::string::npos)
+<a name="l00049"></a>00049         {
+<a name="l00050"></a>00050             pointStr.erase(pos,1);
+<a name="l00051"></a>00051         }
+<a name="l00052"></a>00052         <span class="comment">//printf("Done\n");</span>
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054         <span class="comment">//Now get the values</span>
+<a name="l00055"></a>00055         <span class="comment">//printf("Point3::Getting values from %s...", pointStr.c_str());</span>
+<a name="l00056"></a>00056         <span class="keywordtype">float</span> a,b,c;
+<a name="l00057"></a>00057         <span class="keywordflow">if</span> (sscanf(pointStr.c_str(),<span class="stringliteral">"%f,%f,%f"</span>,&amp;a,&amp;b,&amp;c) == 3)
+<a name="l00058"></a>00058         {
+<a name="l00059"></a>00059             <span class="comment">//printf("FoundThem...");</span>
+<a name="l00060"></a>00060             <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = a;
+<a name="l00061"></a>00061             <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = b;
+<a name="l00062"></a>00062             <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = c;
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064         <span class="keywordflow">else</span>
+<a name="l00065"></a>00065         {
+<a name="l00066"></a>00066             <span class="comment">//printf("Didn't Find them, sscanf = %i...", sscanf(pointStr.c_str(),"%d %*c %d %*c %d",&amp;a,&amp;b,&amp;c));</span>
+<a name="l00067"></a>00067             <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = 0;
+<a name="l00068"></a>00068             <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">true</span>;
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         <span class="comment">//printf("Done\n");</span>
+<a name="l00071"></a>00071     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pointStr.size() &gt; 0 &amp;&amp; pointStr[0] == <span class="charliteral">'v'</span>) {     <span class="comment">//This would indicate a .obj style vertex</span>
+<a name="l00072"></a>00072         <span class="comment">//printf("Point3::Getting values from %s...", pointStr.c_str());</span>
+<a name="l00073"></a>00073         <span class="keywordtype">float</span> a,b,c;
+<a name="l00074"></a>00074         <span class="keywordflow">if</span> (sscanf(pointStr.c_str(), <span class="stringliteral">"%*s %f %f %f"</span>, &amp;a, &amp;b, &amp;c) == 3) {
+<a name="l00075"></a>00075             <span class="comment">//printf("FoundThem...");</span>
+<a name="l00076"></a>00076             <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = a;
+<a name="l00077"></a>00077             <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = b;
+<a name="l00078"></a>00078             <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = c;
+<a name="l00079"></a>00079         } <span class="keywordflow">else</span> {
+<a name="l00080"></a>00080             printf(<span class="stringliteral">"Point3::Error didn't find them, sscanf = %i..."</span>, sscanf(pointStr.c_str(), <span class="stringliteral">"v %f %f %f"</span>, &amp;a, &amp;b, &amp;c));
+<a name="l00081"></a>00081             <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = 0;
+<a name="l00082"></a>00082             <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">true</span>;
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084     } <span class="keywordflow">else</span> {    <span class="comment">//This would indicate an error in formatting</span>
+<a name="l00085"></a>00085         printf(<span class="stringliteral">"Point3: Error, string format not recognized\n"</span>);
+<a name="l00086"></a>00086         <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a> = <span class="keyword">true</span>;
+<a name="l00087"></a>00087     }
+<a name="l00088"></a>00088 }
+</pre></div>
 <p>
 
 </div>
@@ -194,6 +291,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00091">91</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00092"></a>00092 {
+<a name="l00093"></a>00093         <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">loadError</a>;
+<a name="l00094"></a>00094 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="e874acbe362ad2c50300a719efb23795"></a><!-- doxytag: member="Point3::operator+" ref="e874acbe362ad2c50300a719efb23795" args="(const Point3 &amp;toadd)" -->
@@ -212,6 +316,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00097">97</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00098"></a>00098 {
+<a name="l00099"></a>00099     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> + toadd.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>, <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> + toadd.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>, <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> + toadd.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00100"></a>00100 }
+</pre></div>
 <p>
 
 </div>
@@ -234,6 +345,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00103">103</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {
+<a name="l00105"></a>00105     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> - tosub.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>, <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> - tosub.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>, <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> - tosub.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00106"></a>00106 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="b68c9a66734ea43731e3a3c70e25c8a6"></a><!-- doxytag: member="Point3::operator*" ref="b68c9a66734ea43731e3a3c70e25c8a6" args="(const double &amp;tomult)" -->
@@ -252,6 +370,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00109">109</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00110"></a>00110 {
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> * tomult, <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> * tomult, <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> * tomult);
+<a name="l00112"></a>00112 }
+</pre></div>
 <p>
 
 </div>
@@ -274,6 +399,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00115">115</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00116"></a>00116 {
+<a name="l00117"></a>00117         <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*todot.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> + <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*todot.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> + <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*todot.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>;
+<a name="l00118"></a>00118 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="9d9cd88e57b1d711ad97fc1c794edaa3"></a><!-- doxytag: member="Point3::operator/" ref="9d9cd88e57b1d711ad97fc1c794edaa3" args="(const double &amp;todiv)" -->
@@ -292,6 +424,17 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00121">121</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00122"></a>00122 {
+<a name="l00123"></a>00123     <span class="keywordflow">if</span> (todiv == 0)
+<a name="l00124"></a>00124     {
+<a name="l00125"></a>00125         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> / todiv, <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> / todiv, <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> / todiv);
+<a name="l00128"></a>00128 }
+</pre></div>
 <p>
 
 </div>
@@ -314,6 +457,16 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00131">131</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00132"></a>00132 {
+<a name="l00133"></a>00133     <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> = toequal.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>;
+<a name="l00134"></a>00134     <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> = toequal.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>;
+<a name="l00135"></a>00135     <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> = toequal.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>;
+<a name="l00136"></a>00136     <span class="keywordflow">return</span> toequal;
+<a name="l00137"></a>00137 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="02d51a54fcd8da9cafa23a2cf22ff03e"></a><!-- doxytag: member="Point3::operator==" ref="02d51a54fcd8da9cafa23a2cf22ff03e" args="(Point3 toequal)" -->
@@ -332,6 +485,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00140">140</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00141"></a>00141 {
+<a name="l00142"></a>00142     <span class="keywordflow">return</span> (<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> == toequal.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> &amp;&amp; <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> == toequal.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> &amp;&amp; <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> == toequal.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00143"></a>00143 }
+</pre></div>
 <p>
 
 </div>
@@ -354,6 +514,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00146">146</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00147"></a>00147 {
+<a name="l00148"></a>00148     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*todot.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> + <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*todot.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> + <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*todot.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>;
+<a name="l00149"></a>00149 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="e7760a21c78e15fab67f71cf4601bf9e"></a><!-- doxytag: member="Point3::cross" ref="e7760a21c78e15fab67f71cf4601bf9e" args="(const Point3 &amp;tocross)" -->
@@ -372,6 +539,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00152">152</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00153"></a>00153 {
+<a name="l00154"></a>00154     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>((<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*tocross.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> - <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*tocross.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>), -(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*tocross.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> - <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*tocross.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>), (<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*tocross.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> - <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*tocross.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>));
+<a name="l00155"></a>00155 }
+</pre></div>
 <p>
 
 </div>
@@ -403,6 +577,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00158">158</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00159"></a>00159 {
+<a name="l00160"></a>00160         <span class="keywordflow">return</span> a.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*b.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> + a.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*b.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> + a.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*b.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>;
+<a name="l00161"></a>00161 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="2475992ad78fb0bdc3231ba3447f560d"></a><!-- doxytag: member="Point3::cross" ref="2475992ad78fb0bdc3231ba3447f560d" args="(const Point3 &amp;a, const Point3 &amp;b)" -->
@@ -432,6 +613,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00164">164</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00165"></a>00165 {
+<a name="l00166"></a>00166         <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#9a22451b2dd7f2b26ad5a3e9b74c8eca">Point3</a>((a.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*b.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> - a.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*b.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>), -(a.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*b.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a> - a.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*b.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>), (a.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*b.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> - a.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*b.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>));
+<a name="l00167"></a>00167 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="89cf46b8e417a6aba3d48c766375b708"></a><!-- doxytag: member="Point3::getMag" ref="89cf46b8e417a6aba3d48c766375b708" args="()" -->
@@ -449,6 +637,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00170">170</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00171"></a>00171 {
+<a name="l00172"></a>00172     <span class="keywordflow">return</span> sqrt(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>*<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a> + <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>*<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a> + <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>*<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00173"></a>00173 }
+</pre></div>
 <p>
 
 </div>
@@ -470,6 +665,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00176">176</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00177"></a>00177 {
+<a name="l00178"></a>00178     <span class="keywordflow">return</span> *<span class="keyword">this</span>/<a class="code" href="classPoint3.html#89cf46b8e417a6aba3d48c766375b708">getMag</a>();
+<a name="l00179"></a>00179 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="076b86b5ab17cfe97cab5c6b2ff23837"></a><!-- doxytag: member="Point3::doVertex" ref="076b86b5ab17cfe97cab5c6b2ff23837" args="()" -->
@@ -487,6 +689,13 @@
 </div>
 <div class="memdoc">
 
+<p>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00182">182</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00183"></a>00183 {
+<a name="l00184"></a>00184     glVertex3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00185"></a>00185 }
+</pre></div>
 <p>
 
 </div>
@@ -508,6 +717,13 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00188">188</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00188"></a>00188                       {
+<a name="l00189"></a>00189     glNormal3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">z</a>);
+<a name="l00190"></a>00190 }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -524,6 +740,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8h-source.html#l00013">13</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="32a73c79ccae426c30c5454cce7e6264"></a><!-- doxytag: member="Point3::x" ref="32a73c79ccae426c30c5454cce7e6264" args="" -->
@@ -538,6 +756,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="point_8h-source.html#l00015">15</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 
 </div>
 </div><p>
@@ -554,6 +774,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8h-source.html#l00016">16</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="19bdc203bfa9f8e2998be947d580867e"></a><!-- doxytag: member="Point3::z" ref="19bdc203bfa9f8e2998be947d580867e" args="" -->
@@ -569,12 +791,14 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="point_8h-source.html#l00017">17</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="point_8h.html">point.h</a><li><a class="el" href="point_8cpp.html">point.cpp</a></ul>
+<li><a class="el" href="point_8h-source.html">point.h</a><li><a class="el" href="point_8cpp-source.html">point.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

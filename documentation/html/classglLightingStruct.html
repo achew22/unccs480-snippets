@@ -11,6 +11,16 @@
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    <li>
+      <form action="search.php" method="get">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td><label>&nbsp;<u>S</u>earch&nbsp;for&nbsp;</label></td>
+            <td><input type="text" name="query" value="" size="20" accesskey="s"/></td>
+          </tr>
+        </table>
+      </form>
+    </li>
     </ul>
   </div>
   <div class="tabs">
@@ -22,7 +32,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>glLightingStruct Class Reference</h1><!-- doxytag: class="glLightingStruct" --><code>#include &lt;SDLLoader.h&gt;</code>
+<h1>glLightingStruct Class Reference</h1><!-- doxytag: class="glLightingStruct" --><code>#include &lt;<a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>&gt;</code>
 <p>
 
 <p>
@@ -51,6 +61,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a></td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00013">13</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="ae391d5e3559ade6390f67af00049db3"></a><!-- doxytag: member="glLightingStruct::glLightingStruct" ref="ae391d5e3559ade6390f67af00049db3" args="()" -->
 <div class="memitem">
@@ -69,6 +82,50 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00027">27</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00027"></a>00027                        {
+<a name="l00028"></a>00028             <a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a> = GL_LIGHT0;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[0] = 0.0f;
+<a name="l00031"></a>00031             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[1] = 0.0f;
+<a name="l00032"></a>00032             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[2] = 0.0f;
+<a name="l00033"></a>00033             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[3] = 1.0f;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[0] = 1.0f;
+<a name="l00036"></a>00036             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[1] = 1.0f;
+<a name="l00037"></a>00037             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[2] = 1.0f;
+<a name="l00038"></a>00038             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[3] = 1.0f;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[0] = 1.0f;
+<a name="l00041"></a>00041             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[1] = 1.0f;
+<a name="l00042"></a>00042             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[2] = 1.0f;
+<a name="l00043"></a>00043             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[3] = 1.0f;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[0] = 2.0f;
+<a name="l00046"></a>00046             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[1] = 5.0f;
+<a name="l00047"></a>00047             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[2] = 5.0f;
+<a name="l00048"></a>00048             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[3] = 0.0f;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[0] = 0.7f;
+<a name="l00051"></a>00051             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[1] = 0.7f;
+<a name="l00052"></a>00052             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[2] = 0.7f;
+<a name="l00053"></a>00053             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[3] = 1.0f;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[0] = 0.8f;
+<a name="l00056"></a>00056             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[1] = 0.8f;
+<a name="l00057"></a>00057             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[2] = 0.8f;
+<a name="l00058"></a>00058             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[3] = 1.0f;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[0] = 1.0f;
+<a name="l00061"></a>00061             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[1] = 1.0f;
+<a name="l00062"></a>00062             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[2] = 1.0f;
+<a name="l00063"></a>00063             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[3] = 1.0f;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065             <a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">high_shininess</a>[0] = 100.0f;
+<a name="l00066"></a>00066     }
+</pre></div>
+<p>
+
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
@@ -85,6 +142,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00015">15</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="f05f843c10d6989295cec01eb3083663"></a><!-- doxytag: member="glLightingStruct::light_diffuse" ref="f05f843c10d6989295cec01eb3083663" args="[4]" -->
@@ -99,6 +158,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00016">16</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -115,6 +176,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00017">17</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="44e8d2b38646475090d58f6a63afb40e"></a><!-- doxytag: member="glLightingStruct::light_position" ref="44e8d2b38646475090d58f6a63afb40e" args="[4]" -->
@@ -129,6 +192,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00018">18</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -145,6 +210,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00020">20</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="1fafa40a760acfc979661b32d523b792"></a><!-- doxytag: member="glLightingStruct::mat_diffuse" ref="1fafa40a760acfc979661b32d523b792" args="[4]" -->
@@ -159,6 +226,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00021">21</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -175,6 +244,8 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00022">22</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+
 </div>
 </div><p>
 <a class="anchor" name="94fe9916527fb352679c65e6028a01a8"></a><!-- doxytag: member="glLightingStruct::high_shininess" ref="94fe9916527fb352679c65e6028a01a8" args="[1]" -->
@@ -189,6 +260,8 @@
 <div class="memdoc">
 
 <p>
+
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00023">23</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -205,12 +278,14 @@
 
 <p>
 
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00025">25</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="SDLLoader_8h.html">SDLLoader.h</a></ul>
+<li><a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 14 15:19:08 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 15 15:19:37 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
