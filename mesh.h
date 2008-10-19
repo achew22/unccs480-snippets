@@ -15,15 +15,21 @@ class Mesh
 private:
     std::vector<Face> faces;
     std::vector<Point3> vertices;
-    std::vector<Point3> textures;
+    std::vector<Point2> texturePts;
     std::vector<Point3> normals;
+    int textureId;
 public:
     Mesh();
     void loadObj(std::string filename);
-    void addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes);
-    void addFace(std::vector<int>& vertIndexes);
-    void addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes);
-    void addFaceAndReverse(std::vector<int>& vertIndexes);
+    void loadTexture(std::string filename);
+    void addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes);
+    void addFaceVN(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes);
+    void addFaceVT(std::vector<int>& vertIndexes, std::vector<int>& textIndexes);
+    void addFaceV(std::vector<int>& vertIndexes);
+    void addFaceAndReverseVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes);
+    void addFaceAndReverseVN(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes);
+    void addFaceAndReverseVT(std::vector<int>& vertIndexes, std::vector<int>& textIndexes);
+    void addFaceAndReverseV(std::vector<int>& vertIndexes);
     void calculateNormals();
     bool drawMesh();
 };

@@ -1,6 +1,7 @@
 #include <SDL/SDL.h>
 
 #include "SDLLoader.h"
+#include "TextureManager.h"
 
 extern SDLLoader * SDLLoader::pinstance = 0;
 extern SDLLoader * SDLLoader::getInstance() {
@@ -25,6 +26,7 @@ SDLLoader::SDLLoader() {
  */
 SDLLoader::~SDLLoader() {
     SDL_Quit();
+    TextureManager::cleanUp();
 }
 
 /**
@@ -281,10 +283,16 @@ int SDLLoader::loop() {
 
         this->display();
         if (this->activeGUI != "none") {
-            guis[this->activeGUI]->draw();
+            //This makes no sense, somebody help me out here
+            //So I can check the thing: even when activeGui == "none", it will
+            //go into this loop --- unless I am running the debugger, and then
+            //it won't. So I put this idiotic second check in to make sure that
+            //everyone is happy and stupid.
+            if (guis.find(this->activeGUI) != guis.end()) {
+                guis[this->activeGUI]->draw();
+            }
         }
         //Swap the buffers to show what has happened
-
         SDL_GL_SwapBuffers();
     }
     //Program execution is over, time to leave

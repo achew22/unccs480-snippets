@@ -29,6 +29,7 @@ void Mesh::loadObj(std::string filename)
                 vertices.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "vt %f%*s", &temp) == 1) {   //This is a texture vertex
                 //This is where I would do something with the texture guys
+                texturePts.push_back(Point2(currentLine));
             } else if (sscanf(currentLine.c_str(), "vn %f%*s", &temp) == 1) {   //This is a normal
                 //printf("Loading a normal\n");
                 normals.push_back(Point3(currentLine));
@@ -55,7 +56,7 @@ void Mesh::loadObj(std::string filename)
                             } else {
                                 faceVerts.push_back(vertIndex);
                             }
-                            if (textIndex < 0 || textIndex >= textures.size()) {
+                            if (textIndex < 0 || textIndex >= texturePts.size()) {
                                 //Throw an error here
                             } else {
                                 faceTexts.push_back(textIndex);
@@ -67,7 +68,7 @@ void Mesh::loadObj(std::string filename)
                             }
                         }
                     }
-                    addFace(faceVerts, faceNorms);
+                    addFaceVTN(faceVerts, faceTexts, faceNorms);
                 } else if (sscanf(currentLine.c_str(), "f %i//%i%*s", &temp, &temp) == 2) { //Vertex, normals
                     std::vector<int> faceVerts;  //
                     std::vector<int> faceNorms;
@@ -95,7 +96,7 @@ void Mesh::loadObj(std::string filename)
                             }
                         }
                     }
-                    addFace(faceVerts, faceNorms);
+                    addFaceVN(faceVerts, faceNorms);
                 } else if (sscanf(currentLine.c_str(), "f %i/%i%*s", &temp, &temp) == 2) {  //Vertex, textures
                     std::vector<int> faceVerts;  //
                     std::vector<int> faceTexts;
@@ -116,14 +117,14 @@ void Mesh::loadObj(std::string filename)
                             } else {
                                 faceVerts.push_back(vertIndex);
                             }
-                            if (textIndex < 0 || textIndex >= textures.size()) {
+                            if (textIndex < 0 || textIndex >= texturePts.size()) {
                                 //Throw an error here
                             } else {
                                 faceTexts.push_back(textIndex);
                             }
                         }
                     }
-                    addFace(faceVerts);
+                    addFaceVT(faceVerts, faceTexts);
                 } else if (sscanf(currentLine.c_str(), "f %i%*s", &temp) == 1) { //Just vertex
                     //printf("Mesh::Pushing back a face\n");
                     std::vector<int> faceVerts;
@@ -148,7 +149,7 @@ void Mesh::loadObj(std::string filename)
                             printf("Error: MeshObjLoader: %s is not the proper format for a face piece\n", facePiece.c_str());
                         }
                     }
-                    addFace(faceVerts);
+                    addFaceV(faceVerts);
                 }
             } else {
                 printf("Got something in the Obj file that wasn't what I expected: %s\n", currentLine.c_str());
@@ -174,7 +175,18 @@ void Mesh::loadObj(std::string filename)
     instream.close();
 }
 
-void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
+void Mesh::addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes) {
+    Face newFace;
+    newFace.registerVertices(&(this->vertices));
+    newFace.registerVertexIndexes(vertIndexes);
+    newFace.registerTextures(&(this->texturePts));
+    newFace.registerTextureIndexes(textIndexes);
+    newFace.registerNormals(&(this->normals));
+    newFace.registerNormalIndexes(normalIndexes);
+    faces.push_back(newFace);
+}
+
+void Mesh::addFaceVN(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
@@ -190,7 +202,19 @@ void Mesh::addFace(std::vector<int>& vertIndexes, std::vector<int>& normalIndexe
     */
 }
 
-void Mesh::addFace(std::vector<int>& vertIndexes) {
+void Mesh::addFaceVT(std::vector<int>& vertIndexes, std::vector<int>& textIndexes) {
+    Face newFace;
+    newFace.registerVertices(&(this->vertices));
+    newFace.registerVertexIndexes(vertIndexes);
+    newFace.registerTextures(&(this->texturePts));
+    newFace.registerTextureIndexes(textIndexes);
+
+    //Register the normals anyway, even though they aren't being used
+    newFace.registerNormals(&(this->normals));
+    faces.push_back(newFace);
+}
+
+void Mesh::addFaceV(std::vector<int>& vertIndexes) {
     Face newFace;
     newFace.registerVertices(&(this->vertices));
     newFace.registerVertexIndexes(vertIndexes);
@@ -200,9 +224,29 @@ void Mesh::addFace(std::vector<int>& vertIndexes) {
     faces.push_back(newFace);
 }
 
+void Mesh::addFaceAndReverseVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes) {
+    addFaceVTN(vertIndexes, textIndexes, normalIndexes);
+    std::vector<int> newVerts;
+    std::vector<int> newTexts;
+    std::vector<int> newNorms;
+    newVerts.resize(vertIndexes.size());
+    newTexts.resize(textIndexes.size());
+    newNorms.resize(normalIndexes.size());
+    for (int i = 0; i < vertIndexes.size(); i++) {
+        newVerts[i] = vertIndexes[vertIndexes.size() - i - 1];
+    }
+    for (int i = 0; i < textIndexes.size(); i++) {
+        newTexts[i] = textIndexes[textIndexes.size() - i - 1];
+    }
+    for (int i = 0; i < normalIndexes.size(); i++) {
+        newNorms[i] = normalIndexes[normalIndexes.size() - i - 1];
+    }
+    addFaceVTN(newVerts, newTexts, newNorms);
+}
+
 //Adds two faces, facing in both directions, so that one can be sure that neither side is see through
-void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
-    addFace(vertIndexes, normalIndexes);
+void Mesh::addFaceAndReverseVN(std::vector<int>& vertIndexes, std::vector<int>& normalIndexes) {
+    addFaceVN(vertIndexes, normalIndexes);
     std::vector<int> newVerts;
     std::vector<int> newNorms;
     newVerts.resize(vertIndexes.size());
@@ -213,19 +257,35 @@ void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes, std::vector<int>& no
     for (int i = 0; i < normalIndexes.size(); i++) {
         newNorms[i] = normalIndexes[normalIndexes.size() - i - 1];
     }
-    addFace(newVerts, newNorms);
+    addFaceVN(newVerts, newNorms);
 }
 
-void Mesh::addFaceAndReverse(std::vector<int>& vertIndexes)
+//Adds two faces, facing in both directions, so that one can be sure that neither side is see through
+void Mesh::addFaceAndReverseVT(std::vector<int>& vertIndexes, std::vector<int>& textIndexes) {
+    addFaceVT(vertIndexes, textIndexes);
+    std::vector<int> newVerts;
+    std::vector<int> newTexts;
+    newVerts.resize(vertIndexes.size());
+    newTexts.resize(textIndexes.size());
+    for (int i = 0; i < vertIndexes.size(); i++) {
+        newVerts[i] = vertIndexes[vertIndexes.size() - i - 1];
+    }
+    for (int i = 0; i < textIndexes.size(); i++) {
+        newTexts[i] = textIndexes[textIndexes.size() - i - 1];
+    }
+    addFaceVT(newVerts, newTexts);
+}
+
+void Mesh::addFaceAndReverseV(std::vector<int>& vertIndexes)
 {
-    addFace(vertIndexes);
+    addFaceV(vertIndexes);
     std::vector<int> newVerts;
     newVerts.resize(vertIndexes.size());
     for (int i = 0; i < vertIndexes.size(); i++)
     {
         newVerts[i] = vertIndexes[vertIndexes.size() - i - 1];
     }
-    addFace(newVerts);
+    addFaceV(newVerts);
 }
 
 /**
