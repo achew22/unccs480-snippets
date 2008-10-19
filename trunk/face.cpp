@@ -14,6 +14,10 @@ void Face::registerVertices(std::vector<Point3>* toRegister) {
     vertices = toRegister;
 }
 
+void Face::registerTextures(std::vector<Point2>* toRegister) {
+    textures = toRegister;
+}
+
 void Face::registerNormals(std::vector<Point3>* toRegister) {
     normals = toRegister;
 }
@@ -22,12 +26,20 @@ void Face::registerVertexIndexes(std::vector<int> &toRegister) {
     vertexIndex = toRegister;
 }
 
+void Face::registerTextureIndexes(std::vector<int> &toRegister) {
+    textureIndex = toRegister;
+}
+
 void Face::registerNormalIndexes(std::vector<int> &toRegister) {
     normalIndex = toRegister;
 }
 
 void Face::addVertexIndex(int index) {
     vertexIndex.push_back(index);
+}
+
+void Face::addTextureIndex(int index) {
+    textureIndex.push_back(index);
 }
 
 void Face::addNormalIndex(int index) {
@@ -112,12 +124,23 @@ bool Face::drawFace() {
     } else {
         glBegin(GL_TRIANGLE_STRIP);
     }
-    if (normals != NULL) {
+    if (normals != NULL && textures != NULL && vertices != NULL) {
+        for (int i = 0; i < vertexIndex.size(); i++) {
+            (*normals)[normalIndex[i]].doNormal();
+            (*textures)[textureIndex[i]].doTex();
+            (*vertices)[vertexIndex[i]].doVertex();
+        }
+    } else if (normals != NULL && vertices != NULL) {
         for (int i = 0; i < vertexIndex.size(); i++) {
             (*normals)[normalIndex[i]].doNormal();
             (*vertices)[vertexIndex[i]].doVertex();
         }
-    } else {
+    } else if (textures != NULL && vertices != NULL) {
+        for (int i = 0; i < vertexIndex.size(); i++) {
+            (*textures)[textureIndex[i]].doTex();
+            (*vertices)[vertexIndex[i]].doVertex();
+        }
+    } else if (vertices != NULL) {
         for (int i = 0; i < vertexIndex.size(); i++) {
             (*vertices)[vertexIndex[i]].doVertex();
         }
