@@ -241,6 +241,9 @@ bool SDLLoader::init() {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    //Enable textures
+    glEnable(GL_TEXTURE_2D);
+
     return true;
 }
 
