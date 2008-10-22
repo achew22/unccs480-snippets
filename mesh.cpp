@@ -3,6 +3,7 @@
 
 #include "mesh.h"
 #include "textureManager.h"
+#include "error.h"
 
 Mesh::Mesh()
 {
@@ -12,17 +13,17 @@ void Mesh::loadObj(std::string filename)
 {
     std::fstream instream;
     instream.open(filename.c_str());
-    printf("Mesh::Loading mesh from %s\n", filename.c_str());
+    Error::debug("Mesh::Loading mesh from %s\n", filename.c_str());
     if (!instream.is_open())
     {
-        printf("Mesh::Error opening file");
+        Error::error("Mesh::Error opening file: filename = %s\n", filename.c_str());
         return;
     }
     while (!instream.eof())
     {
         std::string currentLine;
         getline(instream, currentLine);
-        //printf("Mesh::Currentline is %s\n", currentLine.c_str());
+        //Error::debug("Mesh::Currentline is %s\n", currentLine.c_str());
         if (currentLine != "")  //Make sure that there is a first character to avoid errors
         {
             int temp;   //Used for throwing away dumps in sscanf
@@ -34,6 +35,7 @@ void Mesh::loadObj(std::string filename)
                 normals.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "f %*s") == 0) {  //This is a face
                 if (sscanf(currentLine.c_str(), "f %i/%i/%i%*s", &temp, &temp, &temp) == 3) {   //Vertex, textures, and normals
+                    //Error::debug("Mesh::Pushing back a face with vertex/texture/normal\n");
                     std::vector<int> faceVerts;  //
                     std::vector<int> faceTexts;
                     std::vector<int> faceNorms;
@@ -45,23 +47,23 @@ void Mesh::loadObj(std::string filename)
                         getline(curLineStream, facePiece, ' ');
                         int vertIndex, textIndex, normIndex;
                         if (sscanf(facePiece.c_str(), "%i/%i/%i", &vertIndex, &textIndex, &normIndex) != 3) {
-                            //Throw an error here
+                            Error::error("Mesh::Trying to create a face from unusual data: string = %s\n", facePiece.c_str());
                         } else {
                             vertIndex -= 1; //Subtract one, since .obj files begin indexing at 1 instead of 0
                             textIndex -= 1;
                             normIndex -= 1;
                             if (vertIndex < 0 || vertIndex >= vertices.size()) {
-                                //Throw an error here
+                                Error::error("Mesh::Tried to use a vertex index that was out of range: index = %i\n", vertIndex);
                             } else {
                                 faceVerts.push_back(vertIndex);
                             }
                             if (textIndex < 0 || textIndex >= texturePts.size()) {
-                                //Throw an error here
+                                Error::error("Mesh::Tried to use a texture index that was out of range: index = %i\n", textIndex);
                             } else {
                                 faceTexts.push_back(textIndex);
                             }
                             if (normIndex < 0 || normIndex >= normals.size()) {
-                                //Throw an error here
+                                Error::error("Mesh::Tried to use a normal index that was out of range: index = %i\n", normIndex);
                             } else {
                                 faceNorms.push_back(normIndex);
                             }
@@ -69,6 +71,7 @@ void Mesh::loadObj(std::string filename)
                     }
                     addFaceVTN(faceVerts, faceTexts, faceNorms);
                 } else if (sscanf(currentLine.c_str(), "f %i//%i%*s", &temp, &temp) == 2) { //Vertex, normals
+                    //Error::debug("Mesh::Pushing back a face with just a vertex//normal\n");
                     std::vector<int> faceVerts;  //
                     std::vector<int> faceNorms;
                     std::string facePiece = "";
@@ -79,17 +82,17 @@ void Mesh::loadObj(std::string filename)
                         getline(curLineStream, facePiece, ' ');
                         int vertIndex, normIndex;
                         if (sscanf(facePiece.c_str(), "%i//%i", &vertIndex, &normIndex) != 2) {
-                            //Throw an error here
+                            Error::error("Mesh::Trying to create a face from unusual data: string = %s\n", facePiece.c_str());
                         } else {
                             vertIndex -= 1; //Subtract one, since .obj files begin indexing at 1 instead of 0
                             normIndex -= 1;
                             if (vertIndex < 0 || vertIndex >= vertices.size()) {
-                                //Throw and error here
+                                Error::error("Mesh::Tried to use a vertex index that was out of range: index = %i\n", vertIndex);
                             } else {
                                 faceVerts.push_back(vertIndex);
                             }
                             if (normIndex < 0 || normIndex >= normals.size()) {
-                                //Throw an error here
+                                Error::error("Mesh::Tried to use a normal index that was out of range: index = %i\n", normIndex);
                             } else {
                                 faceNorms.push_back(normIndex);
                             }
@@ -97,6 +100,7 @@ void Mesh::loadObj(std::string filename)
                     }
                     addFaceVN(faceVerts, faceNorms);
                 } else if (sscanf(currentLine.c_str(), "f %i/%i%*s", &temp, &temp) == 2) {  //Vertex, textures
+                    //Error::debug("Mesh::Pushing back a face with just a vertex/texture\n");
                     std::vector<int> faceVerts;  //
                     std::vector<int> faceTexts;
                     std::string facePiece = "";
@@ -107,17 +111,17 @@ void Mesh::loadObj(std::string filename)
                         getline(curLineStream, facePiece, ' ');
                         int vertIndex, textIndex;
                         if (sscanf(facePiece.c_str(), "%i/%i", &vertIndex, &textIndex) != 2) {
-                            //Throw an error here
+                            Error::error("Mesh::Trying to create a face from unusual data: string = %s\n", facePiece.c_str());
                         } else {
                             vertIndex -= 1; //Subtract one, since .obj files begin indexing at 1 instead of 0
                             textIndex -= 1;
                             if (vertIndex < 0 || vertIndex >= vertices.size()) {
-                                //Throw and error here
+                                Error::error("Mesh::Tried to use a vertex index that was out of range: index = %i\n", vertIndex);
                             } else {
                                 faceVerts.push_back(vertIndex);
                             }
                             if (textIndex < 0 || textIndex >= texturePts.size()) {
-                                //Throw an error here
+                                Error::error("Mesh::Tried to use a texture index that was out of range: index = %i\n", textIndex);
                             } else {
                                 faceTexts.push_back(textIndex);
                             }
@@ -125,7 +129,7 @@ void Mesh::loadObj(std::string filename)
                     }
                     addFaceVT(faceVerts, faceTexts);
                 } else if (sscanf(currentLine.c_str(), "f %i%*s", &temp) == 1) { //Just vertex
-                    //printf("Mesh::Pushing back a face\n");
+                    //Error::debug("Mesh::Pushing back a face with just a vertex\n");
                     std::vector<int> faceVerts;
                     std::string facePiece = "";
                     std::stringstream curLineStream(currentLine);
@@ -133,25 +137,22 @@ void Mesh::loadObj(std::string filename)
                     while(!curLineStream.eof())
                     {
                         getline(curLineStream, facePiece, ' ');
-                        //printf("Mesh::facePiece is %s, ", facePiece.c_str());
-                        //For now, just get the vertex, ignore the other stuff
                         int vertIndex;
                         if (sscanf(facePiece.c_str(), "%i%*s", &vertIndex) == 1) {    //If it finds it
                             vertIndex -= 1;     //For whatever reason, in .obj files, each list starts with index 1
-                            //printf("vertIndex is %i\n", vertIndex);
                             if (vertIndex >= 0 && vertIndex < vertices.size()) {      //If the index is in a valid range
                                 faceVerts.push_back(vertIndex);
                             } else {
-                                printf("Error: vertIndex in MeshObjLoader was out of range\n");
+                                Error::error("Mesh::Tried to use a vertex index that was out of range: index = %i\n", vertIndex);
                             }
                         } else {
-                            printf("Error: MeshObjLoader: %s is not the proper format for a face piece\n", facePiece.c_str());
+                            Error::error("Mesh::Trying to create a face from unusual data: string = %s\n", facePiece.c_str());
                         }
                     }
                     addFaceV(faceVerts);
                 }
             } else {
-                printf("Got something in the Obj file that wasn't what I expected: %s\n", currentLine.c_str());
+                //Error::debug("Mesh::Got something in the Obj file that wasn't what I expected: %s\n", currentLine.c_str());
             }
         }
     }
@@ -169,8 +170,6 @@ void Mesh::loadObj(std::string filename)
     for (int i = 0; i < normals.size(); i++) {
         printf("   %i: <%f, %f, %f>\n", i, normals[i].x, normals[i].y, normals[i].z);
     }
-    int vertHigh = 0, textHigh = 0; normHigh = 0;
-    for (int i = 0; i < vertices.size();
     /**/
 
     instream.close();
@@ -188,7 +187,9 @@ void Mesh::addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndex
     newFace.registerTextureIndexes(textIndexes);
     newFace.registerNormals(&(this->normals));
     newFace.registerNormalIndexes(normalIndexes);
-    //printf("Ther are %i vertices, %i texturePts, and %i normals\n", vertIndexes.size(), textIndexes.size(), normalIndexes.size());
+    if (vertIndexes.size() != textIndexes.size() || vertIndexes.size() != normalIndexes.size() || textIndexes.size() != normalIndexes.size()) {
+        Error::error("Mesh::addFaceVTN() There are %i vertices, %i texturePts, and %i normals\n", vertIndexes.size(), textIndexes.size(), normalIndexes.size());
+    }
     faces.push_back(newFace);
 }
 

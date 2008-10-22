@@ -6,6 +6,7 @@
 //Empty constructor
 Face::Face() {
     vertices = NULL;
+    textures = NULL;
     normals = NULL;
     isFan = true;
 }
