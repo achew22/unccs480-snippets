@@ -2,6 +2,7 @@
 #include <sstream>
 
 #include "mesh.h"
+#include "textureManager.h"
 
 Mesh::Mesh()
 {
@@ -11,7 +12,7 @@ void Mesh::loadObj(std::string filename)
 {
     std::fstream instream;
     instream.open(filename.c_str());
-    //printf("Mesh::Loading mesh from %s\n", filename.c_str());
+    printf("Mesh::Loading mesh from %s\n", filename.c_str());
     if (!instream.is_open())
     {
         printf("Mesh::Error opening file");
@@ -28,10 +29,8 @@ void Mesh::loadObj(std::string filename)
             if (sscanf(currentLine.c_str(), "v %f%*s", &temp) == 1) {   //This is a vertex
                 vertices.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "vt %f%*s", &temp) == 1) {   //This is a texture vertex
-                //This is where I would do something with the texture guys
                 texturePts.push_back(Point2(currentLine));
             } else if (sscanf(currentLine.c_str(), "vn %f%*s", &temp) == 1) {   //This is a normal
-                //printf("Loading a normal\n");
                 normals.push_back(Point3(currentLine));
             } else if (sscanf(currentLine.c_str(), "f %*s") == 0) {  //This is a face
                 if (sscanf(currentLine.c_str(), "f %i/%i/%i%*s", &temp, &temp, &temp) == 3) {   //Vertex, textures, and normals
@@ -170,9 +169,15 @@ void Mesh::loadObj(std::string filename)
     for (int i = 0; i < normals.size(); i++) {
         printf("   %i: <%f, %f, %f>\n", i, normals[i].x, normals[i].y, normals[i].z);
     }
+    int vertHigh = 0, textHigh = 0; normHigh = 0;
+    for (int i = 0; i < vertices.size();
     /**/
 
     instream.close();
+}
+
+void Mesh::loadTexture(std::string filename) {
+    textureId = TextureManager::getInstance()->loadBMP(filename);
 }
 
 void Mesh::addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes) {
@@ -183,6 +188,7 @@ void Mesh::addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndex
     newFace.registerTextureIndexes(textIndexes);
     newFace.registerNormals(&(this->normals));
     newFace.registerNormalIndexes(normalIndexes);
+    //printf("Ther are %i vertices, %i texturePts, and %i normals\n", vertIndexes.size(), textIndexes.size(), normalIndexes.size());
     faces.push_back(newFace);
 }
 
@@ -312,6 +318,7 @@ void Mesh::calculateNormals() {
 }
 
 bool Mesh::drawMesh() {
+    glBindTexture(GL_TEXTURE_2D, textureId);
     for (int i = 0; i < faces.size(); i++) {
         if (!faces[i].drawFace()) {
             return false;

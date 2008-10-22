@@ -26,6 +26,23 @@ Path::Path(int timeToStart, int timeToEnd) {
 }
 
 /**
+ * @param toEqual is the Path that you want this path to be equal to.
+ * @return returns the newly reset Path.
+ */
+Path Path::operator =(Path toEqual) {
+    startTime = toEqual.startTime;
+    endTime = toEqual.endTime;
+    isCyclic = toEqual.isCyclic;
+
+    points.resize(toEqual.points.size());
+    for (int i = 0; i < toEqual.points.size(); i++) {
+        points[i] = toEqual.points[i];
+    }
+
+    return *this;
+}
+
+/**
  * Set all of the points in your path at once, as
  * opposed to adding them one at a time with addPoint().
  *
@@ -43,6 +60,18 @@ void Path::setPoints(std::vector<Point3> toSet) {
  */
 void Path::addPoint(Point3 toAdd) {
     points.push_back(toAdd);
+}
+
+/**
+ * Add a point to the list of points that constitute your
+ * path.
+ *
+ * @param x is the x coordinate of the point to add.
+ * @param y is the y coordinate of the point to add.
+ * @param z is the z coordinate of the point to add.
+ */
+void Path::addPoint(double x, double y, double z) {
+    points.push_back(Point3(x,y,z));
 }
 
 /**
