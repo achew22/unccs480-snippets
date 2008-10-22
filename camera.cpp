@@ -32,6 +32,8 @@ Camera::Camera() {
     frustum[4] = 2;
     frustum[5] = 100;
 
+    path = NULL;
+
     angleLeftFunct = angleUpFunct = NULL;
 }
 
@@ -61,6 +63,8 @@ Camera::Camera(Point3 pos, Point3 lookAt, Point3 up) {
     frustum[3] = 1;
     frustum[4] = 2;
     frustum[5] = 100;
+
+    path = NULL;
 
     angleLeftFunct = angleUpFunct = NULL;
 }
@@ -146,6 +150,9 @@ void Camera::setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble
  * its current position, direction, etc. Should be called before each frame is rendered.
  */
 void Camera::update() {
+    if (path != NULL) {
+        eyePosition = path->getPoint();
+    }
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glFrustum(frustum[0], frustum[1], frustum[2], frustum[3], frustum[4], frustum[5]);
@@ -260,6 +267,28 @@ void Camera::spinViewAroundCenter(GLdouble angle) {
 
     //Adjust the upDirection
     upDirection = basisX*cos((90+angle)*(PI/180.0)) + basisZ*sin((90+angle)*(PI/180.0));
+}
+
+/**
+ * @param pathToFollow is the path to follow.
+ */
+void Camera::followPath(Path pathToFollow) {
+    printf("Called Camera::followPath()\n");
+    if (path != NULL) {
+        delete path;
+    }
+    path = new Path;
+    (*path) = pathToFollow;
+}
+
+/**
+ * Stop following whatever path you are on.
+ */
+void Camera::unFollowPath() {
+    if (path != NULL) {
+        delete path;
+    }
+    path = NULL;
 }
 
 /**

@@ -25,8 +25,10 @@ private:
 public:
     Path(); ///< Default constructor.
     Path(int timeToStart, int timeToEnd);   ///< Constructor.
+    Path operator =(Path toEqual);  ///< Overloaded equals operator.
     void setPoints(std::vector<Point3> toSet);  ///< Set the path points.
     void addPoint(Point3 toAdd);    ///< Add a path point to the end of the path.
+    void addPoint(double x, double y, double z);    ///< Add a path point to the end of the path.
     void setStartTime(int start);   ///< Set time to start.
     void setEndTime(int end);       ///< Set time to end.
     void makeCyclic();  ///< Make the path cyclic.
