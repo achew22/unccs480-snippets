@@ -1,2 +1,4 @@
-Warning: source /home/achew22/Desktop/Now/CS480/unccs480-snippets is not a readable file or directory... skipping.
-Problems running dot: exit code=127, command='dot', arguments='"graph_legend.dot" -Tpng:gd -o "graph_legend.png"'
+/home/achew22/Desktop/Now/CS480/unccs480-snippets/HTTPConnection.cpp:13: Warning: argument `URI' of command @param is not found in the argument list of HTTPConnection::get(std::string URL)
+/home/achew22/Desktop/Now/CS480/unccs480-snippets/HTTPConnection.cpp:13: Warning: The following parameters of HTTPConnection::get(std::string URL) are not documented:
+  parameter URL
+/home/achew22/Desktop/Now/CS480/unccs480-snippets/point.cpp:21: Warning: argument `point' of command @param is not found in the argument list of Point3::Point3(GLdouble inx, GLdouble iny, GLdouble inz)

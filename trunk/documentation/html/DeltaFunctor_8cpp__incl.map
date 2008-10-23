@@ -1,7 +1,5 @@
-<area shape="rect" href="$DeltaFunctor_8h.html" title="DeltaFunctor.h" alt="" coords="680,231,784,255">
-<area shape="rect" href="$SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="320,81,416,105">
-<area shape="rect" href="$camera_8h.html" title="camera.h" alt="" coords="413,156,488,180">
-<area shape="rect" href="$GUI_8h.html" title="GUI.h" alt="" coords="269,156,325,180">
-<area shape="rect" href="$error_8h.html" title="error.h" alt="" coords="528,156,584,180">
-<area shape="rect" href="$point_8h.html" title="point.h" alt="" coords="456,231,515,255">
-<area shape="rect" href="$GUIElement_8h.html" title="GUIElement.h" alt="" coords="227,231,331,255">
+<area shape="rect" href="$DeltaFunctor_8h.html" title="DeltaFunctor.h" alt="" coords="219,81,323,105">
+<area shape="rect" href="$SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="403,81,499,105">
+<area shape="rect" href="$GUI_8h.html" title="GUI.h" alt="" coords="488,156,544,180">
+<area shape="rect" href="$error_8h.html" title="error.h" alt="" coords="579,156,635,180">
+<area shape="rect" href="$GUIElement_8h.html" title="GUIElement.h" alt="" coords="452,231,556,255">

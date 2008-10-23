@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -27,170 +28,174 @@
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SDLLOADER_H_INCLUDED</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;SDL/SDL.h&gt;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="camera_8h.html">camera.h</a>"</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="GUI_8h.html">GUI.h</a>"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="error_8h.html">error.h</a>"</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a><a class="code" href="classglLightingStruct.html">00013</a> <span class="keyword">class </span><a class="code" href="classglLightingStruct.html">glLightingStruct</a> {
-<a name="l00014"></a>00014 <span class="keyword">public</span>:
-<a name="l00015"></a><a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">00015</a>     GLfloat <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[4];
-<a name="l00016"></a><a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">00016</a>     GLfloat <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[4];
-<a name="l00017"></a><a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">00017</a>     GLfloat <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[4];
-<a name="l00018"></a><a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">00018</a>     GLfloat <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[4];
-<a name="l00019"></a>00019 
-<a name="l00020"></a><a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">00020</a>     GLfloat <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[4];
-<a name="l00021"></a><a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">00021</a>     GLfloat <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[4];
-<a name="l00022"></a><a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">00022</a>     GLfloat <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[4];
-<a name="l00023"></a><a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">00023</a>     GLfloat <a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">high_shininess</a>[1];
-<a name="l00024"></a>00024 
-<a name="l00025"></a><a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">00025</a>     <span class="keywordtype">int</span> <a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a>;
-<a name="l00026"></a>00026 
-<a name="l00027"></a><a class="code" href="classglLightingStruct.html#ae391d5e3559ade6390f67af00049db3">00027</a>     <a class="code" href="classglLightingStruct.html#ae391d5e3559ade6390f67af00049db3">glLightingStruct</a>() {
-<a name="l00028"></a>00028             <a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a> = GL_LIGHT0;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[0] = 0.0f;
-<a name="l00031"></a>00031             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[1] = 0.0f;
-<a name="l00032"></a>00032             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[2] = 0.0f;
-<a name="l00033"></a>00033             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[3] = 1.0f;
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[0] = 1.0f;
-<a name="l00036"></a>00036             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[1] = 1.0f;
-<a name="l00037"></a>00037             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[2] = 1.0f;
-<a name="l00038"></a>00038             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[3] = 1.0f;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[0] = 1.0f;
-<a name="l00041"></a>00041             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[1] = 1.0f;
-<a name="l00042"></a>00042             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[2] = 1.0f;
-<a name="l00043"></a>00043             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[3] = 1.0f;
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[0] = 2.0f;
-<a name="l00046"></a>00046             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[1] = 5.0f;
-<a name="l00047"></a>00047             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[2] = 5.0f;
-<a name="l00048"></a>00048             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[3] = 0.0f;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[0] = 0.7f;
-<a name="l00051"></a>00051             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[1] = 0.7f;
-<a name="l00052"></a>00052             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[2] = 0.7f;
-<a name="l00053"></a>00053             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[3] = 1.0f;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[0] = 0.8f;
-<a name="l00056"></a>00056             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[1] = 0.8f;
-<a name="l00057"></a>00057             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[2] = 0.8f;
-<a name="l00058"></a>00058             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[3] = 1.0f;
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[0] = 1.0f;
-<a name="l00061"></a>00061             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[1] = 1.0f;
-<a name="l00062"></a>00062             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[2] = 1.0f;
-<a name="l00063"></a>00063             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[3] = 1.0f;
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065             <a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">high_shininess</a>[0] = 100.0f;
-<a name="l00066"></a>00066     }
-<a name="l00067"></a>00067 };
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;GL/gl.h&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="comment">//#include "camera.h"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="GUI_8h.html">GUI.h</a>"</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include "<a class="code" href="error_8h.html">error.h</a>"</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="comment">//Forward declaration</span>
+<a name="l00015"></a>00015 <span class="keyword">class </span><a class="code" href="classCamera.html">Camera</a>;
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="classglLightingStruct.html">00017</a> <span class="keyword">class </span><a class="code" href="classglLightingStruct.html">glLightingStruct</a> {
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00019"></a><a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">00019</a>     GLfloat <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[4];
+<a name="l00020"></a><a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">00020</a>     GLfloat <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[4];
+<a name="l00021"></a><a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">00021</a>     GLfloat <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[4];
+<a name="l00022"></a><a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">00022</a>     GLfloat <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[4];
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">00024</a>     GLfloat <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[4];
+<a name="l00025"></a><a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">00025</a>     GLfloat <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[4];
+<a name="l00026"></a><a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">00026</a>     GLfloat <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[4];
+<a name="l00027"></a><a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">00027</a>     GLfloat <a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">high_shininess</a>[1];
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">00029</a>     <span class="keywordtype">int</span> <a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="classglLightingStruct.html#ae391d5e3559ade6390f67af00049db3">00031</a>     <a class="code" href="classglLightingStruct.html#ae391d5e3559ade6390f67af00049db3">glLightingStruct</a>() {
+<a name="l00032"></a>00032             <a class="code" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">lightNumber</a> = GL_LIGHT0;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[0] = 0.0f;
+<a name="l00035"></a>00035             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[1] = 0.0f;
+<a name="l00036"></a>00036             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[2] = 0.0f;
+<a name="l00037"></a>00037             <a class="code" href="classglLightingStruct.html#4c55171413574fba6c60c306633aa172">light_ambient</a>[3] = 1.0f;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[0] = 1.0f;
+<a name="l00040"></a>00040             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[1] = 1.0f;
+<a name="l00041"></a>00041             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[2] = 1.0f;
+<a name="l00042"></a>00042             <a class="code" href="classglLightingStruct.html#f05f843c10d6989295cec01eb3083663">light_diffuse</a>[3] = 1.0f;
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[0] = 1.0f;
+<a name="l00045"></a>00045             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[1] = 1.0f;
+<a name="l00046"></a>00046             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[2] = 1.0f;
+<a name="l00047"></a>00047             <a class="code" href="classglLightingStruct.html#10ffaa734cdbc7a555c65fd1b719aa38">light_specular</a>[3] = 1.0f;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[0] = 2.0f;
+<a name="l00050"></a>00050             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[1] = 5.0f;
+<a name="l00051"></a>00051             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[2] = 5.0f;
+<a name="l00052"></a>00052             <a class="code" href="classglLightingStruct.html#44e8d2b38646475090d58f6a63afb40e">light_position</a>[3] = 0.0f;
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[0] = 0.7f;
+<a name="l00055"></a>00055             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[1] = 0.7f;
+<a name="l00056"></a>00056             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[2] = 0.7f;
+<a name="l00057"></a>00057             <a class="code" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">mat_ambient</a>[3] = 1.0f;
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[0] = 0.8f;
+<a name="l00060"></a>00060             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[1] = 0.8f;
+<a name="l00061"></a>00061             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[2] = 0.8f;
+<a name="l00062"></a>00062             <a class="code" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">mat_diffuse</a>[3] = 1.0f;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[0] = 1.0f;
+<a name="l00065"></a>00065             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[1] = 1.0f;
+<a name="l00066"></a>00066             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[2] = 1.0f;
+<a name="l00067"></a>00067             <a class="code" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">mat_specular</a>[3] = 1.0f;
 <a name="l00068"></a>00068 
-<a name="l00073"></a>00073 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00074"></a><a class="code" href="classDispatchKey.html">00074</a>         <span class="keyword">class </span><a class="code" href="classDispatchKey.html">DispatchKey</a> {
-<a name="l00075"></a>00075     <span class="keyword">private</span>:
-<a name="l00076"></a><a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">00076</a>         T* <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>;
-<a name="l00077"></a>00077         bool (T::*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)( SDL_Event a);
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <span class="keyword">public</span>:
-<a name="l00085"></a><a class="code" href="classDispatchKey.html#eba45aead22f9414a19670d776aa41e5">00085</a>         <a class="code" href="classDispatchKey.html#eba45aead22f9414a19670d776aa41e5">DispatchKey</a>(T* <span class="keywordtype">object</span>, <span class="keywordtype">bool</span> (T::*key)( SDL_Event a) ) {
-<a name="l00086"></a>00086             <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a> = object;
-<a name="l00087"></a>00087             <a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a> = key;
-<a name="l00088"></a>00088         }
-<a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="classDispatchKey.html#b6daafe0fa25c96fcc618003b5d4959f">00090</a>         <span class="keywordtype">bool</span> <a class="code" href="classDispatchKey.html#b6daafe0fa25c96fcc618003b5d4959f">keyPress</a>(SDL_Event event) {
-<a name="l00091"></a>00091             <span class="keywordflow">return</span> (<a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>-&gt;*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)(event);
+<a name="l00069"></a>00069             <a class="code" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">high_shininess</a>[0] = 100.0f;
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 };
+<a name="l00072"></a>00072 
+<a name="l00077"></a>00077 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00078"></a><a class="code" href="classDispatchKey.html">00078</a>         <span class="keyword">class </span><a class="code" href="classDispatchKey.html">DispatchKey</a> {
+<a name="l00079"></a>00079     <span class="keyword">private</span>:
+<a name="l00080"></a><a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">00080</a>         T* <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>;
+<a name="l00081"></a>00081         bool (T::*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)( SDL_Event a);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="keyword">public</span>:
+<a name="l00089"></a><a class="code" href="classDispatchKey.html#eba45aead22f9414a19670d776aa41e5">00089</a>         <a class="code" href="classDispatchKey.html#eba45aead22f9414a19670d776aa41e5">DispatchKey</a>(T* <span class="keywordtype">object</span>, <span class="keywordtype">bool</span> (T::*key)( SDL_Event a) ) {
+<a name="l00090"></a>00090             <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a> = object;
+<a name="l00091"></a>00091             <a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a> = key;
 <a name="l00092"></a>00092         }
-<a name="l00093"></a>00093     };
-<a name="l00094"></a>00094 
-<a name="l00099"></a>00099 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00100"></a><a class="code" href="classDispatchMouse.html">00100</a>         <span class="keyword">class </span><a class="code" href="classDispatchMouse.html">DispatchMouse</a> {
-<a name="l00101"></a>00101     <span class="keyword">private</span>:
-<a name="l00102"></a><a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">00102</a>         T* <a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a>;
-<a name="l00103"></a>00103         bool (T::*<a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a>)( SDL_Event a);
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105     <span class="keyword">public</span>:
-<a name="l00111"></a><a class="code" href="classDispatchMouse.html#ec54b017a67a138748e88e0730f4b4ef">00111</a>         <a class="code" href="classDispatchMouse.html#ec54b017a67a138748e88e0730f4b4ef">DispatchMouse</a>(T* <span class="keywordtype">object</span>, <span class="keywordtype">bool</span> (T::*mouse)( SDL_Event a) ) {
-<a name="l00112"></a>00112             <a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a> = object;
-<a name="l00113"></a>00113             <a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a> = mouse;
-<a name="l00114"></a>00114         }
-<a name="l00115"></a>00115 
-<a name="l00116"></a><a class="code" href="classDispatchMouse.html#9a0156f6b3b76b427e153d423bbb513a">00116</a>         <span class="keywordtype">bool</span> <a class="code" href="classDispatchMouse.html#9a0156f6b3b76b427e153d423bbb513a">mouseEvent</a>(SDL_Event event) {
-<a name="l00117"></a>00117             <span class="keywordflow">return</span> (<a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a>-&gt;*<a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a>)(event);
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="classDispatchKey.html#b6daafe0fa25c96fcc618003b5d4959f">00094</a>         <span class="keywordtype">bool</span> <a class="code" href="classDispatchKey.html#b6daafe0fa25c96fcc618003b5d4959f">keyPress</a>(SDL_Event event) {
+<a name="l00095"></a>00095             <span class="keywordflow">return</span> (<a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>-&gt;*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)(event);
+<a name="l00096"></a>00096         }
+<a name="l00097"></a>00097     };
+<a name="l00098"></a>00098 
+<a name="l00103"></a>00103 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00104"></a><a class="code" href="classDispatchMouse.html">00104</a>         <span class="keyword">class </span><a class="code" href="classDispatchMouse.html">DispatchMouse</a> {
+<a name="l00105"></a>00105     <span class="keyword">private</span>:
+<a name="l00106"></a><a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">00106</a>         T* <a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a>;
+<a name="l00107"></a>00107         bool (T::*<a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a>)( SDL_Event a);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109     <span class="keyword">public</span>:
+<a name="l00115"></a><a class="code" href="classDispatchMouse.html#ec54b017a67a138748e88e0730f4b4ef">00115</a>         <a class="code" href="classDispatchMouse.html#ec54b017a67a138748e88e0730f4b4ef">DispatchMouse</a>(T* <span class="keywordtype">object</span>, <span class="keywordtype">bool</span> (T::*mouse)( SDL_Event a) ) {
+<a name="l00116"></a>00116             <a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a> = object;
+<a name="l00117"></a>00117             <a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a> = mouse;
 <a name="l00118"></a>00118         }
-<a name="l00119"></a>00119     };
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121 
-<a name="l00122"></a><a class="code" href="classSDLLoader.html">00122</a> <span class="keyword">class </span><a class="code" href="classSDLLoader.html">SDLLoader</a> {
-<a name="l00123"></a>00123 <span class="keyword">private</span>:
-<a name="l00124"></a>00124     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#4d4f166de69c9fcafb537fa59efa2300">dispatchKey</a>(SDL_Event event);
-<a name="l00125"></a>00125     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#fc6909af601605f6d5f74ac44f36000a">dispatchMouse</a>(SDL_Event event);
-<a name="l00126"></a>00126 
-<a name="l00127"></a><a class="code" href="classSDLLoader.html#4f02ab9493bedf31176f0f7e4a50abf6">00127</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4f02ab9493bedf31176f0f7e4a50abf6">currentTickCount</a>;
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129 
-<a name="l00130"></a><a class="code" href="classSDLLoader.html#e74c634a8bf3fa437e1150c021c974b9">00130</a>     SDL_Surface * <a class="code" href="classSDLLoader.html#e74c634a8bf3fa437e1150c021c974b9">surface</a>;
-<a name="l00131"></a>00131 <span class="keyword">protected</span>:
-<a name="l00132"></a>00132     <span class="comment">//Make this private soon</span>
-<a name="l00133"></a><a class="code" href="classSDLLoader.html#761e0790543e6055eeaf2198c815dbfa">00133</a>     std::vector&lt; int &gt; <a class="code" href="classSDLLoader.html#761e0790543e6055eeaf2198c815dbfa">dispatchableKeys</a>;
-<a name="l00134"></a><a class="code" href="classSDLLoader.html#9f2db0a42e54463bd521ef9dcf47b4bc">00134</a>     std::vector&lt; int &gt; <a class="code" href="classSDLLoader.html#9f2db0a42e54463bd521ef9dcf47b4bc">dispatchableMouses</a>;
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136     <span class="comment">//Our camera</span>
-<a name="l00137"></a><a class="code" href="classSDLLoader.html#9816ae25c116fc94222a01154eb5f47e">00137</a>     <a class="code" href="classCamera.html">Camera</a> * <a class="code" href="classSDLLoader.html#9816ae25c116fc94222a01154eb5f47e">camera</a>;
-<a name="l00138"></a>00138 
-<a name="l00139"></a><a class="code" href="classSDLLoader.html#848face8097f9780b1c0e06e68e9fb23">00139</a>     std::map&lt;std::string, GUI *&gt; <a class="code" href="classSDLLoader.html#848face8097f9780b1c0e06e68e9fb23">guis</a>;
-<a name="l00140"></a><a class="code" href="classSDLLoader.html#1bde1f8b7561b6f3ded78650d2f51316">00140</a>     std::string <a class="code" href="classSDLLoader.html#1bde1f8b7561b6f3ded78650d2f51316">activeGUI</a>;
-<a name="l00141"></a><a class="code" href="classSDLLoader.html#2c719128fe0a004d4f95e9af28733980">00141</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#2c719128fe0a004d4f95e9af28733980">width</a>;
-<a name="l00142"></a><a class="code" href="classSDLLoader.html#4d393427a25b06e424211cc3b6cf6805">00142</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4d393427a25b06e424211cc3b6cf6805">height</a>;
-<a name="l00143"></a>00143 
-<a name="l00144"></a>00144     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#3b15edca8297168c3f18185f53918897">init</a>();
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146     <span class="comment">//Add a new keypress handler</span>
-<a name="l00147"></a>00147     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#437d9f5176a001937a840e820fce1aac">addKeyPressHandler</a>(<span class="keywordtype">int</span> pointerToKeyPressHandlerToAdd);
-<a name="l00148"></a>00148     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#a228f5a536ff837191af0aa15267b682">addMouseHandler</a>(<span class="keywordtype">int</span> pointerToMouseHandlerToAdd);
+<a name="l00119"></a>00119 
+<a name="l00120"></a><a class="code" href="classDispatchMouse.html#9a0156f6b3b76b427e153d423bbb513a">00120</a>         <span class="keywordtype">bool</span> <a class="code" href="classDispatchMouse.html#9a0156f6b3b76b427e153d423bbb513a">mouseEvent</a>(SDL_Event event) {
+<a name="l00121"></a>00121             <span class="keywordflow">return</span> (<a class="code" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">_this</a>-&gt;*<a class="code" href="classDispatchMouse.html#67d6ad213ba349baed135c745ff5ac71">_mouse</a>)(event);
+<a name="l00122"></a>00122         }
+<a name="l00123"></a>00123     };
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 
+<a name="l00126"></a><a class="code" href="classSDLLoader.html">00126</a> <span class="keyword">class </span><a class="code" href="classSDLLoader.html">SDLLoader</a> {
+<a name="l00127"></a>00127 <span class="keyword">private</span>:
+<a name="l00128"></a>00128     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#4d4f166de69c9fcafb537fa59efa2300">dispatchKey</a>(SDL_Event event);
+<a name="l00129"></a>00129     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#fc6909af601605f6d5f74ac44f36000a">dispatchMouse</a>(SDL_Event event);
+<a name="l00130"></a>00130 
+<a name="l00131"></a><a class="code" href="classSDLLoader.html#4f02ab9493bedf31176f0f7e4a50abf6">00131</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4f02ab9493bedf31176f0f7e4a50abf6">currentTickCount</a>;
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 
+<a name="l00134"></a><a class="code" href="classSDLLoader.html#e74c634a8bf3fa437e1150c021c974b9">00134</a>     SDL_Surface * <a class="code" href="classSDLLoader.html#e74c634a8bf3fa437e1150c021c974b9">surface</a>;
+<a name="l00135"></a>00135 <span class="keyword">protected</span>:
+<a name="l00136"></a>00136     <span class="comment">//Make this private soon</span>
+<a name="l00137"></a><a class="code" href="classSDLLoader.html#761e0790543e6055eeaf2198c815dbfa">00137</a>     std::vector&lt; int &gt; <a class="code" href="classSDLLoader.html#761e0790543e6055eeaf2198c815dbfa">dispatchableKeys</a>;
+<a name="l00138"></a><a class="code" href="classSDLLoader.html#9f2db0a42e54463bd521ef9dcf47b4bc">00138</a>     std::vector&lt; int &gt; <a class="code" href="classSDLLoader.html#9f2db0a42e54463bd521ef9dcf47b4bc">dispatchableMouses</a>;
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <span class="comment">//Our camera</span>
+<a name="l00141"></a><a class="code" href="classSDLLoader.html#9816ae25c116fc94222a01154eb5f47e">00141</a>     <a class="code" href="classCamera.html">Camera</a> * <a class="code" href="classSDLLoader.html#9816ae25c116fc94222a01154eb5f47e">camera</a>;
+<a name="l00142"></a>00142 
+<a name="l00143"></a><a class="code" href="classSDLLoader.html#848face8097f9780b1c0e06e68e9fb23">00143</a>     std::map&lt;std::string, GUI *&gt; <a class="code" href="classSDLLoader.html#848face8097f9780b1c0e06e68e9fb23">guis</a>;
+<a name="l00144"></a><a class="code" href="classSDLLoader.html#1bde1f8b7561b6f3ded78650d2f51316">00144</a>     std::string <a class="code" href="classSDLLoader.html#1bde1f8b7561b6f3ded78650d2f51316">activeGUI</a>;
+<a name="l00145"></a><a class="code" href="classSDLLoader.html#2c719128fe0a004d4f95e9af28733980">00145</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#2c719128fe0a004d4f95e9af28733980">width</a>;
+<a name="l00146"></a><a class="code" href="classSDLLoader.html#4d393427a25b06e424211cc3b6cf6805">00146</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4d393427a25b06e424211cc3b6cf6805">height</a>;
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#3b15edca8297168c3f18185f53918897">init</a>();
 <a name="l00149"></a>00149 
-<a name="l00150"></a>00150     <span class="comment">//This is a virtual function with its lack of a defined function explicity stated ( thats the =0 )</span>
-<a name="l00151"></a>00151     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#222ac3cac3a6d925c72e316b0b7761e8">display</a>();
-<a name="l00152"></a>00152     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#a16f1569083fae893f0fbb0b7f0d404a">idle</a>();
+<a name="l00150"></a>00150     <span class="comment">//Add a new keypress handler</span>
+<a name="l00151"></a>00151     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#437d9f5176a001937a840e820fce1aac">addKeyPressHandler</a>(<span class="keywordtype">int</span> pointerToKeyPressHandlerToAdd);
+<a name="l00152"></a>00152     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#a228f5a536ff837191af0aa15267b682">addMouseHandler</a>(<span class="keywordtype">int</span> pointerToMouseHandlerToAdd);
 <a name="l00153"></a>00153 
-<a name="l00154"></a><a class="code" href="classSDLLoader.html#0b41cf78a2c110105c23db129f53719e">00154</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#0b41cf78a2c110105c23db129f53719e">pausedOffset</a>;
-<a name="l00155"></a><a class="code" href="classSDLLoader.html#3c03fb37283e681930b4f04aea7abe33">00155</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#3c03fb37283e681930b4f04aea7abe33">pausedAt</a>;
-<a name="l00156"></a><a class="code" href="classSDLLoader.html#b097788c96c0b4fbc633cc12b0f2b5a1">00156</a>     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#b097788c96c0b4fbc633cc12b0f2b5a1">paused</a>;
+<a name="l00154"></a>00154     <span class="comment">//This is a virtual function with its lack of a defined function explicity stated ( thats the =0 )</span>
+<a name="l00155"></a>00155     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#222ac3cac3a6d925c72e316b0b7761e8">display</a>();
+<a name="l00156"></a>00156     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#a16f1569083fae893f0fbb0b7f0d404a">idle</a>();
 <a name="l00157"></a>00157 
-<a name="l00158"></a>00158 <span class="keyword">public</span>:
-<a name="l00159"></a>00159     <a class="code" href="classSDLLoader.html#a545b95a30f55d9cd59d3d79ac91efe9">SDLLoader</a>(<span class="keywordtype">int</span> setWidth, <span class="keywordtype">int</span> setHeight);
-<a name="l00160"></a>00160     <a class="code" href="classSDLLoader.html#a545b95a30f55d9cd59d3d79ac91efe9">SDLLoader</a>();
-<a name="l00161"></a>00161     <a class="code" href="classSDLLoader.html#2857e96184fcf9ee6e357fd3b7cd7bb3">~SDLLoader</a>();
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#243e88e036be51118bb5a9b895fe5e75">enableLight</a>(<a class="code" href="classglLightingStruct.html">glLightingStruct</a> * myLight);
-<a name="l00164"></a>00164     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#1ed71b9ec00feb89c9134f268c6aa1a6">enableLighting</a>();
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#cd151b2c852797f3f0c51c6958d3c45c">addGUI</a>(std::string name, <a class="code" href="classGUI.html">GUI</a> * toAdd);
-<a name="l00167"></a>00167     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#0853d6e9cc3617ed8c006c85f455c6f3">setActiveGUI</a>(std::string name);
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">getTime</a>();
-<a name="l00170"></a>00170 
-<a name="l00171"></a>00171     <span class="comment">//The quit int</span>
-<a name="l00172"></a><a class="code" href="classSDLLoader.html#43298914ecfeb59f7a8113794934c985">00172</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#43298914ecfeb59f7a8113794934c985">quit</a>;
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#076cc0e3de5d6c2d5efba5774baa3d60">loop</a>();
-<a name="l00175"></a>00175 
-<a name="l00176"></a>00176 
-<a name="l00177"></a><a class="code" href="classSDLLoader.html#ed1df200ca8442a5df1a6413128e4584">00177</a>     <span class="keyword">static</span> <a class="code" href="classSDLLoader.html">SDLLoader</a> * <a class="code" href="classSDLLoader.html#ed1df200ca8442a5df1a6413128e4584">pinstance</a>;
-<a name="l00178"></a>00178     <span class="keyword">static</span> <a class="code" href="classSDLLoader.html">SDLLoader</a> * <a class="code" href="classSDLLoader.html#80d69d279bdfd561e0b52174b3f16b30">getInstance</a>();
+<a name="l00158"></a><a class="code" href="classSDLLoader.html#0b41cf78a2c110105c23db129f53719e">00158</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#0b41cf78a2c110105c23db129f53719e">pausedOffset</a>;
+<a name="l00159"></a><a class="code" href="classSDLLoader.html#3c03fb37283e681930b4f04aea7abe33">00159</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#3c03fb37283e681930b4f04aea7abe33">pausedAt</a>;
+<a name="l00160"></a><a class="code" href="classSDLLoader.html#b097788c96c0b4fbc633cc12b0f2b5a1">00160</a>     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#b097788c96c0b4fbc633cc12b0f2b5a1">paused</a>;
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 <span class="keyword">public</span>:
+<a name="l00163"></a>00163     <a class="code" href="classSDLLoader.html#a545b95a30f55d9cd59d3d79ac91efe9">SDLLoader</a>(<span class="keywordtype">int</span> setWidth, <span class="keywordtype">int</span> setHeight);
+<a name="l00164"></a>00164     <a class="code" href="classSDLLoader.html#a545b95a30f55d9cd59d3d79ac91efe9">SDLLoader</a>();
+<a name="l00165"></a>00165     <a class="code" href="classSDLLoader.html#2857e96184fcf9ee6e357fd3b7cd7bb3">~SDLLoader</a>();
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#243e88e036be51118bb5a9b895fe5e75">enableLight</a>(<a class="code" href="classglLightingStruct.html">glLightingStruct</a> * myLight);
+<a name="l00168"></a>00168     <span class="keywordtype">void</span> <a class="code" href="classSDLLoader.html#1ed71b9ec00feb89c9134f268c6aa1a6">enableLighting</a>();
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#cd151b2c852797f3f0c51c6958d3c45c">addGUI</a>(std::string name, <a class="code" href="classGUI.html">GUI</a> * toAdd);
+<a name="l00171"></a>00171     <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#0853d6e9cc3617ed8c006c85f455c6f3">setActiveGUI</a>(std::string name);
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">getTime</a>();
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175     <span class="comment">//The quit int</span>
+<a name="l00176"></a><a class="code" href="classSDLLoader.html#43298914ecfeb59f7a8113794934c985">00176</a>     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#43298914ecfeb59f7a8113794934c985">quit</a>;
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178     <span class="keywordtype">int</span> <a class="code" href="classSDLLoader.html#076cc0e3de5d6c2d5efba5774baa3d60">loop</a>();
 <a name="l00179"></a>00179 
-<a name="l00180"></a>00180     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#37f2d14e185341ac65ef6067cd1ea121">pause</a>();
-<a name="l00181"></a>00181     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#f3c27ff2e34d2cbbd1aa33165d2232dc">resume</a>();
-<a name="l00182"></a>00182 };
+<a name="l00180"></a>00180 
+<a name="l00181"></a><a class="code" href="classSDLLoader.html#ed1df200ca8442a5df1a6413128e4584">00181</a>     <span class="keyword">static</span> <a class="code" href="classSDLLoader.html">SDLLoader</a> * <a class="code" href="classSDLLoader.html#ed1df200ca8442a5df1a6413128e4584">pinstance</a>;
+<a name="l00182"></a>00182     <span class="keyword">static</span> <a class="code" href="classSDLLoader.html">SDLLoader</a> * <a class="code" href="classSDLLoader.html#80d69d279bdfd561e0b52174b3f16b30">getInstance</a>();
 <a name="l00183"></a>00183 
-<a name="l00184"></a>00184 <span class="preprocessor">#endif // SDLLOADER_H_INCLUDED</span>
+<a name="l00184"></a>00184     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#37f2d14e185341ac65ef6067cd1ea121">pause</a>();
+<a name="l00185"></a>00185     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSDLLoader.html#f3c27ff2e34d2cbbd1aa33165d2232dc">resume</a>();
+<a name="l00186"></a>00186 };
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 <span class="preprocessor">#endif // SDLLOADER_H_INCLUDED</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

@@ -1,9 +1,7 @@
-<area shape="rect" href="$SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="508,81,604,105">
-<area shape="rect" href="$GUIButton_8h.html" title="GUIButton.h" alt="" coords="212,156,305,180">
-<area shape="rect" href="$face_8h.html" title="face.h" alt="" coords="428,156,484,180">
-<area shape="rect" href="$camera_8h.html" title="camera.h" alt="" coords="329,156,404,180">
-<area shape="rect" href="$GUI_8h.html" title="GUI.h" alt="" coords="528,156,584,180">
-<area shape="rect" href="$error_8h.html" title="error.h" alt="" coords="64,156,120,180">
-<area shape="rect" href="$point_8h.html" title="point.h" alt="" coords="251,231,309,255">
-<area shape="rect" href="$DeltaFunctor_8h.html" title="DeltaFunctor.h" alt="" coords="384,231,488,255">
-<area shape="rect" href="$GUIElement_8h.html" title="GUIElement.h" alt="" coords="512,231,616,255">
+<area shape="rect" href="$SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="141,81,237,105">
+<area shape="rect" href="$GUIButton_8h.html" title="GUIButton.h" alt="" coords="501,81,595,105">
+<area shape="rect" href="$face_8h.html" title="face.h" alt="" coords="417,81,473,105">
+<area shape="rect" href="$GUI_8h.html" title="GUI.h" alt="" coords="87,156,143,180">
+<area shape="rect" href="$error_8h.html" title="error.h" alt="" coords="287,156,343,180">
+<area shape="rect" href="$GUIElement_8h.html" title="GUIElement.h" alt="" coords="116,231,220,255">
+<area shape="rect" href="$point_8h.html" title="point.h" alt="" coords="519,156,577,180">

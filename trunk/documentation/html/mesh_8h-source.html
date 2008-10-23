@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -40,22 +41,28 @@
 <a name="l00015"></a>00015 <span class="keyword">private</span>:
 <a name="l00016"></a><a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">00016</a>     std::vector&lt;Face&gt; <a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">faces</a>;
 <a name="l00017"></a><a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">00017</a>     std::vector&lt;Point3&gt; <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>;
-<a name="l00018"></a><a class="code" href="classMesh.html#95750331f59c76ca2c3d1fb32c411be5">00018</a>     std::vector&lt;Point3&gt; <a class="code" href="classMesh.html#95750331f59c76ca2c3d1fb32c411be5">textures</a>;
+<a name="l00018"></a><a class="code" href="classMesh.html#422f5f71fc7efb1b6d060c2857c5c730">00018</a>     std::vector&lt;Point2&gt; <a class="code" href="classMesh.html#422f5f71fc7efb1b6d060c2857c5c730">texturePts</a>;
 <a name="l00019"></a><a class="code" href="classMesh.html#793feef494bf957ef76a7216d165d4ef">00019</a>     std::vector&lt;Point3&gt; <a class="code" href="classMesh.html#793feef494bf957ef76a7216d165d4ef">normals</a>;
-<a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00021"></a>00021     <a class="code" href="classMesh.html#2af137f1571af89172b9c102302c416b">Mesh</a>();
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#fac3850b7b10d3830ba71d417e328f64">loadObj</a>(std::string filename);
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#851685460da4951a1710f121e71b2ffe">addFace</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#851685460da4951a1710f121e71b2ffe">addFace</a>(std::vector&lt;int&gt;&amp; vertIndexes);
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#612cc60a286f30ab85546c9e753ed2fd">addFaceAndReverse</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#612cc60a286f30ab85546c9e753ed2fd">addFaceAndReverse</a>(std::vector&lt;int&gt;&amp; vertIndexes);
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#701a467a8d313be322e2fdee653a0516">calculateNormals</a>();
-<a name="l00028"></a>00028     <span class="keywordtype">bool</span> <a class="code" href="classMesh.html#65944945040e9c444f427e0116d9d4e6">drawMesh</a>();
-<a name="l00029"></a>00029 };
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#endif //MESH_H</span>
+<a name="l00020"></a><a class="code" href="classMesh.html#b0e2bf82366c592ed7f2f2a154f97f33">00020</a>     <span class="keywordtype">int</span> <a class="code" href="classMesh.html#b0e2bf82366c592ed7f2f2a154f97f33">textureId</a>;
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022     <a class="code" href="classMesh.html#2af137f1571af89172b9c102302c416b">Mesh</a>();
+<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#fac3850b7b10d3830ba71d417e328f64">loadObj</a>(std::string filename);
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#49dd1747ee12d9479fbc1cbd8058a91c">loadTexture</a>(std::string filename);
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#5655ef79f00b20dcc16f4bf2d0420066">addFaceVTN</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; textIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#2e985098856ad5e493f38c68ffadf059">addFaceVN</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#7346729bc3d2a1d99f7823a9061fd5dd">addFaceVT</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; textIndexes);
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#c42246f7a0e3433b11dd8d14cb5f8784">addFaceV</a>(std::vector&lt;int&gt;&amp; vertIndexes);
+<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#736fcb9669c8c35829f34ff761953bc0">addFaceAndReverseVTN</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; textIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
+<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#58a8e1c046e681409944649c244c59a7">addFaceAndReverseVN</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; normalIndexes);
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#32289876fa11b640dae879b200b63574">addFaceAndReverseVT</a>(std::vector&lt;int&gt;&amp; vertIndexes, std::vector&lt;int&gt;&amp; textIndexes);
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#b77ed5bb05983abeeeab1cfd8ba98b06">addFaceAndReverseV</a>(std::vector&lt;int&gt;&amp; vertIndexes);
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="classMesh.html#701a467a8d313be322e2fdee653a0516">calculateNormals</a>();
+<a name="l00034"></a>00034     <span class="keywordtype">bool</span> <a class="code" href="classMesh.html#65944945040e9c444f427e0116d9d4e6">drawMesh</a>();
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="preprocessor">#endif //MESH_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

@@ -1,1 +1,4 @@
-<area shape="rect" href="$classStopFunctor.html" title="StopFunctor" alt="" coords="7,6,97,30">
+<area shape="rect" href="$classGUIElement.html" title="GUIElement" alt="" coords="7,54,97,78">
+<area shape="rect" href="$classGUIButton.html" title="GUIButton" alt="" coords="163,6,245,30">
+<area shape="rect" href="$classGUIText.html" title="GUIText" alt="" coords="169,54,239,78">
+<area shape="rect" href="$classGUITextHandler.html" title="GUITextHandler" alt="" coords="148,102,260,126">

@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -34,40 +35,55 @@
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="point_8h.html">point.h</a>"</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="DeltaFunctor_8h.html">DeltaFunctor.h</a>"</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="comment">//A class to manage where the camera is at all times, makes for nice nice</span>
-<a name="l00014"></a><a class="code" href="classCamera.html">00014</a> <span class="keyword">class </span><a class="code" href="classCamera.html">Camera</a>
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 <span class="keyword">private</span>:
-<a name="l00017"></a><a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521">00017</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="the position of the camera">eyePosition</a>; 
-<a name="l00018"></a><a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766">00018</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="the location that the camera is looking at">lookAtPosition</a>; 
-<a name="l00019"></a><a class="code" href="classCamera.html#966ded6713edd2189098299030feea45">00019</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="the direction which is &amp;#39;up&amp;#39;, with reference to the camera">upDirection</a>; 
-<a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058">00021</a>     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> * <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="deprecated, do not use">angleUpFunct</a>; 
-<a name="l00022"></a><a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5">00022</a>     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> * <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="deprecated, do not use">angleLeftFunct</a>; 
-<a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">00024</a>     GLdouble <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a> [6];
-<a name="l00025"></a>00025 <span class="keyword">public</span>:
-<a name="l00026"></a>00026     <a class="code" href="classCamera.html#01f94c3543f56ede7af49dc778f19331">Camera</a>();
-<a name="l00027"></a>00027     <a class="code" href="classCamera.html#01f94c3543f56ede7af49dc778f19331">Camera</a>(<a class="code" href="classPoint3.html">Point3</a> eye, <a class="code" href="classPoint3.html">Point3</a> lookAt, <a class="code" href="classPoint3.html">Point3</a> up);
-<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#9d90e540f0a99cee3389617d35c3ac40">setEyePosition</a>(<a class="code" href="classPoint3.html">Point3</a> pos);
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#7e84c33b51161a8de66a3588f93084af">setLookAtPosition</a>(<a class="code" href="classPoint3.html">Point3</a> lookAt);
-<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#a3b4004199354d0e45a02b465219b412">setUpDirection</a>(<a class="code" href="classPoint3.html">Point3</a> up);
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#652f4e51b10f9f6a0e1b618f2d8f8ab2">setFrustum</a>(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#42cda7239981a5618660d04bd5893556">update</a>();
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034     <span class="comment">//New motion functions move on surface of sphere around center</span>
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#0aeae81c0f8bc7a515da9fa74249404e">spinRightAroundCenter</a>(GLdouble angle);
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#37b2145ca1d5effd34f67007144b067c">spinUpAroundCenter</a>(GLdouble angle);
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#e1f3922ded4e5ecbd3feabbddc31655c">spinViewAroundCenter</a>(GLdouble angle);
+<a name="l00012"></a>00012 <span class="preprocessor">#include "<a class="code" href="character_8h.html">character.h</a>"</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="path_8h.html">path.h</a>"</span>
+<a name="l00014"></a>00014 
+<a name="l00032"></a><a class="code" href="classCamera.html">00032</a> <span class="keyword">class </span><a class="code" href="classCamera.html">Camera</a>
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034 <span class="keyword">private</span>:
+<a name="l00035"></a><a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521">00035</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>; 
+<a name="l00036"></a><a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766">00036</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>; 
+<a name="l00037"></a><a class="code" href="classCamera.html#966ded6713edd2189098299030feea45">00037</a>     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>; 
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#816e48f2accdc6028c3452758ed0e68f">zoomIn</a>(GLdouble amount);
-<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#59c389df8465ceb090386fd37d004d57">shift</a>(<a class="code" href="classPoint3.html">Point3</a> direction, GLdouble amount);
-<a name="l00041"></a>00041 };
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#endif //CAMERA_H</span>
+<a name="l00039"></a><a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058">00039</a>     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> * <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="Deprecated, do not use.">angleUpFunct</a>; 
+<a name="l00040"></a><a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5">00040</a>     <a class="code" href="classDelta__Functor.html">Delta_Functor</a> * <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="Deprecated, do not use.">angleLeftFunct</a>; 
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226">00042</a>     <a class="code" href="classPath.html">Path&lt;Point3&gt;</a> * <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>; 
+<a name="l00043"></a><a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780">00043</a>     <a class="code" href="classCharacter.html">Character</a> * <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a>; 
+<a name="l00044"></a>00044 
+<a name="l00059"></a><a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">00059</a>     GLdouble <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a> [6];
+<a name="l00060"></a>00060 <span class="keyword">public</span>:
+<a name="l00061"></a>00061     <a class="code" href="classCamera.html#01f94c3543f56ede7af49dc778f19331" title="The default constructor for the camera class.">Camera</a>();   
+<a name="l00062"></a>00062     <a class="code" href="classCamera.html#01f94c3543f56ede7af49dc778f19331" title="The default constructor for the camera class.">Camera</a>(<a class="code" href="classPoint3.html">Point3</a> eye, <a class="code" href="classPoint3.html">Point3</a> lookAt, <a class="code" href="classPoint3.html">Point3</a> up);   
+<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#9d90e540f0a99cee3389617d35c3ac40" title="Set the position of the camera.">setEyePosition</a>(<a class="code" href="classPoint3.html">Point3</a> pos);    
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#9d90e540f0a99cee3389617d35c3ac40" title="Set the position of the camera.">setEyePosition</a>(<span class="keywordtype">double</span> posx, <span class="keywordtype">double</span> posy, <span class="keywordtype">double</span> posz); 
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#7e84c33b51161a8de66a3588f93084af" title="Set the location that the camera is looking at.">setLookAtPosition</a>(<a class="code" href="classPoint3.html">Point3</a> lookAt);  
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#7e84c33b51161a8de66a3588f93084af" title="Set the location that the camera is looking at.">setLookAtPosition</a>(<span class="keywordtype">double</span> lookAtx, <span class="keywordtype">double</span> lookAty, <span class="keywordtype">double</span> lookAtz);  
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#a3b4004199354d0e45a02b465219b412" title="Set the direction which is &amp;#39;up&amp;#39;, with reference to the camera.">setUpDirection</a>(<a class="code" href="classPoint3.html">Point3</a> up); 
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#a3b4004199354d0e45a02b465219b412" title="Set the direction which is &amp;#39;up&amp;#39;, with reference to the camera.">setUpDirection</a>(<span class="keywordtype">double</span> upx, <span class="keywordtype">double</span> upy, <span class="keywordtype">double</span> upz); 
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#652f4e51b10f9f6a0e1b618f2d8f8ab2" title="Set the viewing frustum.">setFrustum</a>(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);   
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#42cda7239981a5618660d04bd5893556" title="Update the camera.">update</a>();  
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="comment">//New motion functions move on surface of sphere around center</span>
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#0aeae81c0f8bc7a515da9fa74249404e" title="Spin right or left.">spinRightAroundCenter</a>(GLdouble angle); 
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#37b2145ca1d5effd34f67007144b067c" title="Spin up or down.">spinUpAroundCenter</a>(GLdouble angle);    
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#e1f3922ded4e5ecbd3feabbddc31655c" title="Rotates the camera.">spinViewAroundCenter</a>(GLdouble angle);  
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     <span class="comment">//New to follow a path</span>
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#4f937d8adf3f30da57eb32852ab965a3" title="Follow a given path (as eyePosition).">followPath</a>(<a class="code" href="classPath.html">Path&lt;Point3&gt;</a> pathToFollow); 
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#7b94aaea66acca55f74ed49c58d9e4a3" title="Stop following a given path (as eyePosition).">unFollowPath</a>(); 
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#816e48f2accdc6028c3452758ed0e68f" title="Zoom in/out.">zoomIn</a>(GLdouble amount);   
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#59c389df8465ceb090386fd37d004d57" title="Shift the camera.">shift</a>(<a class="code" href="classPoint3.html">Point3</a> direction, GLdouble amount);  
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <span class="comment">//New to follow a character</span>
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#aa0416edbdf276e1a62fbc8f9f58c306" title="Follow a character.">followCharacter</a>(<a class="code" href="classCharacter.html">Character</a> * toFollow); 
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="classCamera.html#0964c00fe676e5f1fd3f5f1d3bd63840" title="Stop following the character.">unFollowCharacter</a>(); 
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="preprocessor">#endif //CAMERA_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

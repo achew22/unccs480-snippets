@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -189,7 +190,8 @@ Add an element to the stack of elements to draw
 <p>Definition at line <a class="el" href="GUI_8cpp-source.html#l00062">62</a> of file <a class="el" href="GUI_8cpp-source.html">GUI.cpp</a>.</p>
 <div class="fragment"><pre class="fragment"><a name="l00062"></a>00062                                      {
 <a name="l00063"></a>00063     <a class="code" href="classGUI.html#7bb2982d0809bcde9966a28d35e337ae">elements</a>.push_back(toAdd);
-<a name="l00064"></a>00064 }
+<a name="l00064"></a>00064     <span class="keywordflow">return</span> <a class="code" href="classGUI.html#7bb2982d0809bcde9966a28d35e337ae">elements</a>.size() - 1;
+<a name="l00065"></a>00065 }
 </pre></div>
 <p>
 
@@ -268,9 +270,8 @@ Add an element to the stack of elements to draw
 
 <p>
 Handle key press events Only called by <a class="el" href="classSDLLoader.html">SDLLoader</a>, expects a SDL_Event of type keypress 
-<p>Definition at line <a class="el" href="GUI_8cpp-source.html#l00070">70</a> of file <a class="el" href="GUI_8cpp-source.html">GUI.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00070"></a>00070                              {
-<a name="l00071"></a>00071     printf(<span class="stringliteral">"I got a %d that is a/an %c\r\n"</span>, event.key.keysym.sym, event.key.keysym.sym);
+<p>Definition at line <a class="el" href="GUI_8cpp-source.html#l00071">71</a> of file <a class="el" href="GUI_8cpp-source.html">GUI.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00071"></a>00071                              {
 <a name="l00072"></a>00072     <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dispatchIndex = 0; dispatchIndex &lt; <a class="code" href="classGUI.html#7bb2982d0809bcde9966a28d35e337ae">elements</a>.size(); ++dispatchIndex ) {
 <a name="l00073"></a>00073         <span class="keywordflow">if</span> (<a class="code" href="classGUI.html#7bb2982d0809bcde9966a28d35e337ae">elements</a>[dispatchIndex]-&gt;<a class="code" href="classGUI.html#e5729d47f25c4eaced7aa7acd0fcb966">key</a>(event) == <span class="keyword">false</span>) {
 <a name="l00074"></a>00074             <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -505,7 +506,7 @@ This basically sets up a simple 2d orthogo world for us to render into So far as
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="GUI_8h-source.html">GUI.h</a><li><a class="el" href="GUI_8cpp-source.html">GUI.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
