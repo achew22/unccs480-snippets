@@ -22,7 +22,7 @@ Point3::Point3()
  * Standard constructor from an existing Point3.
  *
  * @param point is the point that the created point will be equal to.
- */
+ * /
 Point3::Point3(const Point3& point)
 {
     x = point.x;

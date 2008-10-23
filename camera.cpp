@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 
 #include "camera.h"
+#include "path.h"
 #include "error.h"
 
 #ifndef PI
@@ -150,7 +151,18 @@ void Camera::setFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble
  * its current position, direction, etc. Should be called before each frame is rendered.
  */
 void Camera::update() {
-    if (path != NULL) {
+    if (character != NULL) {
+        /**
+         * Don't update the frustrum, or the up direction but the look at needs to be 1
+         * in front of the character (relative to rotational coords) and the x/y/z need
+         * to be the middle of the character (or whatever its reporting)
+         * @todo fix the camera so that character actually does a reasonable view so that it works
+         */
+        //Error::log("Love me");
+        character->setPosition(eyePosition, lookAtPosition);
+        printf("%d\n", eyePosition.x);
+
+    } else if (path != NULL) {
         eyePosition = path->getPoint();
     }
     glMatrixMode(GL_PROJECTION);
@@ -277,7 +289,7 @@ void Camera::followPath(Path pathToFollow) {
     if (path != NULL) {
         delete path;
     }
-    path = new Path;
+    path = new Path();
     (*path) = pathToFollow;
 }
 
@@ -321,4 +333,30 @@ void Camera::shift(Point3 direction, GLdouble amount) {
     Point3 shift = direction.getUnit()*amount;
     eyePosition = eyePosition + shift;
     lookAtPosition = lookAtPosition + shift;
+}
+
+/**
+ * Change the cameras perspective so that you are following a character
+ *
+ * @param toFollow pointer to the character you want to follow
+ * @see unFollowCharacter
+ * @see lookAtPosition
+ * @see followPath
+ * @see Character
+ */
+void Camera::followCharacter(Character * toFollow) {
+    character = toFollow;
+}
+
+/**
+ * Stop following the character
+ *
+ * @see followCharacter
+ * @see lookAtPosition
+ * @see followPath
+ * @see Character
+ */
+void Camera::unFollowCharacter() {
+    //DONT DELETE THE CHARACTER ITS STILL IN USE SOMEWHERE
+    character = NULL;
 }

@@ -17,11 +17,11 @@ App::App() {
 
     //Load up proog so that we can start playing with him
     myMesh = new Mesh();
-    //myMesh->loadObj("/home/achew22/Desktop/Now/CS480/unccs480-snippets/sample/objects/proog.obj");
+    myMesh->loadObj("/home/achew22/Desktop/Now/CS480/unccs480-snippets/sample/objects/proog.obj");
     //myMesh->loadObj("E:\\Documents\\School\\CS480\\unccs480-snippets\\sample\\objects\\proog.obj");
-    myMesh->loadObj("./objects/proog.obj");
+    //myMesh->loadObj("../objects/proog.obj");
 
-    //Set up the normals from a calculation, rather than reading them from the file
+    //Set up the normals from a calculation, ratłher than reading them from the file
     myMesh->calculateNormals();
 
     //Set up the functor that will move proog
