@@ -58,6 +58,8 @@ public:
     bool isComplete();
     void deleteChildren();
 
+    double derivitive();
+
     Delta_Functor cat(const Delta_Functor toCat);
 };
 

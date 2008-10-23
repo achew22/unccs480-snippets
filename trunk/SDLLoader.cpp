@@ -1,7 +1,7 @@
 #include <SDL/SDL.h>
 
 #include "SDLLoader.h"
-#include "TextureManager.h"
+#include "textureManager.h"
 
 extern SDLLoader * SDLLoader::pinstance = 0;
 extern SDLLoader * SDLLoader::getInstance() {
@@ -49,7 +49,18 @@ SDLLoader::SDLLoader(int setWidth, int setHeight) {
  * @param event the SDL_event that triggered this call
  */
 void SDLLoader::dispatchKey( SDL_Event event ) {
+    /**
+     * Step 1: dispatch to the GUI, it has first dibs
+     */
+    if (activeGUI != "none") {
+        if (!this->guis[activeGUI]->key(event)) {
+            //The GUI took it and told us not to go on
+            return;
+        }
+    }
+/*
     bool used = false;
+
     for ( unsigned int dispatchIndex = 0; dispatchIndex < dispatchableKeys.size(); ++dispatchIndex ) {
         /**
          * Okay... this is evil.
@@ -68,12 +79,16 @@ void SDLLoader::dispatchKey( SDL_Event event ) {
          *
          * Please note that I typecast it to a GUI only becacuse that was the first class that
          * had a class member named keyPress
-         */
+         * /
         if (((DispatchKey<GUI> *)(dispatchableKeys[dispatchIndex]))->keyPress(event) == false) {
             used = true;
             break;
         }
-    }
+    }*/
+    /**
+     * Do the default behaviors (Q is quit and so is ESC)
+     */
+
     /**
      * Default behaviors here:
      *
@@ -85,16 +100,14 @@ void SDLLoader::dispatchKey( SDL_Event event ) {
      * Fullscreen
      *   -on f?
      */
-    if (used == false) {
-        //If there is a q pressed or an escape, quit
-        if ((event.key.keysym.sym == SDLK_q) || (event.key.keysym.sym == SDLK_ESCAPE)) {
-            quit = 0;
-        }
-        if (event.key.keysym.sym == SDLK_f) {
-            // Since we saved the surface its not hard to go to fullscreen!
-            // This doesn't work look into it
-            //SDL_WM_ToggleFullScreen( surface );
-        }
+    //If there is a q pressed or an escape, quit
+    if ((event.key.keysym.sym == SDLK_q) || (event.key.keysym.sym == SDLK_ESCAPE)) {
+        quit = 0;
+    }
+    if (event.key.keysym.sym == SDLK_f) {
+        // Since we saved the surface its not hard to go to fullscreen!
+        // This doesn't work look into it
+        //SDL_WM_ToggleFullScreen( surface );
     }
 }
 

@@ -22,7 +22,7 @@ public:
     GLdouble z; ///< The z coordinate
 
     Point3();   ///< Default constructor.
-    Point3(const Point3& point);    ///< Another constructor.
+    //Point3(const Point3& point);    ///< Another constructor.
     Point3(GLdouble inx, GLdouble iny, GLdouble inz);   ///< Usual constructor.
     Point3(std::string pointStr); ///< Special constructor.
 	bool getLoadError();    ///< Find out if there was a construction error.

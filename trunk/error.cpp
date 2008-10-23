@@ -29,7 +29,7 @@ Error::Error() {
  * Write a line to the file NOT DONE
  */
 void Error::writeLine(char * output) {
-    printf("TODO: implement output in %s on line %d\n", __FILE__, __LINE__);
+    //printf("TODO: implement output in %s on line %d\n", __FILE__, __LINE__);
 }
 
 
@@ -124,7 +124,8 @@ void Error::debug(std::string theError, ...) {
     #ifdef _WIN32
         sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
     #else
-        sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
+        //sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);
+        sprintf(writeBuffer, "%s: %s", __FUNCTION__, buffer);
     #endif
     printf(writeBuffer);
     Error::getInstance()->writeLine(buffer);

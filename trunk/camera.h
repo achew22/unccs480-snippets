@@ -9,6 +9,7 @@
 
 #include "point.h"
 #include "DeltaFunctor.h"
+#include "character.h"
 #include "path.h"
 
 /** A class that acts as a camera.
@@ -39,6 +40,7 @@ private:
     Delta_Functor * angleLeftFunct; ///<Deprecated, do not use.
 
     Path* path; ///< The path that the camera will follow.
+    Character * character; ///< The path that the camera will follow.
 
     /** Contains the coordinates for a frustum.
      *
@@ -78,6 +80,10 @@ public:
 
     void zoomIn(GLdouble amount);   ///< Zoom in/out.
     void shift(Point3 direction, GLdouble amount);  ///< Shift the camera.
+
+    //New to follow a character
+    void followCharacter(Character * toFollow); ///< Follow a character
+    void unFollowCharacter(); ///< Stop following the character
 };
 
 #endif //CAMERA_H
