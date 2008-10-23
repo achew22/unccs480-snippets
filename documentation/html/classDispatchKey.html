@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -59,7 +60,7 @@ Collaboration diagram for DispatchKey&lt; T &gt;:</div>
  class DispatchKey&lt; T &gt;</h3>
 
 This is the template that is used to dispatch key events this is bascially a wrapper for object method callbacks 
-<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00074">74</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00078">78</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="eba45aead22f9414a19670d776aa41e5"></a><!-- doxytag: member="DispatchKey::DispatchKey" ref="eba45aead22f9414a19670d776aa41e5" args="(T *object, bool(T::*key)(SDL_Event a))" -->
 <div class="memitem">
@@ -96,11 +97,11 @@ This is the constructor <dl compact><dt><b>Parameters:</b></dt><dd>
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00085">85</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                                             {
-<a name="l00086"></a>00086             <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a> = object;
-<a name="l00087"></a>00087             <a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a> = key;
-<a name="l00088"></a>00088         }
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00089">89</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00089"></a>00089                                                             {
+<a name="l00090"></a>00090             <a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a> = object;
+<a name="l00091"></a>00091             <a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a> = key;
+<a name="l00092"></a>00092         }
 </pre></div>
 <p>
 
@@ -127,10 +128,10 @@ template&lt;class T&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00090">90</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00090"></a>00090                                        {
-<a name="l00091"></a>00091             <span class="keywordflow">return</span> (<a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>-&gt;*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)(event);
-<a name="l00092"></a>00092         }
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00094">94</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00094"></a>00094                                        {
+<a name="l00095"></a>00095             <span class="keywordflow">return</span> (<a class="code" href="classDispatchKey.html#58e92135e8125cf95deecb05b7a6b729">_this</a>-&gt;*<a class="code" href="classDispatchKey.html#b505365bcb0c710ead7bfb4b31cdf3c9">_keyPress</a>)(event);
+<a name="l00096"></a>00096         }
 </pre></div>
 <p>
 
@@ -152,7 +153,7 @@ template&lt;class T&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00076">76</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
+<p>Definition at line <a class="el" href="SDLLoader_8h-source.html#l00080">80</a> of file <a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a>.</p>
 
 </div>
 </div><p>
@@ -176,7 +177,7 @@ template&lt;class T&gt; </div>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="SDLLoader_8h-source.html">SDLLoader.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

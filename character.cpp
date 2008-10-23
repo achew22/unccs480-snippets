@@ -14,7 +14,6 @@ void Character::setPosition(Point3 & eyePosition, Point3 & lookAtPosition) {
    eyePosition.z = z + 1;
 
    eyePosition.x = 7;
-   printf("X: %f Y: %f Z: %f\n", x,y,z);
 
 /*
    ///@todo Make this do the look at the right spot by default

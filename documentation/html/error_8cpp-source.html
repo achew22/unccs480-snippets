@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -45,7 +46,7 @@
 <a name="l00026"></a>00026 }
 <a name="l00027"></a>00027 
 <a name="l00031"></a><a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">00031</a> <span class="keywordtype">void</span> <a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">Error::writeLine</a>(<span class="keywordtype">char</span> * output) {
-<a name="l00032"></a>00032     printf(<span class="stringliteral">"TODO: implement output in %s on line %d\n"</span>, __FILE__, __LINE__);
+<a name="l00032"></a>00032     <span class="comment">//printf("TODO: implement output in %s on line %d\n", __FILE__, __LINE__);</span>
 <a name="l00033"></a>00033 }
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035 
@@ -112,13 +113,14 @@
 <a name="l00124"></a>00124 <span class="preprocessor">    #ifdef _WIN32</span>
 <a name="l00125"></a>00125 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
 <a name="l00126"></a>00126 <span class="preprocessor">    #else</span>
-<a name="l00127"></a>00127 <span class="preprocessor"></span>        sprintf(writeBuffer, <span class="stringliteral">"%s: \033[37;1m%s %s\033[0m\r\n"</span>, __FUNCTION__, buffer);
-<a name="l00128"></a>00128 <span class="preprocessor">    #endif</span>
-<a name="l00129"></a>00129 <span class="preprocessor"></span>    printf(writeBuffer);
-<a name="l00130"></a>00130     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
-<a name="l00131"></a>00131 }
+<a name="l00127"></a>00127 <span class="preprocessor"></span>        <span class="comment">//sprintf(writeBuffer, "%s: \033[37;1m%s %s\033[0m\r\n", __FUNCTION__, buffer);</span>
+<a name="l00128"></a>00128         sprintf(writeBuffer, <span class="stringliteral">"%s: %s"</span>, __FUNCTION__, buffer);
+<a name="l00129"></a>00129 <span class="preprocessor">    #endif</span>
+<a name="l00130"></a>00130 <span class="preprocessor"></span>    printf(writeBuffer);
+<a name="l00131"></a>00131     <a class="code" href="classError.html#ace9016907bb5372c3f1309db5143c9c" title="Hold the instance.">Error::getInstance</a>()-&gt;<a class="code" href="classError.html#dc9bae7cadeb938279622294da53f888">writeLine</a>(buffer);
+<a name="l00132"></a>00132 }
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

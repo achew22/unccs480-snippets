@@ -1,9 +1,3 @@
-<area shape="rect" href="$camera_8cpp.html" title="camera.cpp" alt="" coords="136,81,224,105">
-<area shape="rect" href="$SDLLoader_8h.html" title="SDLLoader.h" alt="" coords="248,81,344,105">
-<area shape="rect" href="$DeltaFunctor_8cpp.html" title="DeltaFunctor.cpp" alt="" coords="5,156,125,180">
-<area shape="rect" href="$GUI_8cpp.html" title="GUI.cpp" alt="" coords="149,156,219,180">
-<area shape="rect" href="$GUIButton_8cpp.html" title="GUIButton.cpp" alt="" coords="243,156,349,180">
-<area shape="rect" href="$app_8h.html" title="sample/app.h" alt="" coords="373,156,472,180">
-<area shape="rect" href="$SDLLoader_8cpp.html" title="SDLLoader.cpp" alt="" coords="496,156,605,180">
-<area shape="rect" href="$app_8cpp.html" title="sample/app.cpp" alt="" coords="367,231,479,255">
-<area shape="rect" href="$main_8cpp.html" title="sample/main.cpp" alt="" coords="363,305,483,329">
+<area shape="rect" href="$camera_8cpp.html" title="camera.cpp" alt="" coords="5,81,93,105">
+<area shape="rect" href="$app_8cpp.html" title="sample/app.cpp" alt="" coords="117,81,229,105">
+<area shape="rect" href="$SDLLoader_8cpp.html" title="SDLLoader.cpp" alt="" coords="253,81,363,105">

@@ -34,6 +34,7 @@ Camera::Camera() {
     frustum[5] = 100;
 
     path = NULL;
+    character = NULL;
 
     angleLeftFunct = angleUpFunct = NULL;
 }
@@ -66,6 +67,7 @@ Camera::Camera(Point3 pos, Point3 lookAt, Point3 up) {
     frustum[5] = 100;
 
     path = NULL;
+    character = NULL;
 
     angleLeftFunct = angleUpFunct = NULL;
 }
@@ -158,10 +160,7 @@ void Camera::update() {
          * to be the middle of the character (or whatever its reporting)
          * @todo fix the camera so that character actually does a reasonable view so that it works
          */
-        //Error::log("Love me");
         character->setPosition(eyePosition, lookAtPosition);
-        printf("%d\n", eyePosition.x);
-
     } else if (path != NULL) {
         eyePosition = path->getPoint();
     }

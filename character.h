@@ -12,8 +12,7 @@ public:
 
 public:
 
-    void setPosition(Point3 & eyePosition, Point3 & lookAtPosition); ///<Overloadable function for the camera to get the position of the object
-
+    virtual void setPosition(Point3 & eyePosition, Point3 & lookAtPosition); ///<Overloadable function for the camera to get the position of the object
 
 
     //Overloaded functions to make this work

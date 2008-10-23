@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
     <li>
@@ -37,22 +38,31 @@
   <tr class="memlist"><td><a class="el" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058">angleUpFunct</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#01f94c3543f56ede7af49dc778f19331">Camera</a>()</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#8e5f4288206cfa3fa0d186769f19211b">Camera</a>(Point3 eye, Point3 lookAt, Point3 up)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#94791cdef7247741cf7d284134578780">character</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521">eyePosition</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#aa0416edbdf276e1a62fbc8f9f58c306">followCharacter</a>(Character *toFollow)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#4f937d8adf3f30da57eb32852ab965a3">followPath</a>(Path&lt; Point3 &gt; pathToFollow)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766">lookAtPosition</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226">path</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#9d90e540f0a99cee3389617d35c3ac40">setEyePosition</a>(Point3 pos)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#305c0ab3bfb52e683b45f09c8503d46f">setEyePosition</a>(double posx, double posy, double posz)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#652f4e51b10f9f6a0e1b618f2d8f8ab2">setFrustum</a>(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#7e84c33b51161a8de66a3588f93084af">setLookAtPosition</a>(Point3 lookAt)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#5fde4cb99220fdb7c6d4eae3501fd11b">setLookAtPosition</a>(double lookAtx, double lookAty, double lookAtz)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#a3b4004199354d0e45a02b465219b412">setUpDirection</a>(Point3 up)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#0c1b08ee442eb4d40833ab3b028fc620">setUpDirection</a>(double upx, double upy, double upz)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#59c389df8465ceb090386fd37d004d57">shift</a>(Point3 direction, GLdouble amount)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#0aeae81c0f8bc7a515da9fa74249404e">spinRightAroundCenter</a>(GLdouble angle)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#37b2145ca1d5effd34f67007144b067c">spinUpAroundCenter</a>(GLdouble angle)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#e1f3922ded4e5ecbd3feabbddc31655c">spinViewAroundCenter</a>(GLdouble angle)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#0964c00fe676e5f1fd3f5f1d3bd63840">unFollowCharacter</a>()</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCamera.html#7b94aaea66acca55f74ed49c58d9e4a3">unFollowPath</a>()</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#42cda7239981a5618660d04bd5893556">update</a>()</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#966ded6713edd2189098299030feea45">upDirection</a></td><td><a class="el" href="classCamera.html">Camera</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCamera.html#816e48f2accdc6028c3452758ed0e68f">zoomIn</a>(GLdouble amount)</td><td><a class="el" href="classCamera.html">Camera</a></td><td></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 11:33:12 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:43 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

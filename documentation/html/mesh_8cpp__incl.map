@@ -1,3 +1,5 @@
 <area shape="rect" href="$mesh_8h.html" title="mesh.h" alt="" coords="192,81,256,105">
-<area shape="rect" href="$face_8h.html" title="face.h" alt="" coords="196,156,252,180">
-<area shape="rect" href="$point_8h.html" title="point.h" alt="" coords="153,231,212,255">
+<area shape="rect" href="$textureManager_8h.html" title="textureManager.h" alt="" coords="400,156,520,180">
+<area shape="rect" href="$error_8h.html" title="error.h" alt="" coords="549,81,605,105">
+<area shape="rect" href="$face_8h.html" title="face.h" alt="" coords="131,156,187,180">
+<area shape="rect" href="$point_8h.html" title="point.h" alt="" coords="212,231,271,255">
