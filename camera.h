@@ -39,7 +39,7 @@ private:
     Delta_Functor * angleUpFunct; ///<Deprecated, do not use.
     Delta_Functor * angleLeftFunct; ///<Deprecated, do not use.
 
-    Path* path; ///< The path that the camera will follow.
+    Path<Point3> * path; ///< The path that the camera will follow.
     Character * character; ///< The path that the camera will follow.
 
     /** Contains the coordinates for a frustum.
@@ -75,7 +75,7 @@ public:
     void spinViewAroundCenter(GLdouble angle);  ///< Rotates the camera.
 
     //New to follow a path
-    void followPath(Path pathToFollow); ///< Follow a given path (as eyePosition)
+    void followPath(Path<Point3> pathToFollow); ///< Follow a given path (as eyePosition)
     void unFollowPath(); ///< Stop following a given path (as eyePosition)
 
     void zoomIn(GLdouble amount);   ///< Zoom in/out.

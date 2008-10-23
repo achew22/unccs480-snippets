@@ -1,6 +1,7 @@
 #include <SDL/SDL.h>
 
 #include "SDLLoader.h"
+#include "camera.h"
 #include "textureManager.h"
 
 extern SDLLoader * SDLLoader::pinstance = 0;
