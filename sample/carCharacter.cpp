@@ -11,7 +11,7 @@
  * Default constructor to initialize all variables
  */
 CarCharacter::CarCharacter() {
-    //ŜmyMesh = new Mesh();
+    myMesh = new Mesh;
 
     //Set all variables to 0 the fast way
     rotX = rotY = rotX = x = y = z = 0;
@@ -22,14 +22,18 @@ CarCharacter::CarCharacter() {
  * Load the requested texture file
  */
 void CarCharacter::loadTexture(std::string pathToFile) {
-    myMesh->loadTexture(pathToFile);
+    if (myMesh != NULL) {
+        myMesh->loadTexture(pathToFile);
+    }
 }
 
 /**
  * Load the requested object file
  */
 void CarCharacter::loadObj(std::string pathToFile) {
-    myMesh->loadObj(pathToFile);
+    if (myMesh != NULL) {
+        myMesh->loadObj(pathToFile);
+    }
 }
 
 /**
@@ -49,7 +53,9 @@ void CarCharacter::draw() {
 
         glTranslated(x,y,z);
 
-        myMesh->drawMesh();
+        if (myMesh != NULL ) {
+            myMesh->drawMesh();
+        }
     }
 }
 
