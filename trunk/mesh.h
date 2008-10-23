@@ -31,6 +31,8 @@ public:
     void addFaceAndReverseVT(std::vector<int>& vertIndexes, std::vector<int>& textIndexes);
     void addFaceAndReverseV(std::vector<int>& vertIndexes);
     void calculateNormals();
+    Point3 calculateCenter();
+    double calculateAverageRadius();
     bool drawMesh();
 };
 
