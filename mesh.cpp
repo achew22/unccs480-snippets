@@ -318,6 +318,23 @@ void Mesh::calculateNormals() {
     }
 }
 
+Point3 Mesh::calculateCenter() {
+    Point3 center(0,0,0);
+    for (int i = 0; i < vertices.size(); i++) {
+        center = center + vertices[i]/((double)vertices.size());
+    }
+    return center;
+}
+
+double Mesh::calculateAverageRadius() {
+    Point3 center = calculateCenter();
+    double average = 0;
+    for (int i = 0; i < vertices.size(); i++) {
+        average = average + (vertices[i] - center).getMag()/((double)vertices.size());
+    }
+    return average;
+}
+
 bool Mesh::drawMesh() {
     glBindTexture(GL_TEXTURE_2D, textureId);
     for (int i = 0; i < faces.size(); i++) {

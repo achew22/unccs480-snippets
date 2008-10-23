@@ -30,10 +30,12 @@ private:
     int startTime;  ///< The time to start along the path.
     int endTime;    ///< The time to end along the path.
     bool isCyclic;  ///< Whether or not to repeat in a cycle.
+    bool isFinished;    ///< Whether or not the path has finished.
 public:
     Path(); ///< Default constructor.
     Path(int timeToStart, int timeToEnd);   ///< Constructor.
     Path operator =(Path toEqual);  ///< Overloaded equals operator.
+    bool getIsFinished();  ///< Find out whether or not the path has finished.
     void setPoints(std::vector<Type> toSet);  ///< Set the path points.
     void addPoint(Type toAdd);    ///< Add a path point to the end of the path.
     //void addPoint(double x, double y, double z);    ///< Add a path point to the end of the path.
@@ -53,6 +55,7 @@ template<typename Type>
 Path<Type>::Path(){
     startTime = endTime = 0;
     isCyclic = false;
+    isFinished = false;
 }
 
 /**
@@ -67,6 +70,7 @@ Path<Type>::Path(int timeToStart, int timeToEnd) {
     startTime = timeToStart;
     endTime = timeToEnd;
     isCyclic = false;
+    isFinished = false;
 }
 
 /**
@@ -78,6 +82,7 @@ Path<Type> Path<Type>::operator =(Path<Type> toEqual) {
     startTime = toEqual.startTime;
     endTime = toEqual.endTime;
     isCyclic = toEqual.isCyclic;
+    isFinished = toEqual.isFinished;
 
     points.resize(toEqual.points.size());
     for (int i = 0; i < toEqual.points.size(); i++) {
@@ -85,6 +90,14 @@ Path<Type> Path<Type>::operator =(Path<Type> toEqual) {
     }
 
     return *this;
+}
+
+/**
+ * @return returns a copy of isFinished.
+ */
+template<typename Type>
+bool Path<Type>::getIsFinished() {
+    return isFinished;
 }
 
 /**
@@ -133,6 +146,9 @@ void Path<Type>::setEndTime(int end) {
 template<typename Type>
 void Path<Type>::makeCyclic() {
     isCyclic = true;
+    if (isFinished) {
+        isFinished = false;
+    }
 }
 
 /**
@@ -166,7 +182,7 @@ Type Path<Type>::getPoint() {
 template<typename Type>
 Type Path<Type>::getPoint(int time) {
     if (points.size() == 0) {
-        return Type(0,0,0);
+        return Type();
     }
 
     int timeRange = endTime - startTime;
@@ -181,10 +197,13 @@ Type Path<Type>::getPoint(int time) {
     double timeStep = (double)timeRange/(points.size() - 1*(!isCyclic));
 
     if (timeLocation < 0) {
-        return points[0];
+        return Type();
     } else if (timeLocation > endTime) {
-        return points[points.size() - 1];
+        printf("Changed the stated of isFinished\n");
+        isFinished = true;
+        return Type();
     } else {
+        isFinished = false;
         double numSteps = (double)timeLocation / timeStep;
         int beforeIndex = floor(numSteps);
         int afterIndex = ceil(numSteps);
