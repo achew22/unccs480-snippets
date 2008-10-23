@@ -5,6 +5,7 @@
 #include "GUI.h"
 #include "GUIButton.h"
 #include "GUITextHandler.h"
+#include "camera.h"
 
 #include "carCharacter.h"
 
@@ -18,20 +19,20 @@ App::App() {
     init();
 
     //Whats a good game without networking?
-    server = new SampleServer(12345);
+    //server = new SampleServer(12345);
 
     //Or characters?
-    character = new CarCharacter();
+    character = new CarCharacter;
 
     //Load the object and texture
-    character->loadObj("/home/achew22/Desktop/Now/CS480/unccs480-snippets/sample/objects/car.obj");
-    character->loadTexture("/home/achew22/Desktop/Now/CS480/unccs480-snippets/sample/textures/car.bmp");
+    character->loadObj("G:\\Documents\\School\\CS480\\unccs480-snippets\\sample\\objects\\car.obj");
+    character->loadTexture("G:\\Documents\\School\\CS480\\unccs480-snippets\\sample\\textures\\car.bmp");
 
     //Scale it
     character->scale(1);
 
     //Define the GUI
-    GUI * myGUI = new GUI();
+    GUI * myGUI = new GUI;
 
     //Attach a keypress handler
     myGUI->addElement(new GUITextHandler( App::key ));
@@ -45,16 +46,16 @@ App::App() {
     enableLighting();
 
     //Enable light 0 (thats the default one in glLightingStruct())
-    enableLight(new glLightingStruct());
+    enableLight(new glLightingStruct);
 
     //Set the camera's positions
-    camera->setEyePosition(0,5,5);
+    camera->setEyePosition(5,5,5);
     camera->setUpDirection(0,0,1);
     //camera->setEyePosition(Point3(.01,.01,5));
     camera->setLookAtPosition(Point3(0,0,0));
 
     //Tell the camera to follow the character
-    camera->followCharacter(character);
+    //camera->followCharacter(character);
 }
 
 /**

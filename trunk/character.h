@@ -15,6 +15,7 @@ public:
     void setPosition(Point3 & eyePosition, Point3 & lookAtPosition); ///<Overloadable function for the camera to get the position of the object
 
 
+
     //Overloaded functions to make this work
     //I decided to do these as overloaded instead of just
     //assuming there was one "mesh" because I might want to
