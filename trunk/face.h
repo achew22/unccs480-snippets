@@ -18,20 +18,20 @@ private:
     std::vector<int> normalIndex;
     bool isFan; //True if we should use triangleFan, false if we should use triangleStrip
 public:
-    Face();
-    void registerVertices(std::vector<Point3>* toRegister);
-    void registerTextures(std::vector<Point2>* toRegister);
-    void registerNormals(std::vector<Point3>* toRegister);
-    void registerVertexIndexes(std::vector<int>& toRegister);
-    void registerTextureIndexes(std::vector<int>& toRegister);
-    void registerNormalIndexes(std::vector<int>& toRegister);
-    void addVertexIndex(int index);
-    void addTextureIndex(int index);
-    void addNormalIndex(int index);
-    void makeFan();
-    void makeStrip();
-    void addOwnNormals();
-    bool drawFace();
+    Face(); ///< Default constructor.
+    void registerVertices(std::vector<Point3>* toRegister); ///< Register the vector of vertices to use.
+    void registerTextures(std::vector<Point2>* toRegister); ///< Register the vector of texturePts to use.
+    void registerNormals(std::vector<Point3>* toRegister);  ///< Register the vector of normals to use.
+    void registerVertexIndexes(std::vector<int>& toRegister);   ///< Register the vector of indexes of vertices to use.
+    void registerTextureIndexes(std::vector<int>& toRegister);  ///< Register the vector of indexes of texturePts to use.
+    void registerNormalIndexes(std::vector<int>& toRegister);   ///< Register the vector of indexes of normals to use.
+    void addVertexIndex(int index);     ///< Add a vertex index.
+    void addTextureIndex(int index);    ///< Add a texturePts index.
+    void addNormalIndex(int index);     ///< Add a normal index.
+    void makeFan();     ///< Set isFan to true.
+    void makeStrip();   ///< Set isFan to false.
+    void addOwnNormals();   ///< Used to calculate normals for a mesh.
+    bool drawFace();    ///< Draw the face to the screen.
 };
 
 #endif //FACE_H

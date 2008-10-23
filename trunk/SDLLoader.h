@@ -2,13 +2,17 @@
 #define SDLLOADER_H_INCLUDED
 
 #include <SDL/SDL.h>
+#include <GL/gl.h>
 
 #include <vector>
 #include <map>
 
-#include "camera.h"
+//#include "camera.h"
 #include "GUI.h"
 #include "error.h"
+
+//Forward declaration
+class Camera;
 
 class glLightingStruct {
 public:

@@ -284,12 +284,12 @@ void Camera::spinViewAroundCenter(GLdouble angle) {
 /**
  * @param pathToFollow is the path to follow.
  */
-void Camera::followPath(Path pathToFollow) {
+void Camera::followPath(Path<Point3> pathToFollow) {
     printf("Called Camera::followPath()\n");
     if (path != NULL) {
         delete path;
     }
-    path = new Path();
+    path = new Path<Point3>;
     (*path) = pathToFollow;
 }
 

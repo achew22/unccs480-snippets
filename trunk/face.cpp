@@ -3,7 +3,6 @@
 #include "face.h"
 #include "point.h"
 
-//Empty constructor
 Face::Face() {
     vertices = NULL;
     textures = NULL;
