@@ -18,8 +18,12 @@ protected:
     Point3 vel;
     Point3 acc;
 
+    Point3 lastPos;
+
     Point3 center;
     double radius;
+
+    Point3 offset;
 
     std::map<int, Path<Point3> > forces;
     int currentIdNumber;
@@ -34,11 +38,18 @@ protected:
     bool isCollidable;
 
     int physObjId;
+
+    void updateTick(int increment);
+    void updatePosition(int currentTime);
+    void resetPosition(int currentTime);
+    void updateVel(int currentTime);
+    void updateAcc(int currentTime);
 public:
     PhysicsObject() {
         currentIdNumber = 0;
         pos = vel = acc = Point3(0,0,0);
         center = Point3(0,0,0);
+        offset = center - pos;
         radius = 1;
         mass = 10;
         maxVel = 500;
@@ -66,7 +77,6 @@ public:
     int addForce(Path<Point3> toAdd);
     void addGravity(Point3 down);
     bool removeForce(int id);
-    void updatePhysics();
 };
 
 #endif  //PHYSICSOBJECT_H

@@ -27,7 +27,7 @@ SDLLoader::SDLLoader() {
  */
 SDLLoader::~SDLLoader() {
     SDL_Quit();
-    TextureManager::cleanUp();
+//    TextureManager::cleanUp();
 }
 
 /**

@@ -38,6 +38,7 @@ public:
 	static double dot(const Point3& a, const Point3& b);    ///< Static function to dot two vectors.
 	static Point3 cross(const Point3& a, const Point3& b);  ///< Static function to cross two vectors.
     double getMag();    ///< Get the magnitude of this vector.
+    double getMagSquared(); ///< Get the magnitued of this vector squared.
     Point3 getUnit();   ///< Get a unit vector pointing in the direction of this vector.
     void doVertex();    ///< Perform a glVertex3d() call.
     void doNormal();    ///< Perform a glNormal3d() call.
@@ -73,6 +74,7 @@ public:
     double dot(const Point2& todot);    ///< Dot this vector with another.
 	static double dot(const Point2& a, const Point2& b);    ///< Static function to dot two vectors.
     double getMag();    ///< Get the magnitude of this vector.
+    double getMagSquared(); ///< Get the magnitued of this vector squared.
     Point2 getUnit();   ///< Get a unit vector pointing in the direction of this vector.
     void doTex();   ///< Peform a glTexCoord2f() call.
 };

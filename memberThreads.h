@@ -1,6 +1,8 @@
 #ifndef MEMBERTHREADS_H_INCLUDED
 #define MEMBERTHREADS_H_INCLUDED
 
+#include <SDL/SDL.h>
+
 /********************************************************************
    Helper function to create a SDL_thread of a member function
 

@@ -4,6 +4,7 @@ void Ball::calculateCenter() {
     if (mesh != NULL) {
         center = mesh->calculateCenter();
     }
+    offset = center - pos;
 }
 
 void Ball::calculateRadius() {

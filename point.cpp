@@ -283,6 +283,19 @@ double Point3::getMag()
 }
 
 /**
+ * This function is useful because the square root function is relatively
+ * expensive. For comparison purposes, this works much faster.
+ *
+ * This function does not edit the value of *this.
+ *
+ * @return returns the magnitude of this vector squared.
+ */
+double Point3::getMagSquared()
+{
+    return x*x + y*y + z*z;
+}
+
+/**
  * This function does not edit the value of *this.
  *
  * @return returns a unit vector in the direction of *this.
@@ -522,6 +535,19 @@ extern double Point2::dot(const Point2& a, const Point2& b)
 double Point2::getMag()
 {
     return sqrt(x*x + y*y);
+}
+
+/**
+ * This function is useful because the square root function is relatively
+ * expensive. For comparison purposes, this works much faster.
+ *
+ * This function does not edit the value of *this.
+ *
+ * @return returns the magnitude of this vector squared.
+ */
+double Point2::getMagSquared()
+{
+    return x*x + y*y;
 }
 
 /**
