@@ -11,6 +11,7 @@ void PhysicsObject::setMaxVel(double toSet) {
 
 void PhysicsObject::setCenter(Point3 toSet) {
     center = toSet;
+    offset = center - pos;
 }
 
 void PhysicsObject::setRadius(double toSet) {
@@ -18,7 +19,6 @@ void PhysicsObject::setRadius(double toSet) {
 }
 
 void PhysicsObject::moveCenterTo(Point3 location) {
-    Point3 offset = center - pos;
     center = location;
     pos = center - offset;
 }
@@ -78,21 +78,53 @@ bool PhysicsObject::removeForce(int id) {
     }
 }
 
-void PhysicsObject::updatePhysics() {
-    //Check for dead forces and clear them out
-    for (std::map<int, Path<Point3> >::iterator i = forces.begin(); i != forces.end(); i++) {
-        if (i->second.getIsFinished() == true) {
-            //printf("PhysicsObject::removed a dead force\n");
-            //forces.erase(i);
+void PhysicsObject::updateTick(int increment) {
+    lastPos = pos;
+    pos = pos + vel * (increment/1000.0);
+    center = pos - offset;
+}
+
+void PhysicsObject::updatePosition(int currentTime) {
+    lastPos = pos;
+    for (int i = lastUpdated - lastUpdated%increment; i < currentTime - currentTime%increment; i+= increment) {
+        pos = pos + vel * (increment/1000.0);
+    }
+    center = pos - offset;
+    //Error::debug("PhysicsObject::Updated! Offset is <%f, %f, %f>, center = <%f, %f, %f>, pos = <%f, %f, %f>\n", offset.x, offset.y, offset.z, center.x, center.y, center.z, pos.x, pos.y, pos.z);
+}
+
+void PhysicsObject::resetPosition(int currentTime) {
+    pos = lastPos;
+    center = pos - offset;
+}
+
+void PhysicsObject::updateVel(int currentTime) {
+    for (int i = lastUpdated - lastUpdated%increment; i < currentTime - currentTime%increment; i+= increment) {
+        vel = vel + acc * (increment/1000.0);
+        if (vel.getMag() > maxVel) {
+            vel = vel.getUnit() * maxVel;
         }
     }
+}
 
+void PhysicsObject::updateAcc(int currentTime) {
+    for (int i = lastUpdated - lastUpdated%increment; i < currentTime - currentTime%increment; i+= increment) {
+        acc = Point3(0,0,0);
+        for (std::map<int, Path<Point3> >::iterator i = forces.begin(); i != forces.end(); i++) {
+            acc = acc + i->second.getPoint()/mass;
+        }
+    }
+}
+
+/*
+void PhysicsObject::updatePhysics() {
     int currentTime = SDLLoader::getTime();
     Point3 offset = center - pos;
     for (int i = lastUpdated - lastUpdated%increment; i < currentTime - currentTime%increment; i+= increment) {
+        Point3 oldPos = pos;
         pos = pos + vel * (increment/1000.0);
-        if (!PhysicsManager::getInstance()->checkCollisions(physObjId)){
-            pos = pos + vel * (increment/1000.0);
+        if (PhysicsManager::getInstance()->checkCollisions(physObjId)){
+            pos = oldPos;
         }
         //printf("PhysicsObject::pos is %f, %f, %f\n", pos.x, pos.y, pos.z);
         vel = vel + acc * (increment/1000.0);
@@ -106,7 +138,8 @@ void PhysicsObject::updatePhysics() {
         }
         //printf("PhysicsObject::acc is %f, %f, %f\n", acc.x, acc.y, acc.z);
     }
-    center = pos + offset;
+    center = pos - offset;
     lastUpdated = currentTime;
     //printf("PhysicsObject::updatePhysics called, forces.size() = %i\n", forces.size());
 }
+*/

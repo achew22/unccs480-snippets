@@ -2,7 +2,7 @@
 #include <sstream>
 
 #include "mesh.h"
-#include "textureManager.h"
+//#include "textureManager.h"
 #include "error.h"
 
 Mesh::Mesh()
@@ -176,7 +176,7 @@ void Mesh::loadObj(std::string filename)
 }
 
 void Mesh::loadTexture(std::string filename) {
-    textureId = TextureManager::getInstance()->loadBMP(filename);
+    //textureId = TextureManager::getInstance()->loadBMP(filename);
 }
 
 void Mesh::addFaceVTN(std::vector<int>& vertIndexes, std::vector<int>& textIndexes, std::vector<int>& normalIndexes) {
