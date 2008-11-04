@@ -75,6 +75,7 @@ public:
     void setVelocity(Point3 toSet);
     void addVelocity(Point3 toAdd);
     int addForce(Path<Point3> toAdd);
+    Path<Point3>* getForceRef(int id);
     void addGravity(Point3 down);
     bool removeForce(int id);
 };

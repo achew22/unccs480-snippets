@@ -20,6 +20,7 @@ public:
     }
     void calculateCenter();
     void calculateRadius();
+    void resize(double newSize);
     void loadObj(std::string filename);
     void loadTexture(std::string filename);
     void draw();

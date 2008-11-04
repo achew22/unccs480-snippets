@@ -33,6 +33,7 @@ public:
     void calculateNormals();
     Point3 calculateCenter();
     double calculateAverageRadius();
+    void resize(double newSize);
     bool drawMesh();
 };
 

@@ -335,6 +335,13 @@ double Mesh::calculateAverageRadius() {
     return average;
 }
 
+void Mesh::resize(double newSize) {
+    double curSize = calculateAverageRadius();
+    for (int i = 0; i < vertices.size(); i++) {
+        vertices[i] = vertices[i] * newSize/curSize;
+    }
+}
+
 bool Mesh::drawMesh() {
     glBindTexture(GL_TEXTURE_2D, textureId);
     for (int i = 0; i < faces.size(); i++) {
