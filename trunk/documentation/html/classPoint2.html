@@ -82,6 +82,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint2.html#3d18400220a66ef10be267e512d2bfa2">getMag</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the magnitude of this vector.  <a href="#3d18400220a66ef10be267e512d2bfa2"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint2.html#6216344145be9450917a8f565bde49ff">getMagSquared</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the magnitued of this vector squared.  <a href="#6216344145be9450917a8f565bde49ff"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classPoint2.html">Point2</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint2.html#469b0c212f3e22c590d0f44a28cb0260">getUnit</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a unit vector pointing in the direction of this vector.  <a href="#469b0c212f3e22c590d0f44a28cb0260"></a><br></td></tr>
@@ -107,7 +110,7 @@
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 A two-dimensional point.<p>
 This class can be used to interchangeably represent either a point in two-dimensional space or a vector in two-dimensional space. It includes many of the functions that one would expect for such things, including addition, subtraction, scalar multiplication, dot product, unit vector calculation, and magnitude calculation. 
-<p>Definition at line <a class="el" href="point_8h-source.html#l00054">54</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+<p>Definition at line <a class="el" href="point_8h-source.html#l00055">55</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="8d40ddb5c8e0ce8e26b725f37782e08b"></a><!-- doxytag: member="Point2::Point2" ref="8d40ddb5c8e0ce8e26b725f37782e08b" args="()" -->
 <div class="memitem">
@@ -128,13 +131,13 @@ This class can be used to interchangeably represent either a point in two-dimens
 Default constructor. 
 <p>
 All coordinates default to zero. 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00325">325</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00326"></a>00326 {
-<a name="l00327"></a>00327     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = 0;
-<a name="l00328"></a>00328     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = 0;
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
-<a name="l00331"></a>00331 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00338">338</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00339"></a>00339 {
+<a name="l00340"></a>00340     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = 0;
+<a name="l00341"></a>00341     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = 0;
+<a name="l00342"></a>00342 
+<a name="l00343"></a>00343         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
+<a name="l00344"></a>00344 }
 </pre></div>
 <p>
 
@@ -166,13 +169,13 @@ Standard constructor from an existing <a class="el" href="classPoint2.html">Poin
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00338">338</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00339"></a>00339 {
-<a name="l00340"></a>00340     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = point.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>;
-<a name="l00341"></a>00341     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = point.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
-<a name="l00344"></a>00344 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00351">351</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00352"></a>00352 {
+<a name="l00353"></a>00353     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = point.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>;
+<a name="l00354"></a>00354     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = point.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
+<a name="l00357"></a>00357 }
 </pre></div>
 <p>
 
@@ -214,13 +217,13 @@ Standard constructor which is used most often. Pass in the coordinates of the po
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00353">353</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00354"></a>00354 {
-<a name="l00355"></a>00355     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = inx;
-<a name="l00356"></a>00356     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = iny;
-<a name="l00357"></a>00357 
-<a name="l00358"></a>00358         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
-<a name="l00359"></a>00359 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00366">366</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00367"></a>00367 {
+<a name="l00368"></a>00368     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = inx;
+<a name="l00369"></a>00369     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = iny;
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">false</span>;
+<a name="l00372"></a>00372 }
 </pre></div>
 <p>
 
@@ -253,25 +256,25 @@ It takes in a string of a specific type, usually the type that is given in stand
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00373">373</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00374"></a>00374 {
-<a name="l00375"></a>00375     <span class="keywordflow">if</span> (pointStr.size() &gt; 0 &amp;&amp; pointStr[0] == <span class="charliteral">'v'</span>) {     <span class="comment">//This would indicate a .obj style vertex</span>
-<a name="l00376"></a>00376         <span class="comment">//printf("Point2::Getting values from %s...", pointStr.c_str());</span>
-<a name="l00377"></a>00377         <span class="keywordtype">float</span> a,b;
-<a name="l00378"></a>00378         <span class="keywordflow">if</span> (sscanf(pointStr.c_str(), <span class="stringliteral">"%*s %f %f"</span>, &amp;a, &amp;b) == 2) {
-<a name="l00379"></a>00379             <span class="comment">//printf("FoundThem...");</span>
-<a name="l00380"></a>00380             <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = a;
-<a name="l00381"></a>00381             <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = b;
-<a name="l00382"></a>00382         } <span class="keywordflow">else</span> {
-<a name="l00383"></a>00383             printf(<span class="stringliteral">"Point2::Error didn't find them, sscanf = %i..."</span>, sscanf(pointStr.c_str(), <span class="stringliteral">"v %f %f"</span>, &amp;a, &amp;b));
-<a name="l00384"></a>00384             <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = 0;
-<a name="l00385"></a>00385             <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">true</span>;
-<a name="l00386"></a>00386         }
-<a name="l00387"></a>00387     } <span class="keywordflow">else</span> {    <span class="comment">//This would indicate an error in formatting</span>
-<a name="l00388"></a>00388         printf(<span class="stringliteral">"Point2: Error, string format not recognized\n"</span>);
-<a name="l00389"></a>00389         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">true</span>;
-<a name="l00390"></a>00390     }
-<a name="l00391"></a>00391 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00386">386</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00387"></a>00387 {
+<a name="l00388"></a>00388     <span class="keywordflow">if</span> (pointStr.size() &gt; 0 &amp;&amp; pointStr[0] == <span class="charliteral">'v'</span>) {     <span class="comment">//This would indicate a .obj style vertex</span>
+<a name="l00389"></a>00389         <span class="comment">//printf("Point2::Getting values from %s...", pointStr.c_str());</span>
+<a name="l00390"></a>00390         <span class="keywordtype">float</span> a,b;
+<a name="l00391"></a>00391         <span class="keywordflow">if</span> (sscanf(pointStr.c_str(), <span class="stringliteral">"%*s %f %f"</span>, &amp;a, &amp;b) == 2) {
+<a name="l00392"></a>00392             <span class="comment">//printf("FoundThem...");</span>
+<a name="l00393"></a>00393             <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = a;
+<a name="l00394"></a>00394             <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = b;
+<a name="l00395"></a>00395         } <span class="keywordflow">else</span> {
+<a name="l00396"></a>00396             printf(<span class="stringliteral">"Point2::Error didn't find them, sscanf = %i..."</span>, sscanf(pointStr.c_str(), <span class="stringliteral">"v %f %f"</span>, &amp;a, &amp;b));
+<a name="l00397"></a>00397             <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = 0;
+<a name="l00398"></a>00398             <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">true</span>;
+<a name="l00399"></a>00399         }
+<a name="l00400"></a>00400     } <span class="keywordflow">else</span> {    <span class="comment">//This would indicate an error in formatting</span>
+<a name="l00401"></a>00401         printf(<span class="stringliteral">"Point2: Error, string format not recognized\n"</span>);
+<a name="l00402"></a>00402         <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a> = <span class="keyword">true</span>;
+<a name="l00403"></a>00403     }
+<a name="l00404"></a>00404 }
 </pre></div>
 <p>
 
@@ -299,10 +302,10 @@ Find out if there was a construction error.
 If there was an error loading the point, as could occur when you load it from a string.<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>If there was a load error, returns true. Else returns false. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00399">399</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00400"></a>00400 {
-<a name="l00401"></a>00401         <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a>;
-<a name="l00402"></a>00402 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00412">412</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00413"></a>00413 {
+<a name="l00414"></a>00414         <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a>;
+<a name="l00415"></a>00415 }
 </pre></div>
 <p>
 
@@ -335,10 +338,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the sum of these two vectors. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00410">410</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00411"></a>00411 {
-<a name="l00412"></a>00412     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + toadd.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> + toadd.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
-<a name="l00413"></a>00413 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00423">423</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00424"></a>00424 {
+<a name="l00425"></a>00425     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + toadd.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> + toadd.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
+<a name="l00426"></a>00426 }
 </pre></div>
 <p>
 
@@ -371,10 +374,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the difference of these two vectors. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00421">421</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00422"></a>00422 {
-<a name="l00423"></a>00423     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> - tosub.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> - tosub.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
-<a name="l00424"></a>00424 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00434">434</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00435"></a>00435 {
+<a name="l00436"></a>00436     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> - tosub.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> - tosub.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
+<a name="l00437"></a>00437 }
 </pre></div>
 <p>
 
@@ -407,10 +410,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the scalar product of this and tomult. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00432">432</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00433"></a>00433 {
-<a name="l00434"></a>00434     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> * tomult, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> * tomult);
-<a name="l00435"></a>00435 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00445">445</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00446"></a>00446 {
+<a name="l00447"></a>00447     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> * tomult, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> * tomult);
+<a name="l00448"></a>00448 }
 </pre></div>
 <p>
 
@@ -444,10 +447,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the dot product of these two vectors. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00446">446</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00447"></a>00447 {
-<a name="l00448"></a>00448         <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*todot.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*todot.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
-<a name="l00449"></a>00449 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00459">459</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00460"></a>00460 {
+<a name="l00461"></a>00461         <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*todot.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*todot.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00462"></a>00462 }
 </pre></div>
 <p>
 
@@ -480,14 +483,14 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the scalar product of this vector and the reciprocal of todiv. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00457">457</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00458"></a>00458 {
-<a name="l00459"></a>00459     <span class="keywordflow">if</span> (todiv == 0)
-<a name="l00460"></a>00460     {
-<a name="l00461"></a>00461         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00462"></a>00462     }
-<a name="l00463"></a>00463     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> / todiv, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> / todiv);
-<a name="l00464"></a>00464 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00470">470</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00471"></a>00471 {
+<a name="l00472"></a>00472     <span class="keywordflow">if</span> (todiv == 0)
+<a name="l00473"></a>00473     {
+<a name="l00474"></a>00474         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00475"></a>00475     }
+<a name="l00476"></a>00476     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> / todiv, <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> / todiv);
+<a name="l00477"></a>00477 }
 </pre></div>
 <p>
 
@@ -519,12 +522,12 @@ Assign the value of a vector to this one.
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns this vector after it is reassigned. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00470">470</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00471"></a>00471 {
-<a name="l00472"></a>00472     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = toequal.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>;
-<a name="l00473"></a>00473     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = toequal.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
-<a name="l00474"></a>00474     <span class="keywordflow">return</span> toequal;
-<a name="l00475"></a>00475 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00483">483</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00484"></a>00484 {
+<a name="l00485"></a>00485     <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> = toequal.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>;
+<a name="l00486"></a>00486     <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> = toequal.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00487"></a>00487     <span class="keywordflow">return</span> toequal;
+<a name="l00488"></a>00488 }
 </pre></div>
 <p>
 
@@ -557,10 +560,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns true if the toEqual and this vector are the same, false otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00483">483</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00484"></a>00484 {
-<a name="l00485"></a>00485     <span class="keywordflow">return</span> (<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> == toequal.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> &amp;&amp; <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> == toequal.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
-<a name="l00486"></a>00486 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00496">496</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00497"></a>00497 {
+<a name="l00498"></a>00498     <span class="keywordflow">return</span> (<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> == toequal.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> &amp;&amp; <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a> == toequal.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
+<a name="l00499"></a>00499 }
 </pre></div>
 <p>
 
@@ -594,10 +597,10 @@ This function does not edit the value of *this.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the dot product of these two vectors. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00497">497</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00498"></a>00498 {
-<a name="l00499"></a>00499     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*todot.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*todot.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
-<a name="l00500"></a>00500 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00510">510</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00511"></a>00511 {
+<a name="l00512"></a>00512     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*todot.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*todot.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00513"></a>00513 }
 </pre></div>
 <p>
 
@@ -640,10 +643,10 @@ The dot product is calculated as the traditional dot product of two vectors in t
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the dot product of a and b. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00512">512</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00513"></a>00513 {
-<a name="l00514"></a>00514         <span class="keywordflow">return</span> a.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*b.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + a.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*b.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
-<a name="l00515"></a>00515 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00525">525</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00526"></a>00526 {
+<a name="l00527"></a>00527         <span class="keywordflow">return</span> a.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*b.<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + a.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*b.<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00528"></a>00528 }
 </pre></div>
 <p>
 
@@ -670,10 +673,41 @@ Get the magnitude of this vector.
 This function does not edit the value of *this.<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the magnitude of this vector. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00522">522</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00523"></a>00523 {
-<a name="l00524"></a>00524     <span class="keywordflow">return</span> sqrt(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
-<a name="l00525"></a>00525 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00535">535</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00536"></a>00536 {
+<a name="l00537"></a>00537     <span class="keywordflow">return</span> sqrt(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
+<a name="l00538"></a>00538 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="6216344145be9450917a8f565bde49ff"></a><!-- doxytag: member="Point2::getMagSquared" ref="6216344145be9450917a8f565bde49ff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Point2::getMagSquared           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the magnitued of this vector squared. 
+<p>
+This function is useful because the square root function is relatively expensive. For comparison purposes, this works much faster.<p>
+This function does not edit the value of *this.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the magnitude of this vector squared. </dd></dl>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00548">548</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00549"></a>00549 {
+<a name="l00550"></a>00550     <span class="keywordflow">return</span> <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>*<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a> + <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>*<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>;
+<a name="l00551"></a>00551 }
 </pre></div>
 <p>
 
@@ -700,10 +734,10 @@ Get a unit vector pointing in the direction of this vector.
 This function does not edit the value of *this.<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns a unit vector in the direction of *this. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00532">532</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00533"></a>00533 {
-<a name="l00534"></a>00534     <span class="keywordflow">return</span> *<span class="keyword">this</span>/<a class="code" href="classPoint2.html#3d18400220a66ef10be267e512d2bfa2" title="Get the magnitude of this vector.">getMag</a>();
-<a name="l00535"></a>00535 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00558">558</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00559"></a>00559 {
+<a name="l00560"></a>00560     <span class="keywordflow">return</span> *<span class="keyword">this</span>/<a class="code" href="classPoint2.html#3d18400220a66ef10be267e512d2bfa2" title="Get the magnitude of this vector.">getMag</a>();
+<a name="l00561"></a>00561 }
 </pre></div>
 <p>
 
@@ -728,10 +762,10 @@ This function does not edit the value of *this.<p>
 Peform a glTexCoord2f() call. 
 <p>
 This function simply performs a glTexCoord2f() call with the values stored in the point. 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00541">541</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00541"></a>00541                    {
-<a name="l00542"></a>00542     glTexCoord2f(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>,<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
-<a name="l00543"></a>00543 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00567">567</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00567"></a>00567                    {
+<a name="l00568"></a>00568     glTexCoord2f(<a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>,<a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>);
+<a name="l00569"></a>00569 }
 </pre></div>
 <p>
 
@@ -753,7 +787,7 @@ This function simply performs a glTexCoord2f() call with the values stored in th
 True if there is a loading error. 
 <p>
 
-<p>Definition at line <a class="el" href="point_8h-source.html#l00056">56</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+<p>Definition at line <a class="el" href="point_8h-source.html#l00057">57</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 
 </div>
 </div><p>
@@ -772,7 +806,7 @@ True if there is a loading error.
 The x coordinate. 
 <p>
 
-<p>Definition at line <a class="el" href="point_8h-source.html#l00058">58</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+<p>Definition at line <a class="el" href="point_8h-source.html#l00059">59</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 
 </div>
 </div><p>
@@ -791,14 +825,14 @@ The x coordinate.
 The y coordinate. 
 <p>
 
-<p>Definition at line <a class="el" href="point_8h-source.html#l00059">59</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
+<p>Definition at line <a class="el" href="point_8h-source.html#l00060">60</a> of file <a class="el" href="point_8h-source.html">point.h</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="point_8h-source.html">point.h</a><li><a class="el" href="point_8cpp-source.html">point.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

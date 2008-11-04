@@ -18,18 +18,22 @@ SocketConnection::SocketConnection() {
  * @return boolean Success
  */
 bool SocketConnection::connect() {
+    if (connected) {
+        return connected;
+    }
 
-    if (SDLNet_ResolveHost(&address, host.c_str(), 80) == -1) {
+    if (SDLNet_ResolveHost(&address, host.c_str(), port) == -1) {
         Error::error("SDLNet_Init: %s\n", SDLNet_GetError());
     }
 
     connection = SDLNet_TCP_Open(&address);
-    if(!connection) {
+    if(connection) {
+        connected = true;
+    } else {
         Error::error("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
-        return false;
+        connected = false;
     }
-    connected = true;
-    return true;
+    return connected;
 }
 
 /**

@@ -64,6 +64,12 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMesh.html#701a467a8d313be322e2fdee653a0516">calculateNormals</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classPoint3.html">Point3</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMesh.html#9419709f645766ea91ccd1c9a71e73ec">calculateCenter</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMesh.html#131cb37bd4276814b6170a9b553654d5">calculateAverageRadius</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMesh.html#8a417449c6f40607ed2e1260d781cd06">resize</a> (double newSize)</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMesh.html#65944945040e9c444f427e0116d9d4e6">drawMesh</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
@@ -316,7 +322,7 @@
 
 <p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00178">178</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
 <div class="fragment"><pre class="fragment"><a name="l00178"></a>00178                                          {
-<a name="l00179"></a>00179     <a class="code" href="classMesh.html#b0e2bf82366c592ed7f2f2a154f97f33">textureId</a> = <a class="code" href="classTextureManager.html#d54c51d3aa7c0d1f978cdc58cc014f09" title="Get an instance of the TextureManager.">TextureManager::getInstance</a>()-&gt;<a class="code" href="classTextureManager.html#89987ff67e4f5e0f453f1c4d2e35ca75" title="Load a bitmap from a file.">loadBMP</a>(filename);
+<a name="l00179"></a>00179     <span class="comment">//textureId = TextureManager::getInstance()-&gt;loadBMP(filename);</span>
 <a name="l00180"></a>00180 }
 </pre></div>
 <p>
@@ -727,6 +733,97 @@ This function will rewrite ALL normal vectors, causing total loss of normal data
 
 </div>
 </div><p>
+<a class="anchor" name="9419709f645766ea91ccd1c9a71e73ec"></a><!-- doxytag: member="Mesh::calculateCenter" ref="9419709f645766ea91ccd1c9a71e73ec" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPoint3.html">Point3</a> Mesh::calculateCenter           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00321">321</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00321"></a>00321                              {
+<a name="l00322"></a>00322     <a class="code" href="classPoint3.html">Point3</a> center(0,0,0);
+<a name="l00323"></a>00323     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>.size(); i++) {
+<a name="l00324"></a>00324         center = center + <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>[i]/((double)<a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>.size());
+<a name="l00325"></a>00325     }
+<a name="l00326"></a>00326     <span class="keywordflow">return</span> center;
+<a name="l00327"></a>00327 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="131cb37bd4276814b6170a9b553654d5"></a><!-- doxytag: member="Mesh::calculateAverageRadius" ref="131cb37bd4276814b6170a9b553654d5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Mesh::calculateAverageRadius           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00329">329</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00329"></a>00329                                     {
+<a name="l00330"></a>00330     <a class="code" href="classPoint3.html">Point3</a> center = <a class="code" href="classMesh.html#9419709f645766ea91ccd1c9a71e73ec">calculateCenter</a>();
+<a name="l00331"></a>00331     <span class="keywordtype">double</span> average = 0;
+<a name="l00332"></a>00332     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>.size(); i++) {
+<a name="l00333"></a>00333         average = average + (<a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>[i] - center).getMag()/((double)<a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>.size());
+<a name="l00334"></a>00334     }
+<a name="l00335"></a>00335     <span class="keywordflow">return</span> average;
+<a name="l00336"></a>00336 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8a417449c6f40607ed2e1260d781cd06"></a><!-- doxytag: member="Mesh::resize" ref="8a417449c6f40607ed2e1260d781cd06" args="(double newSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::resize           </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>newSize</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00338">338</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00338"></a>00338                                 {
+<a name="l00339"></a>00339     <span class="keywordtype">double</span> curSize = <a class="code" href="classMesh.html#131cb37bd4276814b6170a9b553654d5">calculateAverageRadius</a>();
+<a name="l00340"></a>00340     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>.size(); i++) {
+<a name="l00341"></a>00341         <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>[i] = <a class="code" href="classMesh.html#42cb5fb3e526d16c5aa10873b0d2932d">vertices</a>[i] * newSize/curSize;
+<a name="l00342"></a>00342     }
+<a name="l00343"></a>00343 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
 <a class="anchor" name="65944945040e9c444f427e0116d9d4e6"></a><!-- doxytag: member="Mesh::drawMesh" ref="65944945040e9c444f427e0116d9d4e6" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -744,16 +841,16 @@ This function will rewrite ALL normal vectors, causing total loss of normal data
 
 <p>
 
-<p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00321">321</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00321"></a>00321                     {
-<a name="l00322"></a>00322     glBindTexture(GL_TEXTURE_2D, <a class="code" href="classMesh.html#b0e2bf82366c592ed7f2f2a154f97f33">textureId</a>);
-<a name="l00323"></a>00323     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">faces</a>.size(); i++) {
-<a name="l00324"></a>00324         <span class="keywordflow">if</span> (!<a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">faces</a>[i].drawFace()) {
-<a name="l00325"></a>00325             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00326"></a>00326         }
-<a name="l00327"></a>00327     }
-<a name="l00328"></a>00328     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00329"></a>00329 }
+<p>Definition at line <a class="el" href="mesh_8cpp-source.html#l00345">345</a> of file <a class="el" href="mesh_8cpp-source.html">mesh.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00345"></a>00345                     {
+<a name="l00346"></a>00346     glBindTexture(GL_TEXTURE_2D, <a class="code" href="classMesh.html#b0e2bf82366c592ed7f2f2a154f97f33">textureId</a>);
+<a name="l00347"></a>00347     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">faces</a>.size(); i++) {
+<a name="l00348"></a>00348         <span class="keywordflow">if</span> (!<a class="code" href="classMesh.html#9da199719905f2b213f8c0c8feba2d1f">faces</a>[i].drawFace()) {
+<a name="l00349"></a>00349             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00350"></a>00350         }
+<a name="l00351"></a>00351     }
+<a name="l00352"></a>00352     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00353"></a>00353 }
 </pre></div>
 <p>
 
@@ -848,7 +945,7 @@ This function will rewrite ALL normal vectors, causing total loss of normal data
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mesh_8h-source.html">mesh.h</a><li><a class="el" href="mesh_8cpp-source.html">mesh.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

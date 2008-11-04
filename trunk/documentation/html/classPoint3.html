@@ -82,6 +82,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint3.html#89cf46b8e417a6aba3d48c766375b708">getMag</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the magnitude of this vector.  <a href="#89cf46b8e417a6aba3d48c766375b708"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint3.html#06301d322aa0df4ad8e41acb7f00e4a9">getMagSquared</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the magnitued of this vector squared.  <a href="#06301d322aa0df4ad8e41acb7f00e4a9"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classPoint3.html">Point3</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757">getUnit</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a unit vector pointing in the direction of this vector.  <a href="#c744ebe3abdeb767eb4726dbc7ba3757"></a><br></td></tr>
@@ -779,6 +782,37 @@ This function does not edit the value of *this.<p>
 
 </div>
 </div><p>
+<a class="anchor" name="06301d322aa0df4ad8e41acb7f00e4a9"></a><!-- doxytag: member="Point3::getMagSquared" ref="06301d322aa0df4ad8e41acb7f00e4a9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Point3::getMagSquared           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the magnitued of this vector squared. 
+<p>
+This function is useful because the square root function is relatively expensive. For comparison purposes, this works much faster.<p>
+This function does not edit the value of *this.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>returns the magnitude of this vector squared. </dd></dl>
+
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00293">293</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00294"></a>00294 {
+<a name="l00295"></a>00295     <span class="keywordflow">return</span> <a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>*<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a> + <a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>*<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a> + <a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>*<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>;
+<a name="l00296"></a>00296 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
 <a class="anchor" name="c744ebe3abdeb767eb4726dbc7ba3757"></a><!-- doxytag: member="Point3::getUnit" ref="c744ebe3abdeb767eb4726dbc7ba3757" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -800,10 +834,10 @@ Get a unit vector pointing in the direction of this vector.
 This function does not edit the value of *this.<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>returns a unit vector in the direction of *this. </dd></dl>
 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00290">290</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00291"></a>00291 {
-<a name="l00292"></a>00292     <span class="keywordflow">return</span> *<span class="keyword">this</span>/<a class="code" href="classPoint3.html#89cf46b8e417a6aba3d48c766375b708" title="Get the magnitude of this vector.">getMag</a>();
-<a name="l00293"></a>00293 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00303">303</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00304"></a>00304 {
+<a name="l00305"></a>00305     <span class="keywordflow">return</span> *<span class="keyword">this</span>/<a class="code" href="classPoint3.html#89cf46b8e417a6aba3d48c766375b708" title="Get the magnitude of this vector.">getMag</a>();
+<a name="l00306"></a>00306 }
 </pre></div>
 <p>
 
@@ -828,10 +862,10 @@ This function does not edit the value of *this.<p>
 Perform a glVertex3d() call. 
 <p>
 Simply a nice interface so that one can store vertices of an OpenGL polygon or mesh in <a class="el" href="classPoint3.html">Point3</a> classes. Use this function in order to perform a glVertex3d() call with the coordinates of this point as the arguments. 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00301">301</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00302"></a>00302 {
-<a name="l00303"></a>00303     glVertex3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
-<a name="l00304"></a>00304 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00314">314</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00315"></a>00315 {
+<a name="l00316"></a>00316     glVertex3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
+<a name="l00317"></a>00317 }
 </pre></div>
 <p>
 
@@ -856,10 +890,10 @@ Simply a nice interface so that one can store vertices of an OpenGL polygon or m
 Perform a glNormal3d() call. 
 <p>
 Simply a nice interface so that one can store normals of an OpenGL polygon or mesh in <a class="el" href="classPoint3.html">Point3</a> classes. Use this function in order to perform a glNormal3d() call with the coordinates of this point as the arguments. 
-<p>Definition at line <a class="el" href="point_8cpp-source.html#l00312">312</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00312"></a>00312                       {
-<a name="l00313"></a>00313     glNormal3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
-<a name="l00314"></a>00314 }
+<p>Definition at line <a class="el" href="point_8cpp-source.html#l00325">325</a> of file <a class="el" href="point_8cpp-source.html">point.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00325"></a>00325                       {
+<a name="l00326"></a>00326     glNormal3d(<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>,<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>,<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
+<a name="l00327"></a>00327 }
 </pre></div>
 <p>
 
@@ -945,7 +979,7 @@ The z coordinate.
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="point_8h-source.html">point.h</a><li><a class="el" href="point_8cpp-source.html">point.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

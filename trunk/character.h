@@ -2,15 +2,17 @@
 #define CHARACTER_H_INCLUDED
 
 #include "cameraPosition.h"
+#include "physicsObject.h"
 #include "point.h"
 
-class Character {
+class Character : public PhysicsObject {
 public:
-    double x,y,z; ///Position
     double rotX, rotY, rotZ; ///Rotational components
     Point3 lookingDirection; ///Direction we are looking
 
 public:
+
+    Character() : PhysicsObject() { } /// Default constructor
 
     virtual void setPosition(Point3 & eyePosition, Point3 & lookAtPosition); ///<Overloadable function for the camera to get the position of the object
 

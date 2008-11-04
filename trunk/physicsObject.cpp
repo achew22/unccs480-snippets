@@ -91,6 +91,7 @@ void PhysicsObject::updateTick(int increment) {
     lastPos = pos;
     pos = pos + vel * (increment/1000.0);
     center = pos - offset;
+    Error::log("Updating tick %f,%f,%f", vel.x, vel.y, vel.z);
 }
 
 void PhysicsObject::updatePosition(int currentTime) {
@@ -140,7 +141,7 @@ void PhysicsObject::updatePhysics() {
         if (vel.getMag() > maxVel) {
             vel = vel.getUnit() * maxVel;
         }
-        printf("PhysicsObject::vel is %f, %f, %f\n", vel.x, vel.y, vel.z);
+        //printf("PhysicsObject::vel is %f, %f, %f\n", vel.x, vel.y, vel.z);
         acc = Point3(0,0,0);
         for (std::map<int, Path<Point3> >::iterator i = forces.begin(); i != forces.end(); i++) {
             acc = acc + i->second.getPoint()/mass;

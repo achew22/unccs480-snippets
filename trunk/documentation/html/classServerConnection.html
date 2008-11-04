@@ -49,27 +49,43 @@ Inheritance diagram for ServerConnection:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#7607d83c1881e1f6aef584a2a5032289">handleData</a> (int conectionId, std::string data)=0</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#479c50063395fb5384688d97c14ed72f">handleConnection</a> (int conectionId)=0</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Overloadable function to handle data.  <a href="#479c50063395fb5384688d97c14ed72f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#d8dcfb315a66546b698489ee6a96517a">send</a> (int clientId, std::string message)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Overloadable function to handle data.  <a href="#d8dcfb315a66546b698489ee6a96517a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#18b39683f3303f47fd11e5f2d239ba3e">init</a> ()</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Send data to the client.  <a href="#18b39683f3303f47fd11e5f2d239ba3e"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#651a4c506cd737969471d16710f98c90">idle</a> ()</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Init everything.  <a href="#651a4c506cd737969471d16710f98c90"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#15bca681e6132995b5249a45b4c9858d">quit</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Thread for the thread to run in.  <a href="#15bca681e6132995b5249a45b4c9858d"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">IPaddress&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a></td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">TCPsocket&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">IPaddress *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#7be27c3f0fc176707e268525e8d2ddb4">remoteip</a></td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">TCPsocket&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#94ec78f10c5b8df1190912b5e936c7e0">clients</a> [16]</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">TCPsocket&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SDLNet_SocketSet&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#6084dac0b278abfa6e171fe398c00499">set</a></td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::map&lt; int, TCPsocket &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda">clients</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Socket set to hold the connections.  <a href="#08b5aa4d368986d698f64c9ae1217cda"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Thread *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#1138717bb248432839eb0756bacca471">idleThread</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">threadQuit</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00009">9</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00010">10</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 <hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="7607d83c1881e1f6aef584a2a5032289"></a><!-- doxytag: member="ServerConnection::handleData" ref="7607d83c1881e1f6aef584a2a5032289" args="(int conectionId, std::string data)=0" -->
 <div class="memitem">
@@ -102,6 +118,115 @@ Inheritance diagram for ServerConnection:</div>
 
 </div>
 </div><p>
+<a class="anchor" name="479c50063395fb5384688d97c14ed72f"></a><!-- doxytag: member="ServerConnection::handleConnection" ref="479c50063395fb5384688d97c14ed72f" args="(int conectionId)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string ServerConnection::handleConnection           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>conectionId</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Overloadable function to handle data. 
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="d8dcfb315a66546b698489ee6a96517a"></a><!-- doxytag: member="ServerConnection::send" ref="d8dcfb315a66546b698489ee6a96517a" args="(int clientId, std::string message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ServerConnection::send           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>clientId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>message</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Overloadable function to handle data. 
+<p>
+Send data to the client<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clientId</em>&nbsp;</td><td>The id of the client to send the message to </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>message</em>&nbsp;</td><td>The string to send to the client </td></tr>
+  </table>
+</dl>
+
+<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00054">54</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00054"></a>00054                                                           {
+<a name="l00055"></a>00055         Uint32 len,result;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         <span class="keywordflow">if</span>(message == <span class="stringliteral">""</span> || message.length() == 0) {
+<a name="l00058"></a>00058         <span class="keywordflow">return</span>(1);
+<a name="l00059"></a>00059     }
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061     <a class="code" href="classError.html#ef42a601b3d9b25bd59a1084080d0e27">Error::log</a>(<span class="stringliteral">"Sending \"%s\" to client %d"</span>, message.c_str(), clientId);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="comment">//Add a carrage return linefeed</span>
+<a name="l00064"></a>00064     message = message + <span class="stringliteral">"\r\n"</span>;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066         <span class="comment">// determine the length of the string</span>
+<a name="l00067"></a>00067         len = message.length() + 1; <span class="comment">// add one for the terminating NULL</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         <span class="comment">// change endianness to network order</span>
+<a name="l00070"></a>00070         len = SDL_SwapBE32(len);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="comment">/*</span>
+<a name="l00073"></a>00073 <span class="comment">        // send the length of the string</span>
+<a name="l00074"></a>00074 <span class="comment">        result = SDLNet_TCP_Send(clients[clientId], &amp;len, sizeof(len));</span>
+<a name="l00075"></a>00075 <span class="comment">        if (result &lt; sizeof(len)) {</span>
+<a name="l00076"></a>00076 <span class="comment">                if(SDLNet_GetError() &amp;&amp; strlen(SDLNet_GetError())) // sometimes blank!</span>
+<a name="l00077"></a>00077 <span class="comment">                        printf("SDLNet_TCP_Send: %s\n", SDLNet_GetError());</span>
+<a name="l00078"></a>00078 <span class="comment">                return(0);</span>
+<a name="l00079"></a>00079 <span class="comment">        }</span>
+<a name="l00080"></a>00080 <span class="comment">*/</span>
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082         <span class="comment">// revert to our local byte order</span>
+<a name="l00083"></a>00083         <span class="comment">//len=SDL_SwapBE32(len);</span>
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         <span class="comment">// send the buffer, with the NULL as well</span>
+<a name="l00086"></a>00086         result=SDLNet_TCP_Send(<a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>[clientId],message.c_str(),message.length());
+<a name="l00087"></a>00087         <span class="keywordflow">if</span>(result&lt;len) {
+<a name="l00088"></a>00088                 <span class="keywordflow">if</span>(SDLNet_GetError() &amp;&amp; strlen(SDLNet_GetError())) {
+<a name="l00089"></a>00089                     <span class="comment">// sometimes blank!</span>
+<a name="l00090"></a>00090                         printf(<span class="stringliteral">"SDLNet_TCP_Send: %s\n"</span>, SDLNet_GetError());
+<a name="l00091"></a>00091             <span class="keywordflow">return</span>(0);
+<a name="l00092"></a>00092                 }
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095         <span class="comment">// return the length sent</span>
+<a name="l00096"></a>00096         <span class="keywordflow">return</span> result;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
 <a class="anchor" name="18b39683f3303f47fd11e5f2d239ba3e"></a><!-- doxytag: member="ServerConnection::init" ref="18b39683f3303f47fd11e5f2d239ba3e" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -118,35 +243,44 @@ Inheritance diagram for ServerConnection:</div>
 <div class="memdoc">
 
 <p>
-
-<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00009">9</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00009"></a>00009                             {
-<a name="l00010"></a>00010 <span class="comment">/*</span>
-<a name="l00011"></a>00011 <span class="comment">    set = SDLNet_AllocSocketSet(16);</span>
-<a name="l00012"></a>00012 <span class="comment">    if (!set) {</span>
-<a name="l00013"></a>00013 <span class="comment">        Error::error("SDLNet_AllocSocketSet: %s\n", SDLNet_GetError());</span>
-<a name="l00014"></a>00014 <span class="comment">    }</span>
-<a name="l00015"></a>00015 <span class="comment"></span>
-<a name="l00016"></a>00016 <span class="comment">    // create a listening TCP socket on our port</span>
-<a name="l00017"></a>00017 <span class="comment">    if (SDLNet_ResolveHost(&amp;ip,NULL,port) == -1) {</span>
-<a name="l00018"></a>00018 <span class="comment">        printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());</span>
-<a name="l00019"></a>00019 <span class="comment">        exit(1);</span>
-<a name="l00020"></a>00020 <span class="comment">    }</span>
-<a name="l00021"></a>00021 <span class="comment"></span>
-<a name="l00022"></a>00022 <span class="comment">    server = SDLNet_TCP_Open(&amp;ip);</span>
-<a name="l00023"></a>00023 <span class="comment">    if(!server) {</span>
-<a name="l00024"></a>00024 <span class="comment">        printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());</span>
-<a name="l00025"></a>00025 <span class="comment">        exit(2);</span>
-<a name="l00026"></a>00026 <span class="comment">    }</span>
-<a name="l00027"></a>00027 <span class="comment"></span>
-<a name="l00028"></a>00028 <span class="comment">    //Start listening</span>
-<a name="l00029"></a>00029 <span class="comment">    clients[0] = SDLNet_TCP_Accept(server);</span>
-<a name="l00030"></a>00030 <span class="comment"></span>
-<a name="l00031"></a>00031 <span class="comment">    SDLNet_TCP_AddSocket(set, clients[0]);</span>
-<a name="l00032"></a>00032 <span class="comment">*/</span>
-<a name="l00033"></a>00033     <a class="code" href="memberThreads_8h.html#dc7cf566aed930776579feab8966803a">SDL_CreateMemberThread</a>( <span class="keyword">this</span>,  &amp;<a class="code" href="classServerConnection.html#651a4c506cd737969471d16710f98c90">ServerConnection::idle</a> );
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 }
+Send data to the client. 
+<p>
+Set everything up so that we can have a server and start listening 
+<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00012">12</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00012"></a>00012                             {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a> = 12345;
+<a name="l00015"></a>00015         <span class="comment">// initialize SDL_net</span>
+<a name="l00016"></a>00016         <span class="keywordflow">if</span>(SDLNet_Init()==-1) {
+<a name="l00017"></a>00017                 printf(<span class="stringliteral">"SDLNet_Init: %s\n"</span>,SDLNet_GetError());
+<a name="l00018"></a>00018                 SDL_Quit();
+<a name="l00019"></a>00019                 exit(2);
+<a name="l00020"></a>00020         }
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022         <span class="comment">// Resolve the argument into an IPaddress type for localhost</span>
+<a name="l00023"></a>00023         <span class="keywordflow">if</span>(SDLNet_ResolveHost(&amp;<a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a>,NULL,<a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a>)==-1) {
+<a name="l00024"></a>00024                 printf(<span class="stringliteral">"SDLNet_ResolveHost: %s\n"</span>,SDLNet_GetError());
+<a name="l00025"></a>00025                 exit(3);
+<a name="l00026"></a>00026         }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028     printf(<span class="stringliteral">"SUCCK IT TRABECK: %d\n"</span>, <a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a>);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030         <span class="comment">// open the server socket</span>
+<a name="l00031"></a>00031         <a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>=SDLNet_TCP_Open(&amp;<a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a>);
+<a name="l00032"></a>00032         <span class="keywordflow">if</span>(!<a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>) {
+<a name="l00033"></a>00033                 printf(<span class="stringliteral">"SDLNet_TCP_Open: %s\n"</span>,SDLNet_GetError());
+<a name="l00034"></a>00034                 exit(4);
+<a name="l00035"></a>00035         }
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037     SDLNet_FreeSocketSet(<span class="keyword">set</span>);
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="comment">//Set up a socket set for the server</span>
+<a name="l00040"></a>00040     <span class="keyword">set</span> = SDLNet_AllocSocketSet(1);
+<a name="l00041"></a>00041     SDLNet_TCP_AddSocket(<span class="keyword">set</span>,<a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <a class="code" href="memberThreads_8h.html#dc7cf566aed930776579feab8966803a">SDL_CreateMemberThread</a>( <span class="keyword">this</span>,  &amp;<a class="code" href="classServerConnection.html#651a4c506cd737969471d16710f98c90" title="Init everything.">ServerConnection::idle</a> );
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 }
 </pre></div>
 <p>
 
@@ -168,88 +302,150 @@ Inheritance diagram for ServerConnection:</div>
 <div class="memdoc">
 
 <p>
+Init everything. 
+<p>
+This is the thread that deals with the active connections This is probably never going to be called by anyone outside the init function<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classServerConnection.html#18b39683f3303f47fd11e5f2d239ba3e" title="Send data to the client.">init</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00037">37</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                             {
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039         IPaddress <a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a>,*remoteip;
-<a name="l00040"></a>00040         TCPsocket <a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>,client;
-<a name="l00041"></a>00041         <span class="keywordtype">char</span> message[1024];
-<a name="l00042"></a>00042         <span class="keywordtype">int</span> len;
-<a name="l00043"></a>00043         Uint32 ipaddr;
-<a name="l00044"></a>00044         Uint16 <a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a> = 12345;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="comment">// Resolve the argument into an IPaddress type</span>
-<a name="l00047"></a>00047         <span class="keywordflow">if</span>(SDLNet_ResolveHost(&amp;ip,NULL,port)==-1)
-<a name="l00048"></a>00048         {
-<a name="l00049"></a>00049                 printf(<span class="stringliteral">"SDLNet_ResolveHost: %s\n"</span>,SDLNet_GetError());
-<a name="l00050"></a>00050                 exit(3);
-<a name="l00051"></a>00051         }
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="comment">// open the server socket</span>
-<a name="l00054"></a>00054         server=SDLNet_TCP_Open(&amp;ip);
-<a name="l00055"></a>00055         <span class="keywordflow">if</span>(!server)
-<a name="l00056"></a>00056         {
-<a name="l00057"></a>00057                 printf(<span class="stringliteral">"SDLNet_TCP_Open: %s\n"</span>,SDLNet_GetError());
-<a name="l00058"></a>00058                 exit(4);
-<a name="l00059"></a>00059         }
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061     <span class="keywordtype">int</span> quit = 0;
-<a name="l00062"></a>00062     <span class="keywordflow">while</span> (quit == 0) {
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065         <span class="comment">// try to accept a connection</span>
-<a name="l00066"></a>00066         client=SDLNet_TCP_Accept(server);
-<a name="l00067"></a>00067         <span class="keywordflow">if</span>(!client) { <span class="comment">// no connection accepted</span>
-<a name="l00068"></a>00068             <span class="comment">//printf("SDLNet_TCP_Accept: %s\n",SDLNet_GetError());</span>
-<a name="l00069"></a>00069             SDL_Delay(100); <span class="comment">//sleep 1/10th of a second</span>
-<a name="l00070"></a>00070             <span class="keywordflow">continue</span>;
-<a name="l00071"></a>00071         }
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073         <span class="comment">// get the clients IP and port number</span>
-<a name="l00074"></a>00074         remoteip=SDLNet_TCP_GetPeerAddress(client);
-<a name="l00075"></a>00075         <span class="keywordflow">if</span>(!remoteip) {
-<a name="l00076"></a>00076             printf(<span class="stringliteral">"SDLNet_TCP_GetPeerAddress: %s\n"</span>,SDLNet_GetError());
-<a name="l00077"></a>00077             <span class="keywordflow">continue</span>;
-<a name="l00078"></a>00078         }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080         <span class="comment">// print out the clients IP and port number</span>
-<a name="l00081"></a>00081         ipaddr=SDL_SwapBE32(remoteip-&gt;host);
-<a name="l00082"></a>00082         printf(<span class="stringliteral">"Accepted a connection from %d.%d.%d.%d port %hu\n"</span>,
-<a name="l00083"></a>00083             ipaddr&gt;&gt;24,
-<a name="l00084"></a>00084             (ipaddr&gt;&gt;16)&amp;0xff,
-<a name="l00085"></a>00085             (ipaddr&gt;&gt;8)&amp;0xff,
-<a name="l00086"></a>00086             ipaddr&amp;0xff,
-<a name="l00087"></a>00087             remoteip-&gt;port);
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089             <span class="comment">// read the buffer from client</span>
-<a name="l00090"></a>00090             len = SDLNet_TCP_Recv(client,message,1024);
-<a name="l00091"></a>00091             <span class="keywordflow">if</span>(!len) {
-<a name="l00092"></a>00092                 printf(<span class="stringliteral">"SDLNet_TCP_Recv: %s\n"</span>,SDLNet_GetError());
-<a name="l00093"></a>00093                 <span class="keywordflow">continue</span>;
-<a name="l00094"></a>00094             }
-<a name="l00095"></a>00095             SDLNet_TCP_Close(client);
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097             std::string toDispatch = message;
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099             <span class="comment">/*</span>
-<a name="l00100"></a>00100 <span class="comment">                I like to test with netcat and telnet to allow for scripting and granular controll</span>
-<a name="l00101"></a>00101 <span class="comment">                This will kill the \r\n that is required to send a message (in linux telnet)</span>
-<a name="l00102"></a>00102 <span class="comment">            */</span>
-<a name="l00103"></a>00103             <span class="keywordflow">if</span> (toDispatch[len -1] == 10) { <span class="comment">//Catch \r (which is weird</span>
-<a name="l00104"></a>00104                 len--;
-<a name="l00105"></a>00105             }
-<a name="l00106"></a>00106             <span class="keywordflow">if</span> (toDispatch[len -1] == 13) {
-<a name="l00107"></a>00107                 len--;
-<a name="l00108"></a>00108             }
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110             <span class="comment">//Cut the extra crap off from the end and dispatch it</span>
-<a name="l00111"></a>00111             this-&gt;<a class="code" href="classServerConnection.html#7607d83c1881e1f6aef584a2a5032289">handleData</a>(0, toDispatch.substr(0, len));
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113     }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 }
+<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00107">107</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                             {
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109         <span class="keywordtype">char</span> message[1024];
+<a name="l00110"></a>00110         <span class="keywordtype">int</span> len;
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112         <span class="keywordflow">while</span> (<a class="code" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">threadQuit</a> == <span class="keyword">false</span>) {
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114                 <span class="comment">//Refresh the set of sockets to allocate a slot for a new client if necessary</span>
+<a name="l00115"></a>00115                 <span class="comment">//updateSocketSet();</span>
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117                 <span class="comment">//Use CheckSockets to get how many connections have things going on and wait till there is something to do</span>
+<a name="l00118"></a>00118                 <span class="comment">//Doing the -1 will make it cast another thread that will wait till there is something to do</span>
+<a name="l00119"></a>00119                 <span class="comment">//That way we wont waste mips</span>
+<a name="l00120"></a>00120                 <span class="keywordtype">int</span> numready = SDLNet_CheckSockets(<span class="keyword">set</span>, (Uint32)-1);
+<a name="l00121"></a>00121                 <span class="keywordflow">if</span>(numready==-1) {
+<a name="l00122"></a>00122                     <span class="comment">//There was a problem with the socket, its VERY bad and its time to get out</span>
+<a name="l00123"></a>00123                         printf(<span class="stringliteral">"SDLNet_CheckSockets: %s\n"</span>,SDLNet_GetError());
+<a name="l00124"></a>00124                         <span class="keywordflow">break</span>;
+<a name="l00125"></a>00125                 }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127                 <span class="keywordflow">if</span>(!numready) {
+<a name="l00128"></a>00128             <span class="comment">//Nothings going on, hang out till something happens</span>
+<a name="l00129"></a>00129                         <span class="keywordflow">continue</span>;
+<a name="l00130"></a>00130                 }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132                 <span class="comment">//The server is getting a new connection deal with it</span>
+<a name="l00133"></a>00133                 <span class="keywordflow">if</span>(SDLNet_SocketReady(<a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>)) {
+<a name="l00134"></a>00134                         numready--;
+<a name="l00135"></a>00135                         printf(<span class="stringliteral">"Connection...\n"</span>);
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137                         TCPsocket newConnection = SDLNet_TCP_Accept(<a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>);
+<a name="l00138"></a>00138                         <span class="keywordflow">if</span>(newConnection) {
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140                                 <span class="comment">//printf("Accepted...\n");</span>
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142                 <span class="comment">//Add the new connection to the socket set</span>
+<a name="l00143"></a>00143                 <span class="keywordtype">int</span> clientId = 0; <span class="comment">//The default should be 0</span>
+<a name="l00144"></a>00144                 <span class="keywordflow">while</span> (<a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.count(clientId)) {
+<a name="l00145"></a>00145                     clientId++;
+<a name="l00146"></a>00146                 }
+<a name="l00147"></a>00147                 printf(<span class="stringliteral">"Adding a client with the id of %d\n"</span>, clientId);
+<a name="l00148"></a>00148                 <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>[clientId] = newConnection;
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150                 <span class="comment">//Call the callback function to find out what to send to the client</span>
+<a name="l00151"></a>00151                 <span class="keywordflow">if</span> (!<a class="code" href="classServerConnection.html#d8dcfb315a66546b698489ee6a96517a" title="Overloadable function to handle data.">send</a>(clientId, <a class="code" href="classServerConnection.html#479c50063395fb5384688d97c14ed72f" title="Overloadable function to handle data.">handleConnection</a>(clientId))) {
+<a name="l00152"></a>00152                     <a class="code" href="classError.html#bcb50401b53f43937ffb3f42beff12c5">Error::error</a>(<span class="stringliteral">"There was an error sending data to client %d on connection"</span>, clientId);
+<a name="l00153"></a>00153                 }
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155                 SDLNet_FreeSocketSet(<span class="keyword">set</span>);
+<a name="l00156"></a>00156                 <span class="keyword">set</span> = SDLNet_AllocSocketSet(<a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.size()+1);
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158                 SDLNet_TCP_AddSocket(<span class="keyword">set</span>,<a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>);
+<a name="l00159"></a>00159                 <span class="keywordflow">for</span>(std::map&lt;int, TCPsocket&gt;::iterator client = <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.begin(); client != <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.end(); client++) {
+<a name="l00160"></a>00160                     SDLNet_TCP_AddSocket(<span class="keyword">set</span>,client-&gt;second);
+<a name="l00161"></a>00161                 }
+<a name="l00162"></a>00162                         }
+<a name="l00163"></a>00163                 }
+<a name="l00164"></a>00164         <span class="keywordflow">if</span> (<a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.size()) {
+<a name="l00165"></a>00165             <span class="comment">//Iterate through all our clients to see whats going on (so long as num ready is still &gt; 0)</span>
+<a name="l00166"></a>00166             <span class="keywordflow">for</span>(std::map&lt;int, TCPsocket&gt;::iterator iter = <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.begin(); numready &amp;&amp; (iter != <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.end()); iter++) {
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168                 TCPsocket client = iter-&gt;second;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170                 <span class="keywordflow">if</span>(SDLNet_SocketReady(client)) {
+<a name="l00171"></a>00171                     <span class="comment">//Get 1024 bytes and deal with it</span>
+<a name="l00172"></a>00172                     len = SDLNet_TCP_Recv(client,message,1024);
+<a name="l00173"></a>00173                     <span class="keywordflow">if</span>(!len) {
+<a name="l00174"></a>00174                         printf(<span class="stringliteral">"I think this is a closed connection, but if not this is the error: %s\n"</span>,SDLNet_GetError());
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176                         <span class="comment">//Remove the person from the client map and close the connection (free some resources)</span>
+<a name="l00177"></a>00177                         <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.erase(iter);
+<a name="l00178"></a>00178                         SDLNet_TCP_Close(client);
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180                         <span class="comment">//Reorganize the socket set -- remake it 1 smaller and readd the clients</span>
+<a name="l00181"></a>00181                         <span class="keywordflow">if</span>(<span class="keyword">set</span>) {
+<a name="l00182"></a>00182                             SDLNet_FreeSocketSet(<span class="keyword">set</span>);
+<a name="l00183"></a>00183                         }
+<a name="l00184"></a>00184                         <span class="keyword">set</span> = SDLNet_AllocSocketSet(<a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.size()+1);
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186                         <span class="comment">//Iterate through the clients and add them</span>
+<a name="l00187"></a>00187                         <span class="keywordflow">for</span>(std::map&lt;int, TCPsocket&gt;::iterator client = <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.begin(); client != <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>.end(); client++) {
+<a name="l00188"></a>00188                             SDLNet_TCP_AddSocket(<span class="keyword">set</span>,client-&gt;second);
+<a name="l00189"></a>00189                         }
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192                     }
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194                     std::string toDispatch = message;
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196                     <span class="comment">/*</span>
+<a name="l00197"></a>00197 <span class="comment">                        I like to test with netcat and telnet to allow for scripting and granular controll</span>
+<a name="l00198"></a>00198 <span class="comment">                        This will kill the \r\n that is required to send a message (in linux telnet)</span>
+<a name="l00199"></a>00199 <span class="comment">                    */</span>
+<a name="l00200"></a>00200                     <span class="keywordflow">if</span> (toDispatch[len -1] == 10) { <span class="comment">//Catch \r (which is weird</span>
+<a name="l00201"></a>00201                         len--;
+<a name="l00202"></a>00202                     }
+<a name="l00203"></a>00203                     <span class="keywordflow">if</span> (toDispatch[len -1] == 13) {
+<a name="l00204"></a>00204                         len--;
+<a name="l00205"></a>00205                     }
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207                     <span class="comment">//Cut the extra crap off from the end and dispatch it</span>
+<a name="l00208"></a>00208                     this-&gt;<a class="code" href="classServerConnection.html#7607d83c1881e1f6aef584a2a5032289">handleData</a>(iter-&gt;first, toDispatch.substr(0, len));
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212                 }
+<a name="l00213"></a>00213             }
+<a name="l00214"></a>00214         }
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216 }
+</pre></div>
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="15bca681e6132995b5249a45b4c9858d"></a><!-- doxytag: member="ServerConnection::quit" ref="15bca681e6132995b5249a45b4c9858d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServerConnection::quit           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Thread for the thread to run in. 
+<p>
+Time to quit the server for whatever reason, do it 
+<p>Definition at line <a class="el" href="serverConnection_8cpp-source.html#l00221">221</a> of file <a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00221"></a>00221                             {
+<a name="l00222"></a>00222     <a class="code" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">threadQuit</a> = <span class="keyword">true</span>;
+<a name="l00223"></a>00223 }
 </pre></div>
 <p>
 
@@ -269,7 +465,24 @@ Inheritance diagram for ServerConnection:</div>
 
 <p>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00011">11</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00012">12</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="7be27c3f0fc176707e268525e8d2ddb4"></a><!-- doxytag: member="ServerConnection::remoteip" ref="7be27c3f0fc176707e268525e8d2ddb4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IPaddress* <a class="el" href="classServerConnection.html#7be27c3f0fc176707e268525e8d2ddb4">ServerConnection::remoteip</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00013">13</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 
 </div>
 </div><p>
@@ -286,24 +499,7 @@ Inheritance diagram for ServerConnection:</div>
 
 <p>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00012">12</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="94ec78f10c5b8df1190912b5e936c7e0"></a><!-- doxytag: member="ServerConnection::clients" ref="94ec78f10c5b8df1190912b5e936c7e0" args="[16]" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TCPsocket <a class="el" href="classServerConnection.html#94ec78f10c5b8df1190912b5e936c7e0">ServerConnection::clients</a>[16]<code> [protected]</code>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00012">12</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00015">15</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 
 </div>
 </div><p>
@@ -320,7 +516,26 @@ Inheritance diagram for ServerConnection:</div>
 
 <p>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00013">13</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00017">17</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="08b5aa4d368986d698f64c9ae1217cda"></a><!-- doxytag: member="ServerConnection::clients" ref="08b5aa4d368986d698f64c9ae1217cda" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;int, TCPsocket&gt; <a class="el" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda">ServerConnection::clients</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Socket set to hold the connections. 
+<p>
+
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00018">18</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 
 </div>
 </div><p>
@@ -337,7 +552,24 @@ Inheritance diagram for ServerConnection:</div>
 
 <p>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00015">15</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00021">21</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="bcbcd946e34cefe932560e0571ba39f0"></a><!-- doxytag: member="ServerConnection::threadQuit" ref="bcbcd946e34cefe932560e0571ba39f0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">ServerConnection::threadQuit</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00023">23</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 
 </div>
 </div><p>
@@ -354,14 +586,14 @@ Inheritance diagram for ServerConnection:</div>
 
 <p>
 
-<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00017">17</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
+<p>Definition at line <a class="el" href="serverConnection_8h-source.html#l00025">25</a> of file <a class="el" href="serverConnection_8h-source.html">serverConnection.h</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="serverConnection_8h-source.html">serverConnection.h</a><li><a class="el" href="serverConnection_8cpp-source.html">serverConnection.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:45 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

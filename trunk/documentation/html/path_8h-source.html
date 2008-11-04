@@ -32,14 +32,14 @@
 <a name="l00006"></a>00006 <span class="preprocessor">#include "<a class="code" href="point_8h.html">point.h</a>"</span>
 <a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="SDLLoader_8h.html">SDLLoader.h</a>"</span>
 <a name="l00008"></a>00008 
-<a name="l00009"></a>00009 
-<a name="l00026"></a>00026 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00027"></a><a class="code" href="classPath.html">00027</a> <span class="keyword">class </span><a class="code" href="classPath.html">Path</a> {
-<a name="l00028"></a>00028 <span class="keyword">private</span>:
-<a name="l00029"></a><a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129">00029</a>     std::vector&lt;Type&gt; <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>; 
-<a name="l00030"></a><a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd">00030</a>     <span class="keywordtype">int</span> <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;  
-<a name="l00031"></a><a class="code" href="classPath.html#e824596898451440affe6beb9496140b">00031</a>     <span class="keywordtype">int</span> <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>;    
-<a name="l00032"></a><a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac">00032</a>     <span class="keywordtype">bool</span> <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>;  
+<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00026"></a><a class="code" href="classPath.html">00026</a> <span class="keyword">class </span><a class="code" href="classPath.html">Path</a>{
+<a name="l00027"></a>00027 <span class="keyword">private</span>:
+<a name="l00028"></a><a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129">00028</a>     std::vector&lt;Type&gt; <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>; 
+<a name="l00029"></a><a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd">00029</a>     <span class="keywordtype">int</span> <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;  
+<a name="l00030"></a><a class="code" href="classPath.html#e824596898451440affe6beb9496140b">00030</a>     <span class="keywordtype">int</span> <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>;    
+<a name="l00031"></a><a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac">00031</a>     <span class="keywordtype">bool</span> <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>;  
+<a name="l00032"></a><a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348">00032</a>     <span class="keywordtype">bool</span> <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a>; 
 <a name="l00033"></a>00033 <span class="keyword">public</span>:
 <a name="l00034"></a>00034     <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path</a>(); 
 <a name="l00035"></a>00035     <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path</a>(<span class="keywordtype">int</span> timeToStart, <span class="keywordtype">int</span> timeToEnd);   
@@ -51,107 +51,134 @@
 <a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="classPath.html#9fb191978eb6a831d452ff589e410ee8" title="Set time to end.">setEndTime</a>(<span class="keywordtype">int</span> end);       
 <a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="classPath.html#a38c3a5f95c2459044fb56011aa5d0ac" title="Make the path cyclic.">makeCyclic</a>();  
 <a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classPath.html#52ed2f44fd02632d80fa2df163ec4224" title="Make the path non-cyclic.">unMakeCyclic</a>();    
-<a name="l00044"></a>00044     Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>();  
-<a name="l00045"></a>00045     Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>(<span class="keywordtype">int</span> time);  
-<a name="l00046"></a>00046 };
-<a name="l00047"></a>00047 
-<a name="l00052"></a>00052 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00053"></a><a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54">00053</a> <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path&lt;Type&gt;::Path</a>(){
-<a name="l00054"></a>00054     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = 0;
-<a name="l00055"></a>00055     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
-<a name="l00056"></a>00056 }
-<a name="l00057"></a>00057 
-<a name="l00065"></a>00065 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00066"></a><a class="code" href="classPath.html#be777d72f858dea749644dbadff11a02">00066</a> <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path&lt;Type&gt;::Path</a>(<span class="keywordtype">int</span> timeToStart, <span class="keywordtype">int</span> timeToEnd) {
-<a name="l00067"></a>00067     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = timeToStart;
-<a name="l00068"></a>00068     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = timeToEnd;
-<a name="l00069"></a>00069     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00076"></a>00076 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00077"></a><a class="code" href="classPath.html#0e968bfb9d71ac2a6916e4767c2aab62">00077</a> <a class="code" href="classPath.html">Path&lt;Type&gt;</a> <a class="code" href="classPath.html#0e968bfb9d71ac2a6916e4767c2aab62" title="Overloaded equals operator.">Path&lt;Type&gt;::operator =</a>(<a class="code" href="classPath.html">Path&lt;Type&gt;</a> toEqual) {
-<a name="l00078"></a>00078     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = toEqual.<a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;
-<a name="l00079"></a>00079     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = toEqual.<a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>;
-<a name="l00080"></a>00080     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = toEqual.<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>;
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.resize(toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size());
-<a name="l00083"></a>00083     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size(); i++) {
-<a name="l00084"></a>00084         <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[i] = toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[i];
-<a name="l00085"></a>00085     }
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00088"></a>00088 }
-<a name="l00089"></a>00089 
+<a name="l00044"></a><a class="code" href="classPath.html#0a28801a293ea476e60ed78d856721e8">00044</a>     <span class="keywordtype">bool</span> <a class="code" href="classPath.html#0a28801a293ea476e60ed78d856721e8" title="Find out if the path is finished.">getIsFinished</a>() { <span class="keywordflow">return</span> <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a>; }   
+<a name="l00045"></a>00045     Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>();  
+<a name="l00046"></a>00046     Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>(<span class="keywordtype">int</span> time);  
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00050"></a><a class="code" href="classstaticPath.html">00050</a> <span class="keyword">class </span><a class="code" href="classstaticPath.html">staticPath</a> : <span class="keyword">public</span> <a class="code" href="classPath.html">Path</a>&lt;Type&gt;{
+<a name="l00051"></a>00051 <span class="keyword">private</span>:
+<a name="l00052"></a><a class="code" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">00052</a>     Type <a class="code" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">value</a>;
+<a name="l00053"></a>00053 <span class="keyword">public</span>:
+<a name="l00054"></a><a class="code" href="classstaticPath.html#df1b86b307a155fc77c30f085bf9e478">00054</a>     <a class="code" href="classstaticPath.html#df1b86b307a155fc77c30f085bf9e478">staticPath</a>() {}
+<a name="l00055"></a><a class="code" href="classstaticPath.html#6e360a6623898c1c6d2a0e2bd8b125ad">00055</a>     <a class="code" href="classstaticPath.html#df1b86b307a155fc77c30f085bf9e478">staticPath</a>(Type toSet) {
+<a name="l00056"></a>00056         <a class="code" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">value</a> = toSet;
+<a name="l00057"></a>00057     }
+<a name="l00058"></a><a class="code" href="classstaticPath.html#9b2b89fe8744496f2a03d43cc89d9691">00058</a>     <span class="keywordtype">void</span> <a class="code" href="classstaticPath.html#9b2b89fe8744496f2a03d43cc89d9691">setValue</a>(Type toSet) {
+<a name="l00059"></a>00059         <a class="code" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">value</a> = toSet;
+<a name="l00060"></a>00060     }
+<a name="l00061"></a><a class="code" href="classstaticPath.html#2a40a0b3ee70b781dcb0235b641f9cac">00061</a>     Type <a class="code" href="classstaticPath.html#2a40a0b3ee70b781dcb0235b641f9cac" title="Get the point at the current time.">getPoint</a>() {
+<a name="l00062"></a>00062         <span class="keywordflow">return</span> <a class="code" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">value</a>;
+<a name="l00063"></a>00063     }
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00070"></a>00070 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00071"></a><a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54">00071</a> <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path&lt;Type&gt;::Path</a>(){
+<a name="l00072"></a>00072     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = 0;
+<a name="l00073"></a>00073     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00074"></a>00074     <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = <span class="keyword">false</span>;
+<a name="l00075"></a>00075 }
+<a name="l00076"></a>00076 
+<a name="l00084"></a>00084 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00085"></a><a class="code" href="classPath.html#be777d72f858dea749644dbadff11a02">00085</a> <a class="code" href="classPath.html#908e08180f69551c1e8ef42563206a54" title="Default constructor.">Path&lt;Type&gt;::Path</a>(<span class="keywordtype">int</span> timeToStart, <span class="keywordtype">int</span> timeToEnd) {
+<a name="l00086"></a>00086     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = timeToStart;
+<a name="l00087"></a>00087     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = timeToEnd;
+<a name="l00088"></a>00088     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00089"></a>00089     <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = <span class="keyword">false</span>;
+<a name="l00090"></a>00090 }
+<a name="l00091"></a>00091 
 <a name="l00096"></a>00096 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00097"></a><a class="code" href="classPath.html#7289d43b0709527b6b4d6b125491730c">00097</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#7289d43b0709527b6b4d6b125491730c" title="Set the path points.">Path&lt;Type&gt;::setPoints</a>(std::vector&lt;Type&gt; toSet) {
-<a name="l00098"></a>00098     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a> = toSet;
-<a name="l00099"></a>00099 }
-<a name="l00100"></a>00100 
-<a name="l00107"></a>00107 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00108"></a><a class="code" href="classPath.html#2c1bb93ad23ac230455c6ac0bf7db7ee">00108</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#2c1bb93ad23ac230455c6ac0bf7db7ee" title="Add a path point to the end of the path.">Path&lt;Type&gt;::addPoint</a>(Type toAdd) {
-<a name="l00109"></a>00109     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.push_back(toAdd);
-<a name="l00110"></a>00110 }
-<a name="l00111"></a>00111 
-<a name="l00115"></a>00115 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00116"></a><a class="code" href="classPath.html#bc5f7da716a3eb709848ea7167f922f5">00116</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#bc5f7da716a3eb709848ea7167f922f5" title="Set time to start.">Path&lt;Type&gt;::setStartTime</a>(<span class="keywordtype">int</span> start) {
-<a name="l00117"></a>00117     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = start;
-<a name="l00118"></a>00118 }
-<a name="l00119"></a>00119 
-<a name="l00123"></a>00123 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00124"></a><a class="code" href="classPath.html#9fb191978eb6a831d452ff589e410ee8">00124</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#9fb191978eb6a831d452ff589e410ee8" title="Set time to end.">Path&lt;Type&gt;::setEndTime</a>(<span class="keywordtype">int</span> end) {
-<a name="l00125"></a>00125     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = end;
-<a name="l00126"></a>00126 }
-<a name="l00127"></a>00127 
-<a name="l00133"></a>00133 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00134"></a><a class="code" href="classPath.html#a38c3a5f95c2459044fb56011aa5d0ac">00134</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#a38c3a5f95c2459044fb56011aa5d0ac" title="Make the path cyclic.">Path&lt;Type&gt;::makeCyclic</a>() {
-<a name="l00135"></a>00135     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">true</span>;
-<a name="l00136"></a>00136 }
-<a name="l00137"></a>00137 
-<a name="l00143"></a>00143 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00144"></a><a class="code" href="classPath.html#52ed2f44fd02632d80fa2df163ec4224">00144</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#52ed2f44fd02632d80fa2df163ec4224" title="Make the path non-cyclic.">Path&lt;Type&gt;::unMakeCyclic</a>() {
-<a name="l00145"></a>00145     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
-<a name="l00146"></a>00146 }
-<a name="l00147"></a>00147 
+<a name="l00097"></a><a class="code" href="classPath.html#0e968bfb9d71ac2a6916e4767c2aab62">00097</a> <a class="code" href="classPath.html">Path&lt;Type&gt;</a> <a class="code" href="classPath.html#0e968bfb9d71ac2a6916e4767c2aab62" title="Overloaded equals operator.">Path&lt;Type&gt;::operator =</a>(<a class="code" href="classPath.html">Path&lt;Type&gt;</a> toEqual) {
+<a name="l00098"></a>00098     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = toEqual.<a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;
+<a name="l00099"></a>00099     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = toEqual.<a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>;
+<a name="l00100"></a>00100     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = toEqual.<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>;
+<a name="l00101"></a>00101     <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = toEqual.<a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a>;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.resize(toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size());
+<a name="l00104"></a>00104     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size(); i++) {
+<a name="l00105"></a>00105         <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[i] = toEqual.<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[i];
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00117"></a>00117 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00118"></a><a class="code" href="classPath.html#7289d43b0709527b6b4d6b125491730c">00118</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#7289d43b0709527b6b4d6b125491730c" title="Set the path points.">Path&lt;Type&gt;::setPoints</a>(std::vector&lt;Type&gt; toSet) {
+<a name="l00119"></a>00119     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a> = toSet;
+<a name="l00120"></a>00120 }
+<a name="l00121"></a>00121 
+<a name="l00128"></a>00128 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00129"></a><a class="code" href="classPath.html#2c1bb93ad23ac230455c6ac0bf7db7ee">00129</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#2c1bb93ad23ac230455c6ac0bf7db7ee" title="Add a path point to the end of the path.">Path&lt;Type&gt;::addPoint</a>(Type toAdd) {
+<a name="l00130"></a>00130     <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.push_back(toAdd);
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00136"></a>00136 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00137"></a><a class="code" href="classPath.html#bc5f7da716a3eb709848ea7167f922f5">00137</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#bc5f7da716a3eb709848ea7167f922f5" title="Set time to start.">Path&lt;Type&gt;::setStartTime</a>(<span class="keywordtype">int</span> start) {
+<a name="l00138"></a>00138     <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a> = start;
+<a name="l00139"></a>00139 }
+<a name="l00140"></a>00140 
+<a name="l00144"></a>00144 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00145"></a><a class="code" href="classPath.html#9fb191978eb6a831d452ff589e410ee8">00145</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#9fb191978eb6a831d452ff589e410ee8" title="Set time to end.">Path&lt;Type&gt;::setEndTime</a>(<span class="keywordtype">int</span> end) {
+<a name="l00146"></a>00146     <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> = end;
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 
 <a name="l00154"></a>00154 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00155"></a><a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4">00155</a> Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">Path&lt;Type&gt;::getPoint</a>() {
-<a name="l00156"></a>00156     <span class="keywordflow">return</span> <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>(<a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">SDLLoader::getTime</a>());
-<a name="l00157"></a>00157 }
-<a name="l00158"></a>00158 
-<a name="l00166"></a>00166 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
-<a name="l00167"></a><a class="code" href="classPath.html#733b3de16e22296fe2ef08f669774df7">00167</a> Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">Path&lt;Type&gt;::getPoint</a>(<span class="keywordtype">int</span> time) {
-<a name="l00168"></a>00168     <span class="keywordflow">if</span> (<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size() == 0) {
-<a name="l00169"></a>00169         <span class="keywordflow">return</span> Type(0,0,0);
-<a name="l00170"></a>00170     }
+<a name="l00155"></a><a class="code" href="classPath.html#a38c3a5f95c2459044fb56011aa5d0ac">00155</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#a38c3a5f95c2459044fb56011aa5d0ac" title="Make the path cyclic.">Path&lt;Type&gt;::makeCyclic</a>() {
+<a name="l00156"></a>00156     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">true</span>;
+<a name="l00157"></a>00157     <span class="keywordflow">if</span> (<a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a>) {
+<a name="l00158"></a>00158         <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = <span class="keyword">false</span>;
+<a name="l00159"></a>00159     }
+<a name="l00160"></a>00160 }
+<a name="l00161"></a>00161 
+<a name="l00167"></a>00167 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00168"></a><a class="code" href="classPath.html#52ed2f44fd02632d80fa2df163ec4224">00168</a> <span class="keywordtype">void</span> <a class="code" href="classPath.html#52ed2f44fd02632d80fa2df163ec4224" title="Make the path non-cyclic.">Path&lt;Type&gt;::unMakeCyclic</a>() {
+<a name="l00169"></a>00169     <a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a> = <span class="keyword">false</span>;
+<a name="l00170"></a>00170 }
 <a name="l00171"></a>00171 
-<a name="l00172"></a>00172     <span class="keywordtype">int</span> timeRange = <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> - <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;
-<a name="l00173"></a>00173     <span class="keywordtype">int</span> timeLocation = 0;
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175     <span class="keywordflow">if</span> (<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>) {
-<a name="l00176"></a>00176         timeLocation = (time - startTime) % timeRange;
-<a name="l00177"></a>00177     } <span class="keywordflow">else</span> {
-<a name="l00178"></a>00178         timeLocation = (time - startTime);
-<a name="l00179"></a>00179     }
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181     <span class="keywordtype">double</span> timeStep = (double)timeRange/(<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size() - 1*(!<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>));
+<a name="l00178"></a>00178 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00179"></a><a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4">00179</a> Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">Path&lt;Type&gt;::getPoint</a>() {
+<a name="l00180"></a>00180     <span class="keywordflow">return</span> <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>(<a class="code" href="classSDLLoader.html#4b2c7d7ff646e516eb57b0713011a3a7">SDLLoader::getTime</a>());
+<a name="l00181"></a>00181 }
 <a name="l00182"></a>00182 
-<a name="l00183"></a>00183     <span class="keywordflow">if</span> (timeLocation &lt; 0) {
-<a name="l00184"></a>00184         <span class="keywordflow">return</span> <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[0];
-<a name="l00185"></a>00185     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (timeLocation &gt; <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>) {
-<a name="l00186"></a>00186         <span class="keywordflow">return</span> <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size() - 1];
-<a name="l00187"></a>00187     } <span class="keywordflow">else</span> {
-<a name="l00188"></a>00188         <span class="keywordtype">double</span> numSteps = (double)timeLocation / timeStep;
-<a name="l00189"></a>00189         <span class="keywordtype">int</span> beforeIndex = floor(numSteps);
-<a name="l00190"></a>00190         <span class="keywordtype">int</span> afterIndex = ceil(numSteps);
-<a name="l00191"></a>00191         <span class="keywordflow">if</span> (afterIndex &gt;= <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size()) {
-<a name="l00192"></a>00192             afterIndex = 0;
-<a name="l00193"></a>00193         }
-<a name="l00194"></a>00194         <span class="keywordflow">return</span> <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[beforeIndex] + (<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[afterIndex] - <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[beforeIndex])*(numSteps - beforeIndex);
-<a name="l00195"></a>00195     }
-<a name="l00196"></a>00196 }
-<a name="l00197"></a>00197 
-<a name="l00198"></a>00198 <span class="preprocessor">#endif //PATH_H</span>
+<a name="l00190"></a>00190 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00191"></a><a class="code" href="classPath.html#733b3de16e22296fe2ef08f669774df7">00191</a> Type <a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">Path&lt;Type&gt;::getPoint</a>(<span class="keywordtype">int</span> time) {
+<a name="l00192"></a>00192     <span class="keywordflow">if</span> (<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size() == 0) {
+<a name="l00193"></a>00193         <span class="keywordflow">return</span> Type();
+<a name="l00194"></a>00194     }
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196     <span class="keywordtype">int</span> timeRange = <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a> - <a class="code" href="classPath.html#9c5108252095b21888c940c0ab0d4dcd" title="The time to start along the path.">startTime</a>;
+<a name="l00197"></a>00197     <span class="keywordtype">int</span> timeLocation = 0;
+<a name="l00198"></a>00198 
+<a name="l00199"></a>00199     <span class="keywordflow">if</span> (<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>) {
+<a name="l00200"></a>00200         timeLocation = (time - startTime) % timeRange;
+<a name="l00201"></a>00201     } <span class="keywordflow">else</span> {
+<a name="l00202"></a>00202         timeLocation = (time - startTime);
+<a name="l00203"></a>00203     }
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205     <span class="keywordtype">double</span> timeStep = (double)timeRange/(<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size() - 1*(!<a class="code" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac" title="Whether or not to repeat in a cycle.">isCyclic</a>));
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <span class="keywordflow">if</span> (timeLocation &lt; 0) {
+<a name="l00208"></a>00208         <span class="keywordflow">return</span> Type();
+<a name="l00209"></a>00209     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (timeLocation &gt; <a class="code" href="classPath.html#e824596898451440affe6beb9496140b" title="The time to end along the path.">endTime</a>) {
+<a name="l00210"></a>00210         printf(<span class="stringliteral">"Changed the stated of isFinished\n"</span>);
+<a name="l00211"></a>00211         <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = <span class="keyword">true</span>;
+<a name="l00212"></a>00212         <span class="keywordflow">return</span> Type();
+<a name="l00213"></a>00213     } <span class="keywordflow">else</span> {
+<a name="l00214"></a>00214         <a class="code" href="classPath.html#76339f4c617f95459b46d066cee53348" title="Whether or not the path is finished.">isFinished</a> = <span class="keyword">false</span>;
+<a name="l00215"></a>00215         <span class="keywordtype">double</span> numSteps = (double)timeLocation / timeStep;
+<a name="l00216"></a>00216         <span class="keywordtype">int</span> beforeIndex = floor(numSteps);
+<a name="l00217"></a>00217         <span class="keywordtype">int</span> afterIndex = ceil(numSteps);
+<a name="l00218"></a>00218         <span class="keywordflow">if</span> (afterIndex &gt;= <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>.size()) {
+<a name="l00219"></a>00219             afterIndex = 0;
+<a name="l00220"></a>00220         }
+<a name="l00221"></a>00221         <span class="keywordflow">return</span> <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[beforeIndex] + (<a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[afterIndex] - <a class="code" href="classPath.html#237d1c601d1972bbdf3f3f0c6e4eb129" title="The points on the path.">points</a>[beforeIndex])*(numSteps - beforeIndex);
+<a name="l00222"></a>00222     }
+<a name="l00223"></a>00223 }
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225 <span class="preprocessor">#endif //PATH_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:50 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

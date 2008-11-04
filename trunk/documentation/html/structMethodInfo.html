@@ -63,7 +63,7 @@ Collaboration diagram for MethodInfo&lt; ThisType, FuncType &gt;:</div>
  struct MethodInfo&lt; ThisType, FuncType &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00017">17</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00019">19</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="4052b8fe8c356d1b3c46c1f500f52212"></a><!-- doxytag: member="MethodInfo::MethodInfo" ref="4052b8fe8c356d1b3c46c1f500f52212" args="(ThisType *_This, FuncType _F)" -->
 <div class="memitem">
@@ -94,8 +94,8 @@ template&lt;class ThisType, class FuncType&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00057">57</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00057"></a>00057 : <a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>(_This), <a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>(_F) {}
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00059">59</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 : <a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>(_This), <a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>(_F) {}
 </pre></div>
 <p>
 
@@ -120,8 +120,8 @@ template&lt;class ThisType, class FuncType&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00058">58</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00058"></a>00058 {};
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00060">60</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00060"></a>00060 {};
 </pre></div>
 <p>
 
@@ -148,40 +148,40 @@ template&lt;class ThisType, class FuncType&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00018">18</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00018"></a>00018                                      {
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020                 <span class="comment">//Dynamic thread creates pointer to the functype</span>
-<a name="l00021"></a>00021                 <span class="comment">//which means it should be destroyed after function end</span>
-<a name="l00022"></a>00022                 <span class="comment">//however if thread is killed it is not called and memory leak is found</span>
-<a name="l00023"></a>00023 <span class="preprocessor">                #ifdef _DYNAMIC_THREAD_</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span>
-<a name="l00025"></a>00025                         MethodInfo &lt;ThisType, FuncType&gt; *Info;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027                         Info = (MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00020">20</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00020"></a>00020                                      {
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022                 <span class="comment">//Dynamic thread creates pointer to the functype</span>
+<a name="l00023"></a>00023                 <span class="comment">//which means it should be destroyed after function end</span>
+<a name="l00024"></a>00024                 <span class="comment">//however if thread is killed it is not called and memory leak is found</span>
+<a name="l00025"></a>00025 <span class="preprocessor">                #ifdef _DYNAMIC_THREAD_</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00027"></a>00027                         MethodInfo &lt;ThisType, FuncType&gt; *Info;
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029                         ((Info-&gt;<a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>)-&gt;*(Info-&gt;<a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>))();
+<a name="l00029"></a>00029                         Info = (MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031                         <span class="keyword">delete</span> Info;
+<a name="l00031"></a>00031                         ((Info-&gt;<a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>)-&gt;*(Info-&gt;<a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>))();
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033                 <span class="comment">//the static thread fixes this problem by using variable generated on the</span>
-<a name="l00034"></a>00034                 <span class="comment">//stack which means it is created and destroyed automaticly</span>
-<a name="l00035"></a>00035                 <span class="comment">//so no memory leak is found</span>
-<a name="l00036"></a>00036 <span class="preprocessor">                #else //_STATIC_THREAD_</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span>
-<a name="l00038"></a>00038                         MethodInfo &lt;ThisType, FuncType&gt; Info;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040                         Info            = *(MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
+<a name="l00033"></a>00033                         <span class="keyword">delete</span> Info;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035                 <span class="comment">//the static thread fixes this problem by using variable generated on the</span>
+<a name="l00036"></a>00036                 <span class="comment">//stack which means it is created and destroyed automaticly</span>
+<a name="l00037"></a>00037                 <span class="comment">//so no memory leak is found</span>
+<a name="l00038"></a>00038 <span class="preprocessor">                #else //_STATIC_THREAD_</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040                         MethodInfo &lt;ThisType, FuncType&gt; Info;
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042                         <span class="keyword">delete</span> (MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
+<a name="l00042"></a>00042                         Info            = *(MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044                         ((Info.<a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>)-&gt;*(Info.<a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>))();
+<a name="l00044"></a>00044                         <span class="keyword">delete</span> (MethodInfo &lt;ThisType, FuncType&gt; *)(_Info);
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="preprocessor">                #endif</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span>
-<a name="l00048"></a>00048                 <span class="comment">//delete Info;</span>
-<a name="l00049"></a>00049                 <span class="keywordflow">return</span> 0;
-<a name="l00050"></a>00050         }
+<a name="l00046"></a>00046                         ((Info.<a class="code" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">This</a>)-&gt;*(Info.<a class="code" href="structMethodInfo.html#184484a623153f49963b2c2f7bbeaacb">Func</a>))();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">                #endif</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>
+<a name="l00050"></a>00050                 <span class="comment">//delete Info;</span>
+<a name="l00051"></a>00051                 <span class="keywordflow">return</span> 0;
+<a name="l00052"></a>00052         }
 </pre></div>
 <p>
 
@@ -203,7 +203,7 @@ template&lt;class ThisType, class FuncType&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00054">54</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00056">56</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
 
 </div>
 </div><p>
@@ -222,14 +222,14 @@ template&lt;class ThisType, class FuncType&gt; </div>
 
 <p>
 
-<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00055">55</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
+<p>Definition at line <a class="el" href="memberThreads_8h-source.html#l00057">57</a> of file <a class="el" href="memberThreads_8h-source.html">memberThreads.h</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="memberThreads_8h-source.html">memberThreads.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:44 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

@@ -1,2 +1,4 @@
-<area shape="rect" href="$classSDLLoader.html" title="SDLLoader" alt="" coords="5,6,91,30">
-<area shape="rect" href="$classApp.html" title="App" alt="" coords="140,6,183,30">
+<area shape="rect" href="$classPhysicsObject.html" title="PhysicsObject" alt="" coords="5,30,112,54">
+<area shape="rect" href="$classBall.html" title="Ball" alt="" coords="177,6,220,30">
+<area shape="rect" href="$classCharacter.html" title="Character" alt="" coords="160,54,237,78">
+<area shape="rect" href="$classCarCharacter.html" title="CarCharacter" alt="" coords="287,54,383,78">
