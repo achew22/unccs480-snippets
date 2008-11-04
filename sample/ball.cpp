@@ -13,6 +13,10 @@ void Ball::calculateRadius() {
     }
 }
 
+void Ball::setColor(Point3 toSet) {
+    color = toSet;
+}
+
 void Ball::resize(double newSize) {
     radius = newSize;
     if (mesh != NULL) {
@@ -37,7 +41,7 @@ void Ball::loadTexture(std::string filename) {
 void Ball::draw() {
     //glPushAttrib(GL_CURRENT_BIT);
     glPushMatrix();
-        //glColor3f(1,1,1);
+        glColor3f(color.x, color.y, color.z);
 
         glTranslated(pos.x, pos.y, pos.z);
 
