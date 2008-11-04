@@ -85,6 +85,8 @@
 , <a class="el" href="classDispatchMouse.html#dbe1ee949447c7293250ca425c168348">DispatchMouse&lt; T &gt;</a>
 </ul>
 <h3><a class="anchor" name="index_a">- a -</a></h3><ul>
+<li>acc
+: <a class="el" href="classPhysicsObject.html#1e83270d5bda3645e1fbf0e539ef6d5b">PhysicsObject</a>
 <li>activeGUI
 : <a class="el" href="classSDLLoader.html#1bde1f8b7561b6f3ded78650d2f51316">SDLLoader</a>
 <li>address
@@ -107,6 +109,9 @@
 : <a class="el" href="classGUIButton.html#89783abf648ea88df1ff860ba3181235">GUIButton</a>
 <li>camera
 : <a class="el" href="classSDLLoader.html#9816ae25c116fc94222a01154eb5f47e">SDLLoader</a>
+<li>center
+: <a class="el" href="structboundingBoxNode.html#d567890067197ccd43e3936499b65baf">boundingBoxNode</a>
+, <a class="el" href="classPhysicsObject.html#909061ea39d078cbfd28f2ae9c2b51ee">PhysicsObject</a>
 <li>ch1
 : <a class="el" href="structBMPHeader.html#928c826b696be53785587bce53add3cd">BMPHeader</a>
 <li>ch2
@@ -115,7 +120,7 @@
 : <a class="el" href="classCamera.html#94791cdef7247741cf7d284134578780">Camera</a>
 , <a class="el" href="classApp.html#53c13d553a248c7f789f0068f26659c4">App</a>
 <li>clients
-: <a class="el" href="classServerConnection.html#94ec78f10c5b8df1190912b5e936c7e0">ServerConnection</a>
+: <a class="el" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda">ServerConnection</a>
 <li>color
 : <a class="el" href="classGUIButton.html#65e68ee3274a0c30af7a074e1a226734">GUIButton</a>
 , <a class="el" href="classGUIText.html#b5112e66e2a37164657a5837a54a3228">GUIText</a>
@@ -127,10 +132,15 @@
 : <a class="el" href="classSocketConnection.html#ca33ff7fa5c5730d827a3c76bebc1ebe">SocketConnection</a>
 <li>connection
 : <a class="el" href="classSocketConnection.html#18a9acb1d6b6e512c904f9de7730760a">SocketConnection</a>
+<li>currentIdNumber
+: <a class="el" href="classPhysicsObject.html#c3e92913d83bfe3de2a58bd4e359b7f2">PhysicsObject</a>
+, <a class="el" href="classPhysicsManager.html#4f4c860a9ff40677a7b7e91b4fc89d56">PhysicsManager</a>
 <li>currentTickCount
 : <a class="el" href="classSDLLoader.html#4f02ab9493bedf31176f0f7e4a50abf6">SDLLoader</a>
 </ul>
 <h3><a class="anchor" name="index_d">- d -</a></h3><ul>
+<li>depth
+: <a class="el" href="classboundingBox.html#19821815193a929421832f98984c8c4c">boundingBox</a>
 <li>dispatchableKeys
 : <a class="el" href="classSDLLoader.html#761e0790543e6055eeaf2198c815dbfa">SDLLoader</a>
 <li>dispatchableMouses
@@ -162,6 +172,8 @@
 : <a class="el" href="classTexture.html#f2c445415c35e9ea0a2911313cf1d57e">Texture</a>
 <li>fileSize
 : <a class="el" href="structBMPHeader.html#ad7eb8e290c270e0b4a1fe30f71f4e31">BMPHeader</a>
+<li>forces
+: <a class="el" href="classPhysicsObject.html#c8b8332eda038cec3c3d684a1c07e217">PhysicsObject</a>
 <li>frustum
 : <a class="el" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">Camera</a>
 <li>Func
@@ -178,13 +190,15 @@
 : <a class="el" href="classSDLLoader.html#848face8097f9780b1c0e06e68e9fb23">SDLLoader</a>
 </ul>
 <h3><a class="anchor" name="index_h">- h -</a></h3><ul>
+<li>head
+: <a class="el" href="classboundingBox.html#315462684cd994fd475a0ddec9372654">boundingBox</a>
 <li>headerSize
 : <a class="el" href="structBMPInfoHeader.html#130a21ea6a4e54a6584480ad700b23b3">BMPInfoHeader</a>
 <li>height
-: <a class="el" href="classGUI.html#f35736b1046bdb544d3de55e97a54c44">GUI</a>
-, <a class="el" href="classGUIText.html#797aa7e14cbc6095a44448486f0405a2">GUIText</a>
+: <a class="el" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">GUIButton</a>
 , <a class="el" href="classSDLLoader.html#4d393427a25b06e424211cc3b6cf6805">SDLLoader</a>
-, <a class="el" href="classGUIButton.html#c4e813f804bc96ee45b1bf190b05ff02">GUIButton</a>
+, <a class="el" href="classGUIText.html#797aa7e14cbc6095a44448486f0405a2">GUIText</a>
+, <a class="el" href="classGUI.html#f35736b1046bdb544d3de55e97a54c44">GUI</a>
 <li>high_shininess
 : <a class="el" href="classglLightingStruct.html#94fe9916527fb352679c65e6028a01a8">glLightingStruct</a>
 <li>host
@@ -197,21 +211,36 @@
 : <a class="el" href="structBMPInfoHeader.html#e8957c670bd36beb7cf38f4c025d8b9d">BMPInfoHeader</a>
 <li>impColors
 : <a class="el" href="structBMPInfoHeader.html#1c4e6c11fcbf91b45ec22be207da0881">BMPInfoHeader</a>
+<li>increment
+: <a class="el" href="classPhysicsObject.html#e8ff5f75c4447de7b12d1610c2533580">PhysicsObject</a>
 <li>ip
 : <a class="el" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ServerConnection</a>
 <li>isBounceBack
 : <a class="el" href="classDelta__Functor.html#ee7f852fc1f127f0fd6b4d7ecc7cbce0">Delta_Functor</a>
+<li>isCollidable
+: <a class="el" href="classPhysicsObject.html#9e33f86cd111409ee42418d96cc3f649">PhysicsObject</a>
 <li>isCyclic
-: <a class="el" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">Delta_Functor</a>
-, <a class="el" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac">Path&lt; Type &gt;</a>
+: <a class="el" href="classPath.html#4ff3acede38618bc1e5b1850361cb2ac">Path&lt; Type &gt;</a>
+, <a class="el" href="classDelta__Functor.html#d6366bb7e65a026fee48c61ad9fe178b">Delta_Functor</a>
 <li>isFan
 : <a class="el" href="classFace.html#e3bad9512f0f9be3205c9b5da5f3231d">Face</a>
+<li>isFinished
+: <a class="el" href="classPath.html#76339f4c617f95459b46d066cee53348">Path&lt; Type &gt;</a>
+<li>isMovable
+: <a class="el" href="classPhysicsObject.html#357f680f687fd8265dea01fa17b7914c">PhysicsObject</a>
 </ul>
 <h3><a class="anchor" name="index_k">- k -</a></h3><ul>
 <li>keyCallback
 : <a class="el" href="classGUITextHandler.html#8010e4c2b2ed861aa3afae8a3893a9f5">GUITextHandler</a>
 </ul>
 <h3><a class="anchor" name="index_l">- l -</a></h3><ul>
+<li>lastPos
+: <a class="el" href="classPhysicsObject.html#8fc7fe1fbb0bf7c9ba0fa3888cd41bf7">PhysicsObject</a>
+<li>lastUpdated
+: <a class="el" href="classPhysicsManager.html#6c5f9b9b7039b00316b6e0207fd3eb9e">PhysicsManager</a>
+, <a class="el" href="classPhysicsObject.html#a4965d4a38b5094ef30764b5713df6b0">PhysicsObject</a>
+<li>left
+: <a class="el" href="structboundingBoxNode.html#2ac731fa59348769a2e901e2770742f8">boundingBoxNode</a>
 <li>level
 : <a class="el" href="classError.html#c92ee0c53a804c4d4d1be6c410bae417">Error</a>
 <li>light_ambient
@@ -225,20 +254,26 @@
 <li>lightNumber
 : <a class="el" href="classglLightingStruct.html#486afdb99cc8903f9434cd5b8c1c7647">glLightingStruct</a>
 <li>loadError
-: <a class="el" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">Point3</a>
-, <a class="el" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36">Point2</a>
+: <a class="el" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36">Point2</a>
+, <a class="el" href="classPoint3.html#f698b70ca1f1f6a1918867a3ea1afe37">Point3</a>
 <li>lookAtPosition
 : <a class="el" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766">Camera</a>
 <li>lookingDirection
 : <a class="el" href="classCharacter.html#0935bb2f335fffa227206dbd6defbba1">Character</a>
 </ul>
 <h3><a class="anchor" name="index_m">- m -</a></h3><ul>
+<li>mass
+: <a class="el" href="classPhysicsObject.html#eeae043489c0b8079c591c4b818c86c6">PhysicsObject</a>
 <li>mat_ambient
 : <a class="el" href="classglLightingStruct.html#f749d7d4a31732e6f8339ffc79407076">glLightingStruct</a>
 <li>mat_diffuse
 : <a class="el" href="classglLightingStruct.html#1fafa40a760acfc979661b32d523b792">glLightingStruct</a>
 <li>mat_specular
 : <a class="el" href="classglLightingStruct.html#1bb8e24aa0b179b8e279f748643a5f44">glLightingStruct</a>
+<li>maxVel
+: <a class="el" href="classPhysicsObject.html#363b5945050dd77a118c0ef876e92ca8">PhysicsObject</a>
+<li>mesh
+: <a class="el" href="classBall.html#90577dc874a707539ab3402c8ddb4379">Ball</a>
 <li>myFunctors
 : <a class="el" href="classFunctorFactory.html#6b479893ecbea5f6685d7e8a4f61671a">FunctorFactory</a>
 <li>myMesh
@@ -266,8 +301,20 @@
 : <a class="el" href="classTexture.html#b52c3d07453b96444dcc154c43a63c9b">Texture</a>
 </ul>
 <h3><a class="anchor" name="index_o">- o -</a></h3><ul>
+<li>objects
+: <a class="el" href="classPhysicsManager.html#e5c49e99a2b7f344c1f4af4e46dfe1db">PhysicsManager</a>
+<li>objectsToAdd
+: <a class="el" href="classPhysicsManager.html#03580b08fbb8ea598a29ebe19666f7d2">PhysicsManager</a>
+<li>objectsToAddSem
+: <a class="el" href="classPhysicsManager.html#17fbc89865fbb83773fd810f854744c7">PhysicsManager</a>
+<li>objectsToDelete
+: <a class="el" href="classPhysicsManager.html#896ec074711b5e41ce8abb3e224ffb9c">PhysicsManager</a>
+<li>objectsToDeleteSem
+: <a class="el" href="classPhysicsManager.html#59d7b34eefea3255476e6e30f5852ae3">PhysicsManager</a>
 <li>offBits
 : <a class="el" href="structBMPHeader.html#cde9875f9ebca50ddcb010f35d3771b4">BMPHeader</a>
+<li>offset
+: <a class="el" href="classPhysicsObject.html#d680f66fdd1bcb6b644f1d3663d82f42">PhysicsObject</a>
 </ul>
 <h3><a class="anchor" name="index_p">- p -</a></h3><ul>
 <li>path
@@ -278,13 +325,16 @@
 : <a class="el" href="classSDLLoader.html#3c03fb37283e681930b4f04aea7abe33">SDLLoader</a>
 <li>pausedOffset
 : <a class="el" href="classSDLLoader.html#0b41cf78a2c110105c23db129f53719e">SDLLoader</a>
+<li>physObjId
+: <a class="el" href="classPhysicsObject.html#003ffb472677fd73b9d7ccea3b611b99">PhysicsObject</a>
 <li>pinstance
-: <a class="el" href="classApp.html#7f2f7ab28378c5f260e75820a87e25c3">App</a>
+: <a class="el" href="classGUI.html#aebf2063b6b28b44877e9a179adcc013">GUI</a>
+, <a class="el" href="classPhysicsManager.html#a919b583553a2db13ec34dcced7a3500">PhysicsManager</a>
+, <a class="el" href="classApp.html#7f2f7ab28378c5f260e75820a87e25c3">App</a>
 , <a class="el" href="classSDLLoader.html#ed1df200ca8442a5df1a6413128e4584">SDLLoader</a>
 , <a class="el" href="classError.html#43cb21fa14647ca73c849c7fe527aaec">Error</a>
 , <a class="el" href="classTextureManager.html#4f2028739d4e089845eef22ff967c3cb">TextureManager</a>
 , <a class="el" href="classFunctorFactory.html#b77385769ddbe9b87fe8bbd3974e22c4">FunctorFactory</a>
-, <a class="el" href="classGUI.html#aebf2063b6b28b44877e9a179adcc013">GUI</a>
 <li>pixels
 : <a class="el" href="classTexture.html#6ee394a0dc95f88daac62f802b426ed6">Texture</a>
 <li>planes
@@ -294,6 +344,10 @@
 <li>port
 : <a class="el" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">ServerConnection</a>
 , <a class="el" href="classSocketConnection.html#91e3ab73b552c3bf6277c668f6931ebb">SocketConnection</a>
+<li>pos
+: <a class="el" href="classPhysicsObject.html#f4e60d6292ed33280c766bd5accf5af6">PhysicsObject</a>
+<li>precision
+: <a class="el" href="classboundingBox.html#80a215d1c7fb93561ea020447f931414">boundingBox</a>
 </ul>
 <h3><a class="anchor" name="index_q">- q -</a></h3><ul>
 <li>quit
@@ -302,10 +356,17 @@
 <h3><a class="anchor" name="index_r">- r -</a></h3><ul>
 <li>r
 : <a class="el" href="classtexRGB.html#9a6d549bf1f94bcaca24aef12009ab36">texRGB</a>
+<li>radius
+: <a class="el" href="structboundingBoxNode.html#abb5cad4de094a7a9bdc25cfeacaccc5">boundingBoxNode</a>
+, <a class="el" href="classPhysicsObject.html#ce3c3e37e6fccc697da4bcf28b1d6ad7">PhysicsObject</a>
+<li>remoteip
+: <a class="el" href="classServerConnection.html#7be27c3f0fc176707e268525e8d2ddb4">ServerConnection</a>
 <li>reserved1
 : <a class="el" href="structBMPHeader.html#12c9680f022c0ced142f274ebf88bd9f">BMPHeader</a>
 <li>reserved2
 : <a class="el" href="structBMPHeader.html#b2adec73dcfa6557aae27cced9f18320">BMPHeader</a>
+<li>right
+: <a class="el" href="structboundingBoxNode.html#ab0e979a08d7e17c805527a6dea5a8a1">boundingBoxNode</a>
 <li>rotX
 : <a class="el" href="classCameraPosition.html#1ee47da360d038c6e8b1cc772092552d">CameraPosition</a>
 , <a class="el" href="classCharacter.html#dde50a086acffe2dfa6ce8b1695b3671">Character</a>
@@ -354,6 +415,10 @@
 : <a class="el" href="classFace.html#9f475776c702e5028ce7036450bb6d50">Face</a>
 <li>This
 : <a class="el" href="structMethodInfo.html#5ecb71ba0c7b07131682f153a89179e9">MethodInfo&lt; ThisType, FuncType &gt;</a>
+<li>thisThread
+: <a class="el" href="classPhysicsManager.html#b67f4563bb85154a16a8d28a7d29d2b5">PhysicsManager</a>
+<li>threadQuit
+: <a class="el" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">ServerConnection</a>
 <li>timeRange
 : <a class="el" href="classDelta__Functor.html#e0a2ea6402b2f51caf675c91ba7c42d5">Delta_Functor</a>
 <li>totalEndTime
@@ -368,8 +433,12 @@
 : <a class="el" href="classCamera.html#966ded6713edd2189098299030feea45">Camera</a>
 </ul>
 <h3><a class="anchor" name="index_v">- v -</a></h3><ul>
+<li>value
+: <a class="el" href="classstaticPath.html#a2fe196412aadc73a5ccefde3a541435">staticPath&lt; Type &gt;</a>
 <li>valueRange
 : <a class="el" href="classDelta__Functor.html#d0a1d8268135c739f37609b4c01e48d8">Delta_Functor</a>
+<li>vel
+: <a class="el" href="classPhysicsObject.html#91cf66346055bb0d3f8df36479c67429">PhysicsObject</a>
 <li>vertexIndex
 : <a class="el" href="classFace.html#3cea9aa642929fc831a77435838b588c">Face</a>
 <li>vertices
@@ -386,11 +455,10 @@
 <h3><a class="anchor" name="index_x">- x -</a></h3><ul>
 <li>x
 : <a class="el" href="classCameraPosition.html#b8ade6d46bff221988c868b7ab9851e0">CameraPosition</a>
-, <a class="el" href="classCharacter.html#1bb3490341f208a6a69fe06924d4eca5">Character</a>
-, <a class="el" href="classGUIText.html#a755e780526a6c4375c488ecbf2602ea">GUIText</a>
+, <a class="el" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">GUIButton</a>
 , <a class="el" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264">Point3</a>
 , <a class="el" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1">Point2</a>
-, <a class="el" href="classGUIButton.html#7217da375ae738334e34d3897913ad4a">GUIButton</a>
+, <a class="el" href="classGUIText.html#a755e780526a6c4375c488ecbf2602ea">GUIText</a>
 <li>xMax
 : <a class="el" href="classGUI.html#311e5f60cfb1e22b22680a6eb8c382f7">GUI</a>
 <li>xOffset
@@ -401,11 +469,10 @@
 <h3><a class="anchor" name="index_y">- y -</a></h3><ul>
 <li>y
 : <a class="el" href="classCameraPosition.html#75514a8662c9dfdb0efd93bc1225d698">CameraPosition</a>
-, <a class="el" href="classCharacter.html#979b735df967f60d2c324d79f9aa6249">Character</a>
-, <a class="el" href="classGUIText.html#b6cd694bbe28cc852ae9f37775238c36">GUIText</a>
+, <a class="el" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">GUIButton</a>
 , <a class="el" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299">Point3</a>
 , <a class="el" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7">Point2</a>
-, <a class="el" href="classGUIButton.html#20357a295e8806421dbfff0c8dc258db">GUIButton</a>
+, <a class="el" href="classGUIText.html#b6cd694bbe28cc852ae9f37775238c36">GUIText</a>
 <li>yMax
 : <a class="el" href="classGUI.html#ef9c1637f687f1b16fdd39356695330d">GUI</a>
 <li>yOffset
@@ -417,10 +484,9 @@
 <li>z
 : <a class="el" href="classCameraPosition.html#2339143010cb026b54b22c49702b12b3">CameraPosition</a>
 , <a class="el" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e">Point3</a>
-, <a class="el" href="classCharacter.html#10b61f041323b9a6fde490add9e463f0">Character</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:43 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:55 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

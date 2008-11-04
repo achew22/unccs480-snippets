@@ -51,7 +51,7 @@ void PhysicsManager::loop() {
                     }
                 }
             }
-            currentTime = SDLLoader::getTime();
+            //currentTime = SDLLoader::getTime();
         }
         //Now update the velocities and accelerations of everything
         for (std::map<int, PhysicsObject*>::iterator iter = objects.begin(); iter != objects.end(); iter++) {

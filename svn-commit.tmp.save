@@ -1,0 +1,12 @@
+Add a new earth (with lots of textures)
+--This line, and those below, will be ignored--
+
+A    sample/textures/earth
+AM   sample/textures/earth/earth_clouds_high_trans.bmp
+AM   sample/textures/earth/earth_surface_refl.bmp
+AM   sample/textures/earth/earth_surface_bump_smooth.bmp
+AM   sample/textures/earth/earth_surface_luma.bmp
+AM   sample/textures/earth/earth_surface.bmp
+AM   sample/textures/earth/earth_clouds_high.bmp
+AM   sample/textures/earth/earth_clouds_high_bump.bmp
+R    sample/objects/earth.obj

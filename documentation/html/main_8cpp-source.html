@@ -27,12 +27,10 @@
 <h1>sample/main.cpp</h1><a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="app_8h.html">app.h</a>"</span>
 <a name="l00002"></a>00002 
 <a name="l00003"></a><a class="code" href="main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">00003</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]) {
-<a name="l00004"></a>00004     printf(<span class="stringliteral">"This is a test\n"</span>);
-<a name="l00005"></a>00005     <a class="code" href="classApp.html">App</a> *myApp = <span class="keyword">new</span> <a class="code" href="classApp.html">App</a>();
-<a name="l00006"></a>00006     <span class="keywordflow">return</span> myApp-&gt;<a class="code" href="classSDLLoader.html#076cc0e3de5d6c2d5efba5774baa3d60">loop</a>();
-<a name="l00007"></a>00007 }
+<a name="l00004"></a>00004     <span class="keywordflow">return</span> <a class="code" href="classApp.html#4d04d85bbda06ce06faad681c652f1c7">App::getInstance</a>()-&gt;<a class="code" href="classSDLLoader.html#076cc0e3de5d6c2d5efba5774baa3d60">loop</a>();
+<a name="l00005"></a>00005 }
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:51 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

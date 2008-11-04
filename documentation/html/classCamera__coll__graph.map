@@ -1,4 +1,5 @@
-<area shape="rect" href="$classDelta__Functor.html" title="Delta_Functor" alt="" coords="5,102,107,126">
-<area shape="rect" href="$classPoint3.html" title="Point3" alt="" coords="179,6,237,30">
-<area shape="rect" href="$classCharacter.html" title="Character" alt="" coords="269,102,347,126">
-<area shape="rect" href="$classPath.html" title="Path\&lt; Point3 \&gt;" alt="" coords="371,102,480,126">
+<area shape="rect" href="$classDelta__Functor.html" title="Delta_Functor" alt="" coords="5,284,107,308">
+<area shape="rect" href="$classPoint3.html" title="Point3" alt="" coords="236,7,295,31">
+<area shape="rect" href="$classCharacter.html" title="Character" alt="" coords="212,284,289,308">
+<area shape="rect" href="$classPhysicsObject.html" title="PhysicsObject" alt="" coords="381,167,488,191">
+<area shape="rect" href="$classPath.html" title="Path\&lt; Point3 \&gt;" alt="" coords="313,284,423,308">

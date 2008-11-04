@@ -2,6 +2,7 @@
 #define SERVERCONNECTION_H_INCLUDED
 
 #include <string>
+#include <map>
 
 #include <SDL/SDL_net.h>
 
@@ -9,19 +10,30 @@
 class ServerConnection {
 protected:
     IPaddress ip;
-    TCPsocket server,clients[16];
-    SDLNet_SocketSet set;
+	IPaddress * remoteip;
+
+    TCPsocket server;
+
+    SDLNet_SocketSet set; ///Socket set to hold the connections
+    std::map<int, TCPsocket> clients;
+
 
     SDL_Thread * idleThread;
+
+    bool threadQuit;
 
     int port;
 
 public:
-    virtual void handleData(int conectionId, std::string data) =0;
+    virtual void handleData(int conectionId, std::string data) =0; ///Overloadable function to handle data
+    virtual std::string handleConnection(int conectionId) =0; ///Overloadable function to handle data
 
-    void init();
+    int send(int clientId, std::string message); ///Send data to the client
 
-    void idle();
+    void init(); ///Init everything
+    void idle(); ///Thread for the thread to run in
+
+    void quit(); ///Quit the server and stop listening
 };
 
 #endif // SERVERCONNECTION_H_INCLUDED

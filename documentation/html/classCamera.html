@@ -40,7 +40,7 @@ Collaboration diagram for Camera:</div>
 <div class="dynsection">
 <p><center><img src="classCamera__coll__graph.png" border="0" usemap="#Camera__coll__map" alt="Collaboration graph"></center>
 <map name="Camera__coll__map">
-<area shape="rect" href="classDelta__Functor.html" title="Delta_Functor" alt="" coords="5,102,107,126"><area shape="rect" href="classPoint3.html" title="Point3" alt="" coords="179,6,237,30"><area shape="rect" href="classCharacter.html" title="Character" alt="" coords="269,102,347,126"><area shape="rect" href="classPath.html" title="Path\&lt; Point3 \&gt;" alt="" coords="371,102,480,126"></map>
+<area shape="rect" href="classDelta__Functor.html" title="Delta_Functor" alt="" coords="5,284,107,308"><area shape="rect" href="classPoint3.html" title="Point3" alt="" coords="236,7,295,31"><area shape="rect" href="classCharacter.html" title="Character" alt="" coords="212,284,289,308"><area shape="rect" href="classPhysicsObject.html" title="PhysicsObject" alt="" coords="381,167,488,191"><area shape="rect" href="classPath.html" title="Path\&lt; Point3 \&gt;" alt="" coords="313,284,423,308"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -174,9 +174,10 @@ By default the following are set:<ul>
 <a name="l00034"></a>00034     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5] = 100;
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = NULL;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038     <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="Deprecated, do not use.">angleLeftFunct</a> = <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="Deprecated, do not use.">angleUpFunct</a> = NULL;
-<a name="l00039"></a>00039 }
+<a name="l00037"></a>00037     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = NULL;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="Deprecated, do not use.">angleLeftFunct</a> = <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="Deprecated, do not use.">angleUpFunct</a> = NULL;
+<a name="l00040"></a>00040 }
 </pre></div>
 <p>
 
@@ -230,24 +231,25 @@ Sets up frustum as the default: frustum[] = {-1, 1, -1, 1, 2, 100}. To change it
 <a class="el" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[] <p>
 <a class="el" href="classCamera.html#652f4e51b10f9f6a0e1b618f2d8f8ab2" title="Set the viewing frustum.">setFrustum()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00055">55</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00055"></a>00055                                                    {
-<a name="l00056"></a>00056     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = pos;
-<a name="l00057"></a>00057     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = lookAt;
-<a name="l00058"></a>00058     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = up;
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060     <span class="comment">//Set up default frustum style</span>
-<a name="l00061"></a>00061     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0] = -1;
-<a name="l00062"></a>00062     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1] = 1;
-<a name="l00063"></a>00063     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2] = -1;
-<a name="l00064"></a>00064     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3] = 1;
-<a name="l00065"></a>00065     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4] = 2;
-<a name="l00066"></a>00066     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5] = 100;
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = NULL;
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070     <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="Deprecated, do not use.">angleLeftFunct</a> = <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="Deprecated, do not use.">angleUpFunct</a> = NULL;
-<a name="l00071"></a>00071 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00056">56</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00056"></a>00056                                                    {
+<a name="l00057"></a>00057     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = pos;
+<a name="l00058"></a>00058     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = lookAt;
+<a name="l00059"></a>00059     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = up;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061     <span class="comment">//Set up default frustum style</span>
+<a name="l00062"></a>00062     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0] = -1;
+<a name="l00063"></a>00063     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1] = 1;
+<a name="l00064"></a>00064     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2] = -1;
+<a name="l00065"></a>00065     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3] = 1;
+<a name="l00066"></a>00066     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4] = 2;
+<a name="l00067"></a>00067     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5] = 100;
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = NULL;
+<a name="l00070"></a>00070     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = NULL;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <a class="code" href="classCamera.html#2328ec34c536e316ab9dcb0e8405dfe5" title="Deprecated, do not use.">angleLeftFunct</a> = <a class="code" href="classCamera.html#1f7a9c74f937c1fa40968688da0e0058" title="Deprecated, do not use.">angleUpFunct</a> = NULL;
+<a name="l00073"></a>00073 }
 </pre></div>
 <p>
 
@@ -280,10 +282,10 @@ Set the position of the camera.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00077">77</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00077"></a>00077                                       {
-<a name="l00078"></a>00078     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = pos;
-<a name="l00079"></a>00079 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00079">79</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00079"></a>00079                                       {
+<a name="l00080"></a>00080     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = pos;
+<a name="l00081"></a>00081 }
 </pre></div>
 <p>
 
@@ -332,10 +334,10 @@ Set the position of the camera.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00087">87</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00087"></a>00087                                                                  {
-<a name="l00088"></a>00088     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classPoint3.html">Point3</a>(posx, posy, posz);
-<a name="l00089"></a>00089 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00089">89</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00089"></a>00089                                                                  {
+<a name="l00090"></a>00090     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classPoint3.html">Point3</a>(posx, posy, posz);
+<a name="l00091"></a>00091 }
 </pre></div>
 <p>
 
@@ -367,10 +369,10 @@ Set the location that the camera is looking at.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00095">95</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00095"></a>00095                                             {
-<a name="l00096"></a>00096     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = lookAt;
-<a name="l00097"></a>00097 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00097">97</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00097"></a>00097                                             {
+<a name="l00098"></a>00098     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = lookAt;
+<a name="l00099"></a>00099 }
 </pre></div>
 <p>
 
@@ -419,10 +421,10 @@ Set the location that the camera is looking at.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00105">105</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00105"></a>00105                                                                              {
-<a name="l00106"></a>00106     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = <a class="code" href="classPoint3.html">Point3</a>(lookAtx, lookAty, lookAtz);
-<a name="l00107"></a>00107 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00107">107</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                                                              {
+<a name="l00108"></a>00108     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = <a class="code" href="classPoint3.html">Point3</a>(lookAtx, lookAty, lookAtz);
+<a name="l00109"></a>00109 }
 </pre></div>
 <p>
 
@@ -454,10 +456,10 @@ Set the direction which is 'up', with reference to the camera.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &#39;up&#39;, with reference to the camera.">upDirection</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00113">113</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00113"></a>00113                                      {
-<a name="l00114"></a>00114     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = up;
-<a name="l00115"></a>00115 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00115">115</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00115"></a>00115                                      {
+<a name="l00116"></a>00116     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = up;
+<a name="l00117"></a>00117 }
 </pre></div>
 <p>
 
@@ -506,10 +508,10 @@ Set the direction which is 'up', with reference to the camera.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &#39;up&#39;, with reference to the camera.">upDirection</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00123">123</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00123"></a>00123                                                               {
-<a name="l00124"></a>00124     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = <a class="code" href="classPoint3.html">Point3</a>(upx, upy, upz);
-<a name="l00125"></a>00125 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00125">125</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00125"></a>00125                                                               {
+<a name="l00126"></a>00126     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = <a class="code" href="classPoint3.html">Point3</a>(upx, upy, upz);
+<a name="l00127"></a>00127 }
 </pre></div>
 <p>
 
@@ -581,15 +583,15 @@ myCamera-&gt;setFrustum(-width/height, width/height, -1, 1, 2, 100);<p>
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[] </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00140">140</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00140"></a>00140                                                                                                                    {
-<a name="l00141"></a>00141     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0] = left;
-<a name="l00142"></a>00142     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1] = right;
-<a name="l00143"></a>00143     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2] = bottom;
-<a name="l00144"></a>00144     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3] = top;
-<a name="l00145"></a>00145     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4] = zNear;
-<a name="l00146"></a>00146     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5] = zFar;
-<a name="l00147"></a>00147 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00142">142</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00142"></a>00142                                                                                                                    {
+<a name="l00143"></a>00143     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0] = left;
+<a name="l00144"></a>00144     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1] = right;
+<a name="l00145"></a>00145     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2] = bottom;
+<a name="l00146"></a>00146     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3] = top;
+<a name="l00147"></a>00147     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4] = zNear;
+<a name="l00148"></a>00148     <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5] = zFar;
+<a name="l00149"></a>00149 }
 </pre></div>
 <p>
 
@@ -617,21 +619,21 @@ This function updates the projection matrix so that it includes the camera at it
 <p>
 Don't update the frustrum, or the up direction but the look at needs to be 1 in front of the character (relative to rotational coords) and the x/y/z need to be the middle of the character (or whatever its reporting) <dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>fix the camera so that character actually does a reasonable view so that it works </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00153">153</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00153"></a>00153                     {
-<a name="l00154"></a>00154     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> != NULL) {
-<a name="l00161"></a>00161         <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a>-&gt;<a class="code" href="classCharacter.html#d33885d3f2003698017882151f78eeaf" title="Direction we are looking.">setPosition</a>(<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>);
-<a name="l00162"></a>00162     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
-<a name="l00163"></a>00163         <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>-&gt;<a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>();
-<a name="l00164"></a>00164     }
-<a name="l00165"></a>00165     glMatrixMode(GL_PROJECTION);
-<a name="l00166"></a>00166     glLoadIdentity();
-<a name="l00167"></a>00167     glFrustum(<a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5]);
-<a name="l00168"></a>00168     gluLookAt(<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170     glMatrixMode(GL_MODELVIEW);
-<a name="l00171"></a>00171     glLoadIdentity();
-<a name="l00172"></a>00172 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00155">155</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00155"></a>00155                     {
+<a name="l00156"></a>00156     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> != NULL) {
+<a name="l00163"></a>00163         <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a>-&gt;<a class="code" href="classCharacter.html#d33885d3f2003698017882151f78eeaf" title="Default constructor.">setPosition</a>(<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>);
+<a name="l00164"></a>00164     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
+<a name="l00165"></a>00165         <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>-&gt;<a class="code" href="classPath.html#fa475358ed280ba306cbe6d5714096d4" title="Get the point at the current time.">getPoint</a>();
+<a name="l00166"></a>00166     }
+<a name="l00167"></a>00167     glMatrixMode(GL_PROJECTION);
+<a name="l00168"></a>00168     glLoadIdentity();
+<a name="l00169"></a>00169     glFrustum(<a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[0], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[1], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[2], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[3], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[4], <a class="code" href="classCamera.html#b0c7d872a474d12692504100873ccbbd">frustum</a>[5]);
+<a name="l00170"></a>00170     gluLookAt(<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#32a73c79ccae426c30c5454cce7e6264" title="The x coordinate.">x</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#0ed9824c662eddd17bcac3b6b9dd4299" title="The y coordinate.">y</a>, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>.<a class="code" href="classPoint3.html#19bdc203bfa9f8e2998be947d580867e" title="The z coordinate.">z</a>);
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172     glMatrixMode(GL_MODELVIEW);
+<a name="l00173"></a>00173     glLoadIdentity();
+<a name="l00174"></a>00174 }
 </pre></div>
 <p>
 
@@ -669,21 +671,21 @@ This function is a part of the spin***AroundCenter() group of functions in which
 <a class="el" href="classCamera.html#37b2145ca1d5effd34f67007144b067c" title="Spin up or down.">spinUpAroundCenter()</a> <p>
 <a class="el" href="classCamera.html#e1f3922ded4e5ecbd3feabbddc31655c" title="Rotates the camera.">spinViewAroundCenter()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00200">200</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00200"></a>00200                                                  {
-<a name="l00201"></a>00201     <span class="keywordtype">double</span> radius = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getMag();
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
-<a name="l00204"></a>00204     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
-<a name="l00205"></a>00205     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
-<a name="l00206"></a>00206 
-<a name="l00207"></a>00207     <span class="comment">//Rotate the basis vectors by angle, this is the vector to translate</span>
-<a name="l00208"></a>00208     <span class="comment">//to our final destination</span>
-<a name="l00209"></a>00209     <a class="code" href="classPoint3.html">Point3</a> returnVector = basisX*cos((angle+90)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisY*sin((angle+90)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211     <span class="comment">//Translate to the final position</span>
-<a name="l00212"></a>00212     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + returnVector.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*radius;
-<a name="l00213"></a>00213 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00202">202</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00202"></a>00202                                                  {
+<a name="l00203"></a>00203     <span class="keywordtype">double</span> radius = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getMag();
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
+<a name="l00206"></a>00206     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
+<a name="l00207"></a>00207     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209     <span class="comment">//Rotate the basis vectors by angle, this is the vector to translate</span>
+<a name="l00210"></a>00210     <span class="comment">//to our final destination</span>
+<a name="l00211"></a>00211     <a class="code" href="classPoint3.html">Point3</a> returnVector = basisX*cos((angle+90)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisY*sin((angle+90)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213     <span class="comment">//Translate to the final position</span>
+<a name="l00214"></a>00214     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + returnVector.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*radius;
+<a name="l00215"></a>00215 }
 </pre></div>
 <p>
 
@@ -721,25 +723,25 @@ This function is a part of the spin***AroundCenter() group of functions in which
 <a class="el" href="classCamera.html#0aeae81c0f8bc7a515da9fa74249404e" title="Spin right or left.">spinRightAroundCenter()</a> <p>
 <a class="el" href="classCamera.html#e1f3922ded4e5ecbd3feabbddc31655c" title="Rotates the camera.">spinViewAroundCenter()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00234">234</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00234"></a>00234                                               {
-<a name="l00235"></a>00235     <span class="keywordtype">double</span> radius = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getMag();
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
-<a name="l00238"></a>00238     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
-<a name="l00239"></a>00239     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
-<a name="l00240"></a>00240     <a class="code" href="classPoint3.html">Point3</a> basisZ = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisX, basisY).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
-<a name="l00241"></a>00241 
-<a name="l00242"></a>00242     <span class="comment">//Rotate the basis vectors by angle, this is the vector to translate</span>
-<a name="l00243"></a>00243     <span class="comment">//to our final destination</span>
-<a name="l00244"></a>00244     <a class="code" href="classPoint3.html">Point3</a> returnVector = basisY*cos((angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisZ*sin((angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246     <span class="comment">//Adjust the upDirection</span>
-<a name="l00247"></a>00247     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = basisZ;
-<a name="l00248"></a>00248 
-<a name="l00249"></a>00249     <span class="comment">//Translate to the final position</span>
-<a name="l00250"></a>00250     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + returnVector.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*radius;
-<a name="l00251"></a>00251 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00236">236</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00236"></a>00236                                               {
+<a name="l00237"></a>00237     <span class="keywordtype">double</span> radius = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getMag();
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
+<a name="l00240"></a>00240     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
+<a name="l00241"></a>00241     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
+<a name="l00242"></a>00242     <a class="code" href="classPoint3.html">Point3</a> basisZ = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisX, basisY).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244     <span class="comment">//Rotate the basis vectors by angle, this is the vector to translate</span>
+<a name="l00245"></a>00245     <span class="comment">//to our final destination</span>
+<a name="l00246"></a>00246     <a class="code" href="classPoint3.html">Point3</a> returnVector = basisY*cos((angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisZ*sin((angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248     <span class="comment">//Adjust the upDirection</span>
+<a name="l00249"></a>00249     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = basisZ;
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251     <span class="comment">//Translate to the final position</span>
+<a name="l00252"></a>00252     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + returnVector.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*radius;
+<a name="l00253"></a>00253 }
 </pre></div>
 <p>
 
@@ -777,16 +779,16 @@ This function is a part of the spin***AroundCenter() group of functions in which
 <a class="el" href="classCamera.html#0aeae81c0f8bc7a515da9fa74249404e" title="Spin right or left.">spinRightAroundCenter()</a> <p>
 <a class="el" href="classCamera.html#37b2145ca1d5effd34f67007144b067c" title="Spin up or down.">spinUpAroundCenter()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00271">271</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00271"></a>00271                                                 {
-<a name="l00272"></a>00272     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
-<a name="l00273"></a>00273     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
-<a name="l00274"></a>00274     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
-<a name="l00275"></a>00275     <a class="code" href="classPoint3.html">Point3</a> basisZ = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisX, basisY).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
-<a name="l00276"></a>00276 
-<a name="l00277"></a>00277     <span class="comment">//Adjust the upDirection</span>
-<a name="l00278"></a>00278     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = basisX*cos((90+angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisZ*sin((90+angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
-<a name="l00279"></a>00279 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00273">273</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00273"></a>00273                                                 {
+<a name="l00274"></a>00274     <span class="comment">//Set up some basis vectors for the plane in which you want to move</span>
+<a name="l00275"></a>00275     <a class="code" href="classPoint3.html">Point3</a> basisY = (<a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> - <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a>).getUnit();
+<a name="l00276"></a>00276     <a class="code" href="classPoint3.html">Point3</a> basisX = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisY, <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a>).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
+<a name="l00277"></a>00277     <a class="code" href="classPoint3.html">Point3</a> basisZ = <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">Point3::cross</a>(basisX, basisY).<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279     <span class="comment">//Adjust the upDirection</span>
+<a name="l00280"></a>00280     <a class="code" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &amp;#39;up&amp;#39;, with reference to the camera.">upDirection</a> = basisX*cos((90+angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0)) + basisZ*sin((90+angle)*(<a class="code" href="camera_8h.html#598a3330b3c21701223ee0ca14316eca">PI</a>/180.0));
+<a name="l00281"></a>00281 }
 </pre></div>
 <p>
 
@@ -817,15 +819,15 @@ Follow a given path (as eyePosition).
   </table>
 </dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00284">284</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00284"></a>00284                                                  {
-<a name="l00285"></a>00285     printf(<span class="stringliteral">"Called Camera::followPath()\n"</span>);
-<a name="l00286"></a>00286     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
-<a name="l00287"></a>00287         <span class="keyword">delete</span> <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>;
-<a name="l00288"></a>00288     }
-<a name="l00289"></a>00289     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = <span class="keyword">new</span> <a class="code" href="classPath.html">Path&lt;Point3&gt;</a>;
-<a name="l00290"></a>00290     (*path) = pathToFollow;
-<a name="l00291"></a>00291 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00286">286</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00286"></a>00286                                                  {
+<a name="l00287"></a>00287     printf(<span class="stringliteral">"Called Camera::followPath()\n"</span>);
+<a name="l00288"></a>00288     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
+<a name="l00289"></a>00289         <span class="keyword">delete</span> <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>;
+<a name="l00290"></a>00290     }
+<a name="l00291"></a>00291     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = <span class="keyword">new</span> <a class="code" href="classPath.html">Path&lt;Point3&gt;</a>;
+<a name="l00292"></a>00292     (*path) = pathToFollow;
+<a name="l00293"></a>00293 }
 </pre></div>
 <p>
 
@@ -850,13 +852,13 @@ Follow a given path (as eyePosition).
 Stop following a given path (as eyePosition). 
 <p>
 Stop following whatever path you are on. 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00296">296</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00296"></a>00296                           {
-<a name="l00297"></a>00297     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
-<a name="l00298"></a>00298         <span class="keyword">delete</span> <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>;
-<a name="l00299"></a>00299     }
-<a name="l00300"></a>00300     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = NULL;
-<a name="l00301"></a>00301 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00298">298</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00298"></a>00298                           {
+<a name="l00299"></a>00299     <span class="keywordflow">if</span> (<a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> != NULL) {
+<a name="l00300"></a>00300         <span class="keyword">delete</span> <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a>;
+<a name="l00301"></a>00301     }
+<a name="l00302"></a>00302     <a class="code" href="classCamera.html#bd20cc8a434db9729b242ab2fc75f226" title="The path that the camera will follow.">path</a> = NULL;
+<a name="l00303"></a>00303 }
 </pre></div>
 <p>
 
@@ -889,10 +891,10 @@ Zoom the camera in or out, depending on value of amount. Values less than one wi
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00314">314</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00314"></a>00314                                    {
-<a name="l00315"></a>00315     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> * amount;
-<a name="l00316"></a>00316 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00316">316</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00316"></a>00316                                    {
+<a name="l00317"></a>00317     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> * amount;
+<a name="l00318"></a>00318 }
 </pre></div>
 <p>
 
@@ -937,12 +939,12 @@ Shift the camera in some direction by some amount. Does not change the direction
 <a class="el" href="classCamera.html#966ded6713edd2189098299030feea45" title="The direction which is &#39;up&#39;, with reference to the camera.">upDirection</a> <p>
 <a class="el" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00329">329</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00329"></a>00329                                                     {
-<a name="l00330"></a>00330     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#59c389df8465ceb090386fd37d004d57" title="Shift the camera.">shift</a> = direction.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*amount;
-<a name="l00331"></a>00331     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> + shift;
-<a name="l00332"></a>00332     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + shift;
-<a name="l00333"></a>00333 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00331">331</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00331"></a>00331                                                     {
+<a name="l00332"></a>00332     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classCamera.html#59c389df8465ceb090386fd37d004d57" title="Shift the camera.">shift</a> = direction.<a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>()*amount;
+<a name="l00333"></a>00333     <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> = <a class="code" href="classCamera.html#fdcc9f5c05c363e0cc81c057c7311521" title="The position of the camera.">eyePosition</a> + shift;
+<a name="l00334"></a>00334     <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> = <a class="code" href="classCamera.html#3cac32c310a2604c950afe8cfa2d1766" title="The location that the camera is looking at.">lookAtPosition</a> + shift;
+<a name="l00335"></a>00335 }
 </pre></div>
 <p>
 
@@ -978,10 +980,10 @@ Change the cameras perspective so that you are following a character<p>
 <a class="el" href="classCamera.html#4f937d8adf3f30da57eb32852ab965a3" title="Follow a given path (as eyePosition).">followPath</a> <p>
 <a class="el" href="classCharacter.html">Character</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00344">344</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00344"></a>00344                                                  {
-<a name="l00345"></a>00345     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = toFollow;
-<a name="l00346"></a>00346 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00346">346</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00346"></a>00346                                                  {
+<a name="l00347"></a>00347     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = toFollow;
+<a name="l00348"></a>00348 }
 </pre></div>
 <p>
 
@@ -1011,11 +1013,11 @@ Stop following the character<p>
 <a class="el" href="classCamera.html#4f937d8adf3f30da57eb32852ab965a3" title="Follow a given path (as eyePosition).">followPath</a> <p>
 <a class="el" href="classCharacter.html">Character</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00356">356</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
-<div class="fragment"><pre class="fragment"><a name="l00356"></a>00356                                {
-<a name="l00357"></a>00357     <span class="comment">//DONT DELETE THE CHARACTER ITS STILL IN USE SOMEWHERE</span>
-<a name="l00358"></a>00358     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = NULL;
-<a name="l00359"></a>00359 }
+<p>Definition at line <a class="el" href="camera_8cpp-source.html#l00358">358</a> of file <a class="el" href="camera_8cpp-source.html">camera.cpp</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00358"></a>00358                                {
+<a name="l00359"></a>00359     <span class="comment">//DONT DELETE THE CHARACTER ITS STILL IN USE SOMEWHERE</span>
+<a name="l00360"></a>00360     <a class="code" href="classCamera.html#94791cdef7247741cf7d284134578780" title="The path that the camera will follow.">character</a> = NULL;
+<a name="l00361"></a>00361 }
 </pre></div>
 <p>
 
@@ -1179,7 +1181,7 @@ frustum[] = {-width/height, width/height, -1, 1, 2, 100}<p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="camera_8h-source.html">camera.h</a><li><a class="el" href="camera_8cpp-source.html">camera.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:43 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:56 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

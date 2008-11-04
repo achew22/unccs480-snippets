@@ -56,40 +56,42 @@
 <a name="l00038"></a>00038         <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classPoint3.html#7dac67865e25809ac02da0a12e07edfd" title="Dot this vector with another.">dot</a>(<span class="keyword">const</span> <a class="code" href="classPoint3.html">Point3</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classPoint3.html">Point3</a>&amp; b);    
 <a name="l00039"></a>00039         <span class="keyword">static</span> <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classPoint3.html#e7760a21c78e15fab67f71cf4601bf9e" title="Cross this vector with another.">cross</a>(<span class="keyword">const</span> <a class="code" href="classPoint3.html">Point3</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classPoint3.html">Point3</a>&amp; b);  
 <a name="l00040"></a>00040     <span class="keywordtype">double</span> <a class="code" href="classPoint3.html#89cf46b8e417a6aba3d48c766375b708" title="Get the magnitude of this vector.">getMag</a>();    
-<a name="l00041"></a>00041     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();   
-<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="classPoint3.html#076b86b5ab17cfe97cab5c6b2ff23837" title="Perform a glVertex3d() call.">doVertex</a>();    
-<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classPoint3.html#10c2894cefeacc45a3078b2ba9658cd1" title="Perform a glNormal3d() call.">doNormal</a>();    
-<a name="l00044"></a>00044 };
-<a name="l00045"></a>00045 
-<a name="l00054"></a><a class="code" href="classPoint2.html">00054</a> <span class="keyword">class </span><a class="code" href="classPoint2.html">Point2</a> {
-<a name="l00055"></a>00055 <span class="keyword">private</span>:
-<a name="l00056"></a><a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36">00056</a>     <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a>; 
-<a name="l00057"></a>00057 <span class="keyword">public</span>:
-<a name="l00058"></a><a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1">00058</a>     GLdouble <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>; 
-<a name="l00059"></a><a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7">00059</a>     GLdouble <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>; 
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>();   
-<a name="l00062"></a>00062     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; point);    
-<a name="l00063"></a>00063     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(GLdouble inx, GLdouble iny);   
-<a name="l00064"></a>00064     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(std::string pointStr); 
-<a name="l00065"></a>00065         <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#b8757f8471cd21159cd18385c414d448" title="Find out if there was a construction error.">getLoadError</a>();    
-<a name="l00066"></a>00066     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#d0a5687304505756efc17e2b08fc4cc1" title="Add two points as vectors.">operator +</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; toadd); 
-<a name="l00067"></a>00067     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#0d85d41ed41a9c643e18a6b648f42d12" title="Subtract two points as vectors.">operator -</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; tosub); 
-<a name="l00068"></a>00068     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#1134b22e78512afe36488e87d2d8fffe" title="Multiply a vector by a scalar.">operator *</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; tomult);    
-<a name="l00069"></a>00069         <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#1134b22e78512afe36488e87d2d8fffe" title="Multiply a vector by a scalar.">operator *</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; todot); 
-<a name="l00070"></a>00070     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#230b48c439deec09c282d5c77f05e28a" title="Divide a vector by a scalar.">operator /</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; todiv); 
-<a name="l00071"></a>00071     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#19dd811a03c9d6e2e9737740aca6455a" title="Assign the value of a vector to this one.">operator =</a>(<a class="code" href="classPoint2.html">Point2</a> toequal);  
-<a name="l00072"></a>00072     <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#0fe8a6733ac5d806dfc1eddddd8fea7d" title="Determine if two vectors are equal.">operator ==</a>(<a class="code" href="classPoint2.html">Point2</a> toequal);   
-<a name="l00073"></a>00073     <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#d7224197523e68e3bc32bfbd0aef2081" title="Dot this vector with another.">dot</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; todot);    
-<a name="l00074"></a>00074         <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#d7224197523e68e3bc32bfbd0aef2081" title="Dot this vector with another.">dot</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; b);    
-<a name="l00075"></a>00075     <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#3d18400220a66ef10be267e512d2bfa2" title="Get the magnitude of this vector.">getMag</a>();    
-<a name="l00076"></a>00076     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#469b0c212f3e22c590d0f44a28cb0260" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();   
-<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classPoint2.html#0df595322e0ee6ce7cf153c44282826d" title="Peform a glTexCoord2f() call.">doTex</a>();   
-<a name="l00078"></a>00078 };
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 <span class="preprocessor">#endif //POINT_H</span>
+<a name="l00041"></a>00041     <span class="keywordtype">double</span> <a class="code" href="classPoint3.html#06301d322aa0df4ad8e41acb7f00e4a9" title="Get the magnitued of this vector squared.">getMagSquared</a>(); 
+<a name="l00042"></a>00042     <a class="code" href="classPoint3.html">Point3</a> <a class="code" href="classPoint3.html#c744ebe3abdeb767eb4726dbc7ba3757" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();   
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classPoint3.html#076b86b5ab17cfe97cab5c6b2ff23837" title="Perform a glVertex3d() call.">doVertex</a>();    
+<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="classPoint3.html#10c2894cefeacc45a3078b2ba9658cd1" title="Perform a glNormal3d() call.">doNormal</a>();    
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00055"></a><a class="code" href="classPoint2.html">00055</a> <span class="keyword">class </span><a class="code" href="classPoint2.html">Point2</a> {
+<a name="l00056"></a>00056 <span class="keyword">private</span>:
+<a name="l00057"></a><a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36">00057</a>     <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#45152c8e3d806746e083ed0c275e6d36" title="True if there is a loading error.">loadError</a>; 
+<a name="l00058"></a>00058 <span class="keyword">public</span>:
+<a name="l00059"></a><a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1">00059</a>     GLdouble <a class="code" href="classPoint2.html#dd8c92cba789622e868e61db98ab7dc1" title="The x coordinate.">x</a>; 
+<a name="l00060"></a><a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7">00060</a>     GLdouble <a class="code" href="classPoint2.html#23416e154cd45dfd4195e7578e89c5e7" title="The y coordinate.">y</a>; 
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>();   
+<a name="l00063"></a>00063     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; point);    
+<a name="l00064"></a>00064     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(GLdouble inx, GLdouble iny);   
+<a name="l00065"></a>00065     <a class="code" href="classPoint2.html#8d40ddb5c8e0ce8e26b725f37782e08b" title="Default constructor.">Point2</a>(std::string pointStr); 
+<a name="l00066"></a>00066         <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#b8757f8471cd21159cd18385c414d448" title="Find out if there was a construction error.">getLoadError</a>();    
+<a name="l00067"></a>00067     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#d0a5687304505756efc17e2b08fc4cc1" title="Add two points as vectors.">operator +</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; toadd); 
+<a name="l00068"></a>00068     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#0d85d41ed41a9c643e18a6b648f42d12" title="Subtract two points as vectors.">operator -</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; tosub); 
+<a name="l00069"></a>00069     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#1134b22e78512afe36488e87d2d8fffe" title="Multiply a vector by a scalar.">operator *</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; tomult);    
+<a name="l00070"></a>00070         <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#1134b22e78512afe36488e87d2d8fffe" title="Multiply a vector by a scalar.">operator *</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; todot); 
+<a name="l00071"></a>00071     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#230b48c439deec09c282d5c77f05e28a" title="Divide a vector by a scalar.">operator /</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; todiv); 
+<a name="l00072"></a>00072     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#19dd811a03c9d6e2e9737740aca6455a" title="Assign the value of a vector to this one.">operator =</a>(<a class="code" href="classPoint2.html">Point2</a> toequal);  
+<a name="l00073"></a>00073     <span class="keywordtype">bool</span> <a class="code" href="classPoint2.html#0fe8a6733ac5d806dfc1eddddd8fea7d" title="Determine if two vectors are equal.">operator ==</a>(<a class="code" href="classPoint2.html">Point2</a> toequal);   
+<a name="l00074"></a>00074     <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#d7224197523e68e3bc32bfbd0aef2081" title="Dot this vector with another.">dot</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; todot);    
+<a name="l00075"></a>00075         <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#d7224197523e68e3bc32bfbd0aef2081" title="Dot this vector with another.">dot</a>(<span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classPoint2.html">Point2</a>&amp; b);    
+<a name="l00076"></a>00076     <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#3d18400220a66ef10be267e512d2bfa2" title="Get the magnitude of this vector.">getMag</a>();    
+<a name="l00077"></a>00077     <span class="keywordtype">double</span> <a class="code" href="classPoint2.html#6216344145be9450917a8f565bde49ff" title="Get the magnitued of this vector squared.">getMagSquared</a>(); 
+<a name="l00078"></a>00078     <a class="code" href="classPoint2.html">Point2</a> <a class="code" href="classPoint2.html#469b0c212f3e22c590d0f44a28cb0260" title="Get a unit vector pointing in the direction of this vector.">getUnit</a>();   
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classPoint2.html#0df595322e0ee6ce7cf153c44282826d" title="Peform a glTexCoord2f() call.">doTex</a>();   
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="preprocessor">#endif //POINT_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:51 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

@@ -28,31 +28,43 @@
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SERVERCONNECTION_H_INCLUDED</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;SDL/SDL_net.h&gt;</span>
-<a name="l00007"></a>00007 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;SDL/SDL_net.h&gt;</span>
 <a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="classServerConnection.html">00009</a> <span class="keyword">class </span><a class="code" href="classServerConnection.html">ServerConnection</a> {
-<a name="l00010"></a>00010 <span class="keyword">protected</span>:
-<a name="l00011"></a><a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">00011</a>     IPaddress <a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a>;
-<a name="l00012"></a><a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">00012</a>     TCPsocket <a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>,<a class="code" href="classServerConnection.html#94ec78f10c5b8df1190912b5e936c7e0">clients</a>[16];
-<a name="l00013"></a><a class="code" href="classServerConnection.html#6084dac0b278abfa6e171fe398c00499">00013</a>     SDLNet_SocketSet <span class="keyword">set</span>;
+<a name="l00009"></a>00009 
+<a name="l00010"></a><a class="code" href="classServerConnection.html">00010</a> <span class="keyword">class </span><a class="code" href="classServerConnection.html">ServerConnection</a> {
+<a name="l00011"></a>00011 <span class="keyword">protected</span>:
+<a name="l00012"></a><a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">00012</a>     IPaddress <a class="code" href="classServerConnection.html#1559437e056a33c0bf1f7aafaa9f5582">ip</a>;
+<a name="l00013"></a><a class="code" href="classServerConnection.html#7be27c3f0fc176707e268525e8d2ddb4">00013</a>         IPaddress * <a class="code" href="classServerConnection.html#7be27c3f0fc176707e268525e8d2ddb4">remoteip</a>;
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="classServerConnection.html#1138717bb248432839eb0756bacca471">00015</a>     SDL_Thread * <a class="code" href="classServerConnection.html#1138717bb248432839eb0756bacca471">idleThread</a>;
+<a name="l00015"></a><a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">00015</a>     TCPsocket <a class="code" href="classServerConnection.html#70ff8fdc1f5af9d8f23300ae44fdfa2b">server</a>;
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">00017</a>     <span class="keywordtype">int</span> <a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a>;
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#7607d83c1881e1f6aef584a2a5032289">handleData</a>(<span class="keywordtype">int</span> conectionId, std::string data) =0;
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#18b39683f3303f47fd11e5f2d239ba3e">init</a>();
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#651a4c506cd737969471d16710f98c90">idle</a>();
-<a name="l00025"></a>00025 };
+<a name="l00017"></a><a class="code" href="classServerConnection.html#6084dac0b278abfa6e171fe398c00499">00017</a>     SDLNet_SocketSet <span class="keyword">set</span>; 
+<a name="l00018"></a><a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda">00018</a>     std::map&lt;int, TCPsocket&gt; <a class="code" href="classServerConnection.html#08b5aa4d368986d698f64c9ae1217cda" title="Socket set to hold the connections.">clients</a>;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="classServerConnection.html#1138717bb248432839eb0756bacca471">00021</a>     SDL_Thread * <a class="code" href="classServerConnection.html#1138717bb248432839eb0756bacca471">idleThread</a>;
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">00023</a>     <span class="keywordtype">bool</span> <a class="code" href="classServerConnection.html#bcbcd946e34cefe932560e0571ba39f0">threadQuit</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">00025</a>     <span class="keywordtype">int</span> <a class="code" href="classServerConnection.html#e7036cd00fa32bc7736452710bcb1fab">port</a>;
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#endif // SERVERCONNECTION_H_INCLUDED</span>
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#7607d83c1881e1f6aef584a2a5032289">handleData</a>(<span class="keywordtype">int</span> conectionId, std::string data) =0; 
+<a name="l00029"></a>00029     <span class="keyword">virtual</span> std::string <a class="code" href="classServerConnection.html#479c50063395fb5384688d97c14ed72f" title="Overloadable function to handle data.">handleConnection</a>(<span class="keywordtype">int</span> conectionId) =0; 
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keywordtype">int</span> <a class="code" href="classServerConnection.html#d8dcfb315a66546b698489ee6a96517a" title="Overloadable function to handle data.">send</a>(<span class="keywordtype">int</span> clientId, std::string message); 
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#18b39683f3303f47fd11e5f2d239ba3e" title="Send data to the client.">init</a>(); 
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#651a4c506cd737969471d16710f98c90" title="Init everything.">idle</a>(); 
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classServerConnection.html#15bca681e6132995b5249a45b4c9858d" title="Thread for the thread to run in.">quit</a>(); 
+<a name="l00037"></a>00037 };
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="preprocessor">#endif // SERVERCONNECTION_H_INCLUDED</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 10:38:38 2008 for Project Parasol by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Nov 4 14:41:51 2008 for Project Parasol by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
