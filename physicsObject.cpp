@@ -60,6 +60,15 @@ int PhysicsObject::addForce(Path<Point3> toAdd) {
     return currentIdNumber - 1;
 }
 
+Path<Point3>* PhysicsObject::getForceRef(int id) {
+    std::map<int, Path<Point3> >::iterator iter = forces.find(id);
+    if (iter != forces.end()) {
+        return &(iter->second);
+    } else {
+        return NULL;
+    }
+}
+
 void PhysicsObject::addGravity(Point3 down) {
     Path<Point3> gravity(0,1000);
     gravity.addPoint(down.getUnit()*9.8*mass);

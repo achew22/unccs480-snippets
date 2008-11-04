@@ -6,7 +6,6 @@
 #include "point.h"
 #include "SDLLoader.h"
 
-
 /**
  * A template class which allows one to define an arbitrary
  * path to be moved along over a given
@@ -24,18 +23,17 @@
  * Point2, Point3.
  */
 template<typename Type>
-class Path {
+class Path{
 private:
     std::vector<Type> points; ///< The points on the path.
     int startTime;  ///< The time to start along the path.
     int endTime;    ///< The time to end along the path.
     bool isCyclic;  ///< Whether or not to repeat in a cycle.
-    bool isFinished;    ///< Whether or not the path has finished.
+    bool isFinished; ///< Whether or not the path is finished.
 public:
     Path(); ///< Default constructor.
     Path(int timeToStart, int timeToEnd);   ///< Constructor.
     Path operator =(Path toEqual);  ///< Overloaded equals operator.
-    bool getIsFinished();  ///< Find out whether or not the path has finished.
     void setPoints(std::vector<Type> toSet);  ///< Set the path points.
     void addPoint(Type toAdd);    ///< Add a path point to the end of the path.
     //void addPoint(double x, double y, double z);    ///< Add a path point to the end of the path.
@@ -43,8 +41,26 @@ public:
     void setEndTime(int end);       ///< Set time to end.
     void makeCyclic();  ///< Make the path cyclic.
     void unMakeCyclic();    ///< Make the path non-cyclic.
+    bool getIsFinished() { return isFinished; }   ///< Find out if the path is finished.
     Type getPoint();  ///< Get the point at the current time.
     Type getPoint(int time);  ///< Get the point at the specified time.
+};
+
+template<typename Type>
+class staticPath : public Path<Type>{
+private:
+    Type value;
+public:
+    staticPath() {}
+    staticPath(Type toSet) {
+        value = toSet;
+    }
+    void setValue(Type toSet) {
+        value = toSet;
+    }
+    Type getPoint() {
+        return value;
+    }
 };
 
 /**
@@ -90,14 +106,6 @@ Path<Type> Path<Type>::operator =(Path<Type> toEqual) {
     }
 
     return *this;
-}
-
-/**
- * @return returns a copy of isFinished.
- */
-template<typename Type>
-bool Path<Type>::getIsFinished() {
-    return isFinished;
 }
 
 /**

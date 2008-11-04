@@ -138,7 +138,7 @@ int PhysicsManager::checkCollisions(int physObjId) {
 
 int PhysicsManager::checkCollisions(PhysicsObject* obj1, PhysicsObject* obj2) {
     int numCollisions = 0;
-    if ((obj1->center - obj2->center).getMagSquared() <= 4) {
+    if ((obj1->center - obj2->center).getMagSquared() <= obj1->radius*obj1->radius + obj2->radius*obj2->radius) {
         //Then a collision occurred
         //Error::debug("PhysicsManager::Collision occurred!\n    Positions are <%f, %f, %f> and <%f, %f, %f>");
         //There are really two velocities per obj - the part pointing directly at the other obj, and the part pointing perpendicular to the first part. These shall be called effecVel and perpVel, respectively.

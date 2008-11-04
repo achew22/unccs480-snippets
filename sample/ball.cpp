@@ -13,6 +13,13 @@ void Ball::calculateRadius() {
     }
 }
 
+void Ball::resize(double newSize) {
+    radius = newSize;
+    if (mesh != NULL) {
+        mesh->resize(newSize);
+    }
+}
+
 void Ball::loadObj(std::string filename) {
     if (mesh != NULL) {
         delete mesh;
@@ -34,7 +41,7 @@ void Ball::draw() {
 
         glTranslated(pos.x, pos.y, pos.z);
 
-        glScaled(1.0/radius, 1.0/radius, 1.0/radius);
+        //glScaled(1.0/radius, 1.0/radius, 1.0/radius);
 
         if (mesh != NULL) {
             mesh->drawMesh();
